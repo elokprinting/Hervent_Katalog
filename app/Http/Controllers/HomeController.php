@@ -18,8 +18,9 @@ class HomeController extends Controller
 
         return view('welcome', [
             'products' => $products->take(4),
-            'bestSellers' => Product::query()->where('is_featured', true)->orderBy('name')->take(4)->get(),
+            'bestSellers' => Product::query()->where('is_featured', true)->orderBy('name')->take(3)->get(),
             'categories' => Product::query()->select('category')->distinct()->orderBy('category')->pluck('category'),
+            'categoryCounts' => Product::query()->selectRaw('category, count(*) as product_count')->groupBy('category')->pluck('product_count', 'category'),
             'activeCategory' => $category,
         ]);
     }

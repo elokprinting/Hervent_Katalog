@@ -29,4 +29,9 @@ class ExampleTest extends TestCase
             ->assertSee('Aluminium Tumbler')
             ->assertDontSee('Essential Work Kit');
     }
+
+    public function test_products_page_loads_without_query_parameters(): void
+    {
+        $this->get('/products')->assertOk()->assertSeeInOrder(['Koleksi', 'Corporate Gift']);
+    }
 }
