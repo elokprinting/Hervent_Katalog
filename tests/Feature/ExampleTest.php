@@ -32,6 +32,9 @@ class ExampleTest extends TestCase
 
     public function test_products_page_loads_without_query_parameters(): void
     {
-        $this->get('/products')->assertOk()->assertSeeInOrder(['Koleksi', 'Corporate Gift']);
+        $response = $this->get('/products');
+
+        $response->assertOk()->assertSeeInOrder(['Koleksi', 'Corporate Gift']);
+        $this->assertSame(10, $response->viewData('products')->perPage());
     }
 }
