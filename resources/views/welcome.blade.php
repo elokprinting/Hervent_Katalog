@@ -39,7 +39,6 @@
 
 <!-- HERO -->
 <section class="hero on-red">
-  <svg class="pat pat-w" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
   <div class="wrap hero-in">
     <span class="trust"><span class="dot"></span> Dipercaya 4.500+ klien korporasi &amp; instansi</span>
     <h1 class="h1">Souvenir Kantor &amp; Corporate Gift Custom <span class="hl">untuk Perusahaan Anda</span></h1>
