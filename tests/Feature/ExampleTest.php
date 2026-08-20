@@ -38,6 +38,14 @@ class ExampleTest extends TestCase
         $this->assertSame(10, $response->viewData('products')->perPage());
     }
 
+    public function test_about_page_contains_company_information_and_four_pillars(): void
+    {
+        $this->get(route('about'))
+            ->assertOk()
+            ->assertSee('Tentang HERVENT')
+            ->assertSeeInOrder(['Religius', 'Integrity', 'Commitment for Excellent', 'Happiness']);
+    }
+
     public function test_catalog_download_requires_contact_information(): void
     {
         $this->post(route('catalog.download'), [])

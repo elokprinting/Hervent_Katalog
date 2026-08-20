@@ -52,7 +52,7 @@
         </div>
         <a href="{{ route('home') }}#services">Services</a>
         <a href="{{ route('home') }}#portfolios">Portfolios</a>
-        <a href="{{ route('home') }}#abouts">Abouts</a>
+        <a href="{{ route('about') }}">Abouts</a>
         <a href="{{ route('home') }}#blog">Blog</a>
         <div class="nav-item has-dropdown">
           <button style="cursor:pointer">ID / EN <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></button>
@@ -76,7 +76,7 @@
       <a href="{{ route('home') }}#products">Products</a>
       <a href="{{ route('home') }}#services">Services</a>
       <a href="{{ route('home') }}#portfolios">Portfolios</a>
-      <a href="{{ route('home') }}#abouts">Abouts</a>
+      <a href="{{ route('about') }}">Abouts</a>
       <a href="{{ route('home') }}#blog">Blog</a>
       <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi Gratis</a>
     </div>
