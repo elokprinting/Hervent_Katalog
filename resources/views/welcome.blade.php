@@ -393,7 +393,7 @@
       </div>
       <div class="catalog-field">
         <label for="catalogEmail">Email <em>(Optional)</em></label>
-        <input id="catalogEmail" name="email" type="email" value="{{ old('email', 'testing@gmail.com') }}" placeholder="testing@gmail.com" maxlength="255">
+        <input id="catalogEmail" name="email" type="email" placeholder="testing@gmail.com" maxlength="255">
         @error('email')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
