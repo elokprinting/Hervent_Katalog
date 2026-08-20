@@ -124,3 +124,99 @@ if(reduce||!('IntersectionObserver'in window)){
   Array.prototype.forEach.call(rv,function(e){io.observe(e);});
 }
 })();
+
+const translations = {
+    'en': {
+        'Konsultasi Gratis': 'Free Consultation',
+        'Kategori produk': 'Product Categories',
+        'Hitung estimasi budget': 'Calculate Budget Estimate',
+        'Minimum order 50 pcs · Desain dan mockup gratis · Faktur pajak PPN tersedia': 'Minimum order 50 pcs · Free design & mockup · VAT invoice available',
+        'Kategori': 'Category',
+        'Produk': 'Products',
+        'Jelajahi': 'Explore',
+        'koleksi tersedia': 'collections available',
+        'Lihat semua kategori': 'View all categories',
+        'Alat bantu': 'Budget tool',
+        'Hitung estimasi budget sebelum menghubungi kami': 'Calculate budget estimate before contacting us',
+        'Isi jumlah penerima dan budget per orang. Kami tunjukkan estimasi anggaran dan kelas produk yang masuk — supaya obrolan langsung ke inti.': 'Enter the number of recipients and budget per person. We\'ll show you the estimated budget and product class — so we can get straight to the point.',
+        'Momen': 'Occasion',
+        'Jumlah penerima': 'Number of recipients',
+        'Budget per orang (Rp)': 'Budget per person (Rp)',
+        'Estimasi total anggaran': 'Estimated total budget',
+        'Kirim brief via WhatsApp': 'Send brief via WhatsApp',
+        'Estimasi, bukan penawaran resmi. Harga final menyesuaikan spesifikasi, jumlah, dan tanggal kirim.': 'Estimation, not an official offer. Final price depends on specifications, quantity, and delivery date.',
+        'Cara kerja': 'How it works',
+        'Empat langkah, tanpa bolak-balik.': 'Four steps, no back-and-forth.',
+        'Urutannya tetap: tidak ada produksi sebelum mockup Anda setujui, dan tidak ada mockup sebelum kami paham penerimanya siapa.': 'The order remains: no production before mockup approval, and no mockup before we understand the recipients.',
+        'Hari ke-0': 'Day 0',
+        'Rekomendasi': 'Recommendation',
+        '1 hari kerja': '1 working day',
+        '1–3 hari kerja': '1–3 working days',
+        '7–21 hari kerja': '7–21 working days',
+        'Produksi & kirim': 'Production & delivery',
+        'Empat pilar': 'Four pillars',
+        'Ornamen kami punya arti.': 'Our ornaments have meaning.',
+        'Pertanyaan': 'Questions',
+        'Testimoni': 'Testimonials',
+        'Dengar apa kata klien kami': 'Hear what our clients say',
+        'Jadi partner kami': 'Become our partner',
+        'Reputasi brand Anda adalah prioritas kami.': 'Your brand reputation is our priority.',
+        'Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.': 'Send the event date and number of recipients. We will reply with options that can realistically be completed by that date.',
+        'Kantor pusat — Bandung': 'Head Office — Bandung',
+        'Cabang — Surabaya': 'Branch — Surabaya',
+        'Tautan cepat': 'Quick links',
+        'Kontak': 'Contact',
+        'Koleksi unggulan': 'Featured collections',
+        'Kantor & kontak': 'Office & contact'
+    }
+};
+
+const originalTextNodes = new WeakMap();
+
+function translatePage(language) {
+    const dictionary = translations[language] || {};
+    
+    // Using TreeWalker to translate all text nodes without modifying HTML tags
+    const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let textNode;
+    while ((textNode = textWalker.nextNode())) textNodes.push(textNode);
+    
+    textNodes.forEach((node) => {
+        const text = node.nodeValue.trim();
+        if (!text || node.parentElement?.closest('script, style')) return;
+        
+        // Save the original Indonesian text
+        const original = originalTextNodes.get(node) || text;
+        if (!originalTextNodes.has(node)) {
+            originalTextNodes.set(node, original);
+        }
+        
+        // Replace if translation exists, otherwise restore original
+        const targetText = dictionary[original] || original;
+        if (node.nodeValue.trim() !== targetText) {
+            node.nodeValue = node.nodeValue.replace(text, targetText);
+        }
+    });
+
+    document.documentElement.lang = language;
+    localStorage.setItem('hervent-lang', language);
+}
+
+// Bind language switcher buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const langBtns = document.querySelectorAll('[data-lang-btn]');
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang-btn');
+            translatePage(lang);
+        });
+    });
+
+    // Auto-load saved language
+    const savedLang = localStorage.getItem('hervent-lang');
+    if (savedLang === 'en') {
+        translatePage('en');
+    }
+});

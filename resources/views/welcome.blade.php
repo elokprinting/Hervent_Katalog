@@ -377,8 +377,7 @@
     <div class="foot-g">
       <div>
         <a class="logo" href="#top">
-          <svg viewBox="0 0 100 96"><use href="#hvMark"/></svg>
-          <span><b>HERVENT</b><i>REPRESENT YOUR VALUE</i></span>
+          <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT" style="height: 42px; width: auto; background: white; padding: 4px; border-radius: 4px;">
         </a>
         <p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p>
         <div style="display:flex;gap:.5rem;flex-wrap:wrap">

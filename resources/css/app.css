@@ -84,16 +84,15 @@ button,input,select{font:inherit;color:inherit}
 .nav{position:sticky;top:0;z-index:80;background:rgba(254,254,254,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:1rem;height:70px}
 .nav .logo{margin-right:auto}
-.menu{display:none;gap:.35rem;align-items:center}
-.menu > a,.menu > button{
-  background:none;border:0;cursor:pointer;text-decoration:none;padding:.5rem .8rem;border-radius:8px;
-  font-family:var(--f-head);font-weight:500;font-size:.865rem;color:var(--g1);
-  display:inline-flex;align-items:center;gap:.35rem;transition:color .15s,background .15s;
+.menu{display:none;gap:1.25rem;align-items:center}
+.menu > a, .menu .nav-item > a, .menu .nav-item > button{
+  background:none;border:0;cursor:pointer;text-decoration:none;padding:.5rem 0;border-radius:0;
+  font-family:var(--f-head);font-weight:700;font-size:.92rem;color:var(--g1);
+  display:inline-flex;align-items:center;gap:.35rem;transition:color .15s;
 }
-.menu > a:hover,.menu > button:hover{color:var(--ink);background:var(--bg)}
-.menu > button[aria-expanded="true"]{color:var(--red)}
-.menu svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s}
-.menu > button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.menu > a:hover, .menu .nav-item:hover > a, .menu .nav-item:hover > button{color:var(--ink)}
+.menu svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .2s}
+.has-mega:hover svg, .has-dropdown:hover svg{transform:rotate(180deg)}
 .nav-cta{display:none}
 .nav .btn{padding:.6rem 1.2rem;font-size:.82rem}
 .burger{margin-left:auto;background:none;border:1.5px solid var(--line);border-radius:9px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer}
@@ -102,21 +101,47 @@ button,input,select{font:inherit;color:inherit}
 .burger i::before{top:-5px}.burger i::after{top:5px}
 @media(min-width:1000px){.burger{display:none}.menu,.nav-cta{display:flex}}
 
-/* Mega menu */
-.mega{display:none;border-top:1px solid var(--line);background:var(--white);padding-block:1.6rem 1.9rem}
-.mega.open{display:block}
-.mega-g{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.mega-g a{
-  text-decoration:none;padding:.7rem .85rem;border:1px solid var(--line);border-radius:10px;
-  font-family:var(--f-head);font-weight:500;font-size:.845rem;display:flex;align-items:center;gap:.6rem;
-  transition:border-color .15s,color .15s;
+/* Mega menu (Hover based) */
+.nav-item{position:relative}
+.has-mega{position:static} /* So .mega-wrap can span full width of .nav */
+.mega-wrap{
+  position:absolute;left:0;right:0;top:100%;
+  background:var(--white);border-top:1px solid var(--line);
+  box-shadow:0 10px 25px rgba(0,0,0,.05);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:all .3s ease;pointer-events:none;
 }
-.mega-g a:hover{border-color:var(--red);color:var(--red)}
-.mega-g a .sq{width:24px;height:24px;border-radius:6px;background:var(--red);flex:none;opacity:.9}
-.mega-g a:nth-child(3n+2) .sq{background:var(--red-mid)}
-.mega-g a:nth-child(3n) .sq{background:var(--black)}
-.mega-ft{margin-top:1.35rem;display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:space-between}
-.mega-ft p{margin:0;font-size:.8rem;color:var(--g1)}
+.mega-wrap::before, .dropdown-wrap::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -30px; height: 30px;
+}
+.has-mega:hover .mega-wrap{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.mega-new{display:flex;max-width:var(--maxw);margin:0 auto;padding:2rem var(--pad);gap:2rem}
+.mega-col{display:flex;flex-direction:column}
+.mega-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));column-gap:1.5rem;row-gap:1rem}
+.m-link{
+  display:flex;align-items:center;gap:.6rem;text-decoration:none;
+  font-family:var(--f-head);font-weight:500;font-size:.85rem;color:var(--ink);
+  transition:color .2s;
+}
+.m-link:hover{color:var(--red)}
+.m-link .m-ic{font-size:1.1rem;flex:none}
+
+/* Dropdown */
+.dropdown-wrap{
+  position:absolute;top:100%;right:0;min-width:160px;
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:all .3s ease;pointer-events:none;padding:.5rem;
+}
+.has-dropdown:hover .dropdown-wrap{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.dropdown{display:flex;flex-direction:column}
+.dropdown a{
+  text-decoration:none;padding:.6rem 1rem;border-radius:6px;
+  font-family:var(--f-head);font-weight:500;font-size:.85rem;color:var(--g1);
+  transition:background .2s,color .2s;
+}
+.dropdown a:hover{background:var(--bg);color:var(--ink)}
 
 /* Drawer */
 .drawer{display:none;border-top:1px solid var(--line);padding:.4rem 0 1.4rem}
