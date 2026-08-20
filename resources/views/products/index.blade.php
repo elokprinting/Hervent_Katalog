@@ -31,11 +31,12 @@
                     <aside class="catalog-sidebar">
                         <div class="sidebar-heading"><strong>Filter Kategori</strong><span aria-hidden="true">⌄</span></div>
                         <a class="sidebar-category {{ !$activeCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort])) }}">
-                            <span class="category-leading-arrow" aria-hidden="true">↗</span><span>Semua produk</span><small>{{ $products->total() }}</small>
+                            <i class="category-icon" data-lucide="layout-grid" aria-hidden="true"></i><span>Semua produk</span><small>{{ $products->total() }}</small>
                         </a>
                         @foreach($categories as $category)
+                            @php($categoryIcon = ['gift-set-hampers' => 'gift', 'desk-set' => 'briefcase', 'fashion' => 'shirt', 'hampers' => 'basket', 'premium' => 'crown', 'starter-kit' => 'package', 'tumbler' => 'cup-soda', 'bottle' => 'bottle', 'card-holder' => 'credit-card', 'table-clock' => 'alarm-clock', 'clock' => 'clock', 'seminar-kit' => 'briefcase', 'calender' => 'calendar', 'thermos' => 'thermometer', 'tas' => 'shopping-bag', 'mug' => 'coffee', 'umbrella' => 'umbrella', 'eco-friendly' => 'leaf', 'headset' => 'headphones', 'flashdrive' => 'device-usb'] [$category] ?? 'package')
                             <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort])) }}">
-                                <span class="category-leading-arrow" aria-hidden="true">↗</span><span>{{ \Illuminate\Support\Str::headline($category) }}</span><small aria-hidden="true">→</small>
+                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \Illuminate\Support\Str::headline($category) }}</span>
                             </a>
                         @endforeach
                     </aside>
