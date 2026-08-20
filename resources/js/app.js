@@ -7,8 +7,17 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
+function openDropdown(dropdown) {
+    dropdowns.forEach((other) => {
+        const isCurrent = other === dropdown;
+        other.classList.toggle('is-open', isCurrent);
+        other.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', String(isCurrent));
+    });
+}
+
 dropdowns.forEach((dropdown) => {
     const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    dropdown.addEventListener('mouseenter', () => openDropdown(dropdown));
     trigger?.addEventListener('click', (event) => {
         event.stopPropagation();
         const isOpen = dropdown.classList.toggle('is-open');
@@ -47,7 +56,7 @@ budget?.addEventListener('change', updateEstimate);
 
 const translations = {
     en: {
-        'Beranda': 'Home', 'Gift Set & Paket': 'Gift Set & Package', 'Produk': 'Products', 'Portofolio': 'Portfolio', 'Tentang kami': 'About', 'Blog': 'Blog',
+        'Beranda': 'Home', 'Set Hadiah': 'Gift Set & Package', 'Produk': 'Products', 'Portofolio': 'Portfolio', 'Tentang kami': 'About', 'Blog': 'Blog',
         'Konsultasi Gratis': 'Free Consultation', 'Koleksi Produk': 'Product Collection', 'Temukan produk yang tepat': 'Find the right product',
         'Lihat semua produk': 'View all products', 'Dipercaya oleh': 'Trusted by', 'Dipercaya 4.500+ klien korporasi & instansi': 'Trusted by 4,500+ corporate and institutional clients',
         'untuk Perusahaan Anda': 'for Your Company', 'Katalog pilihan': 'Featured catalog', 'Kategori produk': 'Product categories',

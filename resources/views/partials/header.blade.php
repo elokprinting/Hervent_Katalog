@@ -11,7 +11,7 @@
         <a class="brand" href="{{ route('home') }}#beranda" aria-label="Hervent Beranda"><span class="brand-mark">H</span><span>HERVENT<small>REPRESENT YOUR VALUE</small></span></a>
         <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
         <nav class="nav-links">
-            <a href="{{ route('products.index') }}" data-i18n="Gift Set & Paket">Gift Set & Paket</a>
+            <a href="{{ route('products.index') }}" data-i18n="Set Hadiah">Set Hadiah</a>
             <div class="nav-dropdown nav-products">
                 <button class="nav-dropdown-trigger" type="button" aria-expanded="false"><span data-i18n="Produk">Produk</span><span class="nav-chevron">&#8964;</span></button>
                 <div class="mega-menu" role="menu">
