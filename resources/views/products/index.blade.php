@@ -38,11 +38,6 @@
                                 <span class="category-leading-arrow" aria-hidden="true">↗</span><span>{{ \Illuminate\Support\Str::headline($category) }}</span><small aria-hidden="true">→</small>
                             </a>
                         @endforeach
-                        <div class="sidebar-note">
-                            <span aria-hidden="true">✦</span><strong>Butuh paket custom?</strong>
-                            <p>Kami bantu kurasi sesuai budget, jumlah, dan tanggal acara Anda.</p>
-                            <a href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi <span aria-hidden="true">→</span></a>
-                        </div>
                     </aside>
 
                     <div class="shop-results">
@@ -90,13 +85,6 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="catalog-cta">
-            <div class="catalog-container catalog-cta-inner">
-                <div><p class="eyebrow">Punya kebutuhan khusus?</p><h2>Sudah menemukan yang cocok?</h2></div>
-                <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi Gratis <span aria-hidden="true">→</span></a>
             </div>
         </section>
     </main>
