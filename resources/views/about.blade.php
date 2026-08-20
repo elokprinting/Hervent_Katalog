@@ -85,25 +85,25 @@
 
         <div class="pillar-grid">
             <article class="pillar-card rv">
-                <span class="pillar-mark pillar-red"></span>
+                <img class="pillar-mark" src="{{ asset('images/Icons/Supergraphic Hervent - Religius.png') }}" alt="Ikon Religius">
                 <h3>Religius</h3>
                 <p>Jujur soal harga, bahan, dan tanggal kirim — termasuk saat kabarnya kurang enak didengar.</p>
             </article>
 
             <article class="pillar-card rv">
-                <span class="pillar-mark pillar-mid"></span>
+                <img class="pillar-mark" src="{{ asset('images/Icons/Supergraphic Hervent - Integrity.png') }}" alt="Ikon Integrity">
                 <h3>Integrity</h3>
                 <p>Yang keluar dari produksi sama dengan yang ada di mockup yang Anda setujui.</p>
             </article>
 
             <article class="pillar-card rv">
-                <span class="pillar-mark pillar-deep"></span>
+                <img class="pillar-mark" src="{{ asset('images/Icons/Supergraphic Hervent - Commitment.png') }}" alt="Ikon Commitment for Excellent">
                 <h3>Commitment for Excellent</h3>
                 <p>Setiap batch lewat QC dan difoto sebelum dikemas, bukan diambil sampelnya saja.</p>
             </article>
 
             <article class="pillar-card rv">
-                <span class="pillar-mark pillar-black"></span>
+                <img class="pillar-mark" src="{{ asset('images/Icons/Supergraphic Hervent - Happiness.png') }}" alt="Ikon Happiness">
                 <h3>Happiness</h3>
                 <p>Hadiah ini akhirnya dibuka orang. Kami rancang supaya momen bukanya terasa.</p>
             </article>

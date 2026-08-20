@@ -7,5 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::view('/about', 'about')->name('about');
+Route::view('/services', 'services')->name('services');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');

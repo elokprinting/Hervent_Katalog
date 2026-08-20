@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <a href="{{ route('home') }}#services">Services</a>
+        <a href="{{ route('services') }}">Services</a>
         <a href="{{ route('home') }}#portfolios">Portfolios</a>
         <a href="{{ route('about') }}">Abouts</a>
         <a href="{{ route('home') }}#blog">Blog</a>
@@ -74,7 +74,7 @@
     <div class="drawer" id="drawer">
       <a href="{{ route('home') }}#setgift">Setgift &amp; Package</a>
       <a href="{{ route('home') }}#products">Products</a>
-      <a href="{{ route('home') }}#services">Services</a>
+      <a href="{{ route('services') }}">Services</a>
       <a href="{{ route('home') }}#portfolios">Portfolios</a>
       <a href="{{ route('about') }}">Abouts</a>
       <a href="{{ route('home') }}#blog">Blog</a>
