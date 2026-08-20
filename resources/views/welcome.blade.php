@@ -8,16 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header class="site-header">
-        <div class="container nav">
-            <a class="brand" href="#beranda" aria-label="Hervent Beranda"><span class="brand-mark">H</span><span>HERVENT<small>REPRESENT YOUR VALUE</small></span></a>
-            <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
-            <nav class="nav-links">
-                <a href="#beranda">Beranda</a><a href="{{ route('products.index') }}">Produk</a><a href="#keunggulan">Keunggulan</a><a href="#proses">Cara kerja</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a>
-                <label class="language-switcher" for="language-select"><span aria-hidden="true">文</span><select id="language-select" aria-label="Pilih bahasa"><option value="id">ID</option><option value="en">EN</option></select></label><a class="button consultation-button" href="https://wa.me/62811912502" target="_blank"><span class="button-icon">&#9993;</span>Konsultasi Gratis</a>
-            </nav>
-        </div>
-    </header>
+    @include('partials.header')
     <main>
         <section id="beranda" class="hero"><div class="container hero-inner"><span class="eyebrow">Dipercaya 4.500+ klien korporasi & instansi</span><h1>Souvenir Kantor & Corporate Gift Custom <em>untuk Perusahaan Anda</em></h1><p class="hero-copy">HERVENT membuat hadiah korporat yang mewakili nama baik perusahaan Anda. Desain gratis, produksi terkontrol, kirim ke seluruh Indonesia.</p><div class="hero-actions"><a class="button button-light" href="https://wa.me/62811912502" target="_blank">&#9993; Konsultasi Gratis</a><a class="button button-outline" href="#kalkulator">&#8595; Hitung Estimasi Budget</a></div><div class="hero-stats"><div><strong>Sejak 2009</strong><span>17 tahun pengalaman</span></div><div><strong>50 pcs</strong><span>Minimum order</span></div><div><strong>Gratis</strong><span>Desain & mockup</span></div><div><strong>PPN</strong><span>Faktur pajak tersedia</span></div></div></div></section>
         <section class="trusted-section"><div class="container trusted-heading"><p class="kicker">Dipercaya oleh</p><h2><span class="counter" data-target="4500">0</span>+ Brand & Perusahaan Indonesia</h2></div><div class="client-strip"><div class="client-track"><span>PERBANKAN</span><span>FMCG</span><span>TEKNOLOGI</span><span>PEMERINTAH</span><span>PERGURUAN TINGGI</span><span>STARTUP</span><span>PERBANKAN</span><span>FMCG</span><span>TEKNOLOGI</span><span>PEMERINTAH</span><span>PERGURUAN TINGGI</span><span>STARTUP</span></div></div></section>
