@@ -3,13 +3,113 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Katalog Produk | Hervent</title>
-    <meta name="description" content="Katalog corporate gift dan souvenir kantor custom Hervent.">
+    <title>Katalog Produk | HERVENT</title>
+    <meta name="description" content="Katalog corporate gift dan souvenir kantor custom HERVENT.">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="catalog-page">
     @include('partials.header')
-    <main><section class="catalog-shop"><div class="container shop-layout"><aside class="catalog-sidebar"><div class="sidebar-heading"><strong>Kategori Produk</strong><span>&#9776;</span></div><a class="sidebar-category {{ !$activeCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort])) }}">Semua produk <small>{{ $products->total() }}</small></a>@foreach($categories as $category)<a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort])) }}">{{ \Illuminate\Support\Str::headline($category) }}<small>&#8594;</small></a>@endforeach<div class="sidebar-note"><span>&#10022;</span><strong>Butuh paket custom?</strong><p>Kami bantu kurasi sesuai budget, jumlah, dan tanggal acara Anda.</p><a href="https://wa.me/62811912502" target="_blank">Konsultasi &#8594;</a></div></aside><div class="shop-results"><div class="results-toolbar"><div><p class="kicker">Koleksi pilihan</p><h2>{{ $search ? 'Hasil pencarian' : 'Semua produk' }}</h2><span>{{ $products->total() }} produk ditemukan{{ $search ? ' untuk “'.$search.'”' : '' }}</span></div><div class="results-controls"><span class="show-label">Tampilkan</span><form method="GET" action="{{ route('products.index') }}"><input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><select name="sort" onchange="this.form.submit()" aria-label="Urutkan produk"><option value="" {{ !$sort ? 'selected' : '' }}>Terbaru</option><option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>Harga terendah</option><option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>Harga tertinggi</option></select></form></div></div><div class="catalog-grid marketplace-grid">@forelse($products as $product)<article id="product-{{ $product->id }}" class="market-product"><a class="market-image" href="#product-{{ $product->id }}"><img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy" decoding="async"><span class="market-badge">{{ $product->is_featured ? 'Best seller' : 'Hervent' }}</span></a><div class="market-info"><span class="product-category">{{ $product->category_label }}</span><h3>{{ $product->name }}</h3><p>{{ $product->description }}</p><div class="market-price"><strong>Mulai {{ 'Rp '.number_format($product->price_min, 0, ',', '.') }}</strong><span>/ pcs</span></div><a class="product-cta" href="https://wa.me/62811912502?text=Saya%20tertarik%20dengan%20{{ urlencode($product->name) }}" target="_blank">Tanya produk &#8594;</a></div></article>@empty<div class="empty-catalog"><h3>Produk tidak ditemukan</h3><p>Coba kata kunci atau kategori yang berbeda.</p><a class="button" href="{{ route('products.index') }}">Reset katalog</a></div>@endforelse</div><div class="pagination-wrap">{{ $products->links() }}</div></div></div></section></main>
-    <section class="cta"><div class="container cta-inner"><h2>Sudah menemukan yang cocok?</h2><a class="button button-light consultation-button" href="https://wa.me/62811912502" target="_blank"><span class="button-icon">&#9993;</span>Konsultasi Gratis</a></div></section><footer id="kontak"><div class="container"><div class="footer-grid"><div><a class="brand" href="{{ route('home') }}#beranda"><img class="brand-logo" src="{{ asset('images/Icon Logo.png') }}" alt="Hervent"><span>HERVENT<small>REPRESENT YOUR VALUE</small></span></a><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p></div><div><h3>Tautan cepat</h3><ul><li><a href="{{ route('home') }}#beranda">Beranda</a></li><li><a href="{{ route('products.index') }}">Katalog produk</a></li><li><a href="{{ route('home') }}#proses">Cara kerja</a></li></ul></div><div><h3>Hubungi kami</h3><ul><li><a href="https://wa.me/62811912502">0811-912-502</a></li><li><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a></li><li>Bandung & Surabaya</li></ul></div><div><h3>Jam operasional</h3><p>Sen-Jum 09.00-17.00<br>Sab 09.00-12.00</p></div></div><div class="footer-bottom"><span>&copy; {{ date('Y') }} HERVENT - PT Aventama Hervent Solusindo</span><span>Represent your value.</span></div></div></footer><a class="floating-wa" href="https://wa.me/62811912502" target="_blank" aria-label="Chat WhatsApp">&#9742;</a>
+
+    <main>
+        <section class="catalog-shop">
+            <div class="catalog-container">
+                <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
+                    <a href="{{ route('home') }}#top">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <a href="{{ route('products.index') }}">Shop</a>
+                    <span aria-hidden="true">›</span>
+                    <strong>{{ $activeCategory ? \Illuminate\Support\Str::headline($activeCategory) : 'Semua Produk' }}</strong>
+                </nav>
+
+                <header class="catalog-heading">
+                    <p class="catalog-kicker">Koleksi Corporate Gift</p>
+                    <h1>{{ $activeCategory ? \Illuminate\Support\Str::headline($activeCategory) : 'Katalog Produk' }}</h1>
+                    <p>{{ $products->total() }} produk tersedia{{ $search ? ' untuk pencarian “'.$search.'”' : '' }}</p>
+                </header>
+
+                <div class="shop-layout">
+                    <aside class="catalog-sidebar">
+                        <div class="sidebar-heading"><strong>Filter Kategori</strong><span aria-hidden="true">⌄</span></div>
+                        <a class="sidebar-category {{ !$activeCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort])) }}">
+                            <span class="category-leading-arrow" aria-hidden="true">↗</span><span>Semua produk</span><small>{{ $products->total() }}</small>
+                        </a>
+                        @foreach($categories as $category)
+                            <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort])) }}">
+                                <span class="category-leading-arrow" aria-hidden="true">↗</span><span>{{ \Illuminate\Support\Str::headline($category) }}</span><small aria-hidden="true">→</small>
+                            </a>
+                        @endforeach
+                        <div class="sidebar-note">
+                            <span aria-hidden="true">✦</span><strong>Butuh paket custom?</strong>
+                            <p>Kami bantu kurasi sesuai budget, jumlah, dan tanggal acara Anda.</p>
+                            <a href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi <span aria-hidden="true">→</span></a>
+                        </div>
+                    </aside>
+
+                    <div class="shop-results">
+                        <div class="results-toolbar">
+                            <form class="catalog-search" method="GET" action="{{ route('products.index') }}">
+                                <input type="search" name="q" value="{{ $search }}" placeholder="Cari produk..." aria-label="Cari produk">
+                                @if($activeCategory)<input type="hidden" name="category" value="{{ $activeCategory }}">@endif
+                                @if($sort)<input type="hidden" name="sort" value="{{ $sort }}">@endif
+                                <button type="submit" aria-label="Cari">⌕</button>
+                            </form>
+                            <span class="result-count">{{ $products->total() }} item ditemukan</span>
+                            <form class="catalog-sort" method="GET" action="{{ route('products.index') }}">
+                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}">
+                                <label class="sr-only" for="catalogSort">Urutkan produk</label>
+                                <select id="catalogSort" name="sort" onchange="this.form.submit()">
+                                    <option value="" {{ !$sort ? 'selected' : '' }}>Terbaru</option>
+                                    <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>Harga terendah</option>
+                                    <option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>Harga tertinggi</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <div class="catalog-grid marketplace-grid">
+                            @forelse($products as $product)
+                                <article id="product-{{ $product->id }}" class="market-product">
+                                    <a class="market-image" href="#product-{{ $product->id }}" aria-label="Lihat {{ $product->name }}">
+                                        @if($product->is_featured)<span class="market-badge">Pilihan</span>@endif
+                                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy">
+                                    </a>
+                                    <div class="market-body">
+                                        <span class="market-category">{{ $product->category_label }}</span>
+                                        <h2>{{ $product->name }}</h2>
+                                        <p>{{ $product->description }}</p>
+                                        <div class="market-meta"><strong>Mulai {{ $product->price_min ? 'Rp '.number_format($product->price_min, 0, ',', '.') : $product->price_label }}</strong><span>Min. {{ $product->minimum_order }} pcs</span></div>
+                                        <a class="market-link" href="https://wa.me/62811912502?text={{ urlencode('Halo HERVENT, saya tertarik dengan '.$product->name) }}" target="_blank" rel="noopener">Tanya produk <span aria-hidden="true">→</span></a>
+                                    </div>
+                                </article>
+                            @empty
+                                <div class="catalog-empty"><h2>Produk tidak ditemukan</h2><p>Coba kata kunci atau kategori yang berbeda.</p><a class="btn b-dark" href="{{ route('products.index') }}">Reset katalog</a></div>
+                            @endforelse
+                        </div>
+
+                        @if($products->hasPages())
+                            <nav class="catalog-pagination" aria-label="Pagination">{{ $products->links() }}</nav>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-cta">
+            <div class="catalog-container catalog-cta-inner">
+                <div><p class="eyebrow">Punya kebutuhan khusus?</p><h2>Sudah menemukan yang cocok?</h2></div>
+                <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi Gratis <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="catalog-footer">
+        <div class="catalog-container catalog-footer-grid">
+            <div><a class="catalog-footer-brand" href="{{ route('home') }}#top"><img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT"></a><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p></div>
+            <div><h2>Tautan cepat</h2><a href="{{ route('home') }}#top">Beranda</a><a href="{{ route('products.index') }}">Katalog produk</a><a href="{{ route('home') }}#proses">Cara kerja</a></div>
+            <div><h2>Hubungi kami</h2><a href="https://wa.me/62811912502">0811-912-502</a><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a><span>Bandung &amp; Surabaya</span></div>
+            <div><h2>Jam operasional</h2><span>Sen-Jum 09.00-17.00</span><span>Sab 09.00-12.00</span></div>
+        </div>
+        <div class="catalog-container catalog-footer-bottom"><span>&copy; {{ date('Y') }} HERVENT - PT Aventama Hervent Solusindo</span><span>Represent your value.</span></div>
+    </footer>
+    <a class="catalog-floating-wa" href="https://wa.me/62811912502" target="_blank" rel="noopener" aria-label="Chat WhatsApp">⌕</a>
 </body>
 </html>
