@@ -12,39 +12,39 @@
             <div class="mega-new">
               <div class="mega-col" style="flex:0 0 200px">
                 <p class="eyebrow" style="color:var(--g1);font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1rem">GIFT SETS</p>
-                <a href="{{ route('products.index', ['category' => 'gift-set-hampers']) }}" class="m-link"><span class="m-ic">🎁</span> Gift Sets</a>
+                <a href="{{ route('products.index', ['category' => 'gift-set-hampers']) }}" class="m-link"><i data-lucide="gift" class="m-ic"></i> Gift Sets</a>
               </div>
               <div class="mega-col" style="flex:1">
                 <p class="eyebrow" style="color:var(--g1);font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1rem">PRODUCTS</p>
                 <div class="mega-grid">
-                  <a href="{{ route('products.index', ['category' => 'card-holder']) }}" class="m-link"><span class="m-ic">💳</span> Card Holder</a>
-                  <a href="{{ route('products.index', ['category' => 'table-clock']) }}" class="m-link"><span class="m-ic">🕰️</span> Table Clock</a>
-                  <a href="{{ route('products.index', ['category' => 'clock']) }}" class="m-link"><span class="m-ic">⏱️</span> Clock</a>
-                  <a href="{{ route('products.index', ['category' => 'seminar-kit']) }}" class="m-link"><span class="m-ic">💼</span> Seminar Kit</a>
-                  <a href="{{ route('products.index', ['category' => 'calender']) }}" class="m-link"><span class="m-ic">📅</span> Calender</a>
-                  <a href="{{ route('products.index', ['category' => 'bottle']) }}" class="m-link"><span class="m-ic">🍼</span> Bottle</a>
-                  <a href="{{ route('products.index', ['category' => 'tumbler']) }}" class="m-link"><span class="m-ic">🥤</span> Tumbler</a>
-                  <a href="{{ route('products.index', ['category' => 'thermos']) }}" class="m-link"><span class="m-ic">🌡️</span> Thermos</a>
-                  <a href="{{ route('products.index', ['category' => 'packaging-accesoris']) }}" class="m-link"><span class="m-ic">📦</span> Packaging &amp; Accesoris</a>
-                  <a href="{{ route('products.index', ['category' => 'pin']) }}" class="m-link"><span class="m-ic">📌</span> Pin</a>
-                  <a href="{{ route('products.index', ['category' => 'straw-set']) }}" class="m-link"><span class="m-ic">🥤</span> Straw Set</a>
-                  <a href="{{ route('products.index', ['category' => 'agenda-custom']) }}" class="m-link"><span class="m-ic">📓</span> Agenda Custom</a>
-                  <a href="{{ route('products.index', ['category' => 'other']) }}" class="m-link"><span class="m-ic">✨</span> Other</a>
-                  <a href="{{ route('products.index', ['category' => 'eco-friendly']) }}" class="m-link"><span class="m-ic">🌱</span> Eco-Friendly</a>
-                  <a href="{{ route('products.index', ['category' => 'tas']) }}" class="m-link"><span class="m-ic">👜</span> Tas</a>
-                  <a href="{{ route('products.index', ['category' => 'umbrella']) }}" class="m-link"><span class="m-ic">☂️</span> Umbrella</a>
-                  <a href="{{ route('products.index', ['category' => 'mug']) }}" class="m-link"><span class="m-ic">☕</span> Mug</a>
-                  <a href="{{ route('products.index', ['category' => 'lunch-box']) }}" class="m-link"><span class="m-ic">🍱</span> Lunch Box</a>
-                  <a href="{{ route('products.index', ['category' => 'special-price']) }}" class="m-link"><span class="m-ic">🏷️</span> Special Price</a>
-                  <a href="{{ route('products.index', ['category' => 'headset']) }}" class="m-link"><span class="m-ic">🎧</span> Headset</a>
-                  <a href="{{ route('products.index', ['category' => 'flashdrive']) }}" class="m-link"><span class="m-ic">💾</span> Flashdrive</a>
-                  <a href="{{ route('products.index', ['category' => 'paket-souvenir']) }}" class="m-link"><span class="m-ic">🛍️</span> Paket Souvenir</a>
-                  <a href="{{ route('products.index', ['category' => 'power-bank']) }}" class="m-link"><span class="m-ic">🔋</span> Power Bank</a>
-                  <a href="{{ route('products.index', ['category' => 'mouse']) }}" class="m-link"><span class="m-ic">🖱️</span> Mouse</a>
-                  <a href="{{ route('products.index', ['category' => 'bluetooth']) }}" class="m-link"><span class="m-ic">📶</span> Bluetooth</a>
-                  <a href="{{ route('products.index', ['category' => 'speaker']) }}" class="m-link"><span class="m-ic">🔊</span> Speaker</a>
-                  <a href="{{ route('products.index', ['category' => 'travel-adapter']) }}" class="m-link"><span class="m-ic">🔌</span> Travel Adapter</a>
-                  <a href="{{ route('products.index', ['category' => 'stationary']) }}" class="m-link"><span class="m-ic">✏️</span> Stationary</a>
+                  <a href="{{ route('products.index', ['category' => 'card-holder']) }}" class="m-link"><i data-lucide="credit-card" class="m-ic"></i> Card Holder</a>
+                  <a href="{{ route('products.index', ['category' => 'table-clock']) }}" class="m-link"><i data-lucide="alarm-clock" class="m-ic"></i> Table Clock</a>
+                  <a href="{{ route('products.index', ['category' => 'clock']) }}" class="m-link"><i data-lucide="clock" class="m-ic"></i> Clock</a>
+                  <a href="{{ route('products.index', ['category' => 'seminar-kit']) }}" class="m-link"><i data-lucide="briefcase" class="m-ic"></i> Seminar Kit</a>
+                  <a href="{{ route('products.index', ['category' => 'calender']) }}" class="m-link"><i data-lucide="calendar" class="m-ic"></i> Calender</a>
+                  <a href="{{ route('products.index', ['category' => 'bottle']) }}" class="m-link"><i data-lucide="glass-water" class="m-ic"></i> Bottle</a>
+                  <a href="{{ route('products.index', ['category' => 'tumbler']) }}" class="m-link"><i data-lucide="cup-soda" class="m-ic"></i> Tumbler</a>
+                  <a href="{{ route('products.index', ['category' => 'thermos']) }}" class="m-link"><i data-lucide="thermometer" class="m-ic"></i> Thermos</a>
+                  <a href="{{ route('products.index', ['category' => 'packaging-accesoris']) }}" class="m-link"><i data-lucide="package" class="m-ic"></i> Packaging &amp; Accesoris</a>
+                  <a href="{{ route('products.index', ['category' => 'pin']) }}" class="m-link"><i data-lucide="pin" class="m-ic"></i> Pin</a>
+                  <a href="{{ route('products.index', ['category' => 'straw-set']) }}" class="m-link"><i data-lucide="wind" class="m-ic"></i> Straw Set</a>
+                  <a href="{{ route('products.index', ['category' => 'agenda-custom']) }}" class="m-link"><i data-lucide="notebook" class="m-ic"></i> Agenda Custom</a>
+                  <a href="{{ route('products.index', ['category' => 'other']) }}" class="m-link"><i data-lucide="sparkles" class="m-ic"></i> Other</a>
+                  <a href="{{ route('products.index', ['category' => 'eco-friendly']) }}" class="m-link"><i data-lucide="leaf" class="m-ic"></i> Eco-Friendly</a>
+                  <a href="{{ route('products.index', ['category' => 'tas']) }}" class="m-link"><i data-lucide="shopping-bag" class="m-ic"></i> Tas</a>
+                  <a href="{{ route('products.index', ['category' => 'umbrella']) }}" class="m-link"><i data-lucide="umbrella" class="m-ic"></i> Umbrella</a>
+                  <a href="{{ route('products.index', ['category' => 'mug']) }}" class="m-link"><i data-lucide="coffee" class="m-ic"></i> Mug</a>
+                  <a href="{{ route('products.index', ['category' => 'lunch-box']) }}" class="m-link"><i data-lucide="utensils" class="m-ic"></i> Lunch Box</a>
+                  <a href="{{ route('products.index', ['category' => 'special-price']) }}" class="m-link"><i data-lucide="tag" class="m-ic"></i> Special Price</a>
+                  <a href="{{ route('products.index', ['category' => 'headset']) }}" class="m-link"><i data-lucide="headphones" class="m-ic"></i> Headset</a>
+                  <a href="{{ route('products.index', ['category' => 'flashdrive']) }}" class="m-link"><i data-lucide="save" class="m-ic"></i> Flashdrive</a>
+                  <a href="{{ route('products.index', ['category' => 'paket-souvenir']) }}" class="m-link"><i data-lucide="shopping-cart" class="m-ic"></i> Paket Souvenir</a>
+                  <a href="{{ route('products.index', ['category' => 'power-bank']) }}" class="m-link"><i data-lucide="battery-charging" class="m-ic"></i> Power Bank</a>
+                  <a href="{{ route('products.index', ['category' => 'mouse']) }}" class="m-link"><i data-lucide="mouse" class="m-ic"></i> Mouse</a>
+                  <a href="{{ route('products.index', ['category' => 'bluetooth']) }}" class="m-link"><i data-lucide="wifi" class="m-ic"></i> Bluetooth</a>
+                  <a href="{{ route('products.index', ['category' => 'speaker']) }}" class="m-link"><i data-lucide="speaker" class="m-ic"></i> Speaker</a>
+                  <a href="{{ route('products.index', ['category' => 'travel-adapter']) }}" class="m-link"><i data-lucide="plug" class="m-ic"></i> Travel Adapter</a>
+                  <a href="{{ route('products.index', ['category' => 'stationary']) }}" class="m-link"><i data-lucide="pencil" class="m-ic"></i> Stationary</a>
                 </div>
               </div>
             </div>
