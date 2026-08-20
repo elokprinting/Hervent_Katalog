@@ -7,4 +7,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
-Route::get('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
+Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');

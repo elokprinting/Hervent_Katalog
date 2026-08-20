@@ -49,10 +49,10 @@
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Konsultasi Gratis
       </a>
-      <a class="btn b-line" href="#kalkulator">
+      <button class="btn b-line js-catalog-open" type="button">
         <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-        Hitung Estimasi Budget
-      </a>
+        Download PDF Katalog
+      </button>
     </div>
     <ul class="hero-mini">
       <li><b>Sejak 2009</b>17 tahun pengalaman</li>
@@ -371,6 +371,53 @@
 </section>
 </main>
 
+<!-- CATALOG DOWNLOAD MODAL -->
+<div class="catalog-modal" id="catalogModal" @if(!$errors->any()) hidden @endif>
+  <div class="catalog-modal-backdrop js-catalog-close" aria-hidden="true"></div>
+  <section class="catalog-dialog" role="dialog" aria-modal="true" aria-labelledby="catalogTitle">
+    <button class="catalog-close js-catalog-close" type="button" aria-label="Tutup">&times;</button>
+    <h2 class="h2" id="catalogTitle">Download PDF Katalog</h2>
+    <p class="catalog-intro">Silakan lengkapi data berikut untuk mendapatkan katalog lengkap kami dalam format PDF.</p>
+    <form method="POST" action="{{ route('catalog.download') }}" class="catalog-form">
+      @csrf
+      <div class="catalog-field">
+        <label for="catalogName">Nama <span>*</span></label>
+        <div class="catalog-name-row">
+          <select id="catalogSalutation" name="salutation" aria-label="Sapaan">
+            <option value="Bapak" @selected(old('salutation', 'Bapak') === 'Bapak')>Bapak</option>
+            <option value="Ibu" @selected(old('salutation', 'Ibu') === 'Ibu')>Ibu</option>
+          </select>
+          <input id="catalogName" name="name" type="text" value="{{ old('name') }}" placeholder="Nama lengkap" required maxlength="100">
+        </div>
+        @error('name')<small class="catalog-error">{{ $message }}</small>@enderror
+      </div>
+      <div class="catalog-field">
+        <label for="catalogEmail">Email <em>(Optional)</em></label>
+        <input id="catalogEmail" name="email" type="email" value="{{ old('email', 'testing@gmail.com') }}" placeholder="testing@gmail.com" maxlength="255">
+        @error('email')<small class="catalog-error">{{ $message }}</small>@enderror
+      </div>
+      <div class="catalog-field">
+        <label for="catalogWhatsapp">No. Whatsapp <em>(Optional)</em></label>
+        <input id="catalogWhatsapp" name="whatsapp" type="tel" value="{{ old('whatsapp') }}" placeholder="+628xxxxxxxxxx" maxlength="30">
+        @error('whatsapp')<small class="catalog-error">{{ $message }}</small>@enderror
+      </div>
+      <div class="catalog-field">
+        <label for="catalogJobTitle">Jabatan <em>(Optional)</em></label>
+        <input id="catalogJobTitle" name="job_title" type="text" value="{{ old('job_title') }}" placeholder="Business Owner" maxlength="100">
+      </div>
+      <div class="catalog-field">
+        <label for="catalogCompany">Perusahaan <em>(Optional)</em></label>
+        <input id="catalogCompany" name="company" type="text" value="{{ old('company') }}" placeholder="Nama perusahaan" maxlength="150">
+      </div>
+      <button class="btn b-red catalog-submit" type="submit">
+        Download PDF
+        <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 14h8M8 17h5"/></svg>
+      </button>
+    </form>
+    <button class="catalog-back js-catalog-close" type="button">Kembali</button>
+  </section>
+</div>
+
 <!-- FOOTER -->
 <footer class="foot">
   <div class="wrap">
@@ -392,7 +439,7 @@
           <li><a href="#top">Beranda</a></li>
           <li><a href="#kategori">Kategori produk</a></li>
           <li><a href="#koleksi">Koleksi unggulan</a></li>
-          <li><a href="#kalkulator">Hitung estimasi budget</a></li>
+          <li><button class="footer-catalog js-catalog-open" type="button">Download PDF Katalog</button></li>
           <li><a href="#proses">Cara kerja</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>

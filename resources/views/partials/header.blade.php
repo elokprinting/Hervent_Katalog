@@ -5,7 +5,7 @@
         <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT" style="height: 42px; width: auto;">
       </a>
       <nav class="menu" aria-label="Navigasi utama">
-        <a href="{{ route('home') }}#setgift">Setgift &amp; Package</a>
+        <a href="{{ route('home') }}#setgift">Giftset &amp; Package</a>
         <div class="nav-item has-mega">
           <a href="{{ route('home') }}#products" style="cursor:pointer">Products <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></a>
           <div class="mega-wrap">

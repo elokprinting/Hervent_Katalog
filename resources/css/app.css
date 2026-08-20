@@ -376,6 +376,28 @@ button,input,select{font:inherit;color:inherit}
 .dock .btn{padding:.7rem 1.15rem;font-size:.83rem;flex:none}
 @media(min-width:1000px){.dock{display:none}.foot{padding-bottom:clamp(2.75rem,6vw,4rem)}}
 
+/* ---------- Catalog form ---------- */
+.catalog-modal[hidden]{display:none}
+.catalog-modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:1rem}
+.catalog-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
+.catalog-dialog{position:relative;width:min(100%,620px);max-height:calc(100vh - 1.5rem);overflow:hidden;background:var(--white);padding:1.35rem clamp(1.2rem,3vw,2rem) 1rem;border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.25)}
+.catalog-dialog .h2{padding-right:2rem;margin-bottom:.35rem}
+.catalog-intro{color:var(--g1);margin:0 0 .8rem;line-height:1.45;font-size:.88rem}
+.catalog-close{position:absolute;top:1rem;right:1rem;width:2.25rem;height:2.25rem;border:0;background:transparent;color:var(--g1);font-size:1.8rem;line-height:1;cursor:pointer}
+.catalog-form{display:grid;gap:.6rem}
+.catalog-field label{display:block;color:var(--g1);font-family:var(--f-head);font-weight:600;font-size:.83rem;margin-bottom:.35rem}
+.catalog-field label span{color:var(--red)}
+.catalog-field label em{font-style:normal;font-weight:400;color:var(--g2)}
+.catalog-field input,.catalog-field select{width:100%;min-height:2.85rem;border:1px solid #CBD0D8;border-radius:10px;background:var(--white);padding:.55rem .9rem;outline:none}
+.catalog-field input:focus,.catalog-field select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(184,26,31,.12)}
+.catalog-name-row{display:grid;grid-template-columns:124px 1fr}
+.catalog-name-row select{border-radius:10px 0 0 10px}
+.catalog-name-row input{border-left:0;border-radius:0 10px 10px 0}
+.catalog-error{display:block;color:var(--red);font-size:.72rem;margin-top:.25rem}
+.catalog-submit{width:100%;border-radius:10px;margin-top:.25rem}
+.catalog-back{display:block;margin:.65rem auto 0;border:0;background:transparent;color:#235E8D;font-family:var(--f-head);font-weight:700;cursor:pointer}
+.footer-catalog{border:0;background:none;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left}
+
 /* ---------- Reveal ---------- */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,.7,.3,1),transform .6s cubic-bezier(.22,.7,.3,1)}
 .rv.in{opacity:1;transform:none}

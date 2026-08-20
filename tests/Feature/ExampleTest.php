@@ -37,4 +37,32 @@ class ExampleTest extends TestCase
         $response->assertOk()->assertSeeInOrder(['Koleksi', 'Corporate Gift']);
         $this->assertSame(10, $response->viewData('products')->perPage());
     }
+
+    public function test_catalog_download_requires_contact_information(): void
+    {
+        $this->post(route('catalog.download'), [])
+            ->assertRedirect()
+            ->assertSessionHasErrors(['name'])
+            ->assertSessionDoesntHaveErrors(['email', 'whatsapp']);
+    }
+
+    public function test_catalog_download_only_requires_a_name(): void
+    {
+        $this->post(route('catalog.download'), ['name' => 'Budi Santoso'])
+            ->assertDownload('Brand Identity HERVENT.pdf');
+    }
+
+    public function test_catalog_download_returns_the_company_catalog_pdf(): void
+    {
+        $response = $this->post(route('catalog.download'), [
+            'salutation' => 'Bapak',
+            'name' => 'Budi Santoso',
+            'email' => 'budi@example.com',
+            'whatsapp' => '+628123456789',
+            'job_title' => 'Business Owner',
+            'company' => 'PT Contoh',
+        ]);
+
+        $response->assertDownload('Brand Identity HERVENT.pdf');
+    }
 }

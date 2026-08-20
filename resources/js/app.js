@@ -93,6 +93,33 @@ if(cQty) {
     hitung();
 }
 
+  /* ---------- Catalog download modal ---------- */
+  var catalogModal = $('catalogModal');
+  if (catalogModal) {
+    var catalogOpeners = document.querySelectorAll('.js-catalog-open');
+    var catalogClosers = document.querySelectorAll('.js-catalog-close');
+    Array.prototype.forEach.call(catalogOpeners, function (button) {
+      button.addEventListener('click', function () {
+        catalogModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        var firstField = catalogModal.querySelector('input, select');
+        if (firstField) firstField.focus();
+      });
+    });
+    Array.prototype.forEach.call(catalogClosers, function (button) {
+      button.addEventListener('click', function () {
+        catalogModal.hidden = true;
+        document.body.style.overflow = '';
+      });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !catalogModal.hidden) {
+        catalogModal.hidden = true;
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
 /* ---------- Reveal + counter ---------- */
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var numFormat = new Intl.NumberFormat('id-ID');
