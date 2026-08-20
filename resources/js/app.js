@@ -57,6 +57,32 @@ budget?.addEventListener('change', updateEstimate);
 const translations = {
     en: {
         'Beranda': 'Home', 'Set Hadiah': 'Gift Set & Package', 'Produk': 'Products', 'Portofolio': 'Portfolio', 'Tentang kami': 'About', 'Blog': 'Blog',
+        'Souvenir Kantor & Corporate Gift Custom': 'Custom Office Souvenirs & Corporate Gifts', 'untuk Perusahaan Anda': 'for Your Company',
+        'Konsultasi Gratis': 'Free Consultation', 'PDF Katalog': 'PDF Catalog', 'Hitung Estimasi Budget': 'Calculate Your Budget', 'Gratis': 'Free', 'PPN': 'VAT',
+        'Brand & Perusahaan Indonesia': 'Indonesian Brands & Companies', 'Produk favorit untuk momen yang tidak boleh biasa.': 'Favorite products for moments that should never feel ordinary.',
+        'Paket yang paling sering dipilih klien korporasi. Semua bisa disusun ulang isinya sesuai budget dan momen Anda.': 'The packages most often chosen by corporate clients. Contents can be customized to fit your budget and occasion.',
+        'Dari gift set eksekutif sampai perlengkapan event, pilih koleksi yang paling sesuai dengan cerita brand Anda.': 'From executive gift sets to event essentials, choose the collection that best fits your brand story.',
+        'Kami membantu Anda terlihat siap di setiap momen penting. Dari brief pertama sampai paket tiba, semua bergerak dengan satu tim.': 'We help you look prepared for every important moment. From the first brief until delivery, one team handles it all.',
+        'Kurasi yang relevan': 'Relevant curation', '3-5 opsi paket disusun berdasarkan penerima, momen, dan budget Anda.': '3-5 package options curated around your recipients, occasion, and budget.',
+        'Mockup gratis': 'Free mockup', 'Logo dan kemasan divisualkan sebelum produksi berjalan.': 'Your logo and packaging are visualized before production begins.',
+        'QC terkontrol': 'Controlled QC', 'Foto quality check dikirim sebelum paket meninggalkan gudang kami.': 'Quality check photos are sent before your packages leave our warehouse.',
+        'Distribusi nasional': 'Nationwide distribution', 'Kirim ke satu alamat atau banyak cabang di seluruh Indonesia.': 'Ship to one address or multiple branches across Indonesia.',
+        'Dapatkan kisaran budget dalam hitungan detik. Angka ini menjadi titik awal diskusi, bukan harga final.': 'Get a budget range in seconds. This is a starting point for discussion, not the final price.',
+        'Tidak ada produksi sebelum mockup Anda setujui, dan tidak ada mockup sebelum kami paham penerimanya siapa.': 'Production never starts before you approve the mockup, and we never create a mockup before understanding its recipients.',
+        'Anda kirim momen, jumlah penerima, dan budget lewat WhatsApp, email, atau kalkulator di atas.': 'Send us the occasion, number of recipients, and budget via WhatsApp, email, or the calculator above.',
+        'Hari ke-0': 'Day 0', 'Rekomendasi': 'Recommendation', 'Kami kirim 3-5 opsi paket lengkap dengan rincian harga, MOQ, dan estimasi kirim.': 'We send 3-5 complete package options with pricing, MOQ, and delivery estimates.',
+        '1 hari kerja': '1 business day', '1-3 hari kerja': '1-3 business days', '+ Brand & Perusahaan Indonesia': '+ Indonesian Brands & Companies',
+        'Desain penempatan logo dan kemasan, gratis. Revisi sampai Anda dan atasan Anda setuju.': 'We design the logo placement and packaging for free. Revise until you and your manager approve.',
+        'Produksi berjalan dengan update foto QC, lalu dikirim ke satu atau banyak alamat cabang.': 'Production continues with QC photo updates, then ships to one or multiple branch addresses.',
+        '7-21 hari kerja': '7-21 business days', 'Berapa minimum order Hervent?': 'What is Hervent\'s minimum order?',
+        'Minimum order mulai dari 50 pcs, namun beberapa produk premium tersedia mulai 25 pcs. Tim kami akan memberi opsi terbaik untuk kebutuhan Anda.': 'Minimum orders start at 50 pieces, while some premium products are available from 25 pieces. Our team will recommend the best option for your needs.',
+        'Apakah bisa kirim ke banyak alamat?': 'Can you ship to multiple addresses?', 'Bisa. Kami mendukung pengiriman ke kantor pusat, cabang, maupun alamat penerima individual di seluruh Indonesia.': 'Yes. We ship to head offices, branches, and individual recipient addresses across Indonesia.',
+        'Berapa lama proses produksinya?': 'How long does production take?', 'Estimasi produksi 7-21 hari kerja setelah mockup disetujui, tergantung produk dan jumlah pesanan.': 'Production takes an estimated 7-21 business days after mockup approval, depending on the product and order quantity.',
+        'Apakah desain dan mockup dikenakan biaya?': 'Are design and mockups charged?', 'Tidak. Desain penempatan logo dan mockup kemasan kami berikan gratis sebelum Anda memutuskan produksi.': 'No. We provide logo placement designs and packaging mockups for free before you decide to produce.',
+        'Become our partner': 'Become our partner', 'Reputasi brand Anda adalah prioritas kami.': 'Your brand reputation is our priority.',
+        'Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.': 'Send us your event date and number of recipients. We will reply with options that can realistically be completed by then.',
+        'Kantor pusat — Bandung': 'Head office — Bandung', 'Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.': 'Corporate gifts, promotional merchandise, and custom office souvenirs since 2009.',
+        'Sen-Jum 09.00-17.00': 'Mon-Fri 09:00-17:00', 'Sab 09.00-12.00': 'Sat 09:00-12:00',
         'Konsultasi Gratis': 'Free Consultation', 'Koleksi Produk': 'Product Collection', 'Temukan produk yang tepat': 'Find the right product',
         'Lihat semua produk': 'View all products', 'Dipercaya oleh': 'Trusted by', 'Dipercaya 4.500+ klien korporasi & instansi': 'Trusted by 4,500+ corporate and institutional clients',
         'untuk Perusahaan Anda': 'for Your Company', 'Katalog pilihan': 'Featured catalog', 'Kategori produk': 'Product categories',
@@ -76,6 +102,7 @@ const translations = {
         'Sudah menemukan yang cocok?': 'Found what you need?', 'Jadi partner kami': 'Become our partner', 'Bandung': 'Bandung',
     },
 };
+const originalTextNodes = new WeakMap();
 
 function translatePage(language) {
     const dictionary = translations[language] || {};
@@ -83,13 +110,22 @@ function translatePage(language) {
         const key = element.dataset.i18n;
         element.textContent = dictionary[key] || key;
     });
-    document.querySelectorAll('body *:not(script):not(style)').forEach((element) => {
-        if (element.children.length || element.hasAttribute('data-i18n')) return;
-        const currentText = element.textContent.trim();
-        const original = element.dataset.translationKey || currentText;
-        element.dataset.translationKey = original;
-        element.textContent = dictionary[original] || original;
+    const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let textNode;
+    while ((textNode = textWalker.nextNode())) textNodes.push(textNode);
+    textNodes.forEach((node) => {
+        if (!node.nodeValue.trim() || node.parentElement?.closest('script, style')) return;
+        const original = originalTextNodes.get(node) || node.nodeValue.trim();
+        originalTextNodes.set(node, original);
+        if (dictionary[original]) {
+            node.nodeValue = node.nodeValue.replace(node.nodeValue.trim(), dictionary[original]);
+        }
     });
+    const title = document.querySelector('title');
+    const description = document.querySelector('meta[name="description"]');
+    if (title) title.textContent = language === 'en' ? 'Hervent | Custom Corporate Gifts for Companies' : 'Hervent | Corporate Gift Custom untuk Perusahaan';
+    if (description) description.setAttribute('content', language === 'en' ? 'Custom corporate gifts, promotional merchandise, and office souvenirs since 2009.' : 'Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.');
     document.documentElement.lang = language;
 }
 
