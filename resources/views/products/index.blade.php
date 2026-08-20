@@ -90,15 +90,7 @@
         </section>
     </main>
 
-    <footer class="catalog-footer">
-        <div class="catalog-container catalog-footer-grid">
-            <div><a class="catalog-footer-brand" href="{{ route('home') }}#top"><img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT"></a><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p></div>
-            <div><h2>Tautan cepat</h2><a href="{{ route('home') }}#top">Beranda</a><a href="{{ route('products.index') }}">Katalog produk</a><a href="{{ route('home') }}#proses">Cara kerja</a></div>
-            <div><h2>Hubungi kami</h2><a href="https://wa.me/62811912502">0811-912-502</a><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a><span>Bandung &amp; Surabaya</span></div>
-            <div><h2>Jam operasional</h2><span>Sen-Jum 09.00-17.00</span><span>Sab 09.00-12.00</span></div>
-        </div>
-        <div class="catalog-container catalog-footer-bottom"><span>&copy; {{ date('Y') }} HERVENT - PT Aventama Hervent Solusindo</span><span>Represent your value.</span></div>
-    </footer>
+    @include('partials.footer')
     <a class="catalog-floating-wa" href="https://wa.me/62811912502" target="_blank" rel="noopener" aria-label="Chat WhatsApp">⌕</a>
 </body>
 </html>

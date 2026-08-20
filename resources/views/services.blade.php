@@ -81,15 +81,6 @@
         </section>
     </main>
 
-    <footer class="foot">
-        <div class="wrap">
-            <div class="foot-g">
-                <div><a class="logo" href="{{ route('home') }}#top"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT" style="height:42px;width:auto;background:blacks;padding:4px;border-radius:4px;"></a><p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p></div>
-                <div><h4>Tautan cepat</h4><ul><li><a href="{{ route('home') }}#top">Beranda</a></li><li><a href="{{ route('products.index') }}">Katalog produk</a></li><li><a href="{{ route('about') }}">Tentang HERVENT</a></li></ul></div>
-                <div><h4>Kontak</h4><ul><li><a href="https://wa.me/62811912502">0811-912-502</a></li><li><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a></li><li>Bandung &amp; Surabaya</li></ul></div>
-            </div>
-            <div class="foot-b"><span>&copy; {{ date('Y') }} HERVENT · PT Aventama Hervent Solusindo</span><span>Represent your value.</span></div>
-        </div>
-    </footer>
+    @include('partials.footer')
 </body>
 </html>
