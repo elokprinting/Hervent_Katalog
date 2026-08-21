@@ -40,56 +40,45 @@
 <!-- HERO -->
 <section class="hero on-red">
   <div class="wrap hero-in">
-    <span class="trust"><span class="dot"></span> Dipercaya 4.500+ klien korporasi &amp; instansi</span>
-    <h1 class="h1">Souvenir Kantor &amp; Corporate Gift Custom <span class="hl">untuk Perusahaan Anda</span></h1>
-    <p class="lede">HERVENT membuat hadiah korporat yang mewakili nama baik perusahaan Anda — dari seminar kit sampai luxury hampers. Desain gratis, produksi terkontrol, kirim ke seluruh Indonesia.</p>
+    <span class="trust"><span class="dot"></span> {{ __('messages.welcome.hero_trust') }}</span>
+    <h1 class="h1">{{ __('messages.welcome.hero_title_1') }} <span class="hl">{{ __('messages.welcome.hero_title_hl') }}</span></h1>
+    <p class="lede">{{ __('messages.welcome.hero_desc') }}</p>
     <div class="hero-cta">
       <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Konsultasi Gratis
+        {{ __('messages.welcome.btn_consultation') }}
       </a>
       <button class="btn b-line js-catalog-open" type="button">
         <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-        Download PDF Katalog
+        {{ __('messages.welcome.btn_catalog') }}
       </button>
     </div>
     <ul class="hero-mini">
-      <li><b>Sejak 2009</b>17 tahun pengalaman</li>
-      <li><b>50 pcs</b>Minimum order</li>
-      <li><b>Gratis</b>Desain &amp; mockup</li>
-      <li><b>PPN</b>Faktur pajak tersedia</li>
+      <li><b>{{ __('messages.welcome.hero_mini_1_t') }}</b>{{ __('messages.welcome.hero_mini_1_d') }}</li>
+      <li><b>{{ __('messages.welcome.hero_mini_2_t') }}</b>{{ __('messages.welcome.hero_mini_2_d') }}</li>
+      <li><b>{{ __('messages.welcome.hero_mini_3_t') }}</b>{{ __('messages.welcome.hero_mini_3_d') }}</li>
+      <li><b>{{ __('messages.welcome.hero_mini_4_t') }}</b>{{ __('messages.welcome.hero_mini_4_d') }}</li>
     </ul>
   </div>
 </section>
 
 <!-- LOGO WALL -->
-<section class="wall" aria-label="Klien HERVENT">
-  <p>Klien kami</p>
+<section class="wall" aria-label="{{ __('messages.welcome.client_title') }}">
+  <p>{{ __('messages.welcome.client_title') }}</p>
   <div class="rail a" id="railA" aria-hidden="true"></div>
   <div class="rail b" id="railB" aria-hidden="true"></div>
-</section>
-
-<!-- COUNTER -->
-<section class="count s">
-  <svg class="pat pat-w" style="opacity:.05" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
-  <div class="wrap count-g">
-    <div class="rv"><b data-to="4500" data-suf="+">0</b><small>Klien korporasi dilayani</small></div>
-    <div class="rv"><b data-to="17" data-suf=" thn">0</b><small>Pengalaman sejak 2009</small></div>
-    <div class="rv"><b data-to="34" data-suf=" provinsi">0</b><small>Jangkauan pengiriman</small></div>
-    <div class="rv"><b data-to="2" data-suf=" kota">0</b><small>Kantor: Bandung &amp; Surabaya</small></div>
-  </div>
 </section>
 
 <!-- PROBLEM -->
 <section class="s">
   <div class="wrap split">
     <div class="rv">
-      <p class="eyebrow">Kenapa pilih HERVENT</p>
-      <h2 class="h2">Acara tinggal tiga minggu, <span class="hl">vendor belum kirim mockup?</span></h2>
-      <p class="lede">Itu masalah yang paling sering kami dengar dari tim HR dan GA. Di HERVENT prosesnya dikunci: brief dibalas dalam 1 hari kerja, mockup keluar sebelum produksi jalan, dan setiap batch difoto sebelum dikemas. Tidak ada kejutan menjelang hari-H.</p>
+      <p class="eyebrow">{{ __('messages.welcome.problem_eyebrow') }}</p>
+      <h2 class="h2">{{ __('messages.welcome.problem_title') }} <span class="hl">{{ __('messages.welcome.problem_title_hl') }}</span></h2>
+      <p class="lede">{{ __('messages.welcome.problem_desc') }}</p>
       <div class="hero-cta" style="justify-content:flex-start;margin-top:1.5rem">
-        <a class="btn b-red" href="#proses">Lihat cara kerja</a>
-        <a class="btn b-line" href="#faq">Baca FAQ</a>
+        <a class="btn b-red" href="#proses">{{ __('messages.welcome.btn_how_it_works') }}</a>
+        <a class="btn b-line" href="#faq">{{ __('messages.welcome.btn_faq') }}</a>
       </div>
     </div>
     <div class="shot rv">
@@ -101,24 +90,24 @@
 <!-- KEUNGGULAN -->
 <section class="s" style="padding-top:0">
   <div class="wrap center">
-    <p class="eyebrow rv" style="justify-content:center">Keunggulan</p>
-    <h2 class="h2 rv">Mengapa <span class="hl">HERVENT</span>?</h2>
-    <p class="lede rv">Tiga hal yang paling menentukan saat Anda harus mempertanggungjawabkan pilihan vendor ke atasan.</p>
+    <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.feat_eyebrow') }}</p>
+    <h2 class="h2 rv">{{ __('messages.welcome.feat_title') }} <span class="hl">{{ __('messages.welcome.feat_title_hl') }}</span></h2>
+    <p class="lede rv">{{ __('messages.welcome.feat_desc') }}</p>
     <div class="feat">
       <div class="f-card rv" style="text-align:left">
         <div class="f-ico"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
-        <h3 class="h3">Desain &amp; Mockup Gratis</h3>
-        <p>Tim desain menyesuaikan logo dan warna ke identitas perusahaan Anda. Revisi tanpa biaya tambahan, dan file mockup-nya Anda pegang untuk approval internal.</p>
+        <h3 class="h3">{{ __('messages.welcome.feat_1_t') }}</h3>
+        <p>{{ __('messages.welcome.feat_1_d') }}</p>
       </div>
       <div class="f-card rv" style="text-align:left">
         <div class="f-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14h6M9 17h4"/></svg></div>
-        <h3 class="h3">Legalitas &amp; Faktur Pajak</h3>
-        <p>Badan hukum PT Aventama Hervent Solusindo dengan faktur pajak PPN dan dokumen vendor lengkap. Aman untuk proses registrasi di BUMN dan instansi pemerintah.</p>
+        <h3 class="h3">{{ __('messages.welcome.feat_2_t') }}</h3>
+        <p>{{ __('messages.welcome.feat_2_d') }}</p>
       </div>
       <div class="f-card rv" style="text-align:left">
         <div class="f-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.9-8 9-4.8-1.1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3 class="h3">Garansi Cacat Produksi</h3>
-        <p>Kalau hasil tidak sesuai mockup atau ada cacat produksi, unitnya kami ganti. Laporkan maksimal 7 hari setelah barang diterima, sertakan foto.</p>
+        <h3 class="h3">{{ __('messages.welcome.feat_3_t') }}</h3>
+        <p>{{ __('messages.welcome.feat_3_d') }}</p>
       </div>
     </div>
   </div>
@@ -128,18 +117,18 @@
 <section class="s" id="koleksi" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">Katalog</p>
-      <h2 class="h2 rv">Koleksi <span class="hl">Unggulan</span></h2>
-      <p class="lede rv">Paket yang paling sering diambil klien korporasi. Semua bisa disusun ulang isinya sesuai budget dan momen Anda.</p>
+      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.cat_eyebrow') }}</p>
+      <h2 class="h2 rv">{{ __('messages.welcome.cat_title') }} <span class="hl">{{ __('messages.welcome.cat_title_hl') }}</span></h2>
+      <p class="lede rv">{{ __('messages.welcome.cat_desc') }}</p>
     </div>
     <div class="prods" id="prods">
         @foreach($bestSellers as $product)
         <a class="prod rv" href="{{ route('products.index') }}#product-{{ $product->id }}">
             <div class="ph">
                 @if($loop->first)
-                    <span class="badge">Terlaris</span>
+                    <span class="badge">{{ __('messages.welcome.prod_badge_1') }}</span>
                 @elseif($loop->last)
-                    <span class="badge">Favorit HR</span>
+                    <span class="badge">{{ __('messages.welcome.prod_badge_2') }}</span>
                 @endif
                 <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
             </div>
@@ -147,13 +136,13 @@
                 <span class="cat">{{ $product->category_label }}</span>
                 <h3>{{ $product->name }}</h3>
                 <p>{{ $product->description }}</p>
-                <span class="price">Mulai {{ $product->price_min ? 'Rp '.number_format($product->price_min, 0, ',', '.') : $product->price_label }} <span>/ pcs</span></span>
+                <span class="price">{{ __('messages.welcome.prod_price_from') }} {{ $product->price_min ? 'Rp '.number_format($product->price_min, 0, ',', '.') : $product->price_label }} <span>{{ __('messages.welcome.prod_per_pcs') }}</span></span>
             </div>
         </a>
         @endforeach
     </div>
     <div class="center" style="margin-top:1.8rem">
-      <a class="btn b-dark" href="#kategori">Lihat semua kategori</a>
+      <a class="btn b-dark" href="#kategori">{{ __('messages.welcome.btn_all_cat') }}</a>
     </div>
   </div>
 </section>
@@ -162,15 +151,15 @@
 <section class="s" id="kategori" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">Jelajahi</p>
-      <h2 class="h2 rv">Kategori <span class="hl">Produk</span></h2>
+      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.jelajah_eyebrow') }}</p>
+      <h2 class="h2 rv">{{ __('messages.welcome.jelajah_title') }} <span class="hl">{{ __('messages.welcome.jelajah_title_hl') }}</span></h2>
     </div>
     <div class="cats" id="cats">
         @foreach($categories as $category)
         <a class="cat-t rv" href="{{ route('products.index', ['category' => $category]) }}">
             <svg class="pat pat-w" style="opacity:.12"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
             <b>{{ \Illuminate\Support\Str::headline($category) }}</b>
-            <small>{{ $categoryCounts[$category] ?? 0 }} koleksi tersedia</small>
+            <small>{{ $categoryCounts[$category] ?? 0 }} {{ __('messages.welcome.jelajah_avail') }}</small>
         </a>
         @endforeach
     </div>
@@ -180,29 +169,29 @@
 <!-- KALKULATOR -->
 <section class="calc s" id="kalkulator">
   <div class="wrap center">
-    <p class="eyebrow rv" style="justify-content:center">Alat bantu</p>
-    <h2 class="h2 rv">Hitung estimasi budget <span class="hl">sebelum menghubungi kami</span></h2>
-    <p class="lede rv">Isi jumlah penerima dan budget per orang. Kami tunjukkan estimasi anggaran dan kelas produk yang masuk — supaya obrolan langsung ke inti.</p>
+    <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.calc_eyebrow') }}</p>
+    <h2 class="h2 rv">{{ __('messages.welcome.calc_title') }} <span class="hl">{{ __('messages.welcome.calc_title_hl') }}</span></h2>
+    <p class="lede rv">{{ __('messages.welcome.calc_desc') }}</p>
 
     <div class="calc-box rv">
       <div class="calc-bd">
         <div class="fld">
-          <label for="cMomen">Momen</label>
+          <label for="cMomen">{{ __('messages.welcome.c_momen') }}</label>
           <select id="cMomen">
-            <option>Gathering &amp; anniversary</option>
-            <option>Seminar &amp; training</option>
-            <option>Hari raya &amp; hampers</option>
-            <option>Onboarding karyawan</option>
-            <option>Apresiasi klien &amp; VIP</option>
-            <option>Event &amp; pameran</option>
+            <option>{{ __('messages.welcome.c_momen_1') }}</option>
+            <option>{{ __('messages.welcome.c_momen_2') }}</option>
+            <option>{{ __('messages.welcome.c_momen_3') }}</option>
+            <option>{{ __('messages.welcome.c_momen_4') }}</option>
+            <option>{{ __('messages.welcome.c_momen_5') }}</option>
+            <option>{{ __('messages.welcome.c_momen_6') }}</option>
           </select>
         </div>
         <div class="fld">
-          <label for="cQty">Jumlah penerima</label>
+          <label for="cQty">{{ __('messages.welcome.c_qty') }}</label>
           <input id="cQty" type="number" min="25" max="50000" step="25" value="250" inputmode="numeric">
         </div>
         <div class="fld">
-          <label for="cPer">Budget per orang (Rp)</label>
+          <label for="cPer">{{ __('messages.welcome.c_per') }}</label>
           <select id="cPer">
             <option value="50000">50.000</option>
             <option value="75000">75.000</option>
@@ -217,28 +206,28 @@
       </div>
       <div class="calc-out">
         <div style="text-align:left">
-          <small>Estimasi total anggaran</small>
+          <small>{{ __('messages.welcome.c_est') }}</small>
           <div class="tot" id="cTot">Rp37.500.000</div>
         </div>
         <span class="kelas" id="cKelas">Signature</span>
-        <a class="btn b-red" id="cWa" href="#" target="_blank" rel="noopener" style="background:var(--red);color:#fff;border-color:var(--red)">Kirim brief via WhatsApp</a>
+        <a class="btn b-red" id="cWa" href="#" target="_blank" rel="noopener" style="background:var(--red);color:#fff;border-color:var(--red)">{{ __('messages.welcome.c_btn_wa') }}</a>
       </div>
     </div>
-    <p style="margin:1rem auto 0;font-size:.75rem;color:var(--g1);max-width:60ch">Estimasi, bukan penawaran resmi. Harga final menyesuaikan spesifikasi, jumlah, dan tanggal kirim.</p>
+    <p style="margin:1rem auto 0;font-size:.75rem;color:var(--g1);max-width:60ch">{{ __('messages.welcome.c_note') }}</p>
   </div>
 </section>
 
 <!-- PROSES -->
 <section class="s on-dark" id="proses" style="background:var(--black);color:var(--white)">
   <div class="wrap">
-    <p class="eyebrow rv">Cara kerja</p>
-    <h2 class="h2 rv" style="max-width:18ch">Empat langkah, tanpa <span class="hl">bolak-balik</span>.</h2>
-    <p class="lede rv">Urutannya tetap: tidak ada produksi sebelum mockup Anda setujui, dan tidak ada mockup sebelum kami paham penerimanya siapa.</p>
+    <p class="eyebrow rv">{{ __('messages.welcome.step_eyebrow') }}</p>
+    <h2 class="h2 rv" style="max-width:18ch">{{ __('messages.welcome.step_title') }} <span class="hl">{{ __('messages.welcome.step_title_hl') }}</span></h2>
+    <p class="lede rv">{{ __('messages.welcome.step_desc') }}</p>
     <div class="steps rv">
-      <div class="step"><b>01</b><h3>Brief</h3><p>Anda kirim momen, jumlah penerima, dan budget lewat WhatsApp, email, atau kalkulator di atas.</p><span class="d">Hari ke-0</span></div>
-      <div class="step"><b>02</b><h3>Rekomendasi</h3><p>Kami kirim 3–5 opsi paket lengkap dengan rincian harga, MOQ, dan estimasi kirim.</p><span class="d">1 hari kerja</span></div>
-      <div class="step"><b>03</b><h3>Mockup</h3><p>Desain penempatan logo dan kemasan, gratis. Revisi sampai Anda dan atasan Anda setuju.</p><span class="d">1–3 hari kerja</span></div>
-      <div class="step"><b>04</b><h3>Produksi &amp; kirim</h3><p>Produksi berjalan dengan update foto QC, lalu dikirim ke satu atau banyak alamat cabang.</p><span class="d">7–21 hari kerja</span></div>
+      <div class="step"><b>01</b><h3>{{ __('messages.welcome.step_1_t') }}</h3><p>{{ __('messages.welcome.step_1_d') }}</p><span class="d">{{ __('messages.welcome.step_1_time') }}</span></div>
+      <div class="step"><b>02</b><h3>{{ __('messages.welcome.step_2_t') }}</h3><p>{{ __('messages.welcome.step_2_d') }}</p><span class="d">{{ __('messages.welcome.step_2_time') }}</span></div>
+      <div class="step"><b>03</b><h3>{{ __('messages.welcome.step_3_t') }}</h3><p>{{ __('messages.welcome.step_3_d') }}</p><span class="d">{{ __('messages.welcome.step_3_time') }}</span></div>
+      <div class="step"><b>04</b><h3>{{ __('messages.welcome.step_4_t') }}</h3><p>{{ __('messages.welcome.step_4_d') }}</p><span class="d">{{ __('messages.welcome.step_4_time') }}</span></div>
     </div>
   </div>
 </section>
@@ -251,9 +240,9 @@
       <img src="{{ asset('images/Super Graphic.png') }}" alt="Implementasi pattern pada produk">
     </div>
     <div class="rv">
-      <p class="eyebrow">Empat pilar</p>
-      <h2 class="h2">Ornamen kami <span class="hl">punya arti</span>.</h2>
-      <p class="lede">Pola geometris pada kemasan dan merchandise HERVENT disusun dari empat pilar yang jadi pegangan kerja seluruh tim: <b style="font-weight:600;color:var(--ink)">Religius</b> — jujur soal harga, bahan, dan tanggal kirim. <b style="font-weight:600;color:var(--ink)">Integrity</b> — hasil produksi sama dengan mockup yang Anda setujui. <b style="font-weight:600;color:var(--ink)">Commitment for Excellent</b> — setiap batch lewat QC dan difoto sebelum dikemas. <b style="font-weight:600;color:var(--ink)">Happiness</b> — hadiah ini akhirnya dibuka orang, dan momen bukanya kami rancang supaya terasa.</p>
+      <p class="eyebrow">{{ __('messages.welcome.pilar_eyebrow') }}</p>
+      <h2 class="h2">{{ __('messages.welcome.pilar_title') }} <span class="hl">{{ __('messages.welcome.pilar_title_hl') }}</span></h2>
+      <p class="lede">{!! __('messages.welcome.pilar_desc') !!}</p>
     </div>
   </div>
 </section>
@@ -262,41 +251,41 @@
 <section class="s" id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">Pertanyaan</p>
-      <h2 class="h2 rv">Frequently Asked <span class="hl">Questions</span></h2>
+      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.faq_eyebrow') }}</p>
+      <h2 class="h2 rv">{{ __('messages.welcome.faq_title') }} <span class="hl">{{ __('messages.welcome.faq_title_hl') }}</span></h2>
     </div>
     <div class="faq rv">
       <details open>
-        <summary>Bagaimana cara memesan di HERVENT?</summary>
-        <p>Pilih kategori atau paket yang Anda minati, lalu hubungi tim kami lewat WhatsApp. Sebutkan momen acara, jumlah penerima, dan budget per orang. Tim kami membalas dengan 3–5 opsi paket beserta rincian harga dalam 1 hari kerja.</p>
+        <summary>{{ __('messages.welcome.f_1_q') }}</summary>
+        <p>{{ __('messages.welcome.f_1_a') }}</p>
       </details>
       <details>
-        <summary>Berapa minimum order pemesanan?</summary>
-        <p>Minimum order 50 pcs untuk item satuan, dan 25 set untuk gift set maupun hampers. Angka ini menjaga kualitas produksi sekaligus harga yang tetap kompetitif.</p>
+        <summary>{{ __('messages.welcome.f_2_q') }}</summary>
+        <p>{{ __('messages.welcome.f_2_a') }}</p>
       </details>
       <details>
-        <summary>Apakah jasa desain dikenakan biaya?</summary>
-        <p>Tidak. Semua pesanan sudah termasuk jasa desain dan mockup gratis, termasuk revisi sampai Anda setuju. File mockup diserahkan ke Anda untuk keperluan approval internal.</p>
+        <summary>{{ __('messages.welcome.f_3_q') }}</summary>
+        <p>{{ __('messages.welcome.f_3_a') }}</p>
       </details>
       <details>
-        <summary>Berapa lama waktu pengerjaannya?</summary>
-        <p>Sekitar 7–10 hari kerja untuk di bawah 100 pcs, 10–14 hari kerja untuk 500 pcs, dan 21–30 hari kerja untuk di atas 1.000 pcs. Perhitungan dimulai sejak mockup disetujui, bukan sejak PO masuk.</p>
+        <summary>{{ __('messages.welcome.f_4_q') }}</summary>
+        <p>{{ __('messages.welcome.f_4_a') }}</p>
       </details>
       <details>
-        <summary>Apakah HERVENT menerbitkan faktur pajak?</summary>
-        <p>Ya. HERVENT beroperasi sebagai PT Aventama Hervent Solusindo dan menerbitkan faktur pajak PPN. Dokumen vendor lengkap tersedia untuk proses registrasi di BUMN maupun instansi pemerintah.</p>
+        <summary>{{ __('messages.welcome.f_5_q') }}</summary>
+        <p>{{ __('messages.welcome.f_5_a') }}</p>
       </details>
       <details>
-        <summary>Bagaimana ketentuan pembayarannya?</summary>
-        <p>DP 50% saat PO diterbitkan, pelunasan sebelum pengiriman. Untuk instansi dan BUMN, termin pembayaran bisa menyesuaikan dokumen pengadaan Anda.</p>
+        <summary>{{ __('messages.welcome.f_6_q') }}</summary>
+        <p>{{ __('messages.welcome.f_6_a') }}</p>
       </details>
       <details>
-        <summary>Bagaimana jika ada cacat produksi?</summary>
-        <p>Unit yang cacat kami ganti tanpa biaya tambahan. Laporkan maksimal 7 hari setelah barang diterima dan sertakan foto sebagai bukti.</p>
+        <summary>{{ __('messages.welcome.f_7_q') }}</summary>
+        <p>{{ __('messages.welcome.f_7_a') }}</p>
       </details>
       <details>
-        <summary>Apakah bisa kirim ke banyak alamat cabang?</summary>
-        <p>Bisa. Pesanan dapat dipecah ke beberapa alamat sekaligus. Gratis ongkir berlaku untuk pengiriman dalam kapasitas 10 ton.</p>
+        <summary>{{ __('messages.welcome.f_8_q') }}</summary>
+        <p>{{ __('messages.welcome.f_8_a') }}</p>
       </details>
     </div>
   </div>
@@ -306,21 +295,21 @@
 <section class="s" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">Testimoni</p>
-      <h2 class="h2 rv">Dengar apa kata <span class="hl">klien kami</span></h2>
+      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.tst_eyebrow') }}</p>
+      <h2 class="h2 rv">{{ __('messages.welcome.tst_title') }} <span class="hl">{{ __('messages.welcome.tst_title_hl') }}</span></h2>
     </div>
     <div class="tst">
       <blockquote class="t-card rv">
-        <p>“Saya kasih budget dan jumlah orang, besoknya sudah ada tiga opsi lengkap dengan harganya.”</p>
-        <footer><span class="av">HR</span><div><b>HR Manager</b>Perusahaan asuransi</div></footer>
+        <p>{{ __('messages.welcome.t_1_q') }}</p>
+        <footer><span class="av">HR</span><div><b>HR Manager</b>{{ __('messages.welcome.t_1_p') }}</div></footer>
       </blockquote>
       <blockquote class="t-card rv">
-        <p>“Mockup-nya membantu banget waktu saya harus presentasi ke direksi.”</p>
-        <footer><span class="av">GA</span><div><b>GA Supervisor</b>Manufaktur</div></footer>
+        <p>{{ __('messages.welcome.t_2_q') }}</p>
+        <footer><span class="av">GA</span><div><b>GA Supervisor</b>{{ __('messages.welcome.t_2_p') }}</div></footer>
       </blockquote>
       <blockquote class="t-card rv">
-        <p>“Kirim ke sembilan cabang, semuanya sampai sebelum acara.”</p>
-        <footer><span class="av">ML</span><div><b>Marketing Lead</b>Jaringan klinik</div></footer>
+        <p>{{ __('messages.welcome.t_3_q') }}</p>
+        <footer><span class="av">ML</span><div><b>Marketing Lead</b>{{ __('messages.welcome.t_3_p') }}</div></footer>
       </blockquote>
     </div>
   </div>
@@ -330,7 +319,7 @@
 <section class="quote s">
   <svg class="pat pat-w" style="opacity:.06" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
   <div class="wrap">
-    <blockquote>“Kami tidak sekadar membuat souvenir. Kami memastikan hadiah Anda mewakili nama baik perusahaan.”</blockquote>
+    <blockquote>{{ __('messages.welcome.quote_t') }}</blockquote>
     <cite>HERVENT · Represent Your Value</cite>
   </div>
 </section>
@@ -338,8 +327,8 @@
 <!-- SEO -->
 <section class="seo s">
   <div class="wrap center">
-    <h2 class="h2 rv" style="font-size:clamp(1.25rem,2.6vw,1.6rem)">Solusi Corporate Gift &amp; Souvenir Kantor Custom Premium</h2>
-    <p class="rv">HERVENT adalah mitra perusahaan untuk kebutuhan souvenir kantor custom, corporate gift, seminar kit, dan luxury hampers eksklusif. Beroperasi sejak 2009 di bawah PT Aventama Hervent Solusindo dengan kantor pusat di Bandung dan cabang di Surabaya, HERVENT telah melayani lebih dari 4.500 klien korporasi, BUMN, dan instansi pemerintah. Setiap produk — mulai dari tumbler branded, totebag custom, flashdisk kartu, agenda eksklusif, hingga gift set premium — dirancang menyesuaikan identitas brand perusahaan Anda. Tersedia jasa desain dan mockup gratis, faktur pajak PPN, garansi cacat produksi, serta pengiriman ke seluruh Indonesia.</p>
+    <h2 class="h2 rv" style="font-size:clamp(1.25rem,2.6vw,1.6rem)">{{ __('messages.welcome.seo_title') }}</h2>
+    <p class="rv">{{ __('messages.welcome.seo_desc') }}</p>
   </div>
 </section>
 
@@ -348,9 +337,9 @@
   <svg class="pat pat-w" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
   <div class="wrap cta-in">
     <div class="rv">
-      <p class="eyebrow">Jadi partner kami</p>
-      <h2 class="h2">Reputasi brand Anda <span class="hl">adalah prioritas kami.</span></h2>
-      <p class="lede">Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.</p>
+      <p class="eyebrow">{{ __('messages.welcome.cta_eyebrow') }}</p>
+      <h2 class="h2">{{ __('messages.welcome.cta_title') }} <span class="hl">{{ __('messages.welcome.cta_title_hl') }}</span></h2>
+      <p class="lede">{{ __('messages.welcome.cta_desc') }}</p>
       <div class="hero-cta" style="justify-content:flex-start;margin-top:1.5rem">
         <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">WhatsApp 0811-912-502</a>
         <a class="btn b-line" href="mailto:cs@hervent.co.id">cs@hervent.co.id</a>
@@ -358,12 +347,12 @@
     </div>
     <div class="offices rv">
       <div class="office">
-        <b>Kantor pusat — Bandung</b>
-        <span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span>
+        <b>{{ __('messages.welcome.cta_off_1_t') }}</b>
+        <span>{{ __('messages.welcome.cta_off_1_d') }}</span>
       </div>
       <div class="office">
-        <b>Cabang — Surabaya</b>
-        <span>Graha Virto, Ruko Galaxi Bumi Permai Blok J-1 No. 23A, Jl. Raya Sukosemolo, Sukolilo, Surabaya 60119</span>
+        <b>{{ __('messages.welcome.cta_off_2_t') }}</b>
+        <span>{{ __('messages.welcome.cta_off_2_d') }}</span>
       </div>
     </div>
   </div>
@@ -375,12 +364,12 @@
   <div class="catalog-modal-backdrop js-catalog-close" aria-hidden="true"></div>
   <section class="catalog-dialog" role="dialog" aria-modal="true" aria-labelledby="catalogTitle">
     <button class="catalog-close js-catalog-close" type="button" aria-label="Tutup">&times;</button>
-    <h2 class="h2" id="catalogTitle">Download PDF Katalog</h2>
-    <p class="catalog-intro">Silakan lengkapi data berikut untuk mendapatkan katalog lengkap kami dalam format PDF.</p>
+    <h2 class="h2" id="catalogTitle">{{ __('messages.welcome.modal_title') }}</h2>
+    <p class="catalog-intro">{{ __('messages.welcome.modal_desc') }}</p>
     <form method="POST" action="{{ route('catalog.download') }}" class="catalog-form">
       @csrf
       <div class="catalog-field">
-        <label for="catalogName">Nama <span>*</span></label>
+        <label for="catalogName">{{ __('messages.welcome.m_name') }} <span>*</span></label>
         <div class="catalog-name-row">
           <select id="catalogSalutation" name="salutation" aria-label="Sapaan">
             <option value="Bapak" @selected(old('salutation', 'Bapak') === 'Bapak')>Bapak</option>
@@ -391,29 +380,29 @@
         @error('name')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
-        <label for="catalogEmail">Email <em>(Optional)</em></label>
+        <label for="catalogEmail">{{ __('messages.welcome.m_email') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
         <input id="catalogEmail" name="email" type="email" placeholder="testing@gmail.com" maxlength="255">
         @error('email')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
-        <label for="catalogWhatsapp">No. Whatsapp <em>(Optional)</em></label>
+        <label for="catalogWhatsapp">{{ __('messages.welcome.m_wa') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
         <input id="catalogWhatsapp" name="whatsapp" type="tel" value="{{ old('whatsapp') }}" placeholder="+628xxxxxxxxxx" maxlength="30">
         @error('whatsapp')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
-        <label for="catalogJobTitle">Jabatan <em>(Optional)</em></label>
+        <label for="catalogJobTitle">{{ __('messages.welcome.m_job') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
         <input id="catalogJobTitle" name="job_title" type="text" value="{{ old('job_title') }}" placeholder="Business Owner" maxlength="100">
       </div>
       <div class="catalog-field">
-        <label for="catalogCompany">Perusahaan <em>(Optional)</em></label>
+        <label for="catalogCompany">{{ __('messages.welcome.m_comp') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
         <input id="catalogCompany" name="company" type="text" value="{{ old('company') }}" placeholder="Nama perusahaan" maxlength="150">
       </div>
       <button class="btn b-red catalog-submit" type="submit">
-        Download PDF
+        {{ __('messages.welcome.m_btn') }}
         <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 14h8M8 17h5"/></svg>
       </button>
     </form>
-    <button class="catalog-back js-catalog-close" type="button">Kembali</button>
+    <button class="catalog-back js-catalog-close" type="button">{{ __('messages.welcome.m_back') }}</button>
   </section>
 </div>
 
@@ -423,10 +412,10 @@
 <!-- DOCK -->
 <div class="dock">
   <div class="m">
-    <small>Estimasi anggaran</small>
+    <small>{{ __('messages.welcome.dock_est') }}</small>
     <b id="dockTot">Rp37.500.000</b>
   </div>
-  <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi</a>
+  <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">{{ __('messages.welcome.dock_btn') }}</a>
 </div>
 
 </body>
