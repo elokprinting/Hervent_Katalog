@@ -10,12 +10,86 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $products = [
-            ['name' => 'Essential Work Kit', 'slug' => 'essential-work-kit', 'category' => 'starter-kit', 'description' => 'Notebook, tumbler, pouch, dan kartu ucapan dalam satu paket yang siap dibagikan.', 'price_min' => 85000, 'price_max' => 185000, 'minimum_order' => 50, 'image_url' => 'https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=900&q=85', 'is_featured' => true],
-            ['name' => 'Aluminium Tumbler', 'slug' => 'aluminium-tumbler', 'category' => 'tumbler', 'description' => 'Tumbler ringan dengan laser engraving logo yang presisi dan tahan lama.', 'price_min' => 65000, 'price_max' => 135000, 'minimum_order' => 50, 'image_url' => 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85', 'is_featured' => true],
-            ['name' => 'Daily Carry Pouch', 'slug' => 'daily-carry-pouch', 'category' => 'fashion', 'description' => 'Pouch kanvas premium untuk onboarding, event, atau hadiah apresiasi tim.', 'price_min' => 45000, 'price_max' => 110000, 'minimum_order' => 100, 'image_url' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85', 'is_featured' => true],
-            ['name' => 'Desk Ritual Set', 'slug' => 'desk-ritual-set', 'category' => 'desk-set', 'description' => 'Perlengkapan meja kerja yang rapi untuk membuat brand Anda hadir setiap hari.', 'price_min' => 125000, 'price_max' => 275000, 'minimum_order' => 50, 'image_url' => 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=85', 'is_featured' => true],
-            ['name' => 'Executive Leather Set', 'slug' => 'executive-leather-set', 'category' => 'premium', 'description' => 'Set eksklusif berbahan kulit sintetis untuk klien dan partner strategis.', 'price_min' => 275000, 'price_max' => 650000, 'minimum_order' => 25, 'image_url' => 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=85', 'is_featured' => false],
-            ['name' => 'Hampers Nusantara', 'slug' => 'hampers-nusantara', 'category' => 'hampers', 'description' => 'Rangkaian kudapan lokal pilihan dengan kemasan yang mewakili identitas perusahaan.', 'price_min' => 185000, 'price_max' => 450000, 'minimum_order' => 25, 'image_url' => 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'is_featured' => false],
+            // Gift Set (2 produk)
+            [
+                'name' => 'Executive Gift Set', 
+                'slug' => 'executive-gift-set', 
+                'category' => 'gift-set', 
+                'description' => 'Paket eksklusif berisi tumbler, notebook kulit, dan pulpen premium dalam box custom — cocok untuk apresiasi klien VIP dan direksi.', 
+                'price_min' => 185000, 
+                'price_max' => 450000, 
+                'minimum_order' => 25, 
+                'image_url' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85', 
+                'is_featured' => true,
+                'subtitle' => 'Sudah Include Logo',
+                'colors' => ['#000000', '#ffffff', '#c7c7c7', '#3f4f63'],
+                'dimensions' => '25 x 20 x 10 cm',
+                'custom_method' => 'UV Print / Laser Engraving',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85',
+                    'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85',
+                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85'
+                ]
+            ],
+            [
+                'name' => 'Welcome Kit Gift Set', 
+                'slug' => 'welcome-kit-gift-set', 
+                'category' => 'gift-set', 
+                'description' => 'Set onboarding karyawan baru: pouch, lanyard, tumbler mini, dan kartu ucapan dalam kemasan branded perusahaan.', 
+                'price_min' => 95000, 
+                'price_max' => 225000, 
+                'minimum_order' => 50, 
+                'image_url' => 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85', 
+                'is_featured' => true,
+                'subtitle' => 'Cocok untuk Onboarding',
+                'colors' => ['#2f3542', '#747d8c', '#a4b0be'],
+                'dimensions' => '20 x 15 x 8 cm',
+                'custom_method' => 'Screen Print',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85',
+                    'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85'
+                ]
+            ],
+
+            // Bottle (2 produk)
+            [
+                'name' => 'Stainless Steel Bottle', 
+                'slug' => 'stainless-steel-bottle', 
+                'category' => 'bottle', 
+                'description' => 'Botol stainless steel 500ml vacuum insulated, tahan panas 12 jam & dingin 24 jam. Logo custom dengan laser engraving.', 
+                'price_min' => 75000, 
+                'price_max' => 165000, 
+                'minimum_order' => 50, 
+                'image_url' => 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85', 
+                'is_featured' => true,
+                'subtitle' => 'Double Wall Vacuum Insulated',
+                'colors' => ['#000000', '#ffffff', '#e1b12c'],
+                'dimensions' => '6.5 x 6.5 x 23 cm',
+                'custom_method' => 'Laser Engraving',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85',
+                    'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85'
+                ]
+            ],
+            [
+                'name' => 'Glass Infuser Bottle', 
+                'slug' => 'glass-infuser-bottle', 
+                'category' => 'bottle', 
+                'description' => 'Botol kaca borosilikat 450ml dengan infuser teh, sleeve silikon, dan tutup bamboo. Cetak logo UV printing.', 
+                'price_min' => 55000, 
+                'price_max' => 120000, 
+                'minimum_order' => 50, 
+                'image_url' => 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85', 
+                'is_featured' => false,
+                'subtitle' => 'Eco Friendly Material',
+                'colors' => ['#2ed573', '#1e90ff', '#ff4757'],
+                'dimensions' => '7 x 7 x 20 cm',
+                'custom_method' => 'UV Print',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85',
+                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85'
+                ]
+            ],
         ];
 
         foreach ($products as $product) {

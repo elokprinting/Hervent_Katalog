@@ -12,4 +12,5 @@ Route::get('/', HomeController::class)->name('home');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+Route::get('/products/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');

@@ -41,4 +41,14 @@ class ProductsController extends Controller
             'sort' => $sort,
         ]);
     }
+    public function show(Product $product)
+    {
+        $recommendedProducts = Product::where('id', '!=', $product->id)
+            ->where('category', $product->category)
+            ->inRandomOrder()
+            ->limit(4)
+            ->get(['id', 'name', 'slug', 'image_url']);
+
+        return view('products.show', compact('product', 'recommendedProducts'));
+    }
 }

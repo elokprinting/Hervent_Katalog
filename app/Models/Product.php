@@ -20,11 +20,20 @@ class Product extends Model
         'minimum_order',
         'image_url',
         'is_featured',
+        'subtitle',
+        'colors',
+        'dimensions',
+        'custom_method',
+        'gallery_images',
     ];
 
     protected function casts(): array
     {
-        return ['is_featured' => 'boolean'];
+        return [
+            'is_featured' => 'boolean',
+            'colors' => 'array',
+            'gallery_images' => 'array',
+        ];
     }
 
     public function getPriceLabelAttribute(): string
