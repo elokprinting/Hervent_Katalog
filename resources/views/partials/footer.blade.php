@@ -6,10 +6,22 @@
           <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT" style="height: 42px; width: auto; background: black; padding: 4px; border-radius: 4px;">
         </a>
         <p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p>
-        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-          <a class="btn b-line" style="padding:.5rem 1rem;font-size:.78rem" href="https://wa.me/62811912502" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn b-line" style="padding:.5rem 1rem;font-size:.78rem" href="https://www.instagram.com/hervent.co.id/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn b-line" style="padding:.5rem 1rem;font-size:.78rem" href="https://www.tiktok.com/@hervent.co.id" target="_blank" rel="noopener">TikTok</a>
+        <div class="foot-socials" aria-label="Sosial media HERVENT">
+          <a class="foot-social" href="https://wa.me/62811912502" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp HERVENT" title="WhatsApp">
+            <i data-lucide="whatsapp" aria-hidden="true"></i>
+          </a>
+          <a class="foot-social" href="https://www.instagram.com/hervent.co.id/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HERVENT" title="Instagram">
+            <i data-lucide="instagram" aria-hidden="true"></i>
+          </a>
+          <a class="foot-social" href="https://www.tiktok.com/@hervent.co.id" target="_blank" rel="noopener noreferrer" aria-label="TikTok HERVENT" title="TikTok">
+            <i data-lucide="tiktok" aria-hidden="true"></i>
+          </a>
+          <a class="foot-social" href="https://www.linkedin.com/in/hervent/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn HERVENT" title="LinkedIn">
+            <i data-lucide="linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="foot-social" href="https://www.youtube.com/@Hervent" target="_blank" rel="noopener noreferrer" aria-label="YouTube HERVENT" title="YouTube">
+            <i data-lucide="youtube" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
       <div>

@@ -1402,6 +1402,42 @@ select {
 .foot .logo b {
     color: var(--white);
 }
+.foot-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+.foot-social {
+    display: grid;
+    width: 2.55rem;
+    height: 2.55rem;
+    place-items: center;
+    border: 1px solid rgba(254, 254, 254, 0.42);
+    border-radius: 8px;
+    color: var(--white);
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.foot-social svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+}
+.foot-social:first-child svg,
+.foot-social:last-child svg {
+    fill: currentColor;
+    stroke: none;
+}
+.foot-social:hover,
+.foot-social:focus-visible {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    transform: translateY(-2px);
+}
 .foot .b-line {
     background: transparent;
     border-color: rgba(254, 254, 254, 0.8);
