@@ -313,6 +313,12 @@ select {
     stroke-width: 2.5;
     transition: transform 0.2s;
 }
+.menu .nav-chevron {
+    display: block;
+    width: 12px;
+    height: 8px;
+    flex: none;
+}
 .has-mega:hover svg,
 .has-dropdown:hover svg {
     transform: rotate(180deg);
@@ -365,25 +371,70 @@ select {
     .nav-cta {
         display: flex;
     }
+    .nav-in {
+        height: 88px;
+    }
+    .nav .logo img {
+        height: 56px !important;
+    }
+    .menu {
+        gap: clamp(0.9rem, 1.4vw, 1.6rem);
+    }
+    .menu > a,
+    .menu .nav-item > a,
+    .menu .nav-item > button {
+        font-size: 0.94rem;
+        white-space: nowrap;
+    }
+    .nav-cta {
+        margin-left: 0.35rem;
+    }
+    .nav-cta .btn {
+        flex: none;
+        white-space: nowrap;
+        padding: 0.78rem 1.5rem;
+        font-size: 0.88rem;
+    }
 }
 
 /* Homepage hero composition */
 @media (min-width: 900px) {
     .home-page .nav {
-        position: absolute;
+        position: fixed;
         inset: 0 0 auto;
-        background: transparent;
-        border-bottom: 0;
+        background: rgba(254, 254, 254, 0.98);
+        border-bottom: 1px solid rgba(21, 21, 22, 0.08);
     }
     .home-page .nav > .wrap {
-        width: min(100% - 2rem, 1120px);
-        padding-inline: 0;
+        width: min(100% - 2rem, 1536px);
     }
     .home-page .nav-in {
-        padding-inline: clamp(1.25rem, 3vw, 2rem);
-        border-radius: 0 0 22px 22px;
-        background: rgba(254, 254, 254, 0.94);
-        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+        height: 88px;
+        padding-inline: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    .home-page .nav .logo img {
+        height: 56px !important;
+    }
+    .home-page .menu {
+        gap: clamp(0.9rem, 1.4vw, 1.6rem);
+    }
+    .home-page .menu > a,
+    .home-page .menu .nav-item > a,
+    .home-page .menu .nav-item > button {
+        font-size: 0.94rem;
+        white-space: nowrap;
+    }
+    .home-page .nav-cta .btn {
+        flex: none;
+        white-space: nowrap;
+        padding: 0.78rem 1.5rem;
+        font-size: 0.88rem;
+    }
+    .home-page .nav-cta {
+        margin-left: 0.35rem;
     }
     .home-page .hero-in {
         min-height: min(720px, 100svh);
@@ -410,7 +461,7 @@ select {
 
 @media (max-width: 899px) {
     .home-page .nav {
-        position: absolute;
+        position: fixed;
         inset: 0 0 auto;
         background: transparent;
         border-bottom: 0;

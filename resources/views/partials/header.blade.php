@@ -5,9 +5,9 @@
         <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT" style="height: 42px; width: auto;">
       </a>
       <nav class="menu" aria-label="Navigasi utama">
-        <a href="{{ route('home') }}#setgift">{{ __('messages.header.giftset_package') }}</a>
+        <a href="{{ route('products.index') }}">{{ __('messages.header.giftset_package') }}</a>
         <div class="nav-item has-mega">
-          <a href="{{ route('products.index') }}" style="cursor:pointer">{{ __('messages.header.products') }} <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></a>
+          <a href="{{ route('products.index') }}" style="cursor:pointer">{{ __('messages.header.products') }} <svg class="nav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg></a>
           <div class="mega-wrap">
             <div class="mega-new">
               <div class="mega-col" style="flex:0 0 200px">
