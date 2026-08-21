@@ -53,6 +53,7 @@
         {{ __('messages.welcome.btn_catalog') }}
       </button>
     </div>
+
     <ul class="hero-mini">
       <li><b>{{ __('messages.welcome.hero_mini_1_t') }}</b>{{ __('messages.welcome.hero_mini_1_d') }}</li>
       <li><b>{{ __('messages.welcome.hero_mini_2_t') }}</b>{{ __('messages.welcome.hero_mini_2_d') }}</li>
