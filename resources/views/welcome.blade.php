@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="home-page">
 
 <!-- Pattern 4 pilar -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
