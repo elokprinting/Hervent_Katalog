@@ -82,7 +82,7 @@
       </div>
     </div>
     <div class="shot rv">
-      <img src="{{ asset('images/Background.png') }}" alt="Workshop / Proses QC">
+      <img src="{{ asset('images/Kenapa pilih HERVENT.png') }}" alt="Tim HERVENT menyiapkan mockup dan merchandise">
     </div>
   </div>
 </section>
