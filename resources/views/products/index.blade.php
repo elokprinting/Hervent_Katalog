@@ -64,17 +64,16 @@
                         <div class="catalog-grid marketplace-grid">
                             @forelse($products as $product)
                                 <article id="product-{{ $product->id }}" class="market-product">
-                                    <a class="market-image" href="#product-{{ $product->id }}" aria-label="Lihat {{ $product->name }}">
-                                        @if($product->is_featured)<span class="market-badge">{{ __('messages.catalog.featured_badge') }}</span>@endif
-                                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy">
+                                    <a href="{{ route('products.show', $product->slug) }}" style="text-decoration: none; color: inherit; display: block;">
+                                        <div class="market-image">
+                                            @if($product->is_featured)<span class="market-badge">{{ __('messages.catalog.featured_badge') }}</span>@endif
+                                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy">
+                                        </div>
+                                        <div class="market-body" style="padding-top: 1rem;">
+                                            <span class="market-category" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ $product->category_label }}</span>
+                                            <h2 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ $product->name }}</h2>
+                                        </div>
                                     </a>
-                                    <div class="market-body">
-                                        <span class="market-category">{{ $product->category_label }}</span>
-                                        <h2>{{ $product->name }}</h2>
-                                        <p>{{ $product->description }}</p>
-                                        <div class="market-meta"><strong>{{ __('messages.catalog.price_from') }} {{ $product->price_min ? 'Rp '.number_format($product->price_min, 0, ',', '.') : $product->price_label }}</strong><span>{{ __('messages.catalog.min_order', ['min' => $product->minimum_order]) }}</span></div>
-                                        <a class="market-link" href="https://wa.me/62811912502?text={{ urlencode(__('messages.catalog.wa_interested').$product->name) }}" target="_blank" rel="noopener">{{ __('messages.catalog.ask_product') }} <span aria-hidden="true">→</span></a>
-                                    </div>
                                 </article>
                             @empty
                                 <div class="catalog-empty"><h2>{{ __('messages.catalog.no_products') }}</h2><p>{{ __('messages.catalog.try_other') }}</p><a class="btn b-dark" href="{{ route('products.index') }}">{{ __('messages.catalog.reset_catalog') }}</a></div>

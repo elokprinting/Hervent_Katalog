@@ -123,7 +123,7 @@
     </div>
     <div class="prods" id="prods">
         @foreach($bestSellers as $product)
-        <a class="prod rv" href="{{ route('products.index') }}#product-{{ $product->id }}">
+        <a class="prod rv" href="{{ route('products.show', $product->slug) }}" style="text-decoration: none; color: inherit; display: block;">
             <div class="ph">
                 @if($loop->first)
                     <span class="badge">{{ __('messages.welcome.prod_badge_1') }}</span>
@@ -132,11 +132,9 @@
                 @endif
                 <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
             </div>
-            <div class="prod-bd">
-                <span class="cat">{{ $product->category_label }}</span>
-                <h3>{{ $product->name }}</h3>
-                <p>{{ $product->description }}</p>
-                <span class="price">{{ __('messages.welcome.prod_price_from') }} {{ $product->price_min ? 'Rp '.number_format($product->price_min, 0, ',', '.') : $product->price_label }} <span>{{ __('messages.welcome.prod_per_pcs') }}</span></span>
+            <div class="prod-bd" style="padding-top: 1rem;">
+                <span class="cat" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ $product->category_label }}</span>
+                <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ $product->name }}</h3>
             </div>
         </a>
         @endforeach
