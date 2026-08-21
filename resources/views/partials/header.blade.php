@@ -7,7 +7,7 @@
       <nav class="menu" aria-label="Navigasi utama">
         <a href="{{ route('home') }}#setgift">{{ __('messages.header.giftset_package') }}</a>
         <div class="nav-item has-mega">
-          <a href="{{ route('home') }}#products" style="cursor:pointer">{{ __('messages.header.products') }} <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></a>
+          <a href="{{ route('products.index') }}" style="cursor:pointer">{{ __('messages.header.products') }} <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></a>
           <div class="mega-wrap">
             <div class="mega-new">
               <div class="mega-col" style="flex:0 0 200px">
@@ -73,7 +73,7 @@
     <!-- Drawer -->
     <div class="drawer" id="drawer">
       <a href="{{ route('home') }}#setgift">{{ __('messages.header.giftset_package') }}</a>
-      <a href="{{ route('home') }}#products">{{ __('messages.header.products') }}</a>
+      <a href="{{ route('products.index') }}">{{ __('messages.header.products') }}</a>
       <a href="{{ route('services') }}">{{ __('messages.header.services') }}</a>
       <a href="{{ route('home') }}#portfolios">{{ __('messages.header.portfolios') }}</a>
       <a href="{{ route('about') }}">{{ __('messages.header.about') }}</a>
