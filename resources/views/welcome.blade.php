@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Souvenir Kantor &amp; Corporate Gift Custom | HERVENT</title>
-<meta name="description" content="Vendor corporate gift &amp; souvenir kantor custom sejak 2009. Desain gratis, faktur pajak PPN, kantor Bandung &amp; Surabaya. Dipercaya 4.500+ klien korporasi.">
+<meta name="description" content="Vendor corporate gift &amp; souvenir kantor custom sejak 2009. Desain gratis, faktur pajak PPN, kantor Bandung &amp;. Dipercaya 4.500+ klien korporasi.">
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -229,22 +229,6 @@
     </div>
   </div>
 </section>
-
-<!-- 4 PILAR -->
-<section class="s" style="position:relative;overflow:hidden">
-  <svg class="pat pat-r" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
-  <div class="wrap split" style="position:relative;z-index:2">
-    <div class="shot plain rv" style="order:2">
-      <img src="{{ asset('images/Super Graphic.png') }}" alt="Implementasi pattern pada produk">
-    </div>
-    <div class="rv">
-      <p class="eyebrow">{{ __('messages.welcome.pilar_eyebrow') }}</p>
-      <h2 class="h2">{{ __('messages.welcome.pilar_title') }} <span class="hl">{{ __('messages.welcome.pilar_title_hl') }}</span></h2>
-      <p class="lede">{!! __('messages.welcome.pilar_desc') !!}</p>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="s" id="faq" style="padding-top:0">
   <div class="wrap">
@@ -313,15 +297,6 @@
   </div>
 </section>
 
-<!-- QUOTE -->
-<section class="quote s">
-  <svg class="pat pat-w" style="opacity:.06" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
-  <div class="wrap">
-    <blockquote>{{ __('messages.welcome.quote_t') }}</blockquote>
-    <cite>HERVENT · Represent Your Value</cite>
-  </div>
-</section>
-
 <!-- SEO -->
 <section class="seo s">
   <div class="wrap center">
@@ -347,10 +322,6 @@
       <div class="office">
         <b>{{ __('messages.welcome.cta_off_1_t') }}</b>
         <span>{{ __('messages.welcome.cta_off_1_d') }}</span>
-      </div>
-      <div class="office">
-        <b>{{ __('messages.welcome.cta_off_2_t') }}</b>
-        <span>{{ __('messages.welcome.cta_off_2_d') }}</span>
       </div>
     </div>
   </div>

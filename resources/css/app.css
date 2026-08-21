@@ -292,7 +292,7 @@ select {
     padding: 0.5rem 0;
     border-radius: 0;
     font-family: var(--f-head);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.92rem;
     color: var(--g1);
     display: inline-flex;
@@ -372,10 +372,10 @@ select {
         display: flex;
     }
     .nav-in {
-        height: 88px;
+        height: 70px;
     }
     .nav .logo img {
-        height: 56px !important;
+        height: 42px !important;
     }
     .menu {
         gap: clamp(0.9rem, 1.4vw, 1.6rem);
@@ -409,14 +409,14 @@ select {
         width: min(100% - 2rem, 1536px);
     }
     .home-page .nav-in {
-        height: 88px;
+        height: 70px;
         padding-inline: 0;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
     }
     .home-page .nav .logo img {
-        height: 56px !important;
+        height: 42px !important;
     }
     .home-page .menu {
         gap: clamp(0.9rem, 1.4vw, 1.6rem);
@@ -2579,6 +2579,12 @@ select {
     text-decoration: none;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
+.mobile-floating-wa {
+    display: none;
+}
+.pd-floating-wa {
+    display: none;
+}
 @media (max-width: 900px) {
     .shop-layout {
         grid-template-columns: 190px minmax(0, 1fr);
@@ -2599,6 +2605,30 @@ select {
     }
 }
 @media (max-width: 640px) {
+    .dock {
+        display: none;
+    }
+    .mobile-floating-wa {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 90;
+        display: grid;
+        place-items: center;
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 50%;
+        background: #45c363;
+        color: var(--white);
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .mobile-floating-wa svg {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        fill: currentColor;
+    }
     .catalog-shop {
         padding-top: 1.5rem;
     }

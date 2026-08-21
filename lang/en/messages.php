@@ -34,7 +34,7 @@ return [
         'count_1' => 'Corporate clients served',
         'count_2' => 'Experience since 2009',
         'count_3' => 'Delivery coverage',
-        'count_4' => 'Offices: Bandung & Surabaya',
+        'count_4' => 'Offices: Bandung ',
         'count_suf_1' => '+',
         'count_suf_2' => ' yrs',
         'count_suf_3' => ' provinces',
@@ -144,7 +144,7 @@ return [
         'quote_t' => '“We don\'t just make souvenirs. We make sure your gift represents your company\'s good name.”',
         
         'seo_title' => 'Premium Custom Office Souvenir & Corporate Gift Solutions',
-        'seo_desc' => 'HERVENT is a corporate partner for custom office souvenirs, corporate gifts, seminar kits, and exclusive luxury hampers. Operating since 2009 under PT Aventama Hervent Solusindo with its head office in Bandung and branch in Surabaya, HERVENT has served more than 4,500 corporate clients, state-owned enterprises, and government agencies. Every product — from branded tumblers, custom totebags, card flash drives, exclusive agendas, to premium gift sets — is designed to adapt to your company\'s brand identity. Free design and mockup services, VAT tax invoices, production defect warranties, and delivery throughout Indonesia are available.',
+        'seo_desc' => 'HERVENT is a corporate partner for custom office souvenirs, corporate gifts, seminar kits, and exclusive luxury hampers. Operating since 2009 under PT Aventama Hervent Solusindo with its head office in Bandung, HERVENT has served more than 4,500 corporate clients, state-owned enterprises, and government agencies. Every product — from branded tumblers, custom totebags, card flash drives, exclusive agendas, to premium gift sets — is designed to adapt to your company\'s brand identity. Free design and mockup services, VAT tax invoices, production defect warranties, and delivery throughout Indonesia are available.',
         
         'cta_eyebrow' => 'Become our partner',
         'cta_title' => 'Your brand reputation',
@@ -152,8 +152,6 @@ return [
         'cta_desc' => 'Send the event date and number of recipients. We reply with options that are still realistic to work on by that date.',
         'cta_off_1_t' => 'Head office — Bandung',
         'cta_off_1_d' => 'Istana Kawaluyaan Complex RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Bandung City 40286',
-        'cta_off_2_t' => 'Branch — Surabaya',
-        'cta_off_2_d' => 'Graha Virto, Galaxi Bumi Permai Shophouse Block J-1 No. 23A, Jl. Raya Sukosemolo, Sukolilo, Surabaya 60119',
         
         'modal_title' => 'Download PDF Catalog',
         'modal_desc' => 'Please complete the following data to get our complete catalog in PDF format.',

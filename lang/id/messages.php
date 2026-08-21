@@ -34,7 +34,7 @@ return [
         'count_1' => 'Klien korporasi dilayani',
         'count_2' => 'Pengalaman sejak 2009',
         'count_3' => 'Jangkauan pengiriman',
-        'count_4' => 'Kantor: Bandung & Surabaya',
+        'count_4' => 'Kantor: Bandung',
         'count_suf_1' => '+',
         'count_suf_2' => ' thn',
         'count_suf_3' => ' provinsi',
@@ -129,7 +129,7 @@ return [
         'f_7_q' => 'Bagaimana jika ada cacat produksi?',
         'f_7_a' => 'Unit yang cacat kami ganti tanpa biaya tambahan. Laporkan maksimal 7 hari setelah barang diterima dan sertakan foto sebagai bukti.',
         'f_8_q' => 'Apakah bisa kirim ke banyak alamat cabang?',
-        'f_8_a' => 'Bisa. Pesanan dapat dipecah ke beberapa alamat sekaligus. Gratis ongkir berlaku untuk pengiriman dalam kapasitas 10 ton.',
+        'f_8_a' => 'Bisa. Pesanan dapat dipecah ke beberapa alamat sekaligus.',
 
         'tst_eyebrow' => 'Testimoni',
         'tst_title' => 'Dengar apa kata',
@@ -144,7 +144,7 @@ return [
         'quote_t' => '“Kami tidak sekadar membuat souvenir. Kami memastikan hadiah Anda mewakili nama baik perusahaan.”',
         
         'seo_title' => 'Solusi Corporate Gift & Souvenir Kantor Custom Premium',
-        'seo_desc' => 'HERVENT adalah mitra perusahaan untuk kebutuhan souvenir kantor custom, corporate gift, seminar kit, dan luxury hampers eksklusif. Beroperasi sejak 2009 di bawah PT Aventama Hervent Solusindo dengan kantor pusat di Bandung dan cabang di Surabaya, HERVENT telah melayani lebih dari 4.500 klien korporasi, BUMN, dan instansi pemerintah. Setiap produk — mulai dari tumbler branded, totebag custom, flashdisk kartu, agenda eksklusif, hingga gift set premium — dirancang menyesuaikan identitas brand perusahaan Anda. Tersedia jasa desain dan mockup gratis, faktur pajak PPN, garansi cacat produksi, serta pengiriman ke seluruh Indonesia.',
+        'seo_desc' => 'HERVENT adalah mitra perusahaan untuk kebutuhan souvenir kantor custom, corporate gift, seminar kit, dan luxury hampers eksklusif. Beroperasi sejak 2009 di bawah PT Aventama Hervent Solusindo dengan kantor pusat di Bandung, HERVENT telah melayani lebih dari 4.500 klien korporasi, BUMN, dan instansi pemerintah. Setiap produk — mulai dari tumbler branded, totebag custom, flashdisk kartu, agenda eksklusif, hingga gift set premium — dirancang menyesuaikan identitas brand perusahaan Anda. Tersedia jasa desain dan mockup gratis, faktur pajak PPN, garansi cacat produksi, serta pengiriman ke seluruh Indonesia.',
         
         'cta_eyebrow' => 'Jadi partner kami',
         'cta_title' => 'Reputasi brand Anda',
@@ -152,8 +152,6 @@ return [
         'cta_desc' => 'Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.',
         'cta_off_1_t' => 'Kantor pusat — Bandung',
         'cta_off_1_d' => 'Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286',
-        'cta_off_2_t' => 'Cabang — Surabaya',
-        'cta_off_2_d' => 'Graha Virto, Ruko Galaxi Bumi Permai Blok J-1 No. 23A, Jl. Raya Sukosemolo, Sukolilo, Surabaya 60119',
 
         'modal_title' => 'Download PDF Katalog',
         'modal_desc' => 'Silakan lengkapi data berikut untuk mendapatkan katalog lengkap kami dalam format PDF.',

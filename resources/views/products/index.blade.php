@@ -90,6 +90,5 @@
     </main>
 
     @include('partials.footer')
-    <a class="catalog-floating-wa" href="https://wa.me/62811912502" target="_blank" rel="noopener" aria-label="Chat WhatsApp">⌕</a>
 </body>
 </html>
