@@ -58,8 +58,8 @@
           <button style="cursor:pointer">ID / EN <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></button>
           <div class="dropdown-wrap">
              <div class="dropdown">
-               <a href="#">ID - Indonesia</a>
-               <a href="#">EN - English</a>
+               <a href="#" data-lang-btn="id">ID - Indonesia</a>
+               <a href="#" data-lang-btn="en">EN - English</a>
              </div>
           </div>
         </div>
@@ -78,6 +78,10 @@
       <a href="{{ route('home') }}#portfolios">Portfolios</a>
       <a href="{{ route('about') }}">Abouts</a>
       <a href="{{ route('home') }}#blog">Blog</a>
+      <div class="drawer-lang" aria-label="Pilih bahasa">
+        <a href="#" data-lang-btn="id">ID - Indonesia</a>
+        <a href="#" data-lang-btn="en">EN - English</a>
+      </div>
       <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">Konsultasi Gratis</a>
     </div>
   </div>
