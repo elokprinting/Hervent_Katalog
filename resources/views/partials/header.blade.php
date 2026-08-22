@@ -53,7 +53,7 @@
         <a href="{{ route('services') }}">{{ __('messages.header.services') }}</a>
         <a href="{{ route('home') }}#portfolios">{{ __('messages.header.portfolios') }}</a>
         <a href="{{ route('about') }}">{{ __('messages.header.about') }}</a>
-        <a href="{{ route('home') }}#blog">{{ __('messages.header.blog') }}</a>
+        <a href="{{ route('blog.index') }}">{{ __('messages.header.blog') }}</a>
         <div class="nav-item has-dropdown">
           <button style="cursor:pointer">ID / EN <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg></button>
           <div class="dropdown-wrap">
@@ -77,7 +77,7 @@
       <a href="{{ route('services') }}">{{ __('messages.header.services') }}</a>
       <a href="{{ route('home') }}#portfolios">{{ __('messages.header.portfolios') }}</a>
       <a href="{{ route('about') }}">{{ __('messages.header.about') }}</a>
-      <a href="{{ route('home') }}#blog">{{ __('messages.header.blog') }}</a>
+      <a href="{{ route('blog.index') }}">{{ __('messages.header.blog') }}</a>
       <div class="drawer-lang" aria-label="Pilih bahasa">
         <a href="{{ route('lang.switch', 'id') }}" data-lang-btn="id">ID - Indonesia</a>
         <a href="{{ route('lang.switch', 'en') }}" data-lang-btn="en">EN - English</a>

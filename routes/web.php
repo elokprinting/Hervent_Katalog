@@ -14,3 +14,4 @@ Route::view('/services', 'services')->name('services');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
+Route::view('/blog', 'blog')->name('blog.index');
