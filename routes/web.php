@@ -16,11 +16,19 @@ Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProductionBlogController;
+use App\Http\Controllers\ProductionAuthController;
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::prefix('production')->group(function () {
+// Production Login (tidak perlu middleware)
+Route::get('/production/login', [ProductionAuthController::class, 'showLogin'])->name('production.login');
+Route::post('/production/login', [ProductionAuthController::class, 'login'])->name('production.login.submit');
+Route::post('/production/logout', [ProductionAuthController::class, 'logout'])->name('production.logout');
+
+// Production Area (dilindungi middleware password)
+Route::prefix('production')->middleware(\App\Http\Middleware\ProductionAccess::class)->group(function () {
     Route::get('/blog-editor', [ProductionBlogController::class, 'index'])->name('production.blog.index');
     Route::post('/blog/store', [ProductionBlogController::class, 'store'])->name('production.blog.store');
 });
+

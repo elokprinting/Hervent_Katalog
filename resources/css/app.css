@@ -588,13 +588,15 @@ select {
     position: static;
 }
 
-/* So .mega-wrap can span full width of .nav */
+/* ===== New Mega Menu Layout (Top/Bottom specific layout) ===== */
+
+/* Make the mega-wrap span full width with white background */
 .mega-wrap {
     position: absolute;
     left: 0;
     right: 0;
     top: 100%;
-    background: var(--white);
+    background: #fff;
     border-top: 1px solid var(--line);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     opacity: 0;
@@ -602,6 +604,7 @@ select {
     transform: translateY(10px);
     transition: all 0.3s ease;
     pointer-events: none;
+    z-index: 100;
 }
 
 .mega-wrap::before,
@@ -621,24 +624,182 @@ select {
     pointer-events: auto;
 }
 
-.mega-new {
-    display: flex;
+.mega-inner-box {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 2rem var(--pad);
-    gap: 2rem;
-}
-
-.mega-col {
     display: flex;
     flex-direction: column;
 }
 
-.mega-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    column-gap: 1.5rem;
-    row-gap: 1rem;
+/* --- Top Section: Solusi Paket --- */
+.mega-top-section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mega-section-title {
+    font-family: var(--f-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+.mega-paket-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.mega-paket-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.mega-paket-item:hover {
+    border-color: var(--red-deep);
+    background: #fdf2f2;
+    color: var(--red-deep);
+}
+
+.mega-paket-item .m-ic {
+    stroke: var(--red-deep);
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Bottom Section: Categories --- */
+.mega-bottom-section {
+    padding: 1.5rem 2rem;
+}
+
+.mega-cat-row {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mega-cat-hover-item {
+    position: relative;
+    padding-bottom: 1rem; /* creates hover bridge */
+    margin-bottom: -1rem; /* offsets padding */
+}
+
+.mega-cat-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--f-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.mega-cat-hover-item:hover .mega-cat-head {
+    color: var(--red-deep);
+}
+
+.cat-arrow {
+    width: 10px;
+    height: 10px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.mega-cat-hover-item:hover .cat-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Sub-menu */
+.mega-cat-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 10;
+}
+
+.mega-cat-hover-item:hover .mega-cat-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* Pointer Triangle for Dropdown */
+.mega-cat-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-left: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+}
+
+.mega-cat-dropdown .m-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: var(--g1);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    position: relative; /* relative above triangle */
+    z-index: 2;
+}
+
+.mega-cat-dropdown .m-link .m-ic {
+    stroke: var(--g2);
+    width: 15px;
+    height: 15px;
+    transition: stroke 0.2s;
+}
+
+.mega-cat-dropdown .m-link:hover {
+    background: #fdf2f2;
+    color: var(--red-deep);
+}
+
+.mega-cat-dropdown .m-link:hover .m-ic {
+    stroke: var(--red-deep);
 }
 
 .m-link {
