@@ -365,8 +365,8 @@ select {
     flex: none;
 }
 
-.has-mega:hover svg,
-.has-dropdown:hover svg {
+.has-mega:hover>a>svg.nav-chevron,
+.has-dropdown:hover>button>svg.nav-chevron {
     transform: rotate(180deg);
 }
 
@@ -683,6 +683,11 @@ select {
 /* --- Bottom Section: Categories --- */
 .mega-bottom-section {
     padding: 1.5rem 2rem;
+    transition: padding-bottom 0.25s ease;
+}
+
+.mega-bottom-section:hover {
+    padding-bottom: 16rem;
 }
 
 .mega-cat-row {
@@ -694,8 +699,10 @@ select {
 
 .mega-cat-hover-item {
     position: relative;
-    padding-bottom: 1rem; /* creates hover bridge */
-    margin-bottom: -1rem; /* offsets padding */
+    padding-bottom: 1rem;
+    /* creates hover bridge */
+    margin-bottom: -1rem;
+    /* offsets padding */
 }
 
 .mega-cat-head {
@@ -722,12 +729,12 @@ select {
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transform: rotate(0deg);
+    transform: rotate(180deg);
     transition: transform 0.2s;
 }
 
 .mega-cat-hover-item:hover .cat-arrow {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
 }
 
 /* Dropdown Sub-menu */
@@ -736,14 +743,15 @@ select {
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     min-width: 160px;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    align-items: flex-start;
+    padding: 0.85rem 0 0.25rem;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -758,32 +766,18 @@ select {
     pointer-events: auto;
 }
 
-/* Pointer Triangle for Dropdown */
-.mega-cat-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    border-left: 1px solid #eaeaea;
-    border-top: 1px solid #eaeaea;
-}
-
 .mega-cat-dropdown .m-link {
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
     font-size: 0.85rem;
+    line-height: 1.3;
     color: var(--g1);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    white-space: nowrap;
     transition: all 0.2s;
-    position: relative; /* relative above triangle */
-    z-index: 2;
 }
 
 .mega-cat-dropdown .m-link .m-ic {
