@@ -1,67 +1,3 @@
-<?php
-$blogs = [
-    [
-        'date_day' => '25',
-        'date_month' => 'AUG',
-        'image' => '25-Agus.png',
-        'category' => 'REKOMENDASI UNTUK ANDA',
-        'title' => 'Year End Gift, Hadiah Akhir Tahun',
-        'slug' => '#',
-        'excerpt' => 'Year End Gift, Hadiah Akhir Tahun Akhir tahun selalu menjadi momen spesial. Perusahaan maupun individu biasanya memberi...',
-        'author' => 'Productdevelopment',
-    ],
-    [
-        'date_day' => '22',
-        'date_month' => 'AUG',
-        'image' => '22-Agus.png',
-        'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
-        'title' => '7 Souvenir Yang Cocok Untuk Perayaan Ulang Tahun Perusahaan',
-        'slug' => '7-souvenir-yang-cocok-untuk-perayaan-ulang-tahun-perusahaan',
-        'excerpt' => '7 Souvenir yang Cocok untuk Perayaan Ulang Tahun Perusahaan Perayaan ulang tahun perusahaan adalah momen penting untuk ...',
-        'author' => 'Productdevelopment',
-    ],
-    [
-        'date_day' => '04',
-        'date_month' => 'AUG',
-        'image' => '04-Agus.png',
-        'category' => 'REKOMENDASI UNTUK ANDA',
-        'title' => 'Merchandise Ulang Tahun Perusahaan, Strategi Branding Yang Efektif Dan Berkesan',
-        'slug' => '#',
-        'excerpt' => 'Merchandise Ulang Tahun Perusahaan, Strategi Branding yang Efektif dan Berkesan Merayakan ulang tahun perusahaan bukan ...',
-        'author' => 'Productdevelopment',
-    ],
-    [
-        'date_day' => '25',
-        'date_month' => 'JUL',
-        'image' => '25-Jul.jpg',
-        'category' => 'SUKSES PROMOSI, TIPS',
-        'title' => '5 Momen Yang Tepat Untuk Membuat Corporate Gift',
-        'slug' => '#',
-        'excerpt' => '5 Momen yang Tepat untuk Membuat Corporate Gift Corporate seouvenir gift bukan sekedar hadiah biasa. Lebih da...',
-        'author' => 'Productdevelopment',
-    ],
-    [
-        'date_day' => '24',
-        'date_month' => 'JUL',
-        'image' => '24-Jul.png',
-        'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
-        'title' => 'Noise Cancelling Earbuds & Headpones, Souvenir Corporate Mewah Yang Meningkatkan Reputasi Brand',
-        'slug' => '#',
-        'excerpt' => 'Noise Cancelling Earbuds & Headpones, Souvenir Corporate Mewah yang Meningkatkan Reputasi Brand  Kenyamanan ...',
-        'author' => 'Productdevelopment',
-    ],
-    [
-        'date_day' => '23',
-        'date_month' => 'JUL',
-        'image' => '23-Jul.png',
-        'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
-        'title' => 'Travel Router / Wifi Extender, Souvenir Eksklusif Untuk Klien Dan Karyawan Anda',
-        'slug' => '#',
-        'excerpt' => 'Travel Router / Wifi Extender, Souvenir Eksklusif untuk Klien dan Karyawan Anda  Mengapa Memilih Travel Router a...',
-        'author' => 'Productdevelopment',
-    ],
-];
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -131,6 +67,7 @@ $blogs = [
     font-size: 0.8rem;
     color: #666;
     margin-top: 2px;
+    text-transform: uppercase;
   }
   .blog-cat {
     background: #9b2226;
@@ -139,7 +76,7 @@ $blogs = [
     font-weight: 600;
     padding: 5px 15px;
     position: absolute;
-    top: 235px; /* Half overlapping image and body */
+    top: 235px;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
@@ -207,22 +144,24 @@ $blogs = [
       <div class="blog-grid">
         @foreach($blogs as $blog)
         <article class="blog-card">
-          <img src="{{ asset('images/Blogs/' . $blog['image']) }}" alt="{{ $blog['title'] }}" class="blog-image">
+          <img src="{{ $blog->image ? asset($blog->image) : 'https://placehold.co/600x400?text=No+Image' }}" alt="{{ $blog->title }}" class="blog-image">
           
+          @if($blog->published_at)
           <div class="blog-date">
-            <span class="blog-date-day">{{ $blog['date_day'] }}</span>
-            <span class="blog-date-month">{{ $blog['date_month'] }}</span>
+            <span class="blog-date-day">{{ $blog->published_at->format('d') }}</span>
+            <span class="blog-date-month">{{ $blog->published_at->format('M') }}</span>
           </div>
+          @endif
           
-          <span class="blog-cat">{{ $blog['category'] }}</span>
+          <span class="blog-cat">{{ $blog->category ?? 'Corporate' }}</span>
           
           <div class="blog-body">
-            <h2 class="blog-title">{{ $blog['title'] }}</h2>
+            <h2 class="blog-title">{{ $blog->title }}</h2>
             
             <div class="blog-meta">
               <span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                By {{ $blog['author'] }}
+                By {{ $blog->author ?? 'Productdevelopment' }}
               </span>
               <span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -230,13 +169,19 @@ $blogs = [
               </span>
             </div>
             
-            <p class="blog-excerpt">{{ $blog['excerpt'] }}</p>
+            <p class="blog-excerpt">{{ $blog->excerpt ?? Str::limit(strip_tags($blog->content), 120) }}</p>
             
-            <a href="{{ $blog['slug'] !== '#' ? url('/blog/' . $blog['slug']) : '#' }}" class="blog-readmore">Continue Reading</a>
+            <a href="{{ route('blog.show', $blog->slug) }}" class="blog-readmore">Continue Reading</a>
           </div>
         </article>
         @endforeach
       </div>
+
+      @if($blogs->isEmpty())
+      <div style="text-align: center; padding: 3rem; color: #666; width: 100%;">
+        <p>Belum ada artikel blog.</p>
+      </div>
+      @endif
     </div>
   </section>
 </main>
