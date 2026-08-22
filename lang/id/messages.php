@@ -157,7 +157,7 @@ return [
         'modal_desc' => 'Silakan lengkapi data berikut untuk mendapatkan katalog lengkap kami dalam format PDF.',
         'm_name' => 'Nama',
         'm_email' => 'Email',
-        'm_opt' => '(Optional)',
+        'm_opt' => '(Opsional)',
         'm_wa' => 'No. Whatsapp',
         'm_job' => 'Jabatan',
         'm_comp' => 'Perusahaan',

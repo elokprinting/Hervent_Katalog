@@ -336,7 +336,7 @@
     <button class="catalog-close js-catalog-close" type="button" aria-label="Tutup">&times;</button>
     <h2 class="h2" id="catalogTitle">{{ __('messages.welcome.modal_title') }}</h2>
     <p class="catalog-intro">{{ __('messages.welcome.modal_desc') }}</p>
-    <form method="POST" action="{{ route('catalog.download') }}" class="catalog-form">
+    <form method="POST" action="{{ route('catalog.download', absolute: false) }}" class="catalog-form">
       @csrf
       <div class="catalog-field">
         <label for="catalogName">{{ __('messages.welcome.m_name') }} <span>*</span></label>
@@ -350,8 +350,8 @@
         @error('name')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
-        <label for="catalogEmail">{{ __('messages.welcome.m_email') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
-        <input id="catalogEmail" name="email" type="email" placeholder="testing@gmail.com" maxlength="255">
+        <label for="catalogEmail">{{ __('messages.welcome.m_email') }} <span>*</span></label>
+        <input id="catalogEmail" name="email" type="email" value="{{ old('email') }}" placeholder="testing@gmail.com" required maxlength="255">
         @error('email')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
@@ -364,8 +364,9 @@
         <input id="catalogJobTitle" name="job_title" type="text" value="{{ old('job_title') }}" placeholder="Business Owner" maxlength="100">
       </div>
       <div class="catalog-field">
-        <label for="catalogCompany">{{ __('messages.welcome.m_comp') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
-        <input id="catalogCompany" name="company" type="text" value="{{ old('company') }}" placeholder="Nama perusahaan" maxlength="150">
+        <label for="catalogCompany">{{ __('messages.welcome.m_comp') }} <span>*</span></label>
+        <input id="catalogCompany" name="company" type="text" value="{{ old('company') }}" placeholder="Nama perusahaan" required maxlength="150">
+        @error('company')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <button class="btn b-red catalog-submit" type="submit">
         {{ __('messages.welcome.m_btn') }}
