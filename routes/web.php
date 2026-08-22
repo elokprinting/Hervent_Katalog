@@ -15,3 +15,4 @@ Route::get('/products', [ProductsController::class, 'index'])->name('products.in
 Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
 Route::view('/blog', 'blog')->name('blog.index');
+Route::view('/blog/7-souvenir-yang-cocok-untuk-perayaan-ulang-tahun-perusahaan', 'blog-detail')->name('blog.show');

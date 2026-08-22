@@ -6,6 +6,7 @@ $blogs = [
         'image' => '25-Agus.png',
         'category' => 'REKOMENDASI UNTUK ANDA',
         'title' => 'Year End Gift, Hadiah Akhir Tahun',
+        'slug' => '#',
         'excerpt' => 'Year End Gift, Hadiah Akhir Tahun Akhir tahun selalu menjadi momen spesial. Perusahaan maupun individu biasanya memberi...',
         'author' => 'Productdevelopment',
     ],
@@ -15,6 +16,7 @@ $blogs = [
         'image' => '22-Agus.png',
         'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
         'title' => '7 Souvenir Yang Cocok Untuk Perayaan Ulang Tahun Perusahaan',
+        'slug' => '7-souvenir-yang-cocok-untuk-perayaan-ulang-tahun-perusahaan',
         'excerpt' => '7 Souvenir yang Cocok untuk Perayaan Ulang Tahun Perusahaan Perayaan ulang tahun perusahaan adalah momen penting untuk ...',
         'author' => 'Productdevelopment',
     ],
@@ -24,6 +26,7 @@ $blogs = [
         'image' => '04-Agus.png',
         'category' => 'REKOMENDASI UNTUK ANDA',
         'title' => 'Merchandise Ulang Tahun Perusahaan, Strategi Branding Yang Efektif Dan Berkesan',
+        'slug' => '#',
         'excerpt' => 'Merchandise Ulang Tahun Perusahaan, Strategi Branding yang Efektif dan Berkesan Merayakan ulang tahun perusahaan bukan ...',
         'author' => 'Productdevelopment',
     ],
@@ -33,6 +36,7 @@ $blogs = [
         'image' => '25-Jul.jpg',
         'category' => 'SUKSES PROMOSI, TIPS',
         'title' => '5 Momen Yang Tepat Untuk Membuat Corporate Gift',
+        'slug' => '#',
         'excerpt' => '5 Momen yang Tepat untuk Membuat Corporate Gift Corporate seouvenir gift bukan sekedar hadiah biasa. Lebih da...',
         'author' => 'Productdevelopment',
     ],
@@ -42,6 +46,7 @@ $blogs = [
         'image' => '24-Jul.png',
         'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
         'title' => 'Noise Cancelling Earbuds & Headpones, Souvenir Corporate Mewah Yang Meningkatkan Reputasi Brand',
+        'slug' => '#',
         'excerpt' => 'Noise Cancelling Earbuds & Headpones, Souvenir Corporate Mewah yang Meningkatkan Reputasi Brand  Kenyamanan ...',
         'author' => 'Productdevelopment',
     ],
@@ -51,6 +56,7 @@ $blogs = [
         'image' => '23-Jul.png',
         'category' => 'REKOMENDASI UNTUK ANDA, UNCATEGORIZED',
         'title' => 'Travel Router / Wifi Extender, Souvenir Eksklusif Untuk Klien Dan Karyawan Anda',
+        'slug' => '#',
         'excerpt' => 'Travel Router / Wifi Extender, Souvenir Eksklusif untuk Klien dan Karyawan Anda  Mengapa Memilih Travel Router a...',
         'author' => 'Productdevelopment',
     ],
@@ -226,7 +232,7 @@ $blogs = [
             
             <p class="blog-excerpt">{{ $blog['excerpt'] }}</p>
             
-            <a href="#" class="blog-readmore">Continue Reading</a>
+            <a href="{{ $blog['slug'] !== '#' ? url('/blog/' . $blog['slug']) : '#' }}" class="blog-readmore">Continue Reading</a>
           </div>
         </article>
         @endforeach
