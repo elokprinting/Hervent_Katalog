@@ -15,7 +15,7 @@ class CatalogDownloadController extends Controller
             'salutation' => ['nullable', 'in:Bapak,Ibu'],
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:255'],
-            'whatsapp' => ['nullable', 'string', 'max:30'],
+            'whatsapp' => ['required', 'string', 'max:30'],
             'job_title' => ['nullable', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:150'],
         ]);

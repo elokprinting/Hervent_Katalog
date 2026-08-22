@@ -355,8 +355,8 @@
         @error('email')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">
-        <label for="catalogWhatsapp">{{ __('messages.welcome.m_wa') }} <em>{{ __('messages.welcome.m_opt') }}</em></label>
-        <input id="catalogWhatsapp" name="whatsapp" type="tel" value="{{ old('whatsapp') }}" placeholder="+628xxxxxxxxxx" maxlength="30">
+        <label for="catalogWhatsapp">{{ __('messages.welcome.m_wa') }} <span>*</span></label>
+        <input id="catalogWhatsapp" name="whatsapp" type="tel" value="{{ old('whatsapp') }}" placeholder="+628xxxxxxxxxx" required maxlength="30">
         @error('whatsapp')<small class="catalog-error">{{ $message }}</small>@enderror
       </div>
       <div class="catalog-field">

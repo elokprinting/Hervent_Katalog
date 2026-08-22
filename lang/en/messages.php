@@ -30,7 +30,7 @@ return [
         'hero_mini_4_t' => 'VAT',
         'hero_mini_4_d' => 'Tax invoice available',
 
-        'client_title' => 'Our clients',
+        'client_title' => 'Trusted By 4,500+ Great Companies',
         'count_1' => 'Corporate clients served',
         'count_2' => 'Experience since 2009',
         'count_3' => 'Delivery coverage',
