@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('excerpt')->nullable();
             $table->string('image')->nullable();
             $table->string('category')->nullable();
-            $table->string('author')->default('Productdevelopment');
+            $table->string('author')->default('Production');
             $table->boolean('is_published')->default(true);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

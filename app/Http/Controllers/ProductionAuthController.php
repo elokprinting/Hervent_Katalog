@@ -32,6 +32,7 @@ class ProductionAuthController extends Controller
         ]);
 
         if ($request->password === self::PASSWORD) {
+            $request->session()->regenerate();
             session(['production_authenticated' => true]);
             return redirect()->route('production.blog.index')
                 ->with('success', 'Selamat datang di area produksi!');

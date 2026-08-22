@@ -32,6 +32,8 @@
   .blog-card {
     background: #fff;
     border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -53,6 +55,7 @@
     background: #fff;
     padding: 5px 10px;
     text-align: center;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   .blog-date-day {
@@ -75,6 +78,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     padding: 5px 15px;
+    border-radius: 6px;
     position: absolute;
     top: 235px;
     left: 50%;
@@ -161,7 +165,7 @@
             <div class="blog-meta">
               <span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                By {{ $blog->author ?? 'Productdevelopment' }}
+                By {{ $blog->author ?? '' }}
               </span>
               <span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>

@@ -177,7 +177,7 @@
           <a href="{{ route('blog.index') }}" target="_blank" style="color: #b81a1f; font-weight: 500; text-decoration: none; font-size: 0.95rem;">
             ← Lihat Blog Publik
           </a>
-          <form action="{{ route('production.logout') }}" method="POST" style="margin: 0;">
+          <form action="{{ route('production.logout', absolute: false) }}" method="POST" style="margin: 0;">
             @csrf
             <button type="submit" style="background: transparent; border: 1.5px solid #b81a1f; color: #b81a1f; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.background='#b81a1f';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#b81a1f'">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
@@ -261,7 +261,7 @@
     <button class="modal-close" onclick="document.getElementById('blogModal').style.display='none'">&times;</button>
     <h2 class="h3" style="margin-bottom: 1.5rem;">Tambah Blog Baru</h2>
 
-    <form action="{{ route('production.blog.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('production.blog.store', absolute: false) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
       <div class="form-group">

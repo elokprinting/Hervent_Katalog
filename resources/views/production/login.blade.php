@@ -145,7 +145,7 @@
     <div class="alert-error">{{ $errors->first('password') }}</div>
   @endif
 
-  <form action="{{ route('production.login.submit') }}" method="POST">
+  <form action="{{ route('production.login.submit', absolute: false) }}" method="POST">
     @csrf
     <div class="form-group">
       <label for="password">Password Akses</label>

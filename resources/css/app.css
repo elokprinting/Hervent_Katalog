@@ -193,6 +193,13 @@ select {
     flex: none;
 }
 
+.btn .whatsapp-icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: currentColor;
+    stroke: none;
+}
+
 .b-red {
     background: var(--red);
     color: var(--white);
