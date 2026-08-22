@@ -13,7 +13,7 @@
 
 <main id="top">
   <section class="s" style="padding-top: 60px;">
-    <div class="wrap" style="max-width: 800px; margin: 0 auto;">
+    <div class="wrap" style="max-width: 1000px; margin: 0 auto;">
       
       <!-- HEADER ARTIKEL -->
       <div class="center rv" style="margin-bottom: 2rem;">
@@ -77,6 +77,106 @@
 
         <p style="margin-bottom: 1.5rem;">Kesimpulannya adalah, memilih souvenir untuk ulang tahun perusahaan memang membutuhkan pertimbangan matang. Tujuh pilihan di atas, mulai dari tumbler stainless custom, notebook eksklusif, goodiebag premium, powerbank atau flashdisk custom, aroma therapy candle atau diffuser, tanaman meja mini, hingga box eksklusif edisi ulang tahun, semuanya bisa menjadi alternatif terbaik untuk menciptakan kesan profesional dan tak terlupakan.</p>
         <p style="margin-bottom: 1.5rem;">Dengan souvenir yang tepat, perusahaan tidak hanya berbagi hadiah, tetapi juga menyampaikan pesan apresiasi, membangun hubungan harmonis, dan memperkuat branding jangka panjang.</p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
+
+      <!-- POST NAVIGATION -->
+      <div class="post-nav rv" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; gap: 1rem;">
+        <!-- Newer -->
+        <a href="#" style="display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; flex: 1;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; color: #888; text-transform: uppercase; margin-bottom: 4px;">Newer</div>
+            <div style="font-weight: 600; font-size: 1rem; color: #222;">Year End Gift, Hadiah Akhir Tahun</div>
+          </div>
+        </a>
+
+        <!-- Grid Icon -->
+        <a href="{{ route('blog.index') }}" style="color: #999; flex-shrink: 0;" aria-label="Semua Artikel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </a>
+
+        <!-- Older -->
+        <a href="#" style="display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; flex: 1; text-align: right; justify-content: flex-end;">
+          <div>
+            <div style="font-size: 0.85rem; color: #888; text-transform: uppercase; margin-bottom: 4px;">Older</div>
+            <div style="font-weight: 600; font-size: 1rem; color: #222;">Merchandise Ulang Tahun Perusahaan, Strategi Branding yang Efektif...</div>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
+
+      <!-- REKOMENDASI -->
+      <div class="rv" style="margin-bottom: 4rem;">
+        <h3 class="h3" style="margin-bottom: 1.5rem;">Rekomendasi Untuk Anda</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+          <a href="#" style="text-decoration: none; color: inherit; border: 1px solid #eaeaea; display: block; border-radius: 8px; overflow: hidden;">
+            <img src="{{ asset('images/Blogs/25-Agus.png') }}" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1rem;">
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #222;">Year End Gift, Hadiah Akhir Tahun</h4>
+              <p style="font-size: 0.9rem; color: #666; line-height: 1.4;">Akhir tahun selalu menjadi momen spesial. Perusahaan maupun individu biasanya memberi...</p>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit; border: 1px solid #eaeaea; display: block; border-radius: 8px; overflow: hidden;">
+            <img src="{{ asset('images/Blogs/04-Agus.png') }}" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1rem;">
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #222;">Merchandise Ulang Tahun Perusahaan...</h4>
+              <p style="font-size: 0.9rem; color: #666; line-height: 1.4;">Merayakan ulang tahun perusahaan bukan hanya tentang pesta, melainkan...</p>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit; border: 1px solid #eaeaea; display: block; border-radius: 8px; overflow: hidden;">
+            <img src="{{ asset('images/Blogs/25-Jul.jpg') }}" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1rem;">
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #222;">5 Momen Yang Tepat Untuk Membuat...</h4>
+              <p style="font-size: 0.9rem; color: #666; line-height: 1.4;">Corporate souvenir gift bukan sekedar hadiah biasa. Lebih dari itu...</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- COMMENT SECTION -->
+      <div class="rv" style="background: #fafafa; padding: 2.5rem; border-radius: 8px; border: 1px solid #eaeaea;">
+        <h3 class="h3" style="margin-bottom: 0.5rem;">Leave a Reply</h3>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 2rem;">Your email address will not be published. Required fields are marked *</p>
+        
+        <form action="#" method="POST" class="catalog-form" style="max-width: none;">
+          <div class="catalog-field" style="margin-bottom: 1.5rem;">
+            <label for="comment" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Comment <span>*</span></label>
+            <textarea id="comment" name="comment" rows="6" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem;"></textarea>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="catalog-field">
+              <label for="authorName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Name <span>*</span></label>
+              <input id="authorName" name="name" type="text" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem;">
+            </div>
+            <div class="catalog-field">
+              <label for="authorEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Email <span>*</span></label>
+              <input id="authorEmail" name="email" type="email" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem;">
+            </div>
+          </div>
+
+          <!-- MOCK RECAPTCHA -->
+          <div style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 3px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <input type="checkbox" id="robotCheck" required style="width: 24px; height: 24px; cursor: pointer;">
+            <label for="robotCheck" style="font-size: 0.95rem; font-family: sans-serif; cursor: pointer; user-select: none;">I'm not a robot</label>
+            <div style="margin-left: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span style="font-size: 0.6rem; color: #888;">reCAPTCHA</span>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn b-red" type="submit" style="padding: 0.8rem 2rem; border: none; cursor: pointer;">Post Comment</button>
+          </div>
+        </form>
       </div>
 
     </div>
