@@ -28,11 +28,11 @@ class CatalogDownloadController extends Controller
         Mail::raw(implode("\n", [
             'Ada permintaan download katalog HERVENT.',
             '',
-            'Nama: '.trim(($data['salutation'] ?? '').' '.$data['name']),
-            'Email: '.$data['email'],
-            'Perusahaan: '.$data['company'],
-            'WhatsApp: '.($data['whatsapp'] ?? '-'),
-            'Jabatan: '.($data['job_title'] ?? '-'),
+            'Nama: ' . trim(($data['salutation'] ?? '') . ' ' . $data['name']),
+            'Email: ' . $data['email'],
+            'Perusahaan: ' . $data['company'],
+            'WhatsApp: ' . ($data['whatsapp'] ?? '-'),
+            'Jabatan: ' . ($data['job_title'] ?? '-'),
         ]), function ($message) use ($data) {
             $message->to(config('mail.catalog_recipient'))
                 ->subject('Permintaan Download Katalog HERVENT')

@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         $category = $request->string('category')->toString();
         $products = Product::query()
-            ->when($category, fn ($query) => $query->where('category', $category))
+            ->when($category, fn($query) => $query->where('category', $category))
             ->orderByDesc('is_featured')
             ->orderBy('name')
             ->get();

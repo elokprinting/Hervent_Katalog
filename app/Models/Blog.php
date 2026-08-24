@@ -10,7 +10,15 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'slug', 'content', 'excerpt', 'image', 'category', 'author', 'is_published', 'published_at'
+        'title',
+        'slug',
+        'content',
+        'excerpt',
+        'image',
+        'category',
+        'author',
+        'is_published',
+        'published_at'
     ];
 
     protected $casts = [

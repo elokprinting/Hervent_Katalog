@@ -23,7 +23,7 @@ class ProductionBlogController extends Controller
         ]);
 
         $data = $request->except('image');
-        
+
         // Handle slug uniqueness
         $slug = Str::slug($request->title);
         $count = \App\Models\Blog::where('slug', 'LIKE', "{$slug}%")->count();

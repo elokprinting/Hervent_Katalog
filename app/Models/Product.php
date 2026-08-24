@@ -38,7 +38,7 @@ class Product extends Model
 
     public function getPriceLabelAttribute(): string
     {
-        return 'Rp '.number_format($this->price_min, 0, ',', '.').' - '.number_format($this->price_max, 0, ',', '.');
+        return 'Rp ' . number_format($this->price_min, 0, ',', '.') . ' - ' . number_format($this->price_max, 0, ',', '.');
     }
 
     public function getCategoryLabelAttribute(): string
