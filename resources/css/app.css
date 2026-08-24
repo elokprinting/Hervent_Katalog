@@ -2069,7 +2069,12 @@ select {
     position: relative;
     overflow: hidden;
     color: var(--white);
-    background: linear-gradient(140deg, var(--red) 0%, var(--red-deep) 100%);
+    background-image:
+        linear-gradient(105deg, rgba(108, 13, 17, 0.88), rgba(139, 20, 23, 0.7)),
+        url("/images/Background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .cta-in {
@@ -2452,7 +2457,12 @@ select {
 .services-hero {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, var(--red-deep), var(--red));
+    background-image:
+        linear-gradient(90deg, rgba(20, 7, 8, 0.58), rgba(20, 7, 8, 0.18)),
+        url("/images/Background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--white);
 }
 
@@ -2575,7 +2585,12 @@ select {
 .about-hero {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, var(--red-deep), var(--red));
+    background-image:
+        linear-gradient(90deg, rgba(20, 7, 8, 0.58), rgba(20, 7, 8, 0.18)),
+        url("/images/Background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--white);
 }
 

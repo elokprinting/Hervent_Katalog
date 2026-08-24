@@ -25,7 +25,6 @@
 
     <main>
         <section class="services-hero on-red">
-            <svg class="pat pat-w" aria-hidden="true"><rect width="100%" height="100%" fill="url(#servicesPattern)"/></svg>
             <div class="wrap services-hero-inner">
                 <p class="eyebrow">Kenapa HERVENT?</p>
                 <h1 class="h1">10 alasan kenapa order di <span class="hl">HERVENT.</span></h1>

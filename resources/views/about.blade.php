@@ -25,7 +25,6 @@
 
     <main>
         <section class="about-hero on-red">
-            <svg class="pat pat-w" aria-hidden="true"><rect width="100%" height="100%" fill="url(#aboutPattern)"/></svg>
             <div class="wrap about-hero-inner">
                 <p class="eyebrow">Tentang HERVENT</p>
                 <h1 class="h1">Membantu brand Anda <span class="hl">lebih diingat.</span></h1>

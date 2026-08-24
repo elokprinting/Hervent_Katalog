@@ -345,7 +345,6 @@
 
 <!-- CTA -->
 <section class="cta s on-red" id="kontak">
-  <svg class="pat pat-w" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
   <div class="wrap cta-in">
     <div class="rv">
       <p class="eyebrow">{{ __('messages.welcome.cta_eyebrow') }}</p>
