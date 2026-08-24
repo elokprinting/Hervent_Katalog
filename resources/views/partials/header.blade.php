@@ -98,7 +98,7 @@
           </div>
         </div>
         <a href="{{ route('services') }}">{{ __('messages.header.services') }}</a>
-        <a href="{{ route('home') }}#portfolios">{{ __('messages.header.portfolios') }}</a>
+        <a href="{{ route('giftsets.index') }}">{{ __('messages.header.portfolios') }}</a>
         <a href="{{ route('about') }}">{{ __('messages.header.about') }}</a>
         <a href="{{ route('blog.index') }}">{{ __('messages.header.blog') }}</a>
         <div class="nav-item has-dropdown">
@@ -122,7 +122,7 @@
       <a href="{{ route('giftsets.index') }}">{{ __('messages.header.giftset_package') }}</a>
       <a href="{{ route('products.index') }}">{{ __('messages.header.products') }}</a>
       <a href="{{ route('services') }}">{{ __('messages.header.services') }}</a>
-      <a href="{{ route('home') }}#portfolios">{{ __('messages.header.portfolios') }}</a>
+      <a href="{{ route('giftsets.index') }}">{{ __('messages.header.portfolios') }}</a>
       <a href="{{ route('about') }}">{{ __('messages.header.about') }}</a>
       <a href="{{ route('blog.index') }}">{{ __('messages.header.blog') }}</a>
       <div class="drawer-lang" aria-label="Pilih bahasa">
