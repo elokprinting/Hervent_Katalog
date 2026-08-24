@@ -11,6 +11,7 @@ Route::get('/lang/{locale}', [LanguageController::class, 'switchLang'])->name('l
 Route::get('/', HomeController::class)->name('home');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
+Route::view('/gift-sets-packages', 'gift-sets-packages')->name('giftsets.index');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
@@ -31,4 +32,3 @@ Route::prefix('production')->middleware(\App\Http\Middleware\ProductionAccess::c
     Route::get('/blog-editor', [ProductionBlogController::class, 'index'])->name('production.blog.index');
     Route::post('/blog/store', [ProductionBlogController::class, 'store'])->name('production.blog.store');
 });
-
