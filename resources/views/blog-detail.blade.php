@@ -126,42 +126,6 @@
         </div>
       </div>
       @endif
-
-      <!-- COMMENT SECTION -->
-      <div class="rv" style="max-width: 900px; margin: 0 auto 4rem auto; background: #fff; padding: 2.5rem; border-radius: 8px; border: 1px solid #eaeaea;">
-        <h3 class="h3" style="margin-bottom: 0.5rem;">Leave a Reply</h3>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 2rem;">Your email address will not be published. Required fields are marked *</p>
-
-        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
-          @csrf
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div class="catalog-field">
-              <label for="authorName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Name <span>*</span></label>
-              <input id="authorName" name="name" type="text" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem;">
-            </div>
-            <div class="catalog-field">
-              <label for="authorEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Email <span>*</span></label>
-              <input id="authorEmail" name="email" type="email" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem;">
-            </div>
-          </div>
-
-          <!-- MOCK RECAPTCHA -->
-          <div style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 3px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <input type="checkbox" id="robotCheck" required style="width: 24px; height: 24px; cursor: pointer;">
-            <label for="robotCheck" style="font-size: 0.95rem; font-family: sans-serif; cursor: pointer; user-select: none;">I'm not a robot</label>
-            <div style="margin-left: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span style="font-size: 0.6rem; color: #888;">reCAPTCHA</span>
-            </div>
-          </div>
-
-          <div>
-            <button class="btn b-red" type="submit" style="padding: 0.8rem 2rem; border: none; cursor: pointer;">Post Comment</button>
-          </div>
-        </form>
-      </div>
-
     </div>
   </section>
 </main>
