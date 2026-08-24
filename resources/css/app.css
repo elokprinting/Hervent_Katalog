@@ -386,6 +386,13 @@ select {
     font-size: 0.82rem;
 }
 
+/* The WhatsApp path reaches the edge of its 24px viewBox. Scale it slightly
+   within the SVG so the speech-bubble tail remains fully visible. */
+.nav-cta .btn svg {
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
 .burger {
     margin-left: auto;
     background: none;
