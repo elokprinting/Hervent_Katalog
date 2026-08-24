@@ -30,7 +30,7 @@ return [
         'hero_mini_4_t' => 'PPN',
         'hero_mini_4_d' => 'Faktur pajak tersedia',
 
-        'client_title' => 'Dipercaya oleh 4.500+ Perusahaan Hebat',
+        'client_title' => 'Trusted By 4,500+ Great Companies',
         'count_1' => 'Klien korporasi dilayani',
         'count_2' => 'Pengalaman sejak 2009',
         'count_3' => 'Jangkauan pengiriman',
