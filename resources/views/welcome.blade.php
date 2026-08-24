@@ -63,11 +63,24 @@
   </div>
 </section>
 
+@php
+  $clientLogos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
+  sort($clientLogos, SORT_NATURAL | SORT_FLAG_CASE);
+  $logoRows = array_chunk($clientLogos, (int) ceil(count($clientLogos) / 2));
+@endphp
+
 <!-- LOGO WALL -->
 <section class="wall" aria-label="{{ __('messages.welcome.client_title') }}">
   <p>{{ __('messages.welcome.client_title') }}</p>
-  <div class="rail a" id="railA" aria-hidden="true"></div>
-  <div class="rail b" id="railB" aria-hidden="true"></div>
+  @foreach($logoRows as $rowIndex => $logos)
+    <div class="rail {{ $rowIndex === 0 ? 'a' : 'b' }}" aria-hidden="true">
+      @foreach(array_merge($logos, $logos) as $logo)
+        <span class="slot">
+          <img src="{{ asset('images/Logo Client Hervent/' . rawurlencode(basename($logo))) }}" alt="">
+        </span>
+      @endforeach
+    </div>
+  @endforeach
 </section>
 
 <!-- PROBLEM -->

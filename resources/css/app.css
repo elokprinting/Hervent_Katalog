@@ -1224,13 +1224,14 @@ select {
     border-radius: 10px;
     display: grid;
     place-items: center;
-    font-family: var(--f-head);
-    font-weight: 600;
-    font-size: 0.78rem;
-    color: var(--g1);
-    text-align: center;
-    padding: 0.4rem 0.6rem;
-    line-height: 1.25;
+    padding: 0.65rem 0.9rem;
+}
+
+.slot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* ---------- Counter ---------- */

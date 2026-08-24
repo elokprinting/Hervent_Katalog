@@ -94,17 +94,6 @@ document.addEventListener('keydown',function(e){
 });
 
 /* ---------- Logo wall ---------- */
-var railA = $('railA');
-var railB = $('railB');
-if(railA && railB) {
-    var sektor=['Perbankan','BUMN Energi','Rumah Sakit','Perguruan Tinggi','FMCG','Pemerintah Daerah',
-                'Asuransi','Manufaktur','Telekomunikasi','Startup Teknologi','Konstruksi','Logistik'];
-    function rail(el,arr){
-      el.innerHTML=arr.concat(arr).map(function(s){return '<span class="slot">'+s+'</span>';}).join('');
-    }
-    rail(railA,sektor.slice(0,6));
-    rail(railB,sektor.slice(6));
-}
 
 /* ---------- Kalkulator ---------- */
 var cQty = $('cQty');
