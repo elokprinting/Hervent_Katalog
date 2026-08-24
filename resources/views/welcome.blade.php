@@ -294,19 +294,43 @@
       <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.tst_eyebrow') }}</p>
       <h2 class="h2 rv">{{ __('messages.welcome.tst_title') }} <span class="hl">{{ __('messages.welcome.tst_title_hl') }}</span></h2>
     </div>
-    <div class="tst">
-      <blockquote class="t-card rv">
-        <p>{{ __('messages.welcome.t_1_q') }}</p>
-        <footer><span class="av">HR</span><div><b>HR Manager</b>{{ __('messages.welcome.t_1_p') }}</div></footer>
-      </blockquote>
-      <blockquote class="t-card rv">
-        <p>{{ __('messages.welcome.t_2_q') }}</p>
-        <footer><span class="av">GA</span><div><b>GA Supervisor</b>{{ __('messages.welcome.t_2_p') }}</div></footer>
-      </blockquote>
-      <blockquote class="t-card rv">
-        <p>{{ __('messages.welcome.t_3_q') }}</p>
-        <footer><span class="av">ML</span><div><b>Marketing Lead</b>{{ __('messages.welcome.t_3_p') }}</div></footer>
-      </blockquote>
+    @php
+      $testimonials = [
+        ['name' => 'Yusuf Elok', 'meta' => 'Local Guide · 51 ulasan · 46 foto', 'time' => '2 minggu lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjXEX-mzIJdqbbwcghbcBtDDHx_0ufpjI_9bgflFUP4EJ2scoYTa=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Baru Produsen Hardbox gift dan custome tumbler terlengkap di Bandung.'],
+        ['name' => 'Wisni Pratistari', 'meta' => '1 ulasan · 1 foto', 'time' => '8 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a/ACg8ocL_Zmq3zjKGSuaAeV6Cye55AWGaMS7o9EyCVxNhY37t6DWWlg=w72-h72-p-rp-mo-br100', 'text' => 'Alhamdulillah pesanan tumbler mini dengan nama-nama individual hasilnya bagus dan tepat waktu sesuai schedule, pelayanan baik, pengiriman paket juga lancar, semoga ke depannya Hervent tambah sukses.'],
+        ['name' => 'Admin Jaya Keramik', 'meta' => '2 ulasan', 'time' => '8 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a/ACg8ocKZ-hu47tsxk4nnL8XC4LKflsSGY0uqBnnedZnVtOKz-oEVpg=w72-h72-p-rp-mo-br100', 'text' => 'Mulai dari konsultasi, pemesanan hingga pengiriman dilayani dengan sangat baik. Produknya juga oke, terimakasih! Sukses selalu.'],
+        ['name' => 'Ari Dwiastutik', 'meta' => '5 ulasan · 3 foto', 'time' => '9 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a/ACg8ocLIB5hlOFF7iP4fP4zuewlHSZ1cMP98715hbYhCSOkpJ1oeDw=w72-h72-p-rp-mo-br100', 'text' => 'Selesai tepat waktu.'],
+        ['name' => 'Bang Zaka', 'meta' => 'Local Guide · 18 ulasan · 13 foto', 'time' => '9 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjWR8EVIrFzSlOPFS1DCPkV7gIv3J2FeeDppEF3jfSqJ2s4NLhAq=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Kedua kalinya order di sini, Alhamdulillah selalu dilayani dengan baik meskipun via online dan produknya pun juga kualitasnya sangat baik. Mulai dari pra order sampai produk selesai order selalu diinfokan update-nya kepada kita.'],
+        ['name' => 'Laurencia Ola', 'meta' => '5 ulasan · 2 foto', 'time' => '9 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjVtUBc-bVZDYYIlpBv1cWo8-IqXzW3eTddAgpfCAJq0Imvwm4zO=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Saya melakukan pemesanan online untuk cetak notebook. Pelayanan sangat baik, setiap tahap pengerjaan selalu dikonfirmasi hingga tahap pengiriman. Kualitas produk sangat baik dan pengerjaan cepat serta tepat waktu.'],
+        ['name' => 'Erie Bagus Pramudigdo', 'meta' => '2 ulasan · 4 foto', 'time' => '10 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjXvQy53K3KIE9dlyxCejaKYqrtEjpiHpFKBRfxPs3wAvGO1GqQJ=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Hasil grafir di tumbler sangat memuaskan dan pelayanan sangat ramah, harga murah dan cepat, terima kasih untuk kerjasamanya selama ini.'],
+        ['name' => 'abida ayla rizwna', 'meta' => '2 ulasan', 'time' => '11 bulan lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjUUgXDl5_syWA3wzTKb9XAt7QJSlxUpd5owOF_ZAGx1p44uwaVX=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Manajernya ramah, komunikasi lancar dan selalu menjawab pertanyaan customer. Hasilnya juga memuaskan dan sesuai dengan keinginan kami.'],
+        ['name' => 'Pengadaan RS Kemenkes Surabaya', 'meta' => '1 ulasan', 'time' => 'setahun lalu', 'avatar' => 'https://lh3.googleusercontent.com/a/ACg8ocJCs1DOIMoKBQ-V4MwEZ8mctsBlKgWPAaoKy4ybPrg8eo_nrw=w72-h72-p-rp-mo-br100', 'text' => 'Respons dan pelayanan yang sangat bagus. Ini pengalaman pertama bekerja sama dengan HERVENT tetapi sangat terkesan dengan pelayanan dan support yang sangat bagus.'],
+        ['name' => 'Ratu Adelin Loekman', 'meta' => '10 ulasan · 12 foto', 'time' => 'setahun lalu', 'avatar' => 'https://lh3.googleusercontent.com/a-/ALV-UjWSC0tJJaBIvOIUvVmJHre128SiKiYDto3C2_Vd4fupXtvm1p_0QQ=w72-h72-p-rp-mo-ba12-br100', 'text' => 'Saya pesan hampers Idul Fitri kantor, CS-nya fast response dan sangat sabar melayani saya memilih merchandise yang cocok. Produksinya cepat dan hasilnya memuaskan.'],
+      ];
+    @endphp
+    <div class="tst-layout">
+      <aside class="tst-summary rv">
+        <strong>EXCELLENT</strong>
+        <span class="tst-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+        <p>Based on <b>1.040 reviews</b></p>
+        <span class="tst-google" aria-label="Google"><b>G</b><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span>
+      </aside>
+      <div class="tst-viewport">
+        <div class="tst">
+          @foreach(array_merge($testimonials, $testimonials) as $testimonial)
+            <a class="t-card" href="https://maps.app.goo.gl/SKDFcYdVvcj5UHmD6" target="_blank" rel="noopener noreferrer">
+              <header class="t-card-head">
+                <img class="t-avatar" src="{{ $testimonial['avatar'] }}" alt="">
+                <span class="t-reviewer"><b>{{ $testimonial['name'] }}</b><small>{{ $testimonial['meta'] }}</small></span>
+                <span class="google-mark" aria-label="Google">G</span>
+              </header>
+              <div class="t-rating" aria-label="5 dari 5 bintang">★★★★★</div>
+              <small class="t-time">{{ $testimonial['time'] }}</small>
+              <p>{{ $testimonial['text'] }}</p>
+            </a>
+          @endforeach
+        </div>
+      </div>
     </div>
   </div>
 </section>
