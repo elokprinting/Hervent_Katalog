@@ -49,7 +49,7 @@
         <section class="about-promise s">
             <div class="wrap about-promise-grid">
                 <div class="about-promise-media rv">
-                    <img src="{{ asset('images/Super Graphic.png') }}" alt="Pattern identitas HERVENT">
+                    <img src="{{ asset('images/Teman Diskusi.png') }}" alt="Tim HERVENT menjadi teman diskusi untuk pilihan yang tepat">
                 </div>
                 <div class="about-copy rv">
                     <p class="eyebrow">Cara kami membantu</p>
