@@ -131,7 +131,7 @@
 
 <div class="login-card">
   <div class="login-logo">
-    <img src="{{ asset('images/Logo-Hervent.png') }}" alt="Hervent Logo" onerror="this.style.display='none'">
+    <img src="{{ asset('images/Logo Landscape.png') }}" alt="Hervent Logo" onerror="this.style.display='none'">
   </div>
   
   <div class="login-title">Area Produksi</div>
