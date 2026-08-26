@@ -16,9 +16,9 @@ return [
     ],
     'welcome' => [
         'hero_trust' => 'Dipercaya 4.500+ klien korporasi & instansi',
-        'hero_title_1' => 'Souvenir Kantor & Corporate Gift Custom',
+        'hero_title_1' => 'Corporate Gift Profesional',
         'hero_title_hl' => 'untuk Perusahaan Anda',
-        'hero_desc' => 'HERVENT membuat hadiah korporat yang mewakili nama baik perusahaan Anda — dari seminar kit sampai luxury hampers. Desain gratis, produksi terkontrol, kirim ke seluruh Indonesia.',
+        'hero_desc' => 'Partner terpercaya untuk kebutuhan corporate gift, merchandise, dan event perusahaan — mulai dari konsep, perencanaan budget, produksi hingga pengiriman dengan proses yang mudah, kualitas terkontrol, dan manajemen yang profesional.',
         'btn_consultation' => 'Konsultasi Gratis',
         'btn_catalog' => 'Download PDF Katalog',
         'hero_mini_1_t' => 'Sejak 2009',
