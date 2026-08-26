@@ -22,7 +22,7 @@ class ProductionBlogController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ]);
 
-        $data = $request->except('image');
+        $data = $request->only(['title', 'category']);
 
         // Handle slug uniqueness
         $slug = Str::slug($request->title);
@@ -32,11 +32,13 @@ class ProductionBlogController extends Controller
         }
         $data['slug'] = $slug;
         $data['published_at'] = now();
-        $data['excerpt'] = Str::limit(strip_tags($request->content), 150);
+        // Blog entries are rendered as text to prevent stored XSS through the editor.
+        $data['content'] = strip_tags($request->string('content')->toString());
+        $data['excerpt'] = Str::limit($data['content'], 150);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $filename = $file->hashName();
             $file->move(public_path('images/Blogs'), $filename);
             $data['image'] = 'images/Blogs/' . $filename;
         }

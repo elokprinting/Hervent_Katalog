@@ -60,7 +60,7 @@
 
       <!-- ARTIKEL KONTEN -->
       <div class="rv" style="font-size: 1.1rem; line-height: 1.8; color: #444; max-width: 900px; margin: 0 auto;">
-        {!! $blog->content !!}
+        {!! nl2br(e(strip_tags($blog->content))) !!}
       </div>
 
       <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">

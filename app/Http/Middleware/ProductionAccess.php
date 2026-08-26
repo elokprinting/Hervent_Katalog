@@ -14,7 +14,7 @@ class ProductionAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!session('production_authenticated')) {
+        if (session('production_authenticated') !== true) {
             return redirect()->route('production.login');
         }
 

@@ -149,7 +149,7 @@
     @csrf
     <div class="form-group">
       <label for="password">Password Akses</label>
-      <input type="password" id="password" name="password" placeholder="Masukkan password..." autofocus>
+      <input type="password" id="password" name="password" placeholder="Masukkan password..." autocomplete="current-password" required autofocus>
     </div>
     <button type="submit" class="btn-login">Masuk ke Dashboard</button>
   </form>

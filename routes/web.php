@@ -24,7 +24,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Production Login (tidak perlu middleware)
 Route::get('/production/login', [ProductionAuthController::class, 'showLogin'])->name('production.login');
-Route::post('/production/login', [ProductionAuthController::class, 'login'])->name('production.login.submit');
+Route::post('/production/login', [ProductionAuthController::class, 'login'])->middleware('throttle:5,5')->name('production.login.submit');
 Route::post('/production/logout', [ProductionAuthController::class, 'logout'])->name('production.logout');
 
 // Production Area (dilindungi middleware password)
