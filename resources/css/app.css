@@ -3192,6 +3192,19 @@ select {
     font-size: 0.72rem;
 }
 
+.market-type {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.market-type-package { background: #fff2d8; color: #8a5a00; }
+.market-type-single { background: #eaf5ed; color: #24713d; }
+
 .market-body h2 {
     margin: 0.35rem 0 0.45rem;
     font-family: var(--f-head);

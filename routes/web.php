@@ -32,4 +32,6 @@ Route::prefix('production')->middleware(\App\Http\Middleware\ProductionAccess::c
     Route::get('/blog-editor', [ProductionBlogController::class, 'index'])->name('production.blog.index');
     Route::post('/blog/store', [ProductionBlogController::class, 'store'])->name('production.blog.store');
     Route::post('/product/store', [ProductionBlogController::class, 'storeProduct'])->name('production.product.store');
+    Route::put('/product/{product}', [ProductionBlogController::class, 'updateProduct'])->name('production.product.update');
+    Route::delete('/product/{product}', [ProductionBlogController::class, 'destroyProduct'])->name('production.product.destroy');
 });

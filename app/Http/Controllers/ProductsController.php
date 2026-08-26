@@ -11,11 +11,18 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $category = $request->string('category')->trim()->toString();
+        $catalogCategory = $request->string('catalog')->trim()->toString();
+        if (! array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES)) {
+            $catalogCategory = '';
+        }
+        $type = $request->string('type')->trim()->toString();
         $search = $request->string('q')->trim()->toString();
         $sort = $request->string('sort')->toString();
         $products = Product::query()
-            ->select(['id', 'name', 'slug', 'category', 'description', 'price_min', 'price_max', 'minimum_order', 'image_url', 'is_featured'])
+            ->select(['id', 'name', 'slug', 'category', 'product_type', 'description', 'price_min', 'price_max', 'minimum_order', 'image_url', 'is_featured'])
             ->when($category, fn($query) => $query->where('category', $category))
+            ->when(array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES), fn($query) => $query->where('catalog_category', $catalogCategory))
+            ->when(in_array($type, ['package', 'single'], true), fn($query) => $query->where('product_type', $type))
             ->when($search, fn($query) => $query->where(function ($query) use ($search) {
                 $query->where('name', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
@@ -26,7 +33,7 @@ class ProductsController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        $categories = Cache::remember('products.categories.v2', now()->addHour(), fn() => Product::query()
+        $categories = Cache::remember('products.categories.v3', now()->addHour(), fn() => Product::query()
             ->select('category')
             ->distinct()
             ->orderBy('category')
@@ -37,6 +44,9 @@ class ProductsController extends Controller
             'products' => $products,
             'categories' => $categories,
             'activeCategory' => $category,
+            'activeCatalogCategory' => $catalogCategory,
+            'catalogCategories' => Product::OCCASION_CATEGORIES,
+            'activeType' => $type,
             'search' => $search,
             'sort' => $sort,
         ]);

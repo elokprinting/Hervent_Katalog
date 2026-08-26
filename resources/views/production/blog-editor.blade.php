@@ -177,6 +177,34 @@
     font-weight: 600;
     cursor: pointer;
   }
+  .btn-edit-product,
+  .btn-delete-product {
+    border: 0;
+    border-radius: 7px;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-edit-product {
+    background: #edf4ff;
+    color: #235e8d;
+    margin-right: 0.35rem;
+  }
+  .btn-delete-product {
+    background: #fff0f0;
+    color: #a2171b;
+  }
+  .product-type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .product-type-package { background: #fff2d8; color: #8a5a00; }
+  .product-type-single { background: #eaf5ed; color: #24713d; }
   .section-heading {
     display: flex;
     justify-content: space-between;
@@ -195,6 +223,9 @@
     margin-top: 0.45rem;
     color: #888;
     font-size: 0.8rem;
+  }
+  .product-pagination {
+    margin-top: 1.25rem;
   }
   @media (max-width: 760px) {
     .editor-header {
@@ -309,7 +340,7 @@
 
       <div class="section-heading">
         <h2 class="h3" style="margin: 0;">Katalog Produk</h2>
-        <span style="color: #888; font-size: 0.9rem;">{{ $products->count() }} produk</span>
+        <span style="color: #888; font-size: 0.9rem;">{{ $products->total() }} produk</span>
       </div>
 
       <table class="blog-table">
@@ -317,9 +348,12 @@
           <tr>
             <th style="width: 60px;">Image</th>
             <th>Nama</th>
-            <th>Kategori</th>
+            <th>Jenis Produk</th>
+            <th>Katalog</th>
+            <th>Satuan / Paketan</th>
             <th>Stok</th>
             <th>Deskripsi</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -330,14 +364,35 @@
               </td>
               <td><strong>{{ $product->name }}</strong></td>
               <td>{{ $product->category_label }}</td>
+              <td>{{ $product->catalog_category_label }}</td>
+              <td><span class="product-type-badge product-type-{{ $product->product_type }}">{{ $product->product_type_label }}</span></td>
               <td>{{ number_format($product->stock) }}</td>
               <td style="max-width: 420px; color: #666;">{{ \Illuminate\Support\Str::limit($product->description, 100) }}</td>
+              <td style="white-space: nowrap;">
+                <button type="button" class="btn-edit-product" data-edit-product
+                  data-action="{{ route('production.product.update', $product, absolute: false) }}"
+                  data-name="{{ $product->name }}" data-category="{{ $product->category }}"
+                  data-catalog-category="{{ $product->catalog_category }}"
+                  data-product-type="{{ $product->product_type }}"
+                  data-stock="{{ $product->stock }}" data-description="{{ $product->description }}">Edit</button>
+                <form action="{{ route('production.product.destroy', $product, absolute: false) }}" method="POST" style="display: inline;" onsubmit="return confirm('Hapus produk ini? Tindakan ini tidak dapat dibatalkan.');">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn-delete-product">Hapus</button>
+                </form>
+              </td>
             </tr>
           @empty
-            <tr><td colspan="5" style="padding: 2rem; text-align: center; color: #aaa;">Belum ada produk.</td></tr>
+            <tr><td colspan="8" style="padding: 2rem; text-align: center; color: #aaa;">Belum ada produk.</td></tr>
           @endforelse
         </tbody>
       </table>
+
+      @if($products->hasPages())
+        <nav class="product-pagination" aria-label="Navigasi katalog produk">
+          {{ $products->links() }}
+        </nav>
+      @endif
 
     </div>
   </section>
@@ -385,6 +440,72 @@
   </div>
 </div>
 
+<!-- Modal Edit Product -->
+<div id="editProductModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" type="button" onclick="document.getElementById('editProductModal').style.display='none'">&times;</button>
+    <h2 class="h3" style="margin-bottom: 1.5rem;">Edit Produk</h2>
+
+    <form id="editProductForm" method="POST" enctype="multipart/form-data">
+      @csrf
+      @method('PUT')
+
+      <div class="form-group">
+        <label for="edit-product-name">Nama <span style="color: #b81a1f;">*</span></label>
+        <input id="edit-product-name" type="text" name="name" required maxlength="255">
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
+        <select id="edit-product-category" name="category" required>
+          @foreach($categories as $category)
+            <option value="{{ $category }}">{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-catalog">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
+        <select id="edit-product-catalog" name="catalog_category" required>
+          @foreach($catalogCategories as $value => $label)
+            <option value="{{ $value }}">{{ $label }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-type">Satuan / Paketan <span style="color: #b81a1f;">*</span></label>
+        <select id="edit-product-type" name="product_type" required>
+          @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+            <option value="{{ $value }}">{{ $label }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-stock">Jumlah (stok) <span style="color: #b81a1f;">*</span></label>
+        <input id="edit-product-stock" type="number" name="stock" required min="0" max="4294967295" step="1">
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-description">Deskripsi <span style="color: #b81a1f;">*</span></label>
+        <textarea id="edit-product-description" name="description" rows="6" required maxlength="65535"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-product-image">Ganti Gambar</label>
+        <input id="edit-product-image" type="file" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+        <small class="upload-help">Kosongkan jika gambar tidak ingin diganti. Maksimal 5 MB dan 3000 x 3000 piksel.</small>
+      </div>
+
+      <div style="text-align: right; margin-top: 1.5rem;">
+        <button type="button" onclick="document.getElementById('editProductModal').style.display='none'" style="background: #f0f0f0; color: #333; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-right: 0.75rem; font-size: 0.95rem;">Batal</button>
+        <button type="submit" style="background: #b81a1f; color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Simpan Perubahan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <!-- Modal Add Product -->
 <div id="productModal" class="modal-overlay">
   <div class="modal-box">
@@ -400,11 +521,30 @@
       </div>
 
       <div class="form-group">
-        <label for="product-category">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
+        <label for="product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
         <select id="product-category" name="category" required>
-          <option value="">Pilih katalog / kategori</option>
+          <option value="">Pilih jenis produk</option>
           @foreach($categories as $category)
-            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ \Illuminate\Support\Str::headline($category) }}</option>
+            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="product-catalog">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
+        <select id="product-catalog" name="catalog_category" required>
+          <option value="">Pilih momen katalog</option>
+          @foreach($catalogCategories as $value => $label)
+            <option value="{{ $value }}" {{ old('catalog_category') === $value ? 'selected' : '' }}>{{ $label }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="product-type">Satuan / Paketan <span style="color: #b81a1f;">*</span></label>
+        <select id="product-type" name="product_type" required>
+          @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+            <option value="{{ $value }}" {{ old('product_type', 'single') === $value ? 'selected' : '' }}>{{ $label }}</option>
           @endforeach
         </select>
       </div>
@@ -434,6 +574,23 @@
 </div>
 
 @include('partials.footer')
+
+<script>
+  document.querySelectorAll('[data-edit-product]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const form = document.getElementById('editProductForm');
+      form.action = button.dataset.action;
+      document.getElementById('edit-product-name').value = button.dataset.name;
+      document.getElementById('edit-product-category').value = button.dataset.category;
+      document.getElementById('edit-product-catalog').value = button.dataset.catalogCategory;
+      document.getElementById('edit-product-type').value = button.dataset.productType;
+      document.getElementById('edit-product-stock').value = button.dataset.stock;
+      document.getElementById('edit-product-description').value = button.dataset.description;
+      document.getElementById('edit-product-image').value = '';
+      document.getElementById('editProductModal').style.display = 'flex';
+    });
+  });
+</script>
 
 </body>
 </html>

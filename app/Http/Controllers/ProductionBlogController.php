@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ProductionBlogController extends Controller
@@ -12,14 +13,20 @@ class ProductionBlogController extends Controller
     public function index()
     {
         $blogs = \App\Models\Blog::orderBy('created_at', 'desc')->get();
-        $products = Product::orderBy('created_at', 'desc')->get();
-        $categories = Product::query()
+        $products = Product::orderBy('created_at', 'desc')
+            ->paginate(10, ['*'], 'product_page')
+            ->withQueryString();
+        $categories = collect(array_keys(Product::PRODUCT_CATEGORIES))
+            ->merge(Product::query()
             ->select('category')
             ->distinct()
             ->orderBy('category')
-            ->pluck('category');
+            ->pluck('category'))
+            ->unique()
+            ->values();
+        $catalogCategories = Product::OCCASION_CATEGORIES;
 
-        return view('production.blog-editor', compact('blogs', 'products', 'categories'));
+        return view('production.blog-editor', compact('blogs', 'products', 'categories', 'catalogCategories'));
     }
 
     public function store(Request $request)
@@ -60,7 +67,9 @@ class ProductionBlogController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'category' => 'required|string|max:100|exists:products,category',
+            'category' => 'required|string|max:100',
+            'catalog_category' => 'required|in:'.implode(',', array_keys(Product::OCCASION_CATEGORIES)),
+            'product_type' => 'required|in:package,single',
             'stock' => 'required|integer|min:0|max:4294967295',
             'description' => 'required|string|max:65535',
             'image' => 'nullable|file|image|mimes:jpg,jpeg,png,webp|max:5120|dimensions:max_width=3000,max_height=3000',
@@ -90,8 +99,76 @@ class ProductionBlogController extends Controller
 
         Product::create($productData);
 
-        Cache::forget('products.categories.v2');
+        Cache::forget('products.categories.v3');
 
         return redirect()->back()->with('success', 'Produk berhasil ditambahkan.');
+    }
+
+    public function updateProduct(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:100'],
+            'catalog_category' => ['required', 'in:'.implode(',', array_keys(Product::OCCASION_CATEGORIES))],
+            'product_type' => ['required', 'in:package,single'],
+            'stock' => ['required', 'integer', 'min:0', 'max:4294967295'],
+            'description' => ['required', 'string', 'max:65535'],
+            'image' => ['nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120', 'dimensions:max_width=3000,max_height=3000'],
+        ]);
+
+        $slug = Str::slug($validated['name']) ?: 'product';
+        $baseSlug = $slug;
+        $suffix = 1;
+        while (Product::where('slug', $slug)->where('id', '!=', $product->getKey())->exists()) {
+            $slug = $baseSlug.'-'. $suffix++;
+        }
+
+        $productData = [
+            'name' => $validated['name'],
+            'slug' => $slug,
+            'category' => $validated['category'],
+            'catalog_category' => $validated['catalog_category'],
+            'product_type' => $validated['product_type'],
+            'stock' => $validated['stock'],
+            'description' => $validated['description'],
+        ];
+
+        if ($request->hasFile('image')) {
+            $oldImage = $product->image_url;
+            $filename = $request->file('image')->hashName();
+            $request->file('image')->move(public_path('images/products'), $filename);
+            $productData['image_url'] = 'images/products/'.$filename;
+
+            $this->deleteManagedProductImage($oldImage);
+        }
+
+        $product->update($productData);
+        Cache::forget('products.categories.v3');
+
+        return redirect()->back()->with('success', 'Produk berhasil diperbarui.');
+    }
+
+    public function destroyProduct(Product $product)
+    {
+        $this->deleteManagedProductImage($product->image_url);
+
+        $product->delete();
+        Cache::forget('products.categories.v3');
+
+        return redirect()->back()->with('success', 'Produk berhasil dihapus.');
+    }
+
+    private function deleteManagedProductImage(?string $path): void
+    {
+        if (! is_string($path) || ! Str::startsWith($path, 'images/products/')) {
+            return;
+        }
+
+        $filename = Str::after($path, 'images/products/');
+        if ($filename === '' || basename($filename) !== $filename) {
+            return;
+        }
+
+        File::delete(public_path('images/products/'.$filename));
     }
 }

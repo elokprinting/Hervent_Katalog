@@ -11,6 +11,7 @@
     @include('partials.header')
 
     <main>
+        @php($activeCategoryLabel = \App\Models\Product::PRODUCT_CATEGORIES[$activeCategory] ?? \Illuminate\Support\Str::headline($activeCategory))
         <section class="catalog-shop">
             <div class="catalog-container">
                 <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
@@ -18,25 +19,32 @@
                     <span aria-hidden="true">›</span>
                     <a href="{{ route('products.index') }}">{{ __('messages.catalog.shop') }}</a>
                     <span aria-hidden="true">›</span>
-                    <strong>{{ $activeCategory ? \Illuminate\Support\Str::headline($activeCategory) : __('messages.catalog.all_products') }}</strong>
+                    <strong>{{ $activeCatalogCategory ? $catalogCategories[$activeCatalogCategory] : ($activeCategory ? $activeCategoryLabel : __('messages.catalog.all_products')) }}</strong>
                 </nav>
 
                 <header class="catalog-heading">
                     <p class="catalog-kicker">{{ __('messages.catalog.kicker') }}</p>
-                    <h1>{{ $activeCategory ? \Illuminate\Support\Str::headline($activeCategory) : __('messages.catalog.title') }}</h1>
+                    <h1>{{ $activeCatalogCategory ? $catalogCategories[$activeCatalogCategory] : ($activeCategory ? $activeCategoryLabel : __('messages.catalog.title')) }}</h1>
                     <p>{{ $search ? __('messages.catalog.available_search', ['total' => $products->total(), 'search' => $search]) : __('messages.catalog.available', ['total' => $products->total()]) }}</p>
                 </header>
 
                 <div class="shop-layout">
                     <aside class="catalog-sidebar">
                         <div class="sidebar-heading"><strong>{{ __('messages.catalog.filter_category') }}</strong><span aria-hidden="true">⌄</span></div>
-                        <a class="sidebar-category {{ !$activeCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort])) }}">
+                        <a class="sidebar-category {{ !$activeCategory && !$activeCatalogCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
                             <i class="category-icon" data-lucide="layout-grid" aria-hidden="true"></i><span>{{ __('messages.catalog.all_products') }}</span><small>{{ $products->total() }}</small>
                         </a>
+                        <div class="sidebar-heading"><strong>Katalog Momen</strong></div>
+                        @foreach($catalogCategories as $catalogKey => $catalogLabel)
+                            <a class="sidebar-category {{ $activeCatalogCategory === $catalogKey ? 'active' : '' }}" href="{{ route('products.index', array_filter(['catalog' => $catalogKey, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                                <i class="category-icon" data-lucide="package" aria-hidden="true"></i><span>{{ $catalogLabel }}</span>
+                            </a>
+                        @endforeach
+                        <div class="sidebar-heading"><strong>Jenis Produk</strong></div>
                         @foreach($categories as $category)
                             @php($categoryIcon = ['gift-set-hampers' => 'gift', 'desk-set' => 'briefcase', 'fashion' => 'shirt', 'hampers' => 'basket', 'premium' => 'crown', 'starter-kit' => 'package', 'tumbler' => 'cup-soda', 'bottle' => 'bottle', 'card-holder' => 'credit-card', 'table-clock' => 'alarm-clock', 'clock' => 'clock', 'seminar-kit' => 'briefcase', 'calender' => 'calendar', 'thermos' => 'thermometer', 'tas' => 'shopping-bag', 'mug' => 'coffee', 'umbrella' => 'umbrella', 'eco-friendly' => 'leaf', 'headset' => 'headphones', 'flashdrive' => 'device-usb'] [$category] ?? 'package')
-                            <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort])) }}">
-                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \Illuminate\Support\Str::headline($category) }}</span>
+                            <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</span>
                             </a>
                         @endforeach
                     </aside>
@@ -46,13 +54,20 @@
                             <form class="catalog-search" method="GET" action="{{ route('products.index') }}">
                                 <input type="search" name="q" value="{{ $search }}" placeholder="{{ __('messages.catalog.search_placeholder') }}" aria-label="Cari produk">
                                 @if($activeCategory)<input type="hidden" name="category" value="{{ $activeCategory }}">@endif
+                                @if($activeCatalogCategory)<input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}">@endif
+                                @if($activeType)<input type="hidden" name="type" value="{{ $activeType }}">@endif
                                 @if($sort)<input type="hidden" name="sort" value="{{ $sort }}">@endif
                                 <button type="submit" aria-label="Cari">⌕</button>
                             </form>
                             <span class="result-count">{{ __('messages.catalog.items_found', ['total' => $products->total()]) }}</span>
                             <form class="catalog-sort" method="GET" action="{{ route('products.index') }}">
-                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}">
+                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}"><input type="hidden" name="type" value="{{ $activeType }}">
                                 <label class="sr-only" for="catalogSort">{{ __('messages.catalog.sort_products') }}</label>
+                                <select id="catalogType" name="type" onchange="this.form.submit()">
+                                    <option value="" {{ !$activeType ? 'selected' : '' }}>Semua jenis</option>
+                                    <option value="package" {{ $activeType === 'package' ? 'selected' : '' }}>Paketan</option>
+                                    <option value="single" {{ $activeType === 'single' ? 'selected' : '' }}>Barang satuan</option>
+                                </select>
                                 <select id="catalogSort" name="sort" onchange="this.form.submit()">
                                     <option value="" {{ !$sort ? 'selected' : '' }}>{{ __('messages.catalog.sort_latest') }}</option>
                                     <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_low') }}</option>
@@ -71,6 +86,7 @@
                                         </div>
                                         <div class="market-body" style="padding-top: 1rem;">
                                             <span class="market-category" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ $product->category_label }}</span>
+                                            <span class="market-type market-type-{{ $product->product_type }}">{{ $product->product_type_label }}</span>
                                             <h2 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ $product->name }}</h2>
                                         </div>
                                     </a>
