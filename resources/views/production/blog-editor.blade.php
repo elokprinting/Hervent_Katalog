@@ -27,14 +27,14 @@
     background: #d4edda;
     color: #155724;
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-bottom: 1rem;
   }
   .alert-error {
     background: #f8d7da;
     color: #721c24;
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-bottom: 1rem;
   }
   .blog-table {
@@ -42,7 +42,7 @@
     border-collapse: collapse;
     text-align: left;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
@@ -118,7 +118,7 @@
     width: 100%;
     max-width: 640px;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 16px;
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
@@ -148,15 +148,63 @@
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 10px;
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s;
   }
   .form-group input:focus,
-  .form-group textarea:focus {
+  .form-group textarea:focus,
+  .form-group select:focus {
     outline: none;
     border-color: #b81a1f;
+  }
+  .btn-add-product {
+    background: #b81a1f;
+    color: #fff;
+    border: 0;
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem 0 1rem;
+  }
+  .product-thumb {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f1f1f1;
+  }
+  .upload-help {
+    display: block;
+    margin-top: 0.45rem;
+    color: #888;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 760px) {
+    .editor-header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .editor-header > div:last-child {
+      flex-wrap: wrap;
+      gap: 0.75rem !important;
+    }
+    .blog-table {
+      display: block;
+      overflow-x: auto;
+    }
+    .modal-box {
+      width: calc(100% - 2rem);
+      padding: 1.5rem;
+    }
   }
 </style>
 </head>
@@ -184,6 +232,7 @@
               Logout
             </button>
           </form>
+          <button class="btn-add-product" type="button" onclick="document.getElementById('productModal').style.display='flex'">+ Produk</button>
         </div>
       </div>
 
@@ -248,6 +297,38 @@
         </tbody>
       </table>
 
+      <div class="section-heading">
+        <h2 class="h3" style="margin: 0;">Katalog Produk</h2>
+        <span style="color: #888; font-size: 0.9rem;">{{ $products->count() }} produk</span>
+      </div>
+
+      <table class="blog-table">
+        <thead>
+          <tr>
+            <th style="width: 60px;">Image</th>
+            <th>Nama</th>
+            <th>Kategori</th>
+            <th>Stok</th>
+            <th>Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          @forelse($products as $product)
+            <tr>
+              <td>
+                <img class="product-thumb" src="{{ str_starts_with($product->image_url, 'http') ? $product->image_url : asset($product->image_url) }}" alt="{{ $product->name }}" loading="lazy">
+              </td>
+              <td><strong>{{ $product->name }}</strong></td>
+              <td>{{ $product->category_label }}</td>
+              <td>{{ number_format($product->stock) }}</td>
+              <td style="max-width: 420px; color: #666;">{{ \Illuminate\Support\Str::limit($product->description, 100) }}</td>
+            </tr>
+          @empty
+            <tr><td colspan="5" style="padding: 2rem; text-align: center; color: #aaa;">Belum ada produk.</td></tr>
+          @endforelse
+        </tbody>
+      </table>
+
     </div>
   </section>
 </main>
@@ -292,6 +373,54 @@
       <div style="text-align: right; margin-top: 1.5rem;">
         <button type="button" onclick="document.getElementById('blogModal').style.display='none'" style="background: #f0f0f0; color: #333; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-right: 0.75rem; font-size: 0.95rem;">Batal</button>
         <button type="submit" style="background: #b81a1f; color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Publish Blog</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Add Product -->
+<div id="productModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" type="button" onclick="document.getElementById('productModal').style.display='none'">&times;</button>
+    <h2 class="h3" style="margin-bottom: 1.5rem;">Tambah Produk Baru</h2>
+
+    <form action="{{ route('production.product.store', absolute: false) }}" method="POST" enctype="multipart/form-data">
+      @csrf
+
+      <div class="form-group">
+        <label for="product-name">Nama <span style="color: #b81a1f;">*</span></label>
+        <input id="product-name" type="text" name="name" value="{{ old('name') }}" required maxlength="255" placeholder="Masukkan nama produk...">
+      </div>
+
+      <div class="form-group">
+        <label for="product-category">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
+        <select id="product-category" name="category" required>
+          <option value="">Pilih katalog / kategori</option>
+          @foreach($categories as $category)
+            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ \Illuminate\Support\Str::headline($category) }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="product-stock">Jumlah (stok) <span style="color: #b81a1f;">*</span></label>
+        <input id="product-stock" type="number" name="stock" value="{{ old('stock', 0) }}" required min="0" max="4294967295" step="1">
+      </div>
+
+      <div class="form-group">
+        <label for="product-description">Deskripsi <span style="color: #b81a1f;">*</span></label>
+        <textarea id="product-description" name="description" rows="6" required maxlength="65535" placeholder="Tulis deskripsi produk...">{{ old('description') }}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="product-image">Gambar Produk</label>
+        <input id="product-image" type="file" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+        <small class="upload-help">JPG, PNG, atau WebP. Maksimal 5 MB dan 3000 x 3000 piksel.</small>
+      </div>
+
+      <div style="text-align: right; margin-top: 1.5rem;">
+        <button type="button" onclick="document.getElementById('productModal').style.display='none'" style="background: #f0f0f0; color: #333; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-right: 0.75rem; font-size: 0.95rem;">Batal</button>
+        <button type="submit" style="background: #b81a1f; color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Simpan Produk</button>
       </div>
     </form>
   </div>

@@ -15,6 +15,7 @@ class Product extends Model
         'slug',
         'category',
         'description',
+        'stock',
         'price_min',
         'price_max',
         'minimum_order',
