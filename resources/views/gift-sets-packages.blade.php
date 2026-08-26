@@ -41,10 +41,12 @@
 
   <main>
     <section class="giftsets-hero on-dark">
-      <div class="wrap giftsets-hero-in">
-        <p class="eyebrow">{{ __('messages.giftsets.eyebrow') }}</p>
-        <h1 class="h1">{!! __('messages.giftsets.title') !!}</h1>
-        <p class="lede">{{ __('messages.giftsets.intro') }}</p>
+      <div class="wrap">
+        <div class="giftsets-hero-in">
+          <p class="eyebrow">{{ __('messages.giftsets.eyebrow') }}</p>
+          <h1 class="h1">{!! __('messages.giftsets.title') !!}</h1>
+          <p class="lede">{{ __('messages.giftsets.intro') }}</p>
+        </div>
       </div>
     </section>
 

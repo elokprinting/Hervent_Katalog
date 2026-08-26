@@ -161,12 +161,25 @@ select {
 
 /* ---------- Gift sets & packages ---------- */
 .giftsets-hero {
-    background: var(--black);
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(360px, 38vw, 560px);
+    display: flex;
+    align-items: center;
+    background-image:
+        linear-gradient(105deg,
+            rgba(28, 10, 12, 0.82) 0%,
+            rgba(88, 12, 16, 0.58) 48%,
+            rgba(184, 26, 31, 0.18) 100%),
+        url('/images/Sethadiah.png');
+    background-position: center;
+    background-size: cover;
     color: var(--white);
     padding: clamp(4.75rem, 10vw, 8.5rem) 0 clamp(3.5rem, 7vw, 5.75rem);
 }
 
-.giftsets-hero-in { max-width: 820px; }
+.giftsets-hero-in { position: relative; z-index: 1; max-width: 820px; }
+.giftsets-hero > .wrap { width: 100%; }
 .giftsets-hero .lede { margin-top: 1.25rem; }
 
 .giftsets-list {
@@ -221,6 +234,11 @@ select {
 .giftsets-cta .h2 { margin-bottom: 1.4rem; }
 
 @media (max-width: 720px) {
+    .giftsets-hero {
+        min-height: 420px;
+        background-position: 58% center;
+        background-image: linear-gradient(90deg, rgba(12, 5, 4, .70), rgba(12, 5, 4, .35)), url('/images/Sethadiah.png');
+    }
     .giftset-row { grid-template-columns: 1fr; gap: 1.5rem; }
     .giftset-card { min-height: 190px; }
 }
