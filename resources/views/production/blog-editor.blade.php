@@ -168,6 +168,15 @@
     font-weight: 600;
     cursor: pointer;
   }
+  .btn-add-blog {
+    background: transparent;
+    color: #b81a1f;
+    border: 1.5px solid #b81a1f;
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
   .section-heading {
     display: flex;
     justify-content: space-between;
@@ -232,6 +241,7 @@
               Logout
             </button>
           </form>
+          <button class="btn-add-blog" type="button" onclick="document.getElementById('blogModal').style.display='flex'">+ Blog</button>
           <button class="btn-add-product" type="button" onclick="document.getElementById('productModal').style.display='flex'">+ Produk</button>
         </div>
       </div>
@@ -332,9 +342,6 @@
     </div>
   </section>
 </main>
-
-<!-- FAB Button -->
-<button class="fab" onclick="document.getElementById('blogModal').style.display='flex'" title="Tambah Blog Baru">+</button>
 
 <!-- Modal Add Blog -->
 <div id="blogModal" class="modal-overlay">
