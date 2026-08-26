@@ -17,8 +17,10 @@
         ['name' => 'First Day Set', 'image' => 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=85'],
       ],
       'seminar' => [
-        ['name' => 'Seminar Essentials', 'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Training Kit', 'image' => 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Seminar', 'image' => asset('images/products/Seminar & Training/Seminar.png')],
+        ['name' => 'Seminar Produk', 'image' => asset('images/products/Seminar & Training/Produk Seminar.png')],
+        ['name' => 'Training', 'image' => asset('images/products/Seminar & Training/training rame.png')],
+        ['name' => 'Training Produk', 'image' => asset('images/products/Seminar & Training/produk training.png')],
       ],
       'gathering' => [
         ['name' => 'Gathering Vibes', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
