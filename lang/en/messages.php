@@ -220,9 +220,9 @@ return [
         'categories' => [
             'gathering' => ['title' => 'Gathering & Anniversary', 'description' => 'Memorable appreciation gifts to celebrate togetherness, achievements, and your company journey.'],
             'seminar' => ['title' => 'Seminar & Training', 'description' => 'Professional essentials that keep attendees prepared and extend the experience of your event.'],
-            'holidays' => ['title' => 'Holidays & Hampers', 'description' => 'Warm, premium hampers that strengthen relationships with teams, clients, and business partners.'],
-            'onboarding' => ['title' => 'Employee Onboarding', 'description' => 'A thoughtful first welcome that introduces your company culture from day one.'],
-            'vip' => ['title' => 'Client Appreciation & VIP', 'description' => 'Exclusive selections to show appreciation for valued clients and distinguished guests.'],
+            'holidays' => ['title' => 'Holiday & Hampers', 'description' => 'Warm, premium hampers that strengthen relationships with teams, clients, and business partners.'],
+            'onboarding' => ['title' => 'Corporate Gift', 'description' => 'Professional corporate gifts that strengthen relationships with clients, teams, and business partners.'],
+            'vip' => ['title' => 'Client Appreciation', 'description' => 'Exclusive selections to show appreciation for valued clients and distinguished guests.'],
             'events' => ['title' => 'Events & Exhibition', 'description' => 'Practical, memorable merchandise that strengthens your brand presence at every event.'],
         ],
     ],

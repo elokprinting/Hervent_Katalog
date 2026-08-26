@@ -12,23 +12,19 @@
 
   @php
     $categories = [
-      'gathering' => [
-        ['name' => 'Gathering Vibes', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
-        ['name' => 'Gathering Products', 'image' => asset('images/products/Gathering & Anniversary/Kumpulan Produk.png')],
-        ['name' => 'Anniversary Vibes', 'image' => asset('images/products/Gathering & Anniversary/rame rame.png')],
-        ['name' => 'Anniversary Products', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
+      'onboarding' => [
+        ['name' => 'Welcome Kit', 'image' => 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'First Day Set', 'image' => 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=85'],
       ],
       'seminar' => [
         ['name' => 'Seminar Essentials', 'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85'],
         ['name' => 'Training Kit', 'image' => 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=85'],
       ],
-      'holidays' => [
-        ['name' => 'Seasonal Hamper', 'image' => 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Festive Gift Box', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
-      ],
-      'onboarding' => [
-        ['name' => 'Welcome Kit', 'image' => 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'First Day Set', 'image' => 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=85'],
+      'gathering' => [
+        ['name' => 'Gathering Vibes', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
+        ['name' => 'Gathering Products', 'image' => asset('images/products/Gathering & Anniversary/Kumpulan Produk.png')],
+        ['name' => 'Anniversary Vibes', 'image' => asset('images/products/Gathering & Anniversary/rame rame.png')],
+        ['name' => 'Anniversary Products', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
       ],
       'vip' => [
         ['name' => 'Executive Gift Set', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
@@ -37,6 +33,10 @@
       'events' => [
         ['name' => 'Exhibition Pack', 'image' => 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=700&q=85'],
         ['name' => 'Event Merchandise Set', 'image' => 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85'],
+      ],
+      'holidays' => [
+        ['name' => 'Seasonal Hamper', 'image' => 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Festive Gift Box', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
       ],
     ];
   @endphp

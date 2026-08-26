@@ -220,9 +220,9 @@ return [
         'categories' => [
             'gathering' => ['title' => 'Gathering & Anniversary', 'description' => 'Apresiasi yang berkesan untuk merayakan kebersamaan, pencapaian, dan perjalanan perusahaan.'],
             'seminar' => ['title' => 'Seminar & Training', 'description' => 'Perlengkapan profesional yang membantu peserta tetap siap dan membawa pulang pengalaman acara Anda.'],
-            'holidays' => ['title' => 'Holidays & Hampers', 'description' => 'Hampers hangat dan premium untuk mempererat hubungan dengan tim, klien, dan mitra bisnis.'],
-            'onboarding' => ['title' => 'Employee Onboarding', 'description' => 'Sambutan pertama yang memperkenalkan budaya perusahaan sejak hari pertama karyawan bergabung.'],
-            'vip' => ['title' => 'Client Appreciation & VIP', 'description' => 'Pilihan eksklusif untuk menunjukkan penghargaan pada klien dan tamu istimewa.'],
+            'holidays' => ['title' => 'Holiday & Hampers', 'description' => 'Hampers hangat dan premium untuk mempererat hubungan dengan tim, klien, dan mitra bisnis.'],
+            'onboarding' => ['title' => 'Corporate Gift', 'description' => 'Pilihan hadiah korporat yang profesional untuk memperkuat hubungan dengan klien, tim, dan mitra bisnis.'],
+            'vip' => ['title' => 'Client Appreciation', 'description' => 'Pilihan eksklusif untuk menunjukkan penghargaan pada klien dan tamu istimewa.'],
             'events' => ['title' => 'Events & Exhibition', 'description' => 'Merchandise yang praktis dan mudah diingat untuk memperkuat kehadiran merek di setiap acara.'],
         ],
     ],
