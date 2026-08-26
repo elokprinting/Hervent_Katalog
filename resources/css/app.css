@@ -216,7 +216,7 @@ select {
 .giftset-link:hover span { transform: translateX(4px); }
 .giftset-cards { overflow: hidden; }
 .giftset-track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.25rem); }
-.giftset-cards.is-carousel .giftset-track { width: 400%; grid-template-columns: repeat(8, minmax(0, 1fr)); animation: giftset-slide 22s linear infinite; }
+.giftset-cards.is-carousel .giftset-track { width: 200%; grid-template-columns: repeat(4, minmax(0, 1fr)); animation: giftset-slide 8s ease-in-out infinite; }
 
 .giftset-card {
     position: relative;
@@ -243,8 +243,9 @@ select {
 }
 
 @keyframes giftset-slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    0%, 38% { transform: translateX(0); }
+    50%, 88% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 .giftsets-cta { padding-block: clamp(3.5rem, 7vw, 5.5rem); color: var(--white); }

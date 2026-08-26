@@ -66,7 +66,7 @@
             </div>
             <div class="giftset-cards {{ count($products) > 2 ? 'is-carousel' : '' }}">
               <div class="giftset-track">
-                @foreach(array_merge($products, $products) as $product)
+                @foreach($products as $product)
                   <a class="giftset-card" href="https://wa.me/62811912502?text={{ rawurlencode(__('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
                     <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy">
                     <span>{{ $product['name'] }}</span>
