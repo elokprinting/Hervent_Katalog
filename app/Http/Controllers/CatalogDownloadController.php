@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Throwable;
 
 class CatalogDownloadController extends Controller
 {
@@ -25,19 +26,26 @@ class CatalogDownloadController extends Controller
 
         Log::info('Company catalog downloaded', $data);
 
-        Mail::raw(implode("\n", [
-            'Ada permintaan download katalog HERVENT.',
-            '',
-            'Nama: ' . trim(($data['salutation'] ?? '') . ' ' . $data['name']),
-            'Email: ' . $data['email'],
-            'Perusahaan: ' . $data['company'],
-            'WhatsApp: ' . ($data['whatsapp'] ?? '-'),
-            'Jabatan: ' . ($data['job_title'] ?? '-'),
-        ]), function ($message) use ($data) {
-            $message->to(config('mail.catalog_recipient'))
-                ->subject('Permintaan Download Katalog HERVENT')
-                ->replyTo($data['email'], $data['name']);
-        });
+        try {
+            Mail::raw(implode("\n", [
+                'Ada permintaan download katalog HERVENT.',
+                '',
+                'Nama: ' . trim(($data['salutation'] ?? '') . ' ' . $data['name']),
+                'Email: ' . $data['email'],
+                'Perusahaan: ' . $data['company'],
+                'WhatsApp: ' . ($data['whatsapp'] ?? '-'),
+                'Jabatan: ' . ($data['job_title'] ?? '-'),
+            ]), function ($message) use ($data) {
+                $message->to(config('mail.catalog_recipient'))
+                    ->subject('Permintaan Download Katalog HERVENT')
+                    ->replyTo($data['email'], $data['name']);
+            });
+        } catch (Throwable $exception) {
+            Log::error('Catalog download email failed', [
+                'email' => $data['email'],
+                'error' => $exception->getMessage(),
+            ]);
+        }
 
         return response()->download($path, 'Brand Identity HERVENT.pdf', [
             'Content-Type' => 'application/pdf',
