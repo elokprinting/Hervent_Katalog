@@ -13,10 +13,10 @@
   @php
     $categories = [
       'gathering' => [
-        ['name' => 'Selamat Datang', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
-        ['name' => 'Kumpulan Produk', 'image' => asset('images/products/Gathering & Anniversary/Kumpulan Produk.png')],
-        ['name' => 'Rame Rame', 'image' => asset('images/products/Gathering & Anniversary/rame rame.png')],
-        ['name' => 'Produk Setengah', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
+        ['name' => 'Gathering Vibes', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
+        ['name' => 'Gathering Products', 'image' => asset('images/products/Gathering & Anniversary/Kumpulan Produk.png')],
+        ['name' => 'Anniversary Vibes', 'image' => asset('images/products/Gathering & Anniversary/rame rame.png')],
+        ['name' => 'Anniversary Products', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
       ],
       'seminar' => [
         ['name' => 'Seminar Essentials', 'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85'],
