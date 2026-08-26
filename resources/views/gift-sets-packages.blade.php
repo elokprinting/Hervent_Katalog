@@ -13,8 +13,10 @@
   @php
     $categories = [
       'gathering' => [
-        ['name' => 'Anniversary Keepsake', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Team Celebration Set', 'image' => 'https://images.unsplash.com/photo-1523906630133-f6934a1ab2b9?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Selamat Datang', 'image' => asset('images/products/Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png')],
+        ['name' => 'Kumpulan Produk', 'image' => asset('images/products/Gathering & Anniversary/Kumpulan Produk.png')],
+        ['name' => 'Rame Rame', 'image' => asset('images/products/Gathering & Anniversary/rame rame.png')],
+        ['name' => 'Produk Setengah', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
       ],
       'seminar' => [
         ['name' => 'Seminar Essentials', 'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85'],
@@ -62,13 +64,15 @@
                 {{ __('messages.giftsets.consultation') }} <span aria-hidden="true">→</span>
               </a>
             </div>
-            <div class="giftset-cards">
-              @foreach($products as $product)
-                <a class="giftset-card" href="https://wa.me/62811912502?text={{ rawurlencode(__('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
-                  <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy">
-                  <span>{{ $product['name'] }}</span>
-                </a>
-              @endforeach
+            <div class="giftset-cards {{ count($products) > 2 ? 'is-carousel' : '' }}">
+              <div class="giftset-track">
+                @foreach(array_merge($products, $products) as $product)
+                  <a class="giftset-card" href="https://wa.me/62811912502?text={{ rawurlencode(__('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
+                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy">
+                    <span>{{ $product['name'] }}</span>
+                  </a>
+                @endforeach
+              </div>
             </div>
           </article>
         @endforeach

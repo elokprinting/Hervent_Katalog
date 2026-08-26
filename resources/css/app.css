@@ -214,7 +214,9 @@ select {
 
 .giftset-link span { font-size: 1.2rem; transition: transform .16s; }
 .giftset-link:hover span { transform: translateX(4px); }
-.giftset-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.25rem); }
+.giftset-cards { overflow: hidden; }
+.giftset-track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.25rem); }
+.giftset-cards.is-carousel .giftset-track { width: 400%; grid-template-columns: repeat(8, minmax(0, 1fr)); animation: giftset-slide 22s linear infinite; }
 
 .giftset-card {
     position: relative;
@@ -224,12 +226,27 @@ select {
     background: var(--g3);
     color: var(--white);
     text-decoration: none;
+    animation: giftset-card-float 7s ease-in-out infinite;
 }
 
+.giftset-card:nth-child(2) { animation-delay: -1.7s; }
+.giftset-card:nth-child(3) { animation-delay: -3.4s; }
+.giftset-card:nth-child(4) { animation-delay: -5.1s; }
 .giftset-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, .7)); }
 .giftset-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .35s ease; }
 .giftset-card:hover img { transform: scale(1.05); }
 .giftset-card span { position: absolute; z-index: 1; right: 1rem; bottom: .9rem; left: 1rem; font: 600 .78rem var(--f-head); }
+
+@keyframes giftset-card-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes giftset-slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 .giftsets-cta { padding-block: clamp(3.5rem, 7vw, 5.5rem); color: var(--white); }
 .giftsets-cta .h2 { margin-bottom: 1.4rem; }
 
@@ -241,6 +258,11 @@ select {
     }
     .giftset-row { grid-template-columns: 1fr; gap: 1.5rem; }
     .giftset-card { min-height: 190px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .giftset-card,
+    .giftset-cards.is-carousel .giftset-track { animation: none; }
 }
 
 /* ---------- Buttons ---------- */
