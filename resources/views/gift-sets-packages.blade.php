@@ -37,8 +37,10 @@
         ['name' => 'Event Merchandise Set', 'image' => 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85'],
       ],
       'holidays' => [
-        ['name' => 'Seasonal Hamper', 'image' => 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Festive Gift Box', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Holiday Vibes', 'image' => asset('images/products/Holiday & Hampers/holiday rame.png')],
+        ['name' => 'Holiday Products', 'image' => asset('images/products/Holiday & Hampers/barang holiday.png')],
+        ['name' => 'Hamper Vibes', 'image' => asset('images/products/Holiday & Hampers/hampers rame.png')],
+        ['name' => 'Hamper Products', 'image' => asset('images/products/Holiday & Hampers/hampers produk.png')],
       ],
     ];
   @endphp
