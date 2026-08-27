@@ -13,8 +13,10 @@
   @php
     $categories = [
       'onboarding' => [
-        ['name' => 'Welcome Kit', 'image' => 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'First Day Set', 'image' => 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Corporate Gift', 'image' => asset('images/products/Corporate Gift/Corporate gift 1.png')],
+        ['name' => 'Corporate Gift', 'image' => asset('images/products/Corporate Gift/Corporate gift produk.png')],
+        ['name' => 'Corporate Gift', 'image' => asset('images/products/Corporate Gift/Corporate gift 2.png')],
+        ['name' => 'Corporate Gift', 'image' => asset('images/products/Corporate Gift/Corporate gift produk 2.png')],
       ],
       'seminar' => [
         ['name' => 'Seminar', 'image' => asset('images/products/Seminar & Training/Seminar.png')],
