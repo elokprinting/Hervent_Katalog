@@ -31,8 +31,10 @@
         ['name' => 'Anniversary Products', 'image' => asset('images/products/Gathering & Anniversary/produk setengah.png')],
       ],
       'vip' => [
-        ['name' => 'Executive Gift Set', 'image' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Signature Appreciation', 'image' => 'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Client Appreciation', 'image' => asset('images/products/Client Appreciation/client appreciation.png')],
+        ['name' => 'Client Appreciation', 'image' => asset('images/products/Client Appreciation/client produk.png')],
+        ['name' => 'Client Appreciation', 'image' => asset('images/products/Client Appreciation/client appreciation 2.png')],
+        ['name' => 'Client Appreciation', 'image' => asset('images/products/Client Appreciation/client produk 2.png')],
       ],
       'events' => [
         ['name' => 'Exhibition Pack', 'image' => 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=700&q=85'],
