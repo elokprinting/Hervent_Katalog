@@ -34,10 +34,14 @@ class Product extends Model
         'table-clock' => 'Table Clock',
         'flashdrive' => 'Flashdrive',
         'headset' => 'Headset',
-        'mouse' => 'Mouse',
+        'mouse' => 'Computer Accessories (Wireless Mouse)',
         'power-bank' => 'Power Bank',
-        'speaker' => 'Speaker',
-        'travel-adapter' => 'Travel Adapter',
+        'powerbank' => 'Power Bank',
+        'speaker' => 'Elektronik Lainnya',
+        'bluetooth-speaker' => 'Elektronik Lainnya',
+        'travel-adapter' => 'Elektronik Lainnya',
+        'travel-adaptor' => 'Elektronik Lainnya',
+        'tws-soundcore' => 'Bluetooth Headset',
         'pin' => 'Pin',
         'tas' => 'Tas',
         'umbrella' => 'Umbrella',
@@ -84,6 +88,7 @@ class Product extends Model
         'catalog_category',
         'description',
         'included_items',
+        'specifications',
         'stock',
         'price_min',
         'price_max',
@@ -104,6 +109,7 @@ class Product extends Model
             'colors' => 'array',
             'gallery_images' => 'array',
             'included_items' => 'array',
+            'specifications' => 'array',
         ];
     }
 

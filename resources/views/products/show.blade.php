@@ -125,6 +125,25 @@
         .pd-included-list li::marker {
             color: #111;
         }
+        .pd-specifications {
+            margin: 1.5rem 0 1.75rem;
+            padding: 1rem 1.1rem;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+        .pd-specification {
+            display: grid;
+            grid-template-columns: minmax(120px, 0.35fr) 1fr;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        .pd-specification:last-child { border-bottom: 0; }
+        .pd-specification-label { color: #6b7280; }
+        .pd-specification-value { color: #111; font-weight: 500; }
 
         /* Colors */
         .pd-section-label {
@@ -255,6 +274,7 @@
             .pd-layout { padding: 1.5rem 1rem; }
             .pd-title { font-size: 1.3rem; }
             .pd-recommendations { padding: 0 1rem; padding-top: 2rem; }
+            .pd-specification { grid-template-columns: 1fr; gap: 0.15rem; }
         }
     </style>
 </head>
@@ -310,6 +330,18 @@
 
                 @if($product->description)
                     <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.75rem;">{{ $product->description }}</p>
+                @endif
+
+                @if($product->specifications)
+                    <section class="pd-specifications" aria-labelledby="specification-heading">
+                        <h2 id="specification-heading" class="pd-detail-heading">Spesifikasi Produk</h2>
+                        @foreach($product->specifications as $label => $value)
+                            <div class="pd-specification">
+                                <span class="pd-specification-label">{{ $label }}</span>
+                                <span class="pd-specification-value">{{ $value }}</span>
+                            </div>
+                        @endforeach
+                    </section>
                 @endif
 
                 @if($product->product_type === 'package' && $product->included_items)

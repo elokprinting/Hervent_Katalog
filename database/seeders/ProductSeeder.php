@@ -25,8 +25,11 @@ class ProductSeeder extends Seeder
         $excludedFiles = [
             'Corporate Gift/Corporate gift 1.png',
             'Corporate Gift/Corporate gift 2.png',
+            'Corporate Gift/Corporate gift produk 2.png',
             'Client Appreciation/client appreciation.png',
             'Client Appreciation/client appreciation 2.png',
+            'Client Appreciation/client produk 2.png',
+            'Holiday & Hampers/barang holiday.png',
             'Holiday & Hampers/hampers rame.png',
             'Holiday & Hampers/holiday rame.png',
             'Seminar & Training/Seminar.png',
@@ -70,8 +73,10 @@ class ProductSeeder extends Seeder
                 : $this->categoryFromPath($parts, $file->getFilename());
             $catalogCategory = $isProductFolder ? null : $this->catalogCategoryFromFolder($topFolder);
             $name = pathinfo($file->getFilename(), PATHINFO_FILENAME);
+            $name = $this->packageName($relativePath, $name);
             $slug = Str::slug($relativePath);
             $includedItems = $isGiftSet ? $this->includedItems($name) : null;
+            $techDetails = $this->techDetails($relativePath);
 
             Product::updateOrCreate(
                 ['slug' => $slug],
@@ -80,10 +85,11 @@ class ProductSeeder extends Seeder
                     'category' => $category,
                     'catalog_category' => $catalogCategory,
                     'product_type' => $isGiftSet ? 'package' : 'single',
-                    'description' => $isGiftSet
+                    'description' => $techDetails['description'] ?? ($isGiftSet
                         ? 'Giftset Premium dengan ' . count($includedItems) . ' produk.'
-                        : 'Produk promosi berkualitas yang dapat dikustomisasi dengan identitas brand perusahaan.',
+                        : 'Produk promosi berkualitas yang dapat dikustomisasi dengan identitas brand perusahaan.'),
                     'included_items' => $includedItems,
+                    'specifications' => $techDetails['specifications'] ?? null,
                     'price_min' => $isGiftSet ? 150000 : 25000,
                     'price_max' => $isGiftSet ? 750000 : 250000,
                     'minimum_order' => $isGiftSet ? 25 : 50,
@@ -134,5 +140,75 @@ class ProductSeeder extends Seeder
             'synergi-seminar-package' => ['Seminar kit', 'Notebook custom', 'Pulpen', 'Lanyard', 'Gift box'],
             default => ['Produk custom pilihan', 'Packaging eksklusif'],
         };
+    }
+
+    private function packageName(string $relativePath, string $default): string
+    {
+        return [
+            'Corporate Gift/Corporate gift produk.png' => 'Corporate Gift Set',
+            'Seminar & Training/Produk Seminar.png' => 'Seminar Set',
+            'Seminar & Training/produk training.png' => 'Training Set',
+            'Gathering & Anniversary/Kumpulan Produk.png' => 'Gathering Set',
+            'Gathering & Anniversary/produk setengah.png' => 'Anniversary Set',
+            'Client Appreciation/client produk.png' => 'Client Set',
+            'Event & Exhibition/event produk.png' => 'Event Set',
+            'Event & Exhibition/exhibition produk.png' => 'Exhibition Set',
+            'Holiday & Hampers/hampers produk.png' => 'Holiday Hampers Set',
+        ][$relativePath] ?? $default;
+    }
+
+    private function techDetails(string $relativePath): ?array
+    {
+        return [
+            'Product/Tech And Gadgets/Bluetooth speaker.png' => [
+                'description' => 'Speaker portabel dengan pilihan model Beat, Blastube, Bounce, Bliss, Bolt, dan Blissely.',
+                'specifications' => [
+                    'Kategori' => 'Elektronik Lainnya',
+                    'Baterai' => '300-600 mAh, durasi pemakaian sekitar 2-3 jam',
+                    'Garansi' => '1 Tahun',
+                    'Varian model' => 'Beat, Blastube, Bounce (Aluminium), Bliss, Bolt, Blissely (Aluminium)',
+                ],
+            ],
+            'Product/Tech And Gadgets/Mouse.png' => [
+                'description' => 'Mouse wireless berbahan plastik berwarna putih untuk kebutuhan kerja sehari-hari.',
+                'specifications' => [
+                    'Kategori' => 'Computer Accessories (Wireless Mouse)',
+                    'Koneksi' => 'Wireless',
+                    'Material' => 'Plastik',
+                    'Warna' => 'Putih',
+                    'Garansi' => '1 Tahun',
+                    'Varian model' => 'Motion, Mingle, Meridian',
+                ],
+            ],
+            'Product/Tech And Gadgets/Powerbank.png' => [
+                'description' => 'Power Bank Arden dengan Real Capacity. Beberapa model dilengkapi LED Display untuk menunjukkan persentase baterai.',
+                'specifications' => [
+                    'Merek' => 'Arden',
+                    'Kapasitas rendah' => '2.000-5.200 mAh: Pathway, Prodigy, Polarcharge (Aluminium), Propel, Prismly, Plutos, Phantom (Aluminium)',
+                    'Kapasitas menengah' => '6.000-8.000 mAh: Polaris (Plastik + Kulit), Pioneer (Aluminium), Phenom (Aluminium)',
+                    'Kapasitas besar' => '10.000 mAh: Portal, Pulse (Plastik + Kulit), Photon (Aluminium), Pact (Metal), Prism, Prower (Plastik), Pandora',
+                    'Garansi' => 'Umumnya 18 Bulan; satu model memiliki garansi 1 Bulan',
+                    'Cetak logo' => 'Screen Printing, Digital Printing, Laser Engraving',
+                ],
+            ],
+            'Product/Tech And Gadgets/Travel Adaptor.png' => [
+                'description' => 'Colokan adaptor universal yang dirancang untuk kebutuhan bepergian.',
+                'specifications' => [
+                    'Kategori' => 'Elektronik Lainnya',
+                    'Garansi' => '1 Tahun',
+                    'Varian model' => 'Traverse (maks. 2.1A), Triumph (maks. 2.1A), Translink (maks. 1A), Toggle (maks. 1A)',
+                ],
+            ],
+            'Product/Tech And Gadgets/TWS Soundcore.png' => [
+                'description' => 'Headset nirkabel berbahan plastik berwarna putih dengan durasi pemakaian sekitar 3 jam.',
+                'specifications' => [
+                    'Kategori' => 'Bluetooth Headset',
+                    'Material' => 'Plastik',
+                    'Warna' => 'Putih',
+                    'Durasi baterai' => 'Sekitar 3 jam',
+                    'Model terbaru' => 'Hype',
+                ],
+            ],
+        ][$relativePath] ?? null;
     }
 }
