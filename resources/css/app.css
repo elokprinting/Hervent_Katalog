@@ -3157,10 +3157,6 @@ select {
     gap: 1.25rem;
     align-items: center;
     margin-bottom: 1.5rem;
-    padding: 1rem;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: #fafafa;
 }
 
 .catalog-search {
@@ -3183,8 +3179,8 @@ select {
 
 .catalog-search input:focus,
 .catalog-sort select:focus {
-    border-color: #2868a3;
-    box-shadow: 0 0 0 3px rgba(40, 104, 163, 0.12);
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(184, 26, 31, 0.12);
 }
 
 .catalog-search button {
@@ -3454,13 +3450,13 @@ select {
 
 .catalog-pagination-page:hover,
 .catalog-pagination-control:hover {
-    border-color: #2868a3;
-    color: #2868a3;
+    border-color: var(--red);
+    color: var(--red);
 }
 
 .catalog-pagination-page.is-current {
-    border-color: #2868a3;
-    background: #2868a3;
+    border-color: var(--red);
+    background: var(--red);
     color: var(--white);
     font-weight: 600;
 }
@@ -3611,22 +3607,36 @@ select {
     }
 
     .results-toolbar {
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(150px, 0.75fr) repeat(2, minmax(0, 1fr));
+        column-gap: 1rem;
+        row-gap: 0.7rem;
     }
 
-    .result-count {
+    .catalog-search {
         grid-column: 1/-1;
-        grid-row: 2;
+        grid-row: 1;
     }
 
     .catalog-sort {
-        grid-column: 1 / -1;
-        grid-row: 2;
+        display: contents;
     }
 
     .result-count {
         grid-column: 1;
-        grid-row: 3;
+        grid-row: 2;
+        align-self: center;
+    }
+
+    .catalog-control {
+        grid-row: 2;
+    }
+
+    .catalog-sort .catalog-control:first-of-type {
+        grid-column: 2;
+    }
+
+    .catalog-sort .catalog-control:last-of-type {
+        grid-column: 3;
     }
 }
 
@@ -3690,20 +3700,29 @@ select {
     }
 
     .results-toolbar {
-        display: flex;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .catalog-search {
-        flex: 1 1 100%;
+        grid-column: 1/-1;
     }
 
     .result-count {
-        order: 3;
+        grid-column: 1/-1;
+        grid-row: 2;
+        align-self: auto;
     }
 
-    .catalog-sort {
-        flex: 1;
+    .catalog-control {
+        grid-row: 3;
+    }
+
+    .catalog-sort .catalog-control:first-of-type {
+        grid-column: 1;
+    }
+
+    .catalog-sort .catalog-control:last-of-type {
+        grid-column: 2;
     }
 
     .catalog-grid {
