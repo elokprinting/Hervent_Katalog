@@ -3204,7 +3204,13 @@ select {
 }
 
 .catalog-sort select {
-    appearance: auto;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+    background-position: calc(100% - 1rem) 50%, calc(100% - 0.7rem) 50%;
+    background-repeat: no-repeat;
+    background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
+    cursor: pointer;
 }
 
 .catalog-sort {
@@ -3227,20 +3233,31 @@ select {
 }
 
 .catalog-control select {
-    height: 2.5rem;
+    width: 100%;
+    height: 2.65rem;
     border: 1px solid #cbd0d8;
     border-radius: 8px;
     background: var(--white);
-    padding: 0 0.75rem;
+    padding: 0 2.25rem 0 0.9rem;
     color: var(--ink);
     font: inherit;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     outline: none;
 }
 
 .catalog-control select:focus {
     border-color: var(--red);
     box-shadow: 0 0 0 3px rgba(184, 26, 31, 0.1);
+}
+
+.catalog-control select option {
+    background: var(--white);
+    color: var(--ink);
+}
+
+.catalog-control select option:checked {
+    background: var(--red);
+    color: var(--white);
 }
 
 .sr-only {
