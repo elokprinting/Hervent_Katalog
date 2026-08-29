@@ -62,26 +62,26 @@
                             </form>
                             <span class="result-count">{{ __('messages.catalog.items_found', ['total' => $products->total()]) }}</span>
                             <form class="catalog-sort" method="GET" action="{{ route('products.index') }}">
-                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="group" value="{{ $activeGroup }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}"><input type="hidden" name="type" value="{{ $activeType }}">
-                                <label class="sr-only" for="catalogSort">{{ __('messages.catalog.sort_products') }}</label>
-                                <select id="catalogType" name="type" onchange="this.form.submit()">
-                                    <option value="" {{ !$activeType ? 'selected' : '' }}>Semua jenis</option>
-                                    <option value="package" {{ $activeType === 'package' ? 'selected' : '' }}>Paketan</option>
-                                    <option value="single" {{ $activeType === 'single' ? 'selected' : '' }}>Barang satuan</option>
-                                </select>
-                                <select id="catalogSort" name="sort" onchange="this.form.submit()">
-                                    <option value="" {{ !$sort ? 'selected' : '' }}>{{ __('messages.catalog.sort_latest') }}</option>
-                                    <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_low') }}</option>
-                                    <option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_high') }}</option>
-                                </select>
+                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="group" value="{{ $activeGroup }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}">
+                                <div class="catalog-control">
+                                    <label for="catalogType">Tampilkan</label>
+                                    <select id="catalogType" name="type" onchange="this.form.submit()">
+                                        <option value="" {{ !$activeType ? 'selected' : '' }}>Semua produk</option>
+                                        <option value="package" {{ $activeType === 'package' ? 'selected' : '' }}>Set hadiah</option>
+                                        <option value="single" {{ $activeType === 'single' ? 'selected' : '' }}>Produk satuan</option>
+                                    </select>
+                                </div>
+                                <div class="catalog-control">
+                                    <label for="catalogSort">Urutkan</label>
+                                    <select id="catalogSort" name="sort" onchange="this.form.submit()">
+                                        <option value="" {{ !$sort ? 'selected' : '' }}>{{ __('messages.catalog.sort_latest') }}</option>
+                                        <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_low') }}</option>
+                                        <option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_high') }}</option>
+                                    </select>
+                                </div>
                             </form>
                         </div>
 
-                        <div class="catalog-type-summary">
-                            <a class="{{ !$activeType ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort])) }}">Semua Produk</a>
-                            <a class="{{ $activeType === 'package' ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => 'package'])) }}">Set Hadiah</a>
-                            <a class="{{ $activeType === 'single' ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => 'single'])) }}">Produk Satuan</a>
-                        </div>
                         <div class="catalog-grid marketplace-grid">
                             @forelse($products as $product)
                                 <article id="product-{{ $product->id }}" class="market-product">
