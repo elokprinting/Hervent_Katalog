@@ -303,6 +303,41 @@ class ProductSeeder extends Seeder
                     'Detail' => 'Pin dan gantungan kunci',
                 ],
             ],
+            'Product/Bags and Pouch/Backpack.png' => [
+                'description' => 'Ransel yang dirancang untuk kebutuhan harian, bekerja, maupun sekolah dan kuliah dengan kapasitas lebih besar dan kompartemen fungsional.',
+                'specifications' => [
+                    'Model yang tersedia' => 'Black Hole, Supernova, Saturn',
+                    'Detail' => 'Kapasitas lebih besar, kompartemen fungsional untuk kebutuhan harian',
+                ],
+            ],
+            'Product/Bags and Pouch/Pouch.png' => [
+                'description' => 'Tas kecil yang praktis untuk menyimpan perlengkapan traveling, gadget, atau kebutuhan harian dengan bahan tahan air.',
+                'specifications' => [
+                    'Model yang tersedia' => 'Journey Travel Pouch, Hydro Waterproof Pouch',
+                    'Detail' => 'Cocok untuk travel, gadget, dan aksesoris sehari-hari, tersedia opsi waterproof',
+                ],
+            ],
+            'Product/Bags and Pouch/Sling Bag.png' => [
+                'description' => 'Tas kasual yang nyaman dipakai di bahu atau pinggang untuk mobilitas tinggi, kegiatan santai, dan traveling.',
+                'specifications' => [
+                    'Model yang tersedia' => 'Andromeda, Jupiter, serta model sejenis lainnya',
+                    'Detail' => 'Praktis dan ringan, ideal untuk mobilitas tinggi dan aktivitas sehari-hari',
+                ],
+            ],
+            'Product/Bags and Pouch/Waist Bag.png' => [
+                'description' => 'Tas pinggang yang portable dan praktis untuk kebutuhan santai, aktivitas luar ruangan, serta perjalanan ringan.',
+                'specifications' => [
+                    'Model yang tersedia' => 'Andromeda, Jupiter, serta model sejenis lainnya',
+                    'Detail' => 'Dikenakan di pinggang, ringan, dan cocok untuk kegiatan santai hingga traveling',
+                ],
+            ],
+            'Product/Bags and Pouch/Tote Bag.png' => [
+                'description' => 'Tas jinjing serbaguna yang cocok untuk corporate merchandise, seminar kit, maupun kebutuhan harian dengan material pilihan premium hingga ramah lingkungan.',
+                'specifications' => [
+                    'Varian bahan' => 'Leather, Gunny, Denim, Canvas, Blacu, Goodie Bag Spunbond',
+                    'Detail' => 'Serbaguna untuk promo brand, seminar kit, dan penggunaan harian',
+                ],
+            ],
         ][$relativePath] ?? null;
     }
 }
