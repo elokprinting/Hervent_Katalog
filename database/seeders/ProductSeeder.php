@@ -79,8 +79,12 @@ class ProductSeeder extends Seeder
 
     private function categoryFromPath(array $parts, string $filename): string
     {
-        if (strtolower($parts[0] ?? '') === 'product' && isset($parts[2])) {
-            return Str::slug(pathinfo($parts[2], PATHINFO_FILENAME));
+        if (strtolower($parts[0] ?? '') === 'product') {
+            if (($parts[1] ?? '') === 'drinkware and dinning' && isset($parts[2])) {
+                return Str::slug($parts[2]);
+            }
+
+            return Str::slug(pathinfo($filename, PATHINFO_FILENAME));
         }
 
         $category = Str::slug(pathinfo($filename, PATHINFO_FILENAME));

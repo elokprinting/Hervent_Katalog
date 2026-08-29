@@ -11,6 +11,10 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $category = $request->string('category')->trim()->toString();
+        $group = $request->string('group')->trim()->toString();
+        if (! array_key_exists($group, Product::PRODUCT_GROUPS)) {
+            $group = '';
+        }
         $catalogCategory = $request->string('catalog')->trim()->toString();
         if (! array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES)) {
             $catalogCategory = '';
@@ -21,6 +25,7 @@ class ProductsController extends Controller
         $products = Product::query()
             ->select(['id', 'name', 'slug', 'category', 'product_type', 'description', 'price_min', 'price_max', 'minimum_order', 'image_url', 'is_featured'])
             ->when($category, fn($query) => $query->where('category', $category))
+            ->when($group, fn($query) => $query->whereIn('category', Product::PRODUCT_GROUPS[$group]['categories']))
             ->when(array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES), fn($query) => $query->where('catalog_category', $catalogCategory))
             ->when(in_array($type, ['package', 'single'], true), fn($query) => $query->where('product_type', $type))
             ->when($search, fn($query) => $query->where(function ($query) use ($search) {
@@ -49,6 +54,8 @@ class ProductsController extends Controller
             'categories' => $categories,
             'categoryCounts' => $categoryCounts,
             'activeCategory' => $category,
+            'activeGroup' => $group,
+            'productGroups' => Product::PRODUCT_GROUPS,
             'activeCatalogCategory' => $catalogCategory,
             'catalogCategories' => Product::OCCASION_CATEGORIES,
             'activeType' => $type,

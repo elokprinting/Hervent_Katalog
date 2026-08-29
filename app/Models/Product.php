@@ -44,6 +44,33 @@ class Product extends Model
         'packaging-accesoris' => 'Packaging & Accessories',
     ];
 
+    public const PRODUCT_GROUPS = [
+        'apparel-lifestyle' => [
+            'label' => 'Apparel & Lifestyle',
+            'categories' => ['baseball-hat', 'bonnie-hat', 'jacket', 'leather-wallet', 'neck-pillow', 'payung-lipat-3', 'polo-shirt', 't-shirt', 'vest', 'payung-lipat', 'shirt'],
+        ],
+        'bags-pouch' => [
+            'label' => 'Bags & Pouch',
+            'categories' => ['backpack', 'pouch', 'sling-bag', 'tote-bag', 'waist-bag'],
+        ],
+        'drinkware-dining' => [
+            'label' => 'Drinkware & Dining',
+            'categories' => ['lunch-box', 'tumbler'],
+        ],
+        'gift-sets' => [
+            'label' => 'Gift Sets',
+            'categories' => ['gift-set'],
+        ],
+        'office-stationery' => [
+            'label' => 'Office & Stationery',
+            'categories' => ['agenda-custom', 'card-holder', 'clock', 'desk-calendar', 'eco-notes', 'lanyard', 'mouse-pad', 'pen-pinnacle', 'pin', 'plakat'],
+        ],
+        'tech-gadgets' => [
+            'label' => 'Tech & Gadgets',
+            'categories' => ['bluetooth-speaker', 'flashdrive', 'laptop-bag', 'mouse', 'powerbank', 'tws-soundcore', 'travel-adaptor'],
+        ],
+    ];
+
     public const PRODUCT_TYPES = [
         'package' => 'Paketan',
         'single' => 'Barang Satuan',

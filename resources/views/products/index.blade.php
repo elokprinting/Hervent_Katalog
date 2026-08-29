@@ -11,7 +11,7 @@
     @include('partials.header')
 
     <main>
-        @php($activeCategoryLabel = \App\Models\Product::PRODUCT_CATEGORIES[$activeCategory] ?? \Illuminate\Support\Str::headline($activeCategory))
+        @php($activeCategoryLabel = \App\Models\Product::PRODUCT_CATEGORIES[$activeCategory] ?? ($activeGroup ? $productGroups[$activeGroup]['label'] : \Illuminate\Support\Str::headline($activeCategory)))
         <section class="catalog-shop">
             <div class="catalog-container">
                 <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
@@ -41,10 +41,10 @@
                             </a>
                         @endforeach
                         <div class="sidebar-heading"><strong>Jenis Produk</strong></div>
-                        @foreach($categories as $category)
-                            @php($categoryIcon = ['gift-set' => 'gift', 'tumbler' => 'cup-soda', 'bottle' => 'bottle', 'lunch-box' => 'utensils', 'card-holder' => 'credit-card', 'table-clock' => 'alarm-clock', 'clock' => 'clock', 'calender' => 'calendar', 'thermos' => 'thermometer', 'tas' => 'shopping-bag', 'mug' => 'coffee', 'umbrella' => 'umbrella', 'headset' => 'headphones', 'flashdrive' => 'save', 'mouse' => 'mouse', 'power-bank' => 'battery-charging', 'speaker' => 'speaker', 'travel-adapter' => 'plug', 'agenda-custom' => 'notebook', 'stationary' => 'pencil'] [$category] ?? 'package')
-                            <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
-                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</span><small>{{ $categoryCounts[$category] ?? 0 }}</small>
+                        @foreach($productGroups as $groupKey => $group)
+                            @php($groupCount = \App\Models\Product::whereIn('category', $group['categories'])->count())
+                            <a class="sidebar-category {{ $activeGroup === $groupKey ? 'active' : '' }}" href="{{ route('products.index', array_filter(['group' => $groupKey, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                                <i class="category-icon" data-lucide="{{ ['apparel-lifestyle' => 'shirt', 'bags-pouch' => 'shopping-bag', 'drinkware-dining' => 'cup-soda', 'gift-sets' => 'gift', 'office-stationery' => 'notebook', 'tech-gadgets' => 'speaker'][$groupKey] }}" aria-hidden="true"></i><span>{{ $group['label'] }}</span><small>{{ $groupCount }}</small>
                             </a>
                         @endforeach
                     </aside>
@@ -54,6 +54,7 @@
                             <form class="catalog-search" method="GET" action="{{ route('products.index') }}">
                                 <input type="search" name="q" value="{{ $search }}" placeholder="{{ __('messages.catalog.search_placeholder') }}" aria-label="Cari produk">
                                 @if($activeCategory)<input type="hidden" name="category" value="{{ $activeCategory }}">@endif
+                                @if($activeGroup)<input type="hidden" name="group" value="{{ $activeGroup }}">@endif
                                 @if($activeCatalogCategory)<input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}">@endif
                                 @if($activeType)<input type="hidden" name="type" value="{{ $activeType }}">@endif
                                 @if($sort)<input type="hidden" name="sort" value="{{ $sort }}">@endif
@@ -61,7 +62,7 @@
                             </form>
                             <span class="result-count">{{ __('messages.catalog.items_found', ['total' => $products->total()]) }}</span>
                             <form class="catalog-sort" method="GET" action="{{ route('products.index') }}">
-                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}"><input type="hidden" name="type" value="{{ $activeType }}">
+                                <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="group" value="{{ $activeGroup }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}"><input type="hidden" name="type" value="{{ $activeType }}">
                                 <label class="sr-only" for="catalogSort">{{ __('messages.catalog.sort_products') }}</label>
                                 <select id="catalogType" name="type" onchange="this.form.submit()">
                                     <option value="" {{ !$activeType ? 'selected' : '' }}>Semua jenis</option>
