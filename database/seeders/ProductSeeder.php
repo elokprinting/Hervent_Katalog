@@ -22,6 +22,16 @@ class ProductSeeder extends Seeder
             'images/products/Client Appreciation/',
             'images/products/Holiday & Hampers/',
         ];
+        $excludedFiles = [
+            'Corporate Gift/Corporate gift 1.png',
+            'Corporate Gift/Corporate gift 2.png',
+            'Client Appreciation/client appreciation.png',
+            'Client Appreciation/client appreciation 2.png',
+            'Holiday & Hampers/hampers rame.png',
+            'Holiday & Hampers/holiday rame.png',
+            'Seminar & Training/Seminar.png',
+            'Seminar & Training/training rame.png',
+        ];
 
         Product::query()
             ->where(function ($query) use ($managedPrefixes) {
@@ -35,6 +45,9 @@ class ProductSeeder extends Seeder
 
         foreach ($files as $index => $file) {
             $relativePath = str_replace('\\', '/', $file->getRelativePathname());
+            if (in_array($relativePath, $excludedFiles, true)) {
+                continue;
+            }
             $parts = explode('/', $relativePath);
             $topFolder = $parts[0] ?? '';
             $isProductFolder = $topFolder === 'Product';
@@ -51,7 +64,7 @@ class ProductSeeder extends Seeder
             $category = $isGiftSet
                 ? 'gift-set'
                 : $this->categoryFromPath($parts, $file->getFilename());
-            $catalogCategory = $this->catalogCategoryFromFolder($topFolder);
+            $catalogCategory = $isProductFolder ? null : $this->catalogCategoryFromFolder($topFolder);
             $name = pathinfo($file->getFilename(), PATHINFO_FILENAME);
             $slug = Str::slug($relativePath);
             $includedItems = $isGiftSet ? $this->includedItems($name) : null;
@@ -104,6 +117,7 @@ class ProductSeeder extends Seeder
             'Seminar & Training' => 'seminar-training',
             'Gathering & Anniversary' => 'gathering-anniversary',
             'Client Appreciation' => 'apresiasi-klien-vip',
+            'Event & Exhibition' => 'event-pameran',
             'Holiday & Hampers' => 'holidays-hampers',
         ][$folder] ?? 'gathering-anniversary';
     }

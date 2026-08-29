@@ -13,10 +13,10 @@ class Product extends Model
     public const OCCASION_CATEGORIES = [
         'gathering-anniversary' => 'Gathering & Anniversary',
         'seminar-training' => 'Seminar & Training',
-        'holidays-hampers' => 'Hari Raya & Hampers',
-        'onboarding-karyawan' => 'Onboarding Karyawan',
-        'apresiasi-klien-vip' => 'Apresiasi Klien & VIP',
-        'event-pameran' => 'Event & Pameran',
+        'holidays-hampers' => 'Holiday Hampers',
+        'onboarding-karyawan' => 'Corporate Gift',
+        'apresiasi-klien-vip' => 'Client Appreciation',
+        'event-pameran' => 'Event & Exhibition',
     ];
 
     public const PRODUCT_CATEGORIES = [
