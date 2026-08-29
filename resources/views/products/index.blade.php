@@ -102,8 +102,37 @@
                             @endforelse
                         </div>
 
-                        @if($products->hasPages())
-                            <nav class="catalog-pagination" aria-label="Pagination">{{ $products->links() }}</nav>
+                        @if($products->total() > 0)
+                            <div class="catalog-pagination">
+                                <p class="catalog-pagination-summary">
+                                    Menampilkan {{ $products->firstItem() }}–{{ $products->lastItem() }} dari {{ $products->total() }} produk
+                                </p>
+                                @if($products->hasPages())
+                                    <nav class="catalog-pagination-nav" aria-label="Pagination">
+                                        @if($products->onFirstPage())
+                                            <span class="catalog-pagination-control is-disabled" aria-disabled="true">Previous</span>
+                                        @else
+                                            <a class="catalog-pagination-control" href="{{ $products->previousPageUrl() }}" rel="prev">Previous</a>
+                                        @endif
+
+                                        <div class="catalog-pagination-pages">
+                                            @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                                                @if($page == $products->currentPage())
+                                                    <span class="catalog-pagination-page is-current" aria-current="page">{{ $page }}</span>
+                                                @else
+                                                    <a class="catalog-pagination-page" href="{{ $url }}">{{ $page }}</a>
+                                                @endif
+                                            @endforeach
+                                        </div>
+
+                                        @if($products->hasMorePages())
+                                            <a class="catalog-pagination-control" href="{{ $products->nextPageUrl() }}" rel="next">Next</a>
+                                        @else
+                                            <span class="catalog-pagination-control is-disabled" aria-disabled="true">Next</span>
+                                        @endif
+                                    </nav>
+                                @endif
+                            </div>
                         @endif
                     </div>
                 </div>

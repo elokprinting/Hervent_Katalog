@@ -35,7 +35,7 @@ class ProductsController extends Controller
             ->when($sort === 'price_asc', fn($query) => $query->orderBy('price_min'))
             ->when($sort === 'price_desc', fn($query) => $query->orderByDesc('price_min'))
             ->when(!in_array($sort, ['price_asc', 'price_desc'], true), fn($query) => $query->orderByDesc('is_featured')->orderBy('name'))
-            ->paginate(10)
+            ->paginate(18)
             ->withQueryString();
 
         $categories = Cache::remember('products.categories.v4', now()->addHour(), fn() => Product::query()

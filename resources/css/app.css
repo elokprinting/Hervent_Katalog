@@ -3402,37 +3402,85 @@ select {
 
 .catalog-pagination {
     margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line);
 }
 
-.catalog-pagination nav {
-    display: flex;
-    justify-content: center;
-}
-
-.catalog-pagination svg {
-    width: 1rem;
-}
-
-.catalog-pagination a,
-.catalog-pagination span {
-    display: grid;
-    place-items: center;
-    min-width: 2rem;
-    height: 2rem;
-    margin: 0.15rem;
-    padding: 0.3rem 0.55rem;
-    border: 1px solid var(--line);
-    border-radius: 5px;
+.catalog-pagination-summary {
+    margin: 0 0 1.25rem;
     color: var(--g1);
-    font-size: 0.78rem;
-    text-decoration: none;
+    font-family: var(--f-head);
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-.catalog-pagination a:hover,
-.catalog-pagination span[aria-current="page"] {
-    background: #2868a3;
+.catalog-pagination-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.catalog-pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.catalog-pagination-page,
+.catalog-pagination-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 0.45rem;
+    background: var(--white);
+    color: var(--g1);
+    font-family: var(--f-head);
+    font-size: 0.82rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.catalog-pagination-control {
+    min-width: 5.25rem;
+    font-weight: 600;
+}
+
+.catalog-pagination-page:hover,
+.catalog-pagination-control:hover {
     border-color: #2868a3;
+    color: #2868a3;
+}
+
+.catalog-pagination-page.is-current {
+    border-color: #2868a3;
+    background: #2868a3;
     color: var(--white);
+    font-weight: 600;
+}
+
+.catalog-pagination-control.is-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .catalog-pagination-nav {
+        flex-wrap: wrap;
+    }
+
+    .catalog-pagination-pages {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: 0.35rem;
+    }
 }
 
 .catalog-cta {
