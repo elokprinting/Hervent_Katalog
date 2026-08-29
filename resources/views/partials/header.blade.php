@@ -11,86 +11,99 @@
           <div class="mega-wrap">
             <div class="mega-inner-box">
               
-              {{-- Top Section: Solusi Paket --}}
+              @php
+                $productMenuCategories = [
+                  [
+                    'label' => 'Apparel & Lifestyle',
+                    'items' => [
+                      ['label' => 'Baseball Hat', 'category' => 'baseball-hat', 'icon' => 'shirt'],
+                      ['label' => 'Jacket', 'category' => 'jacket', 'icon' => 'shirt'],
+                      ['label' => 'Polo Shirt', 'category' => 'polo-shirt', 'icon' => 'shirt'],
+                      ['label' => 'T-Shirt', 'category' => 't-shirt', 'icon' => 'shirt'],
+                      ['label' => 'Umbrella', 'category' => 'umbrella', 'icon' => 'umbrella'],
+                    ],
+                  ],
+                  [
+                    'label' => 'Bags & Pouch',
+                    'items' => [
+                      ['label' => 'Backpack', 'category' => 'backpack', 'icon' => 'shopping-bag'],
+                      ['label' => 'Pouch', 'category' => 'pouch', 'icon' => 'shopping-bag'],
+                      ['label' => 'Sling Bag', 'category' => 'sling-bag', 'icon' => 'shopping-bag'],
+                      ['label' => 'Tote Bag', 'category' => 'tote-bag', 'icon' => 'shopping-bag'],
+                      ['label' => 'Waist Bag', 'category' => 'waist-bag', 'icon' => 'shopping-bag'],
+                    ],
+                  ],
+                  [
+                    'label' => 'Drinkware & Dining',
+                    'items' => [
+                      ['label' => 'Lunch Box', 'category' => 'lunch-box', 'icon' => 'utensils'],
+                      ['label' => 'Tumbler', 'category' => 'tumbler', 'icon' => 'cup-soda'],
+                    ],
+                  ],
+                  [
+                    'label' => 'Gift Sets',
+                    'items' => [
+                      ['label' => 'Ethnic Echo', 'category' => 'ethnic-echo', 'icon' => 'gift'],
+                      ['label' => 'Supreme Spectra', 'category' => 'supreme-spectra', 'icon' => 'gift'],
+                      ['label' => 'Synergi Seminar Package', 'category' => 'synergi-seminar-package', 'icon' => 'gift'],
+                    ],
+                  ],
+                  [
+                    'label' => 'Office & Stationery',
+                    'items' => [
+                      ['label' => 'Agenda Custom', 'category' => 'agenda-custom', 'icon' => 'notebook'],
+                      ['label' => 'Card Holder', 'category' => 'card-holder', 'icon' => 'credit-card'],
+                      ['label' => 'Desk Calendar', 'category' => 'desk-calendar', 'icon' => 'calendar'],
+                      ['label' => 'Pen Pinnacle', 'category' => 'pen-pinnacle', 'icon' => 'pencil'],
+                      ['label' => 'Table Clock', 'category' => 'table-clock', 'icon' => 'alarm-clock'],
+                    ],
+                  ],
+                  [
+                    'label' => 'Tech & Gadgets',
+                    'items' => [
+                      ['label' => 'Bluetooth Speaker', 'category' => 'bluetooth-speaker', 'icon' => 'speaker'],
+                      ['label' => 'Flashdrive', 'category' => 'flashdrive', 'icon' => 'save'],
+                      ['label' => 'Mouse', 'category' => 'mouse', 'icon' => 'mouse'],
+                      ['label' => 'Powerbank', 'category' => 'powerbank', 'icon' => 'battery-charging'],
+                      ['label' => 'Travel Adaptor', 'category' => 'travel-adaptor', 'icon' => 'plug'],
+                    ],
+                  ],
+                ];
+              @endphp
+
+              {{-- Kategori momen --}}
               <div class="mega-top-section">
-                <div class="mega-section-title">Solusi paket untuk kebutuhan anda</div>
-                <div class="mega-paket-row">
-                  <a href="{{ route('products.index', ['category' => 'gift-set-hampers']) }}" class="mega-paket-item">
-                    <i data-lucide="gift" class="m-ic"></i>
-                    <span>Giftset</span>
-                  </a>
-                  <a href="{{ route('products.index', ['category' => 'paket-souvenir']) }}" class="mega-paket-item">
-                    <i data-lucide="shopping-bag" class="m-ic"></i>
-                    <span>Paket Souvenir</span>
-                  </a>
-                  <a href="{{ route('products.index', ['category' => 'seminar-kit']) }}" class="mega-paket-item">
-                    <i data-lucide="briefcase" class="m-ic"></i>
-                    <span>Seminar Kit</span>
-                  </a>
+                <div class="mega-section-title">Solusi untuk setiap momen</div>
+                <div class="mega-moment-row">
+                  @foreach([
+                    ['label' => 'Corporate Gift', 'category' => 'onboarding-karyawan', 'icon' => 'gift'],
+                    ['label' => 'Seminar & Training', 'category' => 'seminar-training', 'icon' => 'briefcase'],
+                    ['label' => 'Gathering & Anniversary', 'category' => 'gathering-anniversary', 'icon' => 'sparkles'],
+                    ['label' => 'Client Appreciation', 'category' => 'apresiasi-klien-vip', 'icon' => 'crown'],
+                    ['label' => 'Events & Exhibition', 'category' => 'event-pameran', 'icon' => 'layout-grid'],
+                    ['label' => 'Holiday & Hampers', 'category' => 'holidays-hampers', 'icon' => 'gift'],
+                  ] as $moment)
+                    <a href="{{ route('products.index', ['catalog' => $moment['category']]) }}" class="mega-moment-item">
+                      <i data-lucide="{{ $moment['icon'] }}" class="m-ic"></i>
+                      <span>{{ $moment['label'] }}</span>
+                    </a>
+                  @endforeach
                 </div>
               </div>
 
-              {{-- Bottom Section: Categories --}}
+              {{-- Jenis produk --}}
               <div class="mega-bottom-section">
                 <div class="mega-cat-row">
-                  
-                  {{-- Drinkware & Dining --}}
+                  @foreach($productMenuCategories as $menuCategory)
                   <div class="mega-cat-hover-item">
-                    <div class="mega-cat-head">Drinkware & Dining <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
+                    <div class="mega-cat-head">{{ $menuCategory['label'] }} <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
                     <div class="mega-cat-dropdown">
-                      <a href="{{ route('products.index', ['category' => 'bottle']) }}" class="m-link"><i data-lucide="glass-water" class="m-ic"></i> Bottle</a>
-                      <a href="{{ route('products.index', ['category' => 'lunch-box']) }}" class="m-link"><i data-lucide="utensils" class="m-ic"></i> Lunch Box</a>
-                      <a href="{{ route('products.index', ['category' => 'mug']) }}" class="m-link"><i data-lucide="coffee" class="m-ic"></i> Mug</a>
-                      <a href="{{ route('products.index', ['category' => 'straw-set']) }}" class="m-link"><i data-lucide="wind" class="m-ic"></i> Straw Set</a>
-                      <a href="{{ route('products.index', ['category' => 'thermos']) }}" class="m-link"><i data-lucide="thermometer" class="m-ic"></i> Thermos</a>
-                      <a href="{{ route('products.index', ['category' => 'tumbler']) }}" class="m-link"><i data-lucide="cup-soda" class="m-ic"></i> Tumbler</a>
+                      @foreach($menuCategory['items'] as $item)
+                        <a href="{{ route('products.index', ['category' => $item['category']]) }}" class="m-link"><i data-lucide="{{ $item['icon'] }}" class="m-ic"></i><span>{{ $item['label'] }}</span></a>
+                      @endforeach
                     </div>
                   </div>
-
-                  {{-- Office & Stationery --}}
-                  <div class="mega-cat-hover-item">
-                    <div class="mega-cat-head">Office & Stationery <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
-                    <div class="mega-cat-dropdown">
-                      <a href="{{ route('products.index', ['category' => 'agenda-custom']) }}" class="m-link"><i data-lucide="notebook" class="m-ic"></i> Agenda Custom</a>
-                      <a href="{{ route('products.index', ['category' => 'calender']) }}" class="m-link"><i data-lucide="calendar" class="m-ic"></i> Calendar</a>
-                      <a href="{{ route('products.index', ['category' => 'card-holder']) }}" class="m-link"><i data-lucide="credit-card" class="m-ic"></i> Card Holder</a>
-                      <a href="{{ route('products.index', ['category' => 'stationary']) }}" class="m-link"><i data-lucide="pencil" class="m-ic"></i> Stationery</a>
-                      <a href="{{ route('products.index', ['category' => 'table-clock']) }}" class="m-link"><i data-lucide="alarm-clock" class="m-ic"></i> Table Clock</a>
-                    </div>
-                  </div>
-
-                  {{-- Tech & Gadgets --}}
-                  <div class="mega-cat-hover-item">
-                    <div class="mega-cat-head">Tech & Gadgets <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
-                    <div class="mega-cat-dropdown">
-                      <a href="{{ route('products.index', ['category' => 'flashdrive']) }}" class="m-link"><i data-lucide="save" class="m-ic"></i> Flashdrive</a>
-                      <a href="{{ route('products.index', ['category' => 'headset']) }}" class="m-link"><i data-lucide="headphones" class="m-ic"></i> Headset</a>
-                      <a href="{{ route('products.index', ['category' => 'mouse']) }}" class="m-link"><i data-lucide="mouse" class="m-ic"></i> Mouse</a>
-                      <a href="{{ route('products.index', ['category' => 'power-bank']) }}" class="m-link"><i data-lucide="battery-charging" class="m-ic"></i> Power Bank</a>
-                      <a href="{{ route('products.index', ['category' => 'speaker']) }}" class="m-link"><i data-lucide="speaker" class="m-ic"></i> Speaker</a>
-                      <a href="{{ route('products.index', ['category' => 'travel-adapter']) }}" class="m-link"><i data-lucide="plug" class="m-ic"></i> Travel Adapter</a>
-                    </div>
-                  </div>
-
-                  {{-- Bags & Lifestyle --}}
-                  <div class="mega-cat-hover-item">
-                    <div class="mega-cat-head">Bags & Lifestyle <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
-                    <div class="mega-cat-dropdown">
-                      <a href="{{ route('products.index', ['category' => 'pin']) }}" class="m-link"><i data-lucide="pin" class="m-ic"></i> Pin</a>
-                      <a href="{{ route('products.index', ['category' => 'tas']) }}" class="m-link"><i data-lucide="shopping-bag" class="m-ic"></i> {{ __('messages.header.tas') }}</a>
-                      <a href="{{ route('products.index', ['category' => 'umbrella']) }}" class="m-link"><i data-lucide="umbrella" class="m-ic"></i> Umbrella</a>
-                    </div>
-                  </div>
-
-                  {{-- Packaging & Accessories --}}
-                  <div class="mega-cat-hover-item">
-                    <div class="mega-cat-head">Packaging & Accessories <svg viewBox="0 0 12 8" class="cat-arrow"><path d="M1 1l5 5 5-5"/></svg></div>
-                    <div class="mega-cat-dropdown">
-                      <a href="{{ route('products.index', ['category' => 'packaging-accesoris']) }}" class="m-link"><i data-lucide="box" class="m-ic"></i> Accessories</a>
-                      <a href="{{ route('products.index', ['category' => 'packaging-accesoris']) }}" class="m-link"><i data-lucide="package" class="m-ic"></i> Packaging</a>
-                    </div>
-                  </div>
-
+                  @endforeach
                 </div>
               </div>
 

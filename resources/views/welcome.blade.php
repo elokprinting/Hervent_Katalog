@@ -168,10 +168,10 @@
     </div>
     <div class="cats" id="cats">
         @foreach($categories as $category)
-        <a class="cat-t rv" href="{{ route('products.index', ['category' => $category]) }}">
+        <a class="cat-t rv" href="{{ route('products.index') }}">
             <svg class="pat pat-w" style="opacity:.12"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
-            <b>{{ \Illuminate\Support\Str::headline($category) }}</b>
-            <small>{{ $categoryCounts[$category] ?? 0 }} {{ __('messages.welcome.jelajah_avail') }}</small>
+            <b>{{ $category }}</b>
+            <small>{{ __('messages.welcome.jelajah_avail') }}</small>
         </a>
         @endforeach
     </div>
