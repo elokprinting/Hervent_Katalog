@@ -54,6 +54,7 @@ class ProductSeeder extends Seeder
             $catalogCategory = $this->catalogCategoryFromFolder($topFolder);
             $name = pathinfo($file->getFilename(), PATHINFO_FILENAME);
             $slug = Str::slug($relativePath);
+            $includedItems = $isGiftSet ? $this->includedItems($name) : null;
 
             Product::updateOrCreate(
                 ['slug' => $slug],
@@ -63,8 +64,9 @@ class ProductSeeder extends Seeder
                     'catalog_category' => $catalogCategory,
                     'product_type' => $isGiftSet ? 'package' : 'single',
                     'description' => $isGiftSet
-                        ? 'Paket hadiah korporat yang dapat disesuaikan untuk kebutuhan dan momen perusahaan.'
+                        ? 'Giftset Premium dengan ' . count($includedItems) . ' produk.'
                         : 'Produk promosi berkualitas yang dapat dikustomisasi dengan identitas brand perusahaan.',
+                    'included_items' => $includedItems,
                     'price_min' => $isGiftSet ? 150000 : 25000,
                     'price_max' => $isGiftSet ? 750000 : 250000,
                     'minimum_order' => $isGiftSet ? 25 : 50,
@@ -104,5 +106,15 @@ class ProductSeeder extends Seeder
             'Client Appreciation' => 'apresiasi-klien-vip',
             'Holiday & Hampers' => 'holidays-hampers',
         ][$folder] ?? 'gathering-anniversary';
+    }
+
+    private function includedItems(string $name): array
+    {
+        return match (Str::slug($name)) {
+            'ethnic-echo' => ['Notebook custom', 'Pulpen premium', 'Keychain', 'Gift box'],
+            'supreme-spectra' => ['Tumbler custom', 'Notebook custom', 'Pulpen premium', 'Gift box'],
+            'synergi-seminar-package' => ['Seminar kit', 'Notebook custom', 'Pulpen', 'Lanyard', 'Gift box'],
+            default => ['Produk custom pilihan', 'Packaging eksklusif'],
+        };
     }
 }

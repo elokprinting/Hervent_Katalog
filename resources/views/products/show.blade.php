@@ -103,6 +103,28 @@
         .pd-subtitle {
             font-size: 0.95rem; color: #6b7280; margin: 0 0 1.5rem;
         }
+        .pd-included {
+            margin: 1.5rem 0 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .pd-included-heading {
+            margin: 0 0 0.75rem;
+            color: #111;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .pd-included-list {
+            display: grid;
+            gap: 0.55rem;
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #374151;
+            font-size: 0.92rem;
+        }
+        .pd-included-list li::marker {
+            color: #111;
+        }
 
         /* Colors */
         .pd-section-label {
@@ -288,6 +310,17 @@
 
                 @if($product->description)
                     <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.75rem;">{{ $product->description }}</p>
+                @endif
+
+                @if($product->product_type === 'package' && $product->included_items)
+                    <div class="pd-included">
+                        <h2 class="pd-included-heading">Item Termasuk</h2>
+                        <ul class="pd-included-list">
+                            @foreach($product->included_items as $item)
+                                <li>{{ $item }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
 
                 @if($product->colors && count($product->colors) > 0)

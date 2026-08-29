@@ -83,6 +83,7 @@ class Product extends Model
         'product_type',
         'catalog_category',
         'description',
+        'included_items',
         'stock',
         'price_min',
         'price_max',
@@ -102,6 +103,7 @@ class Product extends Model
             'is_featured' => 'boolean',
             'colors' => 'array',
             'gallery_images' => 'array',
+            'included_items' => 'array',
         ];
     }
 
