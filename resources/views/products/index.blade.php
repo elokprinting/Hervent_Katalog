@@ -65,19 +65,39 @@
                                 <input type="hidden" name="q" value="{{ $search }}"><input type="hidden" name="category" value="{{ $activeCategory }}"><input type="hidden" name="group" value="{{ $activeGroup }}"><input type="hidden" name="catalog" value="{{ $activeCatalogCategory }}">
                                 <div class="catalog-control">
                                     <label for="catalogType">Tampilkan</label>
-                                    <select id="catalogType" name="type" onchange="this.form.submit()">
-                                        <option value="" {{ !$activeType ? 'selected' : '' }}>Semua produk</option>
-                                        <option value="package" {{ $activeType === 'package' ? 'selected' : '' }}>Set hadiah</option>
-                                        <option value="single" {{ $activeType === 'single' ? 'selected' : '' }}>Produk satuan</option>
-                                    </select>
+                                    <div class="catalog-custom-select" data-custom-select>
+                                        <select id="catalogType" name="type" tabindex="-1" aria-hidden="true">
+                                            <option value="" {{ !$activeType ? 'selected' : '' }}>Semua produk</option>
+                                            <option value="package" {{ $activeType === 'package' ? 'selected' : '' }}>Set hadiah</option>
+                                            <option value="single" {{ $activeType === 'single' ? 'selected' : '' }}>Produk satuan</option>
+                                        </select>
+                                        <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                            <span>{{ !$activeType ? 'Semua produk' : ($activeType === 'package' ? 'Set hadiah' : 'Produk satuan') }}</span>
+                                        </button>
+                                        <div class="catalog-select-menu" role="listbox" tabindex="-1">
+                                            <button type="button" role="option" data-value="" aria-selected="{{ !$activeType ? 'true' : 'false' }}">Semua produk</button>
+                                            <button type="button" role="option" data-value="package" aria-selected="{{ $activeType === 'package' ? 'true' : 'false' }}">Set hadiah</button>
+                                            <button type="button" role="option" data-value="single" aria-selected="{{ $activeType === 'single' ? 'true' : 'false' }}">Produk satuan</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="catalog-control">
                                     <label for="catalogSort">Urutkan</label>
-                                    <select id="catalogSort" name="sort" onchange="this.form.submit()">
-                                        <option value="" {{ !$sort ? 'selected' : '' }}>{{ __('messages.catalog.sort_latest') }}</option>
-                                        <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_low') }}</option>
-                                        <option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_high') }}</option>
-                                    </select>
+                                    <div class="catalog-custom-select" data-custom-select>
+                                        <select id="catalogSort" name="sort" tabindex="-1" aria-hidden="true">
+                                            <option value="" {{ !$sort ? 'selected' : '' }}>{{ __('messages.catalog.sort_latest') }}</option>
+                                            <option value="price_asc" {{ $sort === 'price_asc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_low') }}</option>
+                                            <option value="price_desc" {{ $sort === 'price_desc' ? 'selected' : '' }}>{{ __('messages.catalog.sort_price_high') }}</option>
+                                        </select>
+                                        <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                            <span>{{ !$sort ? __('messages.catalog.sort_latest') : ($sort === 'price_asc' ? __('messages.catalog.sort_price_low') : __('messages.catalog.sort_price_high')) }}</span>
+                                        </button>
+                                        <div class="catalog-select-menu" role="listbox" tabindex="-1">
+                                            <button type="button" role="option" data-value="" aria-selected="{{ !$sort ? 'true' : 'false' }}">{{ __('messages.catalog.sort_latest') }}</button>
+                                            <button type="button" role="option" data-value="price_asc" aria-selected="{{ $sort === 'price_asc' ? 'true' : 'false' }}">{{ __('messages.catalog.sort_price_low') }}</button>
+                                            <button type="button" role="option" data-value="price_desc" aria-selected="{{ $sort === 'price_desc' ? 'true' : 'false' }}">{{ __('messages.catalog.sort_price_high') }}</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
