@@ -76,6 +76,11 @@
                             </form>
                         </div>
 
+                        <div class="catalog-type-summary">
+                            <a class="{{ !$activeType ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort])) }}">Semua Produk</a>
+                            <a class="{{ $activeType === 'package' ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => 'package'])) }}">Set Hadiah</a>
+                            <a class="{{ $activeType === 'single' ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $activeCategory, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => 'single'])) }}">Produk Satuan</a>
+                        </div>
                         <div class="catalog-grid marketplace-grid">
                             @forelse($products as $product)
                                 <article id="product-{{ $product->id }}" class="market-product">

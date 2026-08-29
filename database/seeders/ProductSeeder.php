@@ -4,104 +4,98 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        $products = [
-            // Gift Set (2 produk)
-            [
-                'name' => 'Executive Gift Set',
-                'slug' => 'executive-gift-set',
-                'category' => 'gift-set',
-                'catalog_category' => 'gathering-anniversary',
-                'product_type' => 'package',
-                'description' => 'Paket eksklusif berisi tumbler, notebook kulit, dan pulpen premium dalam box custom — cocok untuk apresiasi klien VIP dan direksi.',
-                'price_min' => 185000,
-                'price_max' => 450000,
-                'minimum_order' => 25,
-                'image_url' => 'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85',
-                'is_featured' => true,
-                'subtitle' => 'Sudah Include Logo',
-                'colors' => ['#000000', '#ffffff', '#c7c7c7', '#3f4f63'],
-                'dimensions' => '25 x 20 x 10 cm',
-                'custom_method' => 'UV Print / Laser Engraving',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85',
-                    'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85',
-                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85'
-                ]
-            ],
-            [
-                'name' => 'Welcome Kit Gift Set',
-                'slug' => 'welcome-kit-gift-set',
-                'category' => 'gift-set',
-                'catalog_category' => 'onboarding-karyawan',
-                'product_type' => 'package',
-                'description' => 'Set onboarding karyawan baru: pouch, lanyard, tumbler mini, dan kartu ucapan dalam kemasan branded perusahaan.',
-                'price_min' => 95000,
-                'price_max' => 225000,
-                'minimum_order' => 50,
-                'image_url' => 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85',
-                'is_featured' => true,
-                'subtitle' => 'Cocok untuk Onboarding',
-                'colors' => ['#2f3542', '#747d8c', '#a4b0be'],
-                'dimensions' => '20 x 15 x 8 cm',
-                'custom_method' => 'Screen Print',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=900&q=85',
-                    'https://images.unsplash.com/photo-1549465220-1a8b9238f760?auto=format&fit=crop&w=900&q=85'
-                ]
-            ],
-
-            // Bottle (2 produk)
-            [
-                'name' => 'Stainless Steel Bottle',
-                'slug' => 'stainless-steel-bottle',
-                'category' => 'bottle',
-                'catalog_category' => 'seminar-training',
-                'product_type' => 'single',
-                'description' => 'Botol stainless steel 500ml vacuum insulated, tahan panas 12 jam & dingin 24 jam. Logo custom dengan laser engraving.',
-                'price_min' => 75000,
-                'price_max' => 165000,
-                'minimum_order' => 50,
-                'image_url' => 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85',
-                'is_featured' => true,
-                'subtitle' => 'Double Wall Vacuum Insulated',
-                'colors' => ['#000000', '#ffffff', '#e1b12c'],
-                'dimensions' => '6.5 x 6.5 x 23 cm',
-                'custom_method' => 'Laser Engraving',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85',
-                    'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85'
-                ]
-            ],
-            [
-                'name' => 'Glass Infuser Bottle',
-                'slug' => 'glass-infuser-bottle',
-                'category' => 'bottle',
-                'catalog_category' => 'event-pameran',
-                'product_type' => 'single',
-                'description' => 'Botol kaca borosilikat 450ml dengan infuser teh, sleeve silikon, dan tutup bamboo. Cetak logo UV printing.',
-                'price_min' => 55000,
-                'price_max' => 120000,
-                'minimum_order' => 50,
-                'image_url' => 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85',
-                'is_featured' => false,
-                'subtitle' => 'Eco Friendly Material',
-                'colors' => ['#2ed573', '#1e90ff', '#ff4757'],
-                'dimensions' => '7 x 7 x 20 cm',
-                'custom_method' => 'UV Print',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=85',
-                    'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85'
-                ]
-            ],
+        $root = public_path('images/products');
+        $files = File::allFiles($root);
+        $managedPrefixes = [
+            'images/products/Product/',
+            'images/products/Corporate Gift/',
+            'images/products/Seminar & Training/',
+            'images/products/Gathering & Anniversary/',
+            'images/products/Client Appreciation/',
+            'images/products/Holiday & Hampers/',
         ];
 
-        foreach ($products as $product) {
-            Product::updateOrCreate(['slug' => $product['slug']], $product);
+        Product::query()
+            ->where(function ($query) use ($managedPrefixes) {
+                $query->where('image_url', 'like', '%unsplash.com%');
+                foreach ($managedPrefixes as $prefix) {
+                    $query->orWhere('image_url', 'like', $prefix . '%');
+                    $query->orWhere('image_url', 'like', '/' . $prefix . '%');
+                }
+            })
+            ->delete();
+
+        foreach ($files as $index => $file) {
+            $relativePath = str_replace('\\', '/', $file->getRelativePathname());
+            $parts = explode('/', $relativePath);
+            $topFolder = $parts[0] ?? '';
+            $isProductFolder = $topFolder === 'Product';
+            $isGiftSet = $isProductFolder
+                ? ($parts[1] ?? '') === 'Gift Sets'
+                : in_array($topFolder, [
+                    'Corporate Gift',
+                    'Seminar & Training',
+                    'Gathering & Anniversary',
+                    'Client Appreciation',
+                    'Holiday & Hampers',
+                ], true);
+
+            $category = $isGiftSet
+                ? 'gift-set'
+                : $this->categoryFromPath($parts, $file->getFilename());
+            $catalogCategory = $this->catalogCategoryFromFolder($topFolder);
+            $name = pathinfo($file->getFilename(), PATHINFO_FILENAME);
+            $slug = Str::slug($relativePath);
+
+            Product::updateOrCreate(
+                ['slug' => $slug],
+                [
+                    'name' => $name,
+                    'category' => $category,
+                    'catalog_category' => $catalogCategory,
+                    'product_type' => $isGiftSet ? 'package' : 'single',
+                    'description' => $isGiftSet
+                        ? 'Paket hadiah korporat yang dapat disesuaikan untuk kebutuhan dan momen perusahaan.'
+                        : 'Produk promosi berkualitas yang dapat dikustomisasi dengan identitas brand perusahaan.',
+                    'price_min' => $isGiftSet ? 150000 : 25000,
+                    'price_max' => $isGiftSet ? 750000 : 250000,
+                    'minimum_order' => $isGiftSet ? 25 : 50,
+                    'image_url' => '/images/products/' . $relativePath,
+                    'is_featured' => $index < 6,
+                ]
+            );
         }
+    }
+
+    private function categoryFromPath(array $parts, string $filename): string
+    {
+        if (strtolower($parts[0] ?? '') === 'product' && isset($parts[2])) {
+            return Str::slug(pathinfo($parts[2], PATHINFO_FILENAME));
+        }
+
+        $category = Str::slug(pathinfo($filename, PATHINFO_FILENAME));
+        if (Str::startsWith($category, ['falshdrive', 'flashdrive'])) {
+            return 'flashdrive';
+        }
+
+        return $category;
+    }
+
+    private function catalogCategoryFromFolder(string $folder): string
+    {
+        return [
+            'Corporate Gift' => 'onboarding-karyawan',
+            'Seminar & Training' => 'seminar-training',
+            'Gathering & Anniversary' => 'gathering-anniversary',
+            'Client Appreciation' => 'apresiasi-klien-vip',
+            'Holiday & Hampers' => 'holidays-hampers',
+        ][$folder] ?? 'gathering-anniversary';
     }
 }
