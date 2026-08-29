@@ -168,10 +168,11 @@
     </div>
     <div class="cats" id="cats">
         @foreach($categories as $category)
-        <a class="cat-t rv" href="{{ route('products.index') }}">
-            <svg class="pat pat-w" style="opacity:.12"><rect width="100%" height="100%" fill="url(#hvPat)"/></svg>
-            <b>{{ $category }}</b>
-            <small>{{ __('messages.welcome.jelajah_avail') }}</small>
+        <a class="cat-t rv" href="{{ route('products.index', ['group' => $category['key']]) }}">
+            <img src="{{ asset($category['image']) }}" alt="{{ $category['label'] }}" loading="lazy">
+            <span class="cat-t-overlay"></span>
+            <b>{{ $category['label'] }}</b>
+            <small>{{ $category['count'] }} {{ __('messages.welcome.jelajah_avail') }}</small>
         </a>
         @endforeach
     </div>
