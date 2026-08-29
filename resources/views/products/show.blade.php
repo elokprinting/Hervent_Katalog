@@ -254,7 +254,7 @@
         <div class="pd-layout">
             <!-- Left: Gallery -->
             <div class="pd-gallery" x-data="{
-                images: {{ json_encode($product->gallery_images ?: [$product->image_url]) }},
+                images: {{ json_encode(collect($product->gallery_images ?: [$product->image_url])->map(fn ($image) => str_starts_with($image, '/images/products/') ? '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($image, '/')))) : $image)->values()) }},
                 active: 0,
                 next() { this.active = this.active === this.images.length - 1 ? 0 : this.active + 1; },
                 prev() { this.active = this.active === 0 ? this.images.length - 1 : this.active - 1; }

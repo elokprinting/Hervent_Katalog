@@ -110,6 +110,18 @@ class Product extends Model
         return 'Rp ' . number_format($this->price_min, 0, ',', '.') . ' - ' . number_format($this->price_max, 0, ',', '.');
     }
 
+    public function getImageUrlAttribute(?string $value): ?string
+    {
+        if (! $value || ! Str::startsWith($value, ['/images/products/', 'images/products/'])) {
+            return $value;
+        }
+
+        $path = ltrim($value, '/');
+        $segments = array_map('rawurlencode', explode('/', $path));
+
+        return '/' . implode('/', $segments);
+    }
+
     public function getCategoryLabelAttribute(): string
     {
         return self::PRODUCT_CATEGORIES[$this->category] ?? Str::headline($this->category);
