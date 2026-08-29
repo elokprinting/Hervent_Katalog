@@ -254,6 +254,55 @@ class ProductSeeder extends Seeder
                     'Pilihan cetak logo' => 'Screen Printing, Laser Engraving',
                 ],
             ],
+            'Product/office and stationary/Agenda Custom.png' => [
+                'description' => 'Agenda premium berbahan PU Leather dengan fitur pengunci magnet, tali pengikat, dan ruang khusus untuk menyimpan pulpen.',
+                'specifications' => [
+                    'Material & fitur' => 'PU Leather premium, pengunci magnet, tali pengikat, ruang pulpen',
+                    'Model yang tersedia' => 'Invent, Verb, Venture, Petaluxe',
+                ],
+            ],
+            'Product/office and stationary/Eco Notes.png' => [
+                'description' => 'Buku catatan ramah lingkungan yang dibuat dari kertas daur ulang dengan desain praktis dan fungsional.',
+                'specifications' => [
+                    'Material' => 'Kertas daur ulang',
+                    'Varian' => 'Recyclerite, mini book dengan sticky notes',
+                ],
+            ],
+            'Product/office and stationary/Pen Pinnacle.png' => [
+                'description' => 'Pulpen premium dengan bahan plastik, metal, maupun kayu serta pilihan branding yang luas untuk kebutuhan corporate gifting.',
+                'specifications' => [
+                    'Material' => 'Plastik, metal (Luxora, Twiluxe, Clipper), kayu',
+                    'Opsi branding' => 'Screen Printing, Laser Engraving, DTF UV',
+                    'Fitur tambahan' => 'Ruang transparan untuk insert paper',
+                ],
+            ],
+            'Product/office and stationary/Clock.png' => [
+                'description' => 'Jam untuk kebutuhan kantor dan ruang kerja dengan pilihan dinding, meja, hingga desain digital modern.',
+                'specifications' => [
+                    'Jenis jam' => 'Jam dinding plastik, jam meja kulit (Svelte, Richhour), jam meja kayu, jam digital LED (Cyclock, Multitime)',
+                ],
+            ],
+            'Product/office and stationary/Card Holder.png' => [
+                'description' => 'Tempat kartu nama premium untuk kebutuhan branding, presentasi, dan identitas bisnis.',
+                'specifications' => [
+                    'Material' => 'Metal dan kulit',
+                    'Kategori' => 'Merchandise cetak dan lainnya',
+                ],
+            ],
+            'Product/office and stationary/Desk Calendar.png' => [
+                'description' => 'Layanan cetak kalender meja maupun kalender dinding custom sesuai kebutuhan brand perusahaan.',
+                'specifications' => [
+                    'Kategori' => 'Produk percetakan (Printing)',
+                    'Pilihan' => 'Kalender meja dan kalender dinding custom',
+                ],
+            ],
+            'Product/office and stationary/Pin.png' => [
+                'description' => 'Aneka pin dan gantungan kunci sebagai pelengkap souvenir dan merchandise promosi.',
+                'specifications' => [
+                    'Kategori' => 'Produk cetak & lainnya',
+                    'Detail' => 'Pin dan gantungan kunci',
+                ],
+            ],
         ][$relativePath] ?? null;
     }
 }
