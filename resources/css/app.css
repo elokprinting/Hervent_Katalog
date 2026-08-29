@@ -3155,7 +3155,7 @@ select {
     display: grid;
     grid-template-columns: minmax(220px, 1fr) auto minmax(280px, 360px);
     gap: 1.25rem;
-    align-items: center;
+    align-items: end;
     margin-bottom: 1.5rem;
 }
 
@@ -3197,6 +3197,7 @@ select {
 }
 
 .result-count {
+    align-self: center;
     color: var(--g1);
     font-size: 0.78rem;
     white-space: nowrap;
