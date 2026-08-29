@@ -127,17 +127,13 @@
         }
         .pd-specifications {
             margin: 1.5rem 0 1.75rem;
-            padding: 1rem 1.1rem;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            background: #fafafa;
         }
         .pd-specification {
             display: grid;
             grid-template-columns: minmax(120px, 0.35fr) 1fr;
             gap: 1rem;
             padding: 0.65rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e5e7eb;
             font-size: 0.88rem;
             line-height: 1.5;
         }
@@ -169,25 +165,10 @@
         /* Divider */
         .pd-hr { border: 0; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }
 
-        /* Detail Produk */
         .pd-detail-heading {
             font-size: 1rem; font-weight: 700; color: #111;
             margin: 0 0 1rem;
         }
-        .pd-details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem 2rem;
-        }
-        .pd-detail-label {
-            display: block; font-size: 0.8rem;
-            color: #9ca3af; margin-bottom: 0.2rem;
-        }
-        .pd-detail-value {
-            display: block; font-size: 0.92rem;
-            color: #111; font-weight: 500;
-        }
-
         /* Action Button */
         .pd-action { margin-top: 2rem; }
         .pd-btn-order {
@@ -197,7 +178,7 @@
             gap: 0.5rem;
             padding: 0.85rem 2.5rem;
             border-radius: 8px;
-            background: #111;
+            background: #e02323;
             color: #fff;
             font-size: 0.95rem;
             font-weight: 600;
@@ -369,34 +350,6 @@
                         </div>
                     </div>
                 @endif
-
-                <hr class="pd-hr">
-
-                <div>
-                    <h3 class="pd-detail-heading">Detail Produk</h3>
-                    <div class="pd-details-grid">
-                        <div>
-                            <span class="pd-detail-label">Dimensi</span>
-                            <span class="pd-detail-value">{{ $product->dimensions ?: '-' }}</span>
-                        </div>
-                        <div>
-                            <span class="pd-detail-label">Cara Custom</span>
-                            <span class="pd-detail-value">{{ $product->custom_method ?: '-' }}</span>
-                        </div>
-                        @if($product->minimum_order)
-                        <div>
-                            <span class="pd-detail-label">Min. Pemesanan</span>
-                            <span class="pd-detail-value">{{ $product->minimum_order }} pcs</span>
-                        </div>
-                        @endif
-                        @if($product->price_min)
-                        <div>
-                            <span class="pd-detail-label">Harga Mulai</span>
-                            <span class="pd-detail-value">Rp {{ number_format($product->price_min, 0, ',', '.') }}</span>
-                        </div>
-                        @endif
-                    </div>
-                </div>
 
                 <div class="pd-action">
                     @php

@@ -209,6 +209,51 @@ class ProductSeeder extends Seeder
                     'Model terbaru' => 'Hype',
                 ],
             ],
+            'Product/drinkware and dinning/Tumbler/Jupiter.jpg' => [
+                'description' => 'Vacuum flask dengan konstruksi double 304 stainless steel untuk menjaga suhu minuman.',
+                'specifications' => [
+                    'Kategori & material' => 'Vacuum Flask (Double 304 Stainless Steel)',
+                    'Dimensi & kapasitas' => '20,5 x 6,8 x 6,8 cm; 350 ml',
+                    'Pilihan warna' => 'Hitam, Biru, Merah Muda',
+                    'Pilihan cetak logo' => 'Screen Printing',
+                ],
+            ],
+            'Product/drinkware and dinning/Tumbler/Indigo.jpg' => [
+                'description' => 'Botol aluminium ringan dengan kombinasi material aluminium dan PP.',
+                'specifications' => [
+                    'Kategori & material' => 'Botol Aluminium (Aluminium + PP)',
+                    'Dimensi & kapasitas' => '22 x 7,5 x 7,5 cm; 600 ml',
+                    'Pilihan warna' => 'Oranye, Biru, Hijau, Merah',
+                    'Pilihan cetak logo' => 'Screen Printing, Laser Engraving',
+                ],
+            ],
+            'Product/drinkware and dinning/Tumbler/Florida.jpg' => [
+                'description' => 'Sport bottle praktis berbahan AS dan PP untuk menemani aktivitas sehari-hari.',
+                'specifications' => [
+                    'Kategori & material' => 'Sport Bottle (AS + PP)',
+                    'Dimensi & kapasitas' => '22 x 7 x 7 cm; 560 ml',
+                    'Pilihan warna' => 'Hitam, Ungu, Turkish, Oranye, Biru, Hijau, Merah',
+                    'Pilihan cetak logo' => 'Screen Printing',
+                ],
+            ],
+            'Product/drinkware and dinning/Tumbler/Daytona.jpg' => [
+                'description' => 'Insert paper tumbler dengan inner PP dan outer AS yang dapat dikustomisasi.',
+                'specifications' => [
+                    'Kategori & material' => 'Insert Paper Tumbler (Inner PP, Outer AS)',
+                    'Dimensi & kapasitas' => '21 x 7,5 x 6,5 cm; 430 ml',
+                    'Pilihan warna' => 'Biru, Merah, Oranye, Hijau, Abu-abu',
+                    'Pilihan cetak logo' => 'Screen Printing, Print Full Color',
+                ],
+            ],
+            'Product/drinkware and dinning/Tumbler/Arizona.jpg' => [
+                'description' => 'Termos stainless berbahan 18/8 stainless steel untuk kebutuhan minum sehari-hari.',
+                'specifications' => [
+                    'Kategori & material' => 'Termos Stainless (18/8 Stainless Steel)',
+                    'Dimensi & kapasitas' => '25 x 7,5 x 7,5 cm; 600 ml',
+                    'Pilihan warna' => 'Perak, Cokelat, Hijau',
+                    'Pilihan cetak logo' => 'Screen Printing, Laser Engraving',
+                ],
+            ],
         ][$relativePath] ?? null;
     }
 }
