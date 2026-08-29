@@ -33,16 +33,21 @@ class ProductsController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        $categories = Cache::remember('products.categories.v3', now()->addHour(), fn() => Product::query()
+        $categories = Cache::remember('products.categories.v4', now()->addHour(), fn() => Product::query()
             ->select('category')
             ->distinct()
             ->orderBy('category')
             ->pluck('category')
             ->all());
+        $categoryCounts = Product::query()
+            ->selectRaw('category, count(*) as product_count')
+            ->groupBy('category')
+            ->pluck('product_count', 'category');
 
         return view('products.index', [
             'products' => $products,
             'categories' => $categories,
+            'categoryCounts' => $categoryCounts,
             'activeCategory' => $category,
             'activeCatalogCategory' => $catalogCategory,
             'catalogCategories' => Product::OCCASION_CATEGORIES,

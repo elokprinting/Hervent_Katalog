@@ -42,9 +42,9 @@
                         @endforeach
                         <div class="sidebar-heading"><strong>Jenis Produk</strong></div>
                         @foreach($categories as $category)
-                            @php($categoryIcon = ['gift-set-hampers' => 'gift', 'desk-set' => 'briefcase', 'fashion' => 'shirt', 'hampers' => 'basket', 'premium' => 'crown', 'starter-kit' => 'package', 'tumbler' => 'cup-soda', 'bottle' => 'bottle', 'card-holder' => 'credit-card', 'table-clock' => 'alarm-clock', 'clock' => 'clock', 'seminar-kit' => 'briefcase', 'calender' => 'calendar', 'thermos' => 'thermometer', 'tas' => 'shopping-bag', 'mug' => 'coffee', 'umbrella' => 'umbrella', 'eco-friendly' => 'leaf', 'headset' => 'headphones', 'flashdrive' => 'device-usb'] [$category] ?? 'package')
+                            @php($categoryIcon = ['gift-set' => 'gift', 'tumbler' => 'cup-soda', 'bottle' => 'bottle', 'lunch-box' => 'utensils', 'card-holder' => 'credit-card', 'table-clock' => 'alarm-clock', 'clock' => 'clock', 'calender' => 'calendar', 'thermos' => 'thermometer', 'tas' => 'shopping-bag', 'mug' => 'coffee', 'umbrella' => 'umbrella', 'headset' => 'headphones', 'flashdrive' => 'save', 'mouse' => 'mouse', 'power-bank' => 'battery-charging', 'speaker' => 'speaker', 'travel-adapter' => 'plug', 'agenda-custom' => 'notebook', 'stationary' => 'pencil'] [$category] ?? 'package')
                             <a class="sidebar-category {{ $activeCategory === $category ? 'active' : '' }}" href="{{ route('products.index', array_filter(['category' => $category, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
-                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</span>
+                                <i class="category-icon" data-lucide="{{ $categoryIcon }}" aria-hidden="true"></i><span>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</span><small>{{ $categoryCounts[$category] ?? 0 }}</small>
                             </a>
                         @endforeach
                     </aside>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -72,6 +73,8 @@ class ProductSeeder extends Seeder
                 ]
             );
         }
+
+        Cache::forget('products.categories.v4');
     }
 
     private function categoryFromPath(array $parts, string $filename): string
