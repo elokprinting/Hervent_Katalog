@@ -6,7 +6,6 @@
     <title>{{ $product->name }} | HERVENT</title>
     <meta name="description" content="{{ Str::limit($product->description, 150) }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         .pd-page { background: #fff; min-height: 100vh; }
 
@@ -253,32 +252,34 @@
     <main>
         <div class="pd-layout">
             <!-- Left: Gallery -->
-            <div class="pd-gallery" x-data="{
-                images: {{ json_encode(collect($product->gallery_images ?: [$product->image_url])->map(fn ($image) => str_starts_with($image, '/images/products/') ? '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($image, '/')))) : $image)->values()) }},
-                active: 0,
-                next() { this.active = this.active === this.images.length - 1 ? 0 : this.active + 1; },
-                prev() { this.active = this.active === 0 ? this.images.length - 1 : this.active - 1; }
-            }">
+            @php
+                $galleryImages = collect($product->gallery_images ?: [$product->image_url])
+                    ->map(fn ($image) => str_starts_with($image, '/images/products/')
+                        ? '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($image, '/'))))
+                        : $image)
+                    ->values();
+            @endphp
+            <div class="pd-gallery" data-product-gallery>
                 <div class="pd-gallery-main">
-                    <button class="pd-gallery-arrow pd-prev" @click="prev()" aria-label="Sebelumnya">
+                    <button class="pd-gallery-arrow pd-prev" data-gallery-prev aria-label="Sebelumnya">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"/></svg>
                     </button>
-                    <img :src="images[active]" alt="{{ $product->name }}" class="pd-main-img">
-                    <button class="pd-gallery-arrow pd-next" @click="next()" aria-label="Berikutnya">
+                    <img src="{{ $galleryImages->first() }}" alt="{{ $product->name }}" class="pd-main-img" data-gallery-main>
+                    <button class="pd-gallery-arrow pd-next" data-gallery-next aria-label="Berikutnya">
                         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"/></svg>
                     </button>
                     <div class="pd-gallery-dots">
-                        <template x-for="(img, index) in images" :key="index">
-                            <button @click="active = index" :class="{'active': active === index}" class="pd-dot" :aria-label="'Gambar ' + (index + 1)"></button>
-                        </template>
+                        @foreach($galleryImages as $index => $image)
+                            <button class="pd-dot {{ $index === 0 ? 'active' : '' }}" data-gallery-index="{{ $index }}" aria-label="Gambar {{ $index + 1 }}"></button>
+                        @endforeach
                     </div>
                 </div>
                 <div class="pd-gallery-thumbs">
-                    <template x-for="(img, index) in images" :key="index">
-                        <button @click="active = index" :class="{'active': active === index}" class="pd-thumb">
-                            <img :src="img" alt="Thumbnail">
+                    @foreach($galleryImages as $index => $image)
+                        <button class="pd-thumb {{ $index === 0 ? 'active' : '' }}" data-gallery-index="{{ $index }}">
+                            <img src="{{ $image }}" alt="Thumbnail {{ $index + 1 }}">
                         </button>
-                    </template>
+                    @endforeach
                 </div>
             </div>
 

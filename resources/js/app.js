@@ -161,6 +161,38 @@ if(cQty) {
     });
   }
 
+  /* ---------- Product gallery ---------- */
+  document.querySelectorAll('[data-product-gallery]').forEach(function (gallery) {
+    var main = gallery.querySelector('[data-gallery-main]');
+    var images = Array.prototype.map.call(gallery.querySelectorAll('[data-gallery-index]'), function (control) {
+      var image = control.querySelector('img');
+      return image ? image.getAttribute('src') : null;
+    }).filter(Boolean);
+    var active = 0;
+    var controls = gallery.querySelectorAll('[data-gallery-index]');
+
+    function show(index) {
+      if (!images.length) return;
+      active = (index + images.length) % images.length;
+      main.src = images[active];
+      Array.prototype.forEach.call(controls, function (control) {
+        control.classList.toggle('active', control.getAttribute('data-gallery-index') === String(active));
+      });
+    }
+
+    gallery.querySelector('[data-gallery-prev]').addEventListener('click', function () {
+      show(active - 1);
+    });
+    gallery.querySelector('[data-gallery-next]').addEventListener('click', function () {
+      show(active + 1);
+    });
+    Array.prototype.forEach.call(controls, function (control) {
+      control.addEventListener('click', function () {
+        show(parseInt(control.getAttribute('data-gallery-index'), 10));
+      });
+    });
+  });
+
 /* ---------- Reveal + counter ---------- */
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var numFormat = new Intl.NumberFormat('id-ID');
@@ -192,5 +224,4 @@ if(reduce||!('IntersectionObserver'in window)){
   Array.prototype.forEach.call(rv,function(e){io.observe(e);});
 }
 })();
-
 
