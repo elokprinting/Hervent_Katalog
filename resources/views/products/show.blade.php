@@ -253,11 +253,7 @@
         <div class="pd-layout">
             <!-- Left: Gallery -->
             @php
-                $galleryImages = collect($product->gallery_images ?: [$product->image_url])
-                    ->map(fn ($image) => str_starts_with($image, '/images/products/')
-                        ? '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($image, '/'))))
-                        : $image)
-                    ->values();
+                $galleryImages = collect($product->gallery_images ?: [$product->image_url])->values();
             @endphp
             <div class="pd-gallery" data-product-gallery>
                 <div class="pd-gallery-main">
