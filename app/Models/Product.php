@@ -11,12 +11,12 @@ class Product extends Model
     use HasFactory;
 
     public const OCCASION_CATEGORIES = [
-        'gathering-anniversary' => 'Gathering & Anniversary',
-        'seminar-training' => 'Seminar & Training',
-        'holidays-hampers' => 'Holiday Hampers',
         'onboarding-karyawan' => 'Corporate Gift',
+        'seminar-training' => 'Seminar & Training',
+        'gathering-anniversary' => 'Gathering & Anniversary',
         'apresiasi-klien-vip' => 'Client Appreciation',
         'event-pameran' => 'Event & Exhibition',
+        'holidays-hampers' => 'Holiday Hampers',
     ];
 
     public const PRODUCT_CATEGORIES = [

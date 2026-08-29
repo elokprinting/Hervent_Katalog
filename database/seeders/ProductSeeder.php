@@ -31,6 +31,10 @@ class ProductSeeder extends Seeder
             'Holiday & Hampers/holiday rame.png',
             'Seminar & Training/Seminar.png',
             'Seminar & Training/training rame.png',
+            'Gathering & Anniversary/rame rame.png',
+            'Event & Exhibition/Event .png',
+            'Event & Exhibition/Exhibition.png',
+            'Gathering & Anniversary/Selamat Datang Dikawasan Wisata.png',
         ];
 
         Product::query()
