@@ -28,10 +28,28 @@ class ProductsController extends Controller
             ->when($group, fn($query) => $query->whereIn('category', Product::PRODUCT_GROUPS[$group]['categories']))
             ->when(array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES), fn($query) => $query->where('catalog_category', $catalogCategory))
             ->when(in_array($type, ['package', 'single'], true), fn($query) => $query->where('product_type', $type))
-            ->when($search, fn($query) => $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('description', 'like', "%{$search}%");
-            }))
+            ->when($search !== '', function ($query) use ($search) {
+                $search = trim($search);
+                $normalizedSearch = strtolower($search);
+
+                $query->where(function ($query) use ($search, $normalizedSearch) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('slug', 'like', "%{$search}%")
+                        ->orWhere('description', 'like', "%{$search}%")
+                        ->orWhere('category', 'like', "%{$search}%")
+                        ->orWhere('catalog_category', 'like', "%{$search}%");
+
+                    foreach (array_merge(Product::PRODUCT_CATEGORIES, Product::OCCASION_CATEGORIES) as $key => $label) {
+                        $normalizedLabel = strtolower((string) $label);
+                        $normalizedKey = strtolower((string) $key);
+
+                        if (str_contains($normalizedLabel, $normalizedSearch) || str_contains($normalizedKey, $normalizedSearch)) {
+                            $query->orWhere('category', $key)
+                                ->orWhere('catalog_category', $key);
+                        }
+                    }
+                });
+            })
             ->when($sort === 'price_asc', fn($query) => $query->orderBy('price_min'))
             ->when($sort === 'price_desc', fn($query) => $query->orderByDesc('price_min'))
             ->when(!in_array($sort, ['price_asc', 'price_desc'], true), fn($query) => $query->orderByDesc('is_featured')->orderBy('name'))

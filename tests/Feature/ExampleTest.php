@@ -38,6 +38,23 @@ class ExampleTest extends TestCase
         $this->assertSame(10, $response->viewData('products')->perPage());
     }
 
+    public function test_products_page_searches_by_product_name_and_catalog_label(): void
+    {
+        $response = $this->get('/products?q=shirt');
+
+        $response->assertOk()
+            ->assertSee('3 produk tersedia untuk pencarian')
+            ->assertSee('shirt')
+            ->assertSee('Polo Shirt')
+            ->assertSee('T-Shirt');
+
+        $catalogResponse = $this->get('/products?q=corporate');
+
+        $catalogResponse->assertOk()
+            ->assertSee('Corporate Gift')
+            ->assertSee('Corporate Gift Set');
+    }
+
     public function test_about_page_contains_company_information_and_four_pillars(): void
     {
         $this->get(route('about'))
