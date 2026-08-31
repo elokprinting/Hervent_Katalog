@@ -151,13 +151,22 @@
     border-radius: 10px;
     appearance: none;
     background: #fff;
-    background-image: linear-gradient(45deg, transparent 50%, #151516 50%), linear-gradient(135deg, #151516 50%, transparent 50%);
-    background-position: calc(100% - 1.2rem) 50%, calc(100% - 0.85rem) 50%;
-    background-size: 0.4rem 0.4rem, 0.4rem 0.4rem;
-    background-repeat: no-repeat;
+    background-image: none;
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s;
+  }
+  .form-group select {
+    background: #fff;
+  }
+  .form-group input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  .form-group input[type="number"]::-webkit-inner-spin-button,
+  .form-group input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
   }
   .form-group input:focus,
   .form-group textarea:focus,
@@ -511,20 +520,36 @@
 
       <div class="form-group">
         <label for="edit-product-catalog">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
-        <select id="edit-product-catalog" name="catalog_category" required>
-          @foreach($catalogCategories as $value => $label)
-            <option value="{{ $value }}">{{ $label }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="edit-product-catalog" name="catalog_category" required>
+            @foreach($catalogCategories as $value => $label)
+              <option value="{{ $value }}">{{ $label }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>Pilih momen katalog</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach($catalogCategories as $value => $label)
+              <button type="button" role="option" data-value="{{ $value }}" aria-selected="false">{{ $label }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
         <label for="edit-product-type">Satuan / Paketan <span style="color: #b81a1f;">*</span></label>
-        <select id="edit-product-type" name="product_type" required>
-          @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
-            <option value="{{ $value }}">{{ $label }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="edit-product-type" name="product_type" required>
+            @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+              <option value="{{ $value }}">{{ $label }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>Pilih satuan / paketan</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+              <button type="button" role="option" data-value="{{ $value }}" aria-selected="false">{{ $label }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -585,21 +610,37 @@
 
       <div class="form-group">
         <label for="product-catalog">Katalog / Kategori <span style="color: #b81a1f;">*</span></label>
-        <select id="product-catalog" name="catalog_category" required>
-          <option value="">Pilih momen katalog</option>
-          @foreach($catalogCategories as $value => $label)
-            <option value="{{ $value }}" {{ old('catalog_category') === $value ? 'selected' : '' }}>{{ $label }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="product-catalog" name="catalog_category" required>
+            <option value="">Pilih momen katalog</option>
+            @foreach($catalogCategories as $value => $label)
+              <option value="{{ $value }}" {{ old('catalog_category') === $value ? 'selected' : '' }}>{{ $label }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>{{ old('catalog_category') ? ($catalogCategories[old('catalog_category')] ?? 'Pilih momen katalog') : 'Pilih momen katalog' }}</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach($catalogCategories as $value => $label)
+              <button type="button" role="option" data-value="{{ $value }}" aria-selected="{{ old('catalog_category') === $value ? 'true' : 'false' }}">{{ $label }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
         <label for="product-type">Satuan / Paketan <span style="color: #b81a1f;">*</span></label>
-        <select id="product-type" name="product_type" required>
-          @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
-            <option value="{{ $value }}" {{ old('product_type', 'single') === $value ? 'selected' : '' }}>{{ $label }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="product-type" name="product_type" required>
+            @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+              <option value="{{ $value }}" {{ old('product_type', 'single') === $value ? 'selected' : '' }}>{{ $label }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>{{ \App\Models\Product::PRODUCT_TYPES[old('product_type', 'single')] ?? 'Barang Satuan' }}</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
+              <button type="button" role="option" data-value="{{ $value }}" aria-selected="{{ old('product_type', 'single') === $value ? 'true' : 'false' }}">{{ $label }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -632,7 +673,7 @@
   const specificationTemplates = {
     'apparel-lifestyle': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
     'bags-pouch': "- Model yang tersedia :\n- Bahan :\n- Detail :",
-    'drinkware-dining': "- Model yang tersedia :\n- Kapasitas :\n- Bahan :\n- Detail :",
+    'drinkware-dining': "- Kategori & material :\n- Dimensi & kapasitas :\n- Pilihan warna :\n- Pilihan cetak logo :",
     'gift-sets': "- Isi paket :\n- Bahan :\n- Kemasan :\n- Detail :",
     'office-stationery': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
     'tech-gadgets': "- Model yang tersedia :\n- Spesifikasi :\n- Konektivitas :\n- Detail :"
@@ -709,8 +750,12 @@
       }
       categorySelect.value = button.dataset.category;
       syncCustomSelect(categorySelect);
-      document.getElementById('edit-product-catalog').value = button.dataset.catalogCategory;
-      document.getElementById('edit-product-type').value = button.dataset.productType;
+      const catalogSelect = document.getElementById('edit-product-catalog');
+      catalogSelect.value = button.dataset.catalogCategory;
+      syncCustomSelect(catalogSelect);
+      const productTypeSelect = document.getElementById('edit-product-type');
+      productTypeSelect.value = button.dataset.productType;
+      syncCustomSelect(productTypeSelect);
       document.getElementById('edit-product-stock').value = button.dataset.stock;
       document.getElementById('edit-product-description').value = button.dataset.description;
       if (updateEditTemplate) {
