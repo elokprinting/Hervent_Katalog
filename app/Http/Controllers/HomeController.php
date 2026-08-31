@@ -11,15 +11,22 @@ class HomeController extends Controller
     {
         $category = $request->string('category')->toString();
         $products = Product::query()
+            ->select(['id', 'name', 'slug', 'category', 'image_url', 'is_featured'])
             ->when($category, fn($query) => $query->where('category', $category))
             ->orderByDesc('is_featured')
             ->orderBy('name')
+            ->limit(4)
             ->get();
 
         return view('welcome', [
-            'products' => $products->take(4),
-            'bestSellers' => Product::query()->orderByDesc('is_featured')->orderBy('name')->take(6)->get(),
-            'categories' => collect(Product::PRODUCT_GROUPS)->map(function (array $group, string $key) {
+            'products' => $products,
+            'bestSellers' => Cache::remember('home.best-sellers.v1', now()->addMinutes(5), fn() => Product::query()
+                ->select(['id', 'name', 'slug', 'category', 'image_url', 'is_featured'])
+                ->orderByDesc('is_featured')
+                ->orderBy('name')
+                ->limit(6)
+                ->get()),
+            'categories' => Cache::remember('home.categories.v1', now()->addMinutes(5), fn() => collect(Product::PRODUCT_GROUPS)->map(function (array $group, string $key) {
                 $representative = Product::query()
                     ->where(function ($query) use ($key, $group) {
                         $query->whereIn('category', $group['categories'])->orWhere('category', $key);
@@ -36,7 +43,7 @@ class HomeController extends Controller
                         $query->whereIn('category', $group['categories'])->orWhere('category', $key);
                     })->count(),
                 ];
-            })->values(),
+            })->values()),
             'activeCategory' => $category,
         ]);
     }

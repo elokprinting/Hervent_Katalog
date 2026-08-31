@@ -88,7 +88,8 @@ class ProductsController extends Controller
     {
         $recommendedProducts = Product::where('id', '!=', $product->id)
             ->where('category', $product->category)
-            ->inRandomOrder()
+            ->orderByDesc('is_featured')
+            ->orderBy('name')
             ->limit(4)
             ->get(['id', 'name', 'slug', 'image_url']);
 

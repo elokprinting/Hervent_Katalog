@@ -97,6 +97,8 @@ class ProductionBlogController extends Controller
         Product::create($productData);
 
         Cache::forget('products.categories.v3');
+        Cache::forget('home.categories.v1');
+        Cache::forget('home.best-sellers.v1');
 
         return redirect()->back()->with('success', 'Produk berhasil ditambahkan.');
     }
@@ -144,6 +146,8 @@ class ProductionBlogController extends Controller
 
         $product->update($productData);
         Cache::forget('products.categories.v3');
+        Cache::forget('home.categories.v1');
+        Cache::forget('home.best-sellers.v1');
 
         return redirect()->back()->with('success', 'Produk berhasil diperbarui.');
     }
@@ -154,6 +158,8 @@ class ProductionBlogController extends Controller
 
         $product->delete();
         Cache::forget('products.categories.v3');
+        Cache::forget('home.categories.v1');
+        Cache::forget('home.best-sellers.v1');
 
         return redirect()->back()->with('success', 'Produk berhasil dihapus.');
     }
