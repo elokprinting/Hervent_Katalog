@@ -309,20 +309,30 @@
                     <p class="pd-subtitle">{{ $product->subtitle }}</p>
                 @endif
 
-                @if($product->description)
-                    <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.75rem;">{{ $product->description }}</p>
-                @endif
+                @php
+                    $specifications = $product->specifications ?: [];
+                    if (! $specifications && $product->description) {
+                        foreach (preg_split('/\r\n|\r|\n/', $product->description) as $line) {
+                            if (preg_match('/^\s*-\s*(.+?)\s*:\s*(.*)$/', $line, $matches)) {
+                                $specifications[trim($matches[1])] = trim($matches[2]);
+                            }
+                        }
+                    }
+                    $hasStructuredSpecifications = count($specifications) > 0;
+                @endphp
 
-                @if($product->specifications)
+                @if($hasStructuredSpecifications)
                     <section class="pd-specifications" aria-labelledby="specification-heading">
                         <h2 id="specification-heading" class="pd-detail-heading">Spesifikasi Produk</h2>
-                        @foreach($product->specifications as $label => $value)
+                        @foreach($specifications as $label => $value)
                             <div class="pd-specification">
                                 <span class="pd-specification-label">{{ $label }}</span>
                                 <span class="pd-specification-value">{{ $value }}</span>
                             </div>
                         @endforeach
                     </section>
+                @elseif($product->description)
+                    <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.75rem;">{{ $product->description }}</p>
                 @endif
 
                 @if($product->product_type === 'package' && $product->included_items)
