@@ -569,7 +569,7 @@
       <div class="form-group">
         <label for="edit-product-image">Ganti Gambar</label>
         <input id="edit-product-image" type="file" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
-        <small class="upload-help">Kosongkan jika gambar tidak ingin diganti. Maksimal 5 MB dan 3000 x 3000 piksel.</small>
+        <small class="upload-help">Kosongkan jika gambar tidak ingin diganti. JPG, PNG, atau WebP, maksimal 5 MB.</small>
       </div>
 
       <div style="text-align: right; margin-top: 1.5rem;">
@@ -660,7 +660,7 @@
       <div class="form-group">
         <label for="product-image">Gambar Produk</label>
         <input id="product-image" type="file" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
-        <small class="upload-help">JPG, PNG, atau WebP. Maksimal 5 MB dan 3000 x 3000 piksel.</small>
+        <small class="upload-help">JPG, PNG, atau WebP. Maksimal 5 MB, rasio dan dimensi gambar bebas.</small>
       </div>
 
       <div style="text-align: right; margin-top: 1.5rem;">

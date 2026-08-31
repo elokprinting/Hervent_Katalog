@@ -66,7 +66,7 @@ class ProductionBlogController extends Controller
             'product_type' => 'required|in:package,single',
             'stock' => 'required|integer|min:0|max:4294967295',
             'description' => 'required|string|max:65535',
-            'image' => 'nullable|file|image|mimes:jpg,jpeg,png,webp|max:5120|dimensions:max_width=3000,max_height=3000',
+            'image' => 'nullable|file|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
         if ($validated['category'] !== 'gift-sets') {
             $validated['catalog_category'] = 'produk-biasa';
@@ -110,7 +110,7 @@ class ProductionBlogController extends Controller
             'product_type' => ['required', 'in:package,single'],
             'stock' => ['required', 'integer', 'min:0', 'max:4294967295'],
             'description' => ['required', 'string', 'max:65535'],
-            'image' => ['nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120', 'dimensions:max_width=3000,max_height=3000'],
+            'image' => ['nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
         ]);
         if ($validated['category'] !== 'gift-sets') {
             $validated['catalog_category'] = 'produk-biasa';
