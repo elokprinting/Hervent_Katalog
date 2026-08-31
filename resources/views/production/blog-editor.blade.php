@@ -675,7 +675,7 @@
     'bags-pouch': "- Model yang tersedia :\n- Bahan :\n- Detail :",
     'drinkware-dining': "- Kategori & material :\n- Dimensi & kapasitas :\n- Pilihan warna :\n- Pilihan cetak logo :",
     'gift-sets': "- Isi paket :\n- Bahan :\n- Kemasan :\n- Detail :",
-    'office-stationery': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
+    'office-stationery': "- Material & fitur :\n- Model yang tersedia :",
     'tech-gadgets': "- Model yang tersedia :\n- Spesifikasi :\n- Konektivitas :\n- Detail :"
   };
 
