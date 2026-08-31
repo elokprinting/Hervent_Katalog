@@ -132,6 +132,49 @@
     cursor: pointer;
     color: #666;
   }
+  .confirm-modal-box {
+    max-width: 440px;
+    padding: 2rem;
+  }
+  .confirm-modal-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: #fff0f0;
+    color: #a2171b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .confirm-modal-message {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+  }
+  .confirm-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .confirm-modal-cancel,
+  .confirm-modal-submit {
+    border: 0;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .confirm-modal-cancel {
+    background: #f1f1f1;
+    color: #333;
+  }
+  .confirm-modal-submit {
+    background: #b81a1f;
+    color: #fff;
+  }
   .form-group {
     margin-bottom: 1.25rem;
   }
@@ -398,7 +441,7 @@
                   data-catalog-category="{{ $product->catalog_category }}"
                   data-product-type="{{ $product->product_type }}"
                   data-stock="{{ $product->stock }}" data-description="{{ $product->description }}">Edit</button>
-                <form action="{{ route('production.product.destroy', $product, absolute: false) }}" method="POST" style="display: inline;" onsubmit="return confirm('Hapus produk ini? Tindakan ini tidak dapat dibatalkan.');">
+                <form action="{{ route('production.product.destroy', $product, absolute: false) }}" method="POST" style="display: inline;" data-delete-product-form>
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn-delete-product">Hapus</button>
@@ -447,6 +490,18 @@
     </div>
   </section>
 </main>
+
+<div id="deleteProductModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="delete-product-title" aria-hidden="true">
+  <div class="modal-box confirm-modal-box">
+    <div class="confirm-modal-icon" aria-hidden="true">!</div>
+    <h2 id="delete-product-title" class="h3" style="margin-bottom: 0.5rem;">Hapus produk?</h2>
+    <p class="confirm-modal-message">Tindakan ini tidak dapat dibatalkan. Produk akan dihapus dari katalog.</p>
+    <div class="confirm-modal-actions">
+      <button type="button" class="confirm-modal-cancel" data-delete-cancel>Batal</button>
+      <button type="button" class="confirm-modal-submit" data-delete-confirm>Hapus Produk</button>
+    </div>
+  </div>
+</div>
 
 <!-- Modal Add Blog -->
 <div id="blogModal" class="modal-overlay">
@@ -674,6 +729,37 @@
 @include('partials.footer')
 
 <script>
+  const deleteProductModal = document.getElementById('deleteProductModal');
+  let deleteProductForm = null;
+
+  function closeDeleteProductModal() {
+    deleteProductModal.style.display = 'none';
+    deleteProductModal.setAttribute('aria-hidden', 'true');
+    deleteProductForm = null;
+  }
+
+  document.querySelectorAll('[data-delete-product-form]').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      deleteProductForm = form;
+      deleteProductModal.style.display = 'flex';
+      deleteProductModal.setAttribute('aria-hidden', 'false');
+      deleteProductModal.querySelector('[data-delete-cancel]').focus();
+    });
+  });
+
+  deleteProductModal.querySelector('[data-delete-cancel]').addEventListener('click', closeDeleteProductModal);
+  deleteProductModal.querySelector('[data-delete-confirm]').addEventListener('click', function () {
+    if (deleteProductForm) {
+      deleteProductForm.submit();
+    }
+  });
+  deleteProductModal.addEventListener('click', function (event) {
+    if (event.target === deleteProductModal) {
+      closeDeleteProductModal();
+    }
+  });
+
   const specificationTemplates = {
     'apparel-lifestyle': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
     'bags-pouch': "- Model yang tersedia :\n- Bahan :\n- Detail :",
