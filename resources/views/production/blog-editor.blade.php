@@ -346,6 +346,7 @@
       <table class="blog-table">
         <thead>
           <tr>
+            <th style="width: 56px;">No.</th>
             <th style="width: 60px;">Image</th>
             <th>Nama</th>
             <th>Jenis Produk</th>
@@ -359,6 +360,7 @@
         <tbody>
           @forelse($products as $product)
             <tr>
+              <td style="color: #888; font-weight: 600;">{{ $products->firstItem() + $loop->index }}</td>
               <td>
                 <img class="product-thumb" src="{{ str_starts_with($product->image_url, 'http') ? $product->image_url : asset($product->image_url) }}" alt="{{ $product->name }}" loading="lazy">
               </td>
@@ -383,15 +385,42 @@
               </td>
             </tr>
           @empty
-            <tr><td colspan="8" style="padding: 2rem; text-align: center; color: #aaa;">Belum ada produk.</td></tr>
+            <tr><td colspan="9" style="padding: 2rem; text-align: center; color: #aaa;">Belum ada produk.</td></tr>
           @endforelse
         </tbody>
       </table>
 
-      @if($products->hasPages())
-        <nav class="product-pagination" aria-label="Navigasi katalog produk">
-          {{ $products->links() }}
-        </nav>
+      @if($products->total() > 0)
+        <div class="catalog-pagination product-pagination">
+          <p class="catalog-pagination-summary">
+            Menampilkan {{ $products->firstItem() }}–{{ $products->lastItem() }} dari {{ $products->total() }} produk
+          </p>
+          @if($products->hasPages())
+            <nav class="catalog-pagination-nav" aria-label="Navigasi katalog produk">
+              @if($products->onFirstPage())
+                <span class="catalog-pagination-control is-disabled" aria-disabled="true">Previous</span>
+              @else
+                <a class="catalog-pagination-control" href="{{ $products->previousPageUrl() }}" rel="prev">Previous</a>
+              @endif
+
+              <div class="catalog-pagination-pages">
+                @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                  @if($page == $products->currentPage())
+                    <span class="catalog-pagination-page is-current" aria-current="page">{{ $page }}</span>
+                  @else
+                    <a class="catalog-pagination-page" href="{{ $url }}">{{ $page }}</a>
+                  @endif
+                @endforeach
+              </div>
+
+              @if($products->hasMorePages())
+                <a class="catalog-pagination-control" href="{{ $products->nextPageUrl() }}" rel="next">Next</a>
+              @else
+                <span class="catalog-pagination-control is-disabled" aria-disabled="true">Next</span>
+              @endif
+            </nav>
+          @endif
+        </div>
       @endif
 
     </div>
