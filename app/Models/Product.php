@@ -11,6 +11,7 @@ class Product extends Model
     use HasFactory;
 
     public const OCCASION_CATEGORIES = [
+        'produk-biasa' => 'Produk Biasa',
         'onboarding-karyawan' => 'Corporate Gift',
         'seminar-training' => 'Seminar & Training',
         'gathering-anniversary' => 'Gathering & Anniversary',
@@ -62,7 +63,7 @@ class Product extends Model
             'categories' => ['lunch-box', 'tumbler'],
         ],
         'gift-sets' => [
-            'label' => 'Gift Sets',
+            'label' => 'Set Hadiah',
             'categories' => ['gift-set'],
         ],
         'office-stationery' => [

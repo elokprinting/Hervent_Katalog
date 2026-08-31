@@ -168,6 +168,10 @@
     appearance: none;
     margin: 0;
   }
+  .catalog-select-trigger[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
   .form-group input:focus,
   .form-group textarea:focus,
   .form-group select:focus {
@@ -526,7 +530,7 @@
               <option value="{{ $value }}">{{ $label }}</option>
             @endforeach
           </select>
-          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>Pilih momen katalog</span></button>
+          <button type="button" class="catalog-select-trigger" data-catalog-trigger aria-haspopup="listbox" aria-expanded="false"><span>Pilih momen katalog</span></button>
           <div class="catalog-select-menu" role="listbox" tabindex="-1">
             @foreach($catalogCategories as $value => $label)
               <button type="button" role="option" data-value="{{ $value }}" aria-selected="false">{{ $label }}</button>
@@ -543,7 +547,7 @@
               <option value="{{ $value }}">{{ $label }}</option>
             @endforeach
           </select>
-          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>Pilih satuan / paketan</span></button>
+          <button type="button" class="catalog-select-trigger" data-product-type-trigger aria-haspopup="listbox" aria-expanded="false"><span>Pilih satuan / paketan</span></button>
           <div class="catalog-select-menu" role="listbox" tabindex="-1">
             @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
               <button type="button" role="option" data-value="{{ $value }}" aria-selected="false">{{ $label }}</button>
@@ -617,7 +621,7 @@
               <option value="{{ $value }}" {{ old('catalog_category') === $value ? 'selected' : '' }}>{{ $label }}</option>
             @endforeach
           </select>
-          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>{{ old('catalog_category') ? ($catalogCategories[old('catalog_category')] ?? 'Pilih momen katalog') : 'Pilih momen katalog' }}</span></button>
+          <button type="button" class="catalog-select-trigger" data-catalog-trigger aria-haspopup="listbox" aria-expanded="false"><span>{{ old('catalog_category') ? ($catalogCategories[old('catalog_category')] ?? 'Pilih momen katalog') : 'Pilih momen katalog' }}</span></button>
           <div class="catalog-select-menu" role="listbox" tabindex="-1">
             @foreach($catalogCategories as $value => $label)
               <button type="button" role="option" data-value="{{ $value }}" aria-selected="{{ old('catalog_category') === $value ? 'true' : 'false' }}">{{ $label }}</button>
@@ -634,7 +638,7 @@
               <option value="{{ $value }}" {{ old('product_type', 'single') === $value ? 'selected' : '' }}>{{ $label }}</option>
             @endforeach
           </select>
-          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>{{ \App\Models\Product::PRODUCT_TYPES[old('product_type', 'single')] ?? 'Barang Satuan' }}</span></button>
+          <button type="button" class="catalog-select-trigger" data-product-type-trigger aria-haspopup="listbox" aria-expanded="false"><span>{{ \App\Models\Product::PRODUCT_TYPES[old('product_type', 'single')] ?? 'Barang Satuan' }}</span></button>
           <div class="catalog-select-menu" role="listbox" tabindex="-1">
             @foreach(\App\Models\Product::PRODUCT_TYPES as $value => $label)
               <button type="button" role="option" data-value="{{ $value }}" aria-selected="{{ old('product_type', 'single') === $value ? 'true' : 'false' }}">{{ $label }}</button>
@@ -721,6 +725,61 @@
     });
   }
 
+  function bindAutomaticProductType(categoryId, catalogId, typeId) {
+    const category = document.getElementById(categoryId);
+    const catalog = document.getElementById(catalogId);
+    const type = document.getElementById(typeId);
+    if (!category || !catalog || !type) return;
+
+    function updateProductType() {
+      const isRegularCatalog = catalog.value === 'produk-biasa';
+      if (isRegularCatalog) {
+        type.value = category.value === 'gift-sets' ? 'package' : 'single';
+        syncCustomSelect(type);
+      }
+      const trigger = type.closest('[data-custom-select]').querySelector('[data-product-type-trigger]');
+      if (trigger) {
+        trigger.setAttribute('aria-disabled', isRegularCatalog ? 'true' : 'false');
+        trigger.setAttribute('aria-label', isRegularCatalog
+          ? 'Jenis produk otomatis ditentukan dari kategori'
+          : 'Pilih satuan atau paketan');
+      }
+    }
+
+    category.addEventListener('change', updateProductType);
+    catalog.addEventListener('change', updateProductType);
+    updateProductType();
+  }
+
+  bindAutomaticProductType('product-category', 'product-catalog', 'product-type');
+  bindAutomaticProductType('edit-product-category', 'edit-product-catalog', 'edit-product-type');
+
+  function bindCatalogAvailability(categoryId, catalogId) {
+    const category = document.getElementById(categoryId);
+    const catalog = document.getElementById(catalogId);
+    if (!category || !catalog) return;
+
+    function updateCatalogAvailability() {
+      const isGiftSet = category.value === 'gift-sets';
+      const box = catalog.closest('[data-custom-select]');
+      const trigger = box.querySelector('[data-catalog-trigger]');
+      if (!isGiftSet) {
+        catalog.value = 'produk-biasa';
+        syncCustomSelect(catalog);
+      }
+      trigger.setAttribute('aria-disabled', isGiftSet ? 'false' : 'true');
+      trigger.setAttribute('aria-label', isGiftSet
+        ? 'Pilih katalog atau kategori'
+        : 'Katalog Produk Biasa otomatis untuk jenis produk ini');
+    }
+
+    category.addEventListener('change', updateCatalogAvailability);
+    updateCatalogAvailability();
+  }
+
+  bindCatalogAvailability('product-category', 'product-catalog');
+  bindCatalogAvailability('edit-product-category', 'edit-product-catalog');
+
   document.querySelectorAll('[data-edit-product]').forEach(function (button) {
     button.addEventListener('click', function () {
       const form = document.getElementById('editProductForm');
@@ -756,6 +815,8 @@
       const productTypeSelect = document.getElementById('edit-product-type');
       productTypeSelect.value = button.dataset.productType;
       syncCustomSelect(productTypeSelect);
+      catalogSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      categorySelect.dispatchEvent(new Event('change', { bubbles: true }));
       document.getElementById('edit-product-stock').value = button.dataset.stock;
       document.getElementById('edit-product-description').value = button.dataset.description;
       if (updateEditTemplate) {

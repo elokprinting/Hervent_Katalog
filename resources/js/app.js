@@ -61,6 +61,7 @@ document.querySelectorAll('[data-custom-select]').forEach(function(selectBox){
   var menu=selectBox.querySelector('.catalog-select-menu');
   if(!select||!trigger||!menu)return;
   trigger.addEventListener('click',function(){
+    if(trigger.getAttribute('aria-disabled')==='true')return;
     var open=selectBox.classList.toggle('is-open');
     trigger.setAttribute('aria-expanded',String(open));
   });

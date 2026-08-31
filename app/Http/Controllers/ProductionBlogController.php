@@ -68,6 +68,9 @@ class ProductionBlogController extends Controller
             'description' => 'required|string|max:65535',
             'image' => 'nullable|file|image|mimes:jpg,jpeg,png,webp|max:5120|dimensions:max_width=3000,max_height=3000',
         ]);
+        if ($validated['category'] !== 'gift-sets') {
+            $validated['catalog_category'] = 'produk-biasa';
+        }
 
         $slug = Str::slug($validated['name']);
         $baseSlug = $slug ?: 'product';
@@ -109,6 +112,9 @@ class ProductionBlogController extends Controller
             'description' => ['required', 'string', 'max:65535'],
             'image' => ['nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120', 'dimensions:max_width=3000,max_height=3000'],
         ]);
+        if ($validated['category'] !== 'gift-sets') {
+            $validated['catalog_category'] = 'produk-biasa';
+        }
 
         $slug = Str::slug($validated['name']) ?: 'product';
         $baseSlug = $slug;
