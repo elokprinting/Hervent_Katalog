@@ -149,6 +149,12 @@
     padding: 0.75rem 1rem;
     border: 1px solid #ddd;
     border-radius: 10px;
+    appearance: none;
+    background: #fff;
+    background-image: linear-gradient(45deg, transparent 50%, #151516 50%), linear-gradient(135deg, #151516 50%, transparent 50%);
+    background-position: calc(100% - 1.2rem) 50%, calc(100% - 0.85rem) 50%;
+    background-size: 0.4rem 0.4rem, 0.4rem 0.4rem;
+    background-repeat: no-repeat;
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s;
@@ -489,8 +495,8 @@
       <div class="form-group">
         <label for="edit-product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
         <select id="edit-product-category" name="category" required>
-          @foreach($categories as $category)
-            <option value="{{ $category }}">{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</option>
+          @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+            <option value="{{ $category }}">{{ $group['label'] }}</option>
           @endforeach
         </select>
       </div>
@@ -555,8 +561,8 @@
         <label for="product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
         <select id="product-category" name="category" required>
           <option value="">Pilih jenis produk</option>
-          @foreach($categories as $category)
-            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ \App\Models\Product::PRODUCT_CATEGORIES[$category] ?? \Illuminate\Support\Str::headline($category) }}</option>
+          @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ $group['label'] }}</option>
           @endforeach
         </select>
       </div>
@@ -612,7 +618,15 @@
       const form = document.getElementById('editProductForm');
       form.action = button.dataset.action;
       document.getElementById('edit-product-name').value = button.dataset.name;
-      document.getElementById('edit-product-category').value = button.dataset.category;
+      const categorySelect = document.getElementById('edit-product-category');
+      if (!categorySelect.querySelector('option[value="' + CSS.escape(button.dataset.category) + '"]')) {
+        const legacyCategory = document.createElement('option');
+        legacyCategory.value = button.dataset.category;
+        legacyCategory.textContent = button.dataset.category;
+        legacyCategory.dataset.legacy = 'true';
+        categorySelect.appendChild(legacyCategory);
+      }
+      categorySelect.value = button.dataset.category;
       document.getElementById('edit-product-catalog').value = button.dataset.catalogCategory;
       document.getElementById('edit-product-type').value = button.dataset.productType;
       document.getElementById('edit-product-stock').value = button.dataset.stock;

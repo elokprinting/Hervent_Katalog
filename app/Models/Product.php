@@ -132,7 +132,9 @@ class Product extends Model
 
     public function getCategoryLabelAttribute(): string
     {
-        return self::PRODUCT_CATEGORIES[$this->category] ?? Str::headline($this->category);
+        return self::PRODUCT_GROUPS[$this->category]['label']
+            ?? self::PRODUCT_CATEGORIES[$this->category]
+            ?? Str::headline($this->category);
     }
 
     public function getCatalogCategoryLabelAttribute(): string

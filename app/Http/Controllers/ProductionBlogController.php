@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ProductionBlogController extends Controller
 {
@@ -16,14 +17,7 @@ class ProductionBlogController extends Controller
         $products = Product::orderBy('created_at', 'desc')
             ->paginate(10, ['*'], 'product_page')
             ->withQueryString();
-        $categories = collect(array_keys(Product::PRODUCT_CATEGORIES))
-            ->merge(Product::query()
-            ->select('category')
-            ->distinct()
-            ->orderBy('category')
-            ->pluck('category'))
-            ->unique()
-            ->values();
+        $categories = collect(array_keys(Product::PRODUCT_GROUPS));
         $catalogCategories = Product::OCCASION_CATEGORIES;
 
         return view('production.blog-editor', compact('blogs', 'products', 'categories', 'catalogCategories'));
@@ -67,7 +61,7 @@ class ProductionBlogController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'category' => 'required|string|max:100',
+            'category' => 'required|in:'.implode(',', array_keys(Product::PRODUCT_GROUPS)),
             'catalog_category' => 'required|in:'.implode(',', array_keys(Product::OCCASION_CATEGORIES)),
             'product_type' => 'required|in:package,single',
             'stock' => 'required|integer|min:0|max:4294967295',
@@ -108,7 +102,7 @@ class ProductionBlogController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'category' => ['required', 'string', 'max:100'],
+            'category' => ['required', Rule::in(array_merge(array_keys(Product::PRODUCT_GROUPS), array_keys(Product::PRODUCT_CATEGORIES)))],
             'catalog_category' => ['required', 'in:'.implode(',', array_keys(Product::OCCASION_CATEGORIES))],
             'product_type' => ['required', 'in:package,single'],
             'stock' => ['required', 'integer', 'min:0', 'max:4294967295'],

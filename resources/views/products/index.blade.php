@@ -42,7 +42,7 @@
                         @endforeach
                         <div class="sidebar-heading"><strong>Jenis Produk</strong></div>
                         @foreach($productGroups as $groupKey => $group)
-                            @php($groupCount = \App\Models\Product::whereIn('category', $group['categories'])->count())
+                            @php($groupCount = \App\Models\Product::where(function ($query) use ($groupKey, $group) { $query->whereIn('category', $group['categories'])->orWhere('category', $groupKey); })->count())
                             <a class="sidebar-category {{ $activeGroup === $groupKey ? 'active' : '' }}" href="{{ route('products.index', array_filter(['group' => $groupKey, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
                                 <i class="category-icon" data-lucide="{{ ['apparel-lifestyle' => 'shirt', 'bags-pouch' => 'shopping-bag', 'drinkware-dining' => 'cup-soda', 'gift-sets' => 'gift', 'office-stationery' => 'notebook', 'tech-gadgets' => 'speaker'][$groupKey] }}" aria-hidden="true"></i><span>{{ $group['label'] }}</span><small>{{ $groupCount }}</small>
                             </a>

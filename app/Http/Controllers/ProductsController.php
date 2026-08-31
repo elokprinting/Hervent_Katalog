@@ -25,7 +25,10 @@ class ProductsController extends Controller
         $products = Product::query()
             ->select(['id', 'name', 'slug', 'category', 'product_type', 'description', 'price_min', 'price_max', 'minimum_order', 'image_url', 'is_featured'])
             ->when($category, fn($query) => $query->where('category', $category))
-            ->when($group, fn($query) => $query->whereIn('category', Product::PRODUCT_GROUPS[$group]['categories']))
+            ->when($group, fn($query) => $query->where(function ($query) use ($group) {
+                $query->whereIn('category', Product::PRODUCT_GROUPS[$group]['categories'])
+                    ->orWhere('category', $group);
+            }))
             ->when(array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES), fn($query) => $query->where('catalog_category', $catalogCategory))
             ->when(in_array($type, ['package', 'single'], true), fn($query) => $query->where('product_type', $type))
             ->when($search !== '', function ($query) use ($search) {

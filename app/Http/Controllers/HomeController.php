@@ -21,7 +21,9 @@ class HomeController extends Controller
             'bestSellers' => Product::query()->orderByDesc('is_featured')->orderBy('name')->take(6)->get(),
             'categories' => collect(Product::PRODUCT_GROUPS)->map(function (array $group, string $key) {
                 $representative = Product::query()
-                    ->whereIn('category', $group['categories'])
+                    ->where(function ($query) use ($key, $group) {
+                        $query->whereIn('category', $group['categories'])->orWhere('category', $key);
+                    })
                     ->orderByDesc('is_featured')
                     ->orderBy('name')
                     ->first(['image_url']);
@@ -30,7 +32,9 @@ class HomeController extends Controller
                     'key' => $key,
                     'label' => $group['label'],
                     'image' => $representative?->image_url ?? '/images/Logo Landscape.png',
-                    'count' => Product::query()->whereIn('category', $group['categories'])->count(),
+                    'count' => Product::query()->where(function ($query) use ($key, $group) {
+                        $query->whereIn('category', $group['categories'])->orWhere('category', $key);
+                    })->count(),
                 ];
             })->values(),
             'activeCategory' => $category,
