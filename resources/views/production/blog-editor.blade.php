@@ -294,6 +294,7 @@
       <table class="blog-table">
         <thead>
           <tr>
+            <th style="width: 56px;">No.</th>
             <th style="width: 60px;">Image</th>
             <th>Title</th>
             <th>Date</th>
@@ -304,6 +305,7 @@
         <tbody>
           @foreach($blogs as $blog)
           <tr>
+            <td style="color: #888; font-weight: 600;">{{ $loop->iteration }}</td>
             <td>
               @if($blog->image)
                 <img src="{{ asset($blog->image) }}" alt="image" style="width: 52px; height: 52px; object-fit: cover; border-radius: 6px;">
@@ -330,7 +332,7 @@
 
           @if($blogs->isEmpty())
           <tr>
-            <td colspan="5" style="padding: 3rem; text-align: center; color: #aaa;">
+            <td colspan="6" style="padding: 3rem; text-align: center; color: #aaa;">
               Belum ada artikel. Klik tombol <strong>+</strong> untuk menambah.
             </td>
           </tr>
