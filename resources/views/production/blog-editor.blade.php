@@ -361,7 +361,7 @@
             <th>Katalog</th>
             <th>Satuan / Paketan</th>
             <th>Stok</th>
-            <th>Deskripsi</th>
+            <th>Spesifikasi</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -494,11 +494,19 @@
 
       <div class="form-group">
         <label for="edit-product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
-        <select id="edit-product-category" name="category" required>
-          @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
-            <option value="{{ $category }}">{{ $group['label'] }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="edit-product-category" name="category" required>
+            @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+              <option value="{{ $category }}">{{ $group['label'] }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>Pilih jenis produk</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+              <button type="button" role="option" data-value="{{ $category }}" aria-selected="false">{{ $group['label'] }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -525,8 +533,8 @@
       </div>
 
       <div class="form-group">
-        <label for="edit-product-description">Deskripsi <span style="color: #b81a1f;">*</span></label>
-        <textarea id="edit-product-description" name="description" rows="6" required maxlength="65535"></textarea>
+        <label for="edit-product-description">Spesifikasi Produk <span style="color: #b81a1f;">*</span></label>
+        <textarea id="edit-product-description" name="description" rows="6" required maxlength="65535" placeholder="Isi detail spesifikasi sesuai jenis produk..."></textarea>
       </div>
 
       <div class="form-group">
@@ -559,12 +567,20 @@
 
       <div class="form-group">
         <label for="product-category">Jenis Produk <span style="color: #b81a1f;">*</span></label>
-        <select id="product-category" name="category" required>
-          <option value="">Pilih jenis produk</option>
-          @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
-            <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ $group['label'] }}</option>
-          @endforeach
-        </select>
+        <div class="catalog-custom-select" data-custom-select>
+          <select id="product-category" name="category" required>
+            <option value="">Pilih jenis produk</option>
+            @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+              <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>{{ $group['label'] }}</option>
+            @endforeach
+          </select>
+          <button type="button" class="catalog-select-trigger" aria-haspopup="listbox" aria-expanded="false"><span>{{ old('category') ? \App\Models\Product::PRODUCT_GROUPS[old('category')]['label'] : 'Pilih jenis produk' }}</span></button>
+          <div class="catalog-select-menu" role="listbox" tabindex="-1">
+            @foreach(\App\Models\Product::PRODUCT_GROUPS as $category => $group)
+              <button type="button" role="option" data-value="{{ $category }}" aria-selected="{{ old('category') === $category ? 'true' : 'false' }}">{{ $group['label'] }}</button>
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -592,8 +608,8 @@
       </div>
 
       <div class="form-group">
-        <label for="product-description">Deskripsi <span style="color: #b81a1f;">*</span></label>
-        <textarea id="product-description" name="description" rows="6" required maxlength="65535" placeholder="Tulis deskripsi produk...">{{ old('description') }}</textarea>
+        <label for="product-description">Spesifikasi Produk <span style="color: #b81a1f;">*</span></label>
+        <textarea id="product-description" name="description" rows="6" required maxlength="65535" placeholder="Pilih jenis produk untuk menampilkan template spesifikasi...">{{ old('description') }}</textarea>
       </div>
 
       <div class="form-group">
@@ -613,6 +629,57 @@
 @include('partials.footer')
 
 <script>
+  const specificationTemplates = {
+    'apparel-lifestyle': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
+    'bags-pouch': "- Model yang tersedia :\n- Bahan :\n- Detail :",
+    'drinkware-dining': "- Model yang tersedia :\n- Kapasitas :\n- Bahan :\n- Detail :",
+    'gift-sets': "- Isi paket :\n- Bahan :\n- Kemasan :\n- Detail :",
+    'office-stationery': "- Model yang tersedia :\n- Bahan :\n- Ukuran :\n- Detail :",
+    'tech-gadgets': "- Model yang tersedia :\n- Spesifikasi :\n- Konektivitas :\n- Detail :"
+  };
+
+  function bindSpecificationTemplate(select, textarea) {
+    let lastTemplate = '';
+
+    function updateTemplate() {
+      const template = specificationTemplates[select.value] || '';
+      if (!textarea.value.trim() || textarea.value === lastTemplate) {
+        textarea.value = template;
+      }
+      lastTemplate = template;
+    }
+
+    select.addEventListener('change', updateTemplate);
+    return updateTemplate;
+  }
+
+  const addCategorySelect = document.getElementById('product-category');
+  const addSpecification = document.getElementById('product-description');
+  if (addCategorySelect && addSpecification) {
+    const updateAddTemplate = bindSpecificationTemplate(addCategorySelect, addSpecification);
+    if (!addSpecification.value.trim() && addCategorySelect.value) {
+      updateAddTemplate();
+    }
+  }
+
+  const editCategorySelect = document.getElementById('edit-product-category');
+  const editSpecification = document.getElementById('edit-product-description');
+  const updateEditTemplate = editCategorySelect && editSpecification
+    ? bindSpecificationTemplate(editCategorySelect, editSpecification)
+    : null;
+
+  function syncCustomSelect(select) {
+    const box = select.closest('[data-custom-select]');
+    const option = select.options[select.selectedIndex];
+    if (!box || !option) return;
+    const trigger = box.querySelector('.catalog-select-trigger span');
+    const selected = box.querySelectorAll('[role="option"]');
+    if (trigger) trigger.textContent = option.textContent;
+    selected.forEach(function (item) {
+      item.setAttribute('aria-selected', String(item.dataset.value === select.value));
+    });
+  }
+
   document.querySelectorAll('[data-edit-product]').forEach(function (button) {
     button.addEventListener('click', function () {
       const form = document.getElementById('editProductForm');
@@ -625,12 +692,31 @@
         legacyCategory.textContent = button.dataset.category;
         legacyCategory.dataset.legacy = 'true';
         categorySelect.appendChild(legacyCategory);
+        const menu = categorySelect.closest('[data-custom-select]').querySelector('.catalog-select-menu');
+        const legacyOption = document.createElement('button');
+        legacyOption.type = 'button';
+        legacyOption.setAttribute('role', 'option');
+        legacyOption.dataset.value = button.dataset.category;
+        legacyOption.textContent = button.dataset.category;
+        menu.appendChild(legacyOption);
+        legacyOption.addEventListener('click', function () {
+          categorySelect.value = legacyOption.dataset.value;
+          categorySelect.dispatchEvent(new Event('change', { bubbles: true }));
+          syncCustomSelect(categorySelect);
+          menu.parentElement.classList.remove('is-open');
+          menu.parentElement.querySelector('.catalog-select-trigger').setAttribute('aria-expanded', 'false');
+        });
       }
       categorySelect.value = button.dataset.category;
+      syncCustomSelect(categorySelect);
       document.getElementById('edit-product-catalog').value = button.dataset.catalogCategory;
       document.getElementById('edit-product-type').value = button.dataset.productType;
       document.getElementById('edit-product-stock').value = button.dataset.stock;
       document.getElementById('edit-product-description').value = button.dataset.description;
+      if (updateEditTemplate) {
+        updateEditTemplate();
+        document.getElementById('edit-product-description').value = button.dataset.description;
+      }
       document.getElementById('edit-product-image').value = '';
       document.getElementById('editProductModal').style.display = 'flex';
     });

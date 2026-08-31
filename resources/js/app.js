@@ -73,7 +73,10 @@ document.querySelectorAll('[data-custom-select]').forEach(function(selectBox){
       });
       selectBox.classList.remove('is-open');
       trigger.setAttribute('aria-expanded','false');
-      select.form.submit();
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      if (select.dataset.submitOnChange === 'true') {
+        select.form.submit();
+      }
     });
   });
 });
