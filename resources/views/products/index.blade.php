@@ -15,7 +15,7 @@
         <section class="catalog-shop">
             <div class="catalog-container">
                 <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
-                    <a href="{{ route('home') }}#top">{{ __('messages.catalog.home') }}</a>
+                    <a href="{{ route('home') }}">{{ __('messages.catalog.home') }}</a>
                     <span aria-hidden="true">›</span>
                     <a href="{{ route('products.index') }}">{{ __('messages.catalog.shop') }}</a>
                     <span aria-hidden="true">›</span>

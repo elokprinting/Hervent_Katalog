@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="foot-g">
       <div>
-        <a class="logo" href="{{ route('home') }}#top">
+        <a class="logo" href="{{ route('home') }}">
           <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT" style="height: 42px; width: auto; background: black; padding: 4px; border-radius: 4px;">
         </a>
         <p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">{{ __('messages.footer.desc') }}</p>
@@ -27,14 +27,14 @@
       <div>
         <h4>{{ __('messages.footer.quick_links') }}</h4>
         <ul>
-          <li><a href="{{ route('home') }}#top">{{ __('messages.footer.home') }}</a></li>
+          <li><a href="{{ route('home') }}">{{ __('messages.footer.home') }}</a></li>
           <li><a href="{{ route('products.index') }}">{{ __('messages.footer.product_category') }}</a></li>
           <li><a href="{{ route('home') }}#koleksi">{{ __('messages.footer.featured_collection') }}</a></li>
           <li>
             @if(request()->routeIs('home'))
               <button class="footer-catalog js-catalog-open" type="button">{{ __('messages.footer.download_catalog') }}</button>
             @else
-              <a href="{{ route('home') }}#top">{{ __('messages.footer.download_catalog') }}</a>
+              <a href="{{ route('home') }}">{{ __('messages.footer.download_catalog') }}</a>
             @endif
           </li>
           <li><a href="{{ route('home') }}#proses">{{ __('messages.footer.how_it_works') }}</a></li>

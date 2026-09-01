@@ -136,21 +136,25 @@
       <p class="lede rv">{{ __('messages.welcome.cat_desc') }}</p>
     </div>
     <div class="prods" id="prods">
-        @foreach($bestSellers as $product)
-        <a class="prod rv" href="{{ route('products.show', $product->slug) }}" style="text-decoration: none; color: inherit; display: block;">
-            <div class="ph">
-                @if($loop->first)
-                    <span class="badge">{{ __('messages.welcome.prod_badge_1') }}</span>
-                @elseif($loop->last)
-                    <span class="badge">{{ __('messages.welcome.prod_badge_2') }}</span>
-                @endif
-                <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-            </div>
-            <div class="prod-bd" style="padding-top: 1rem;">
-                <span class="cat" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ $product->category_label }}</span>
-                <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ $product->name }}</h3>
-            </div>
-        </a>
+        @foreach(collect($bestSellers)->filter(fn ($product) => is_object($product) || is_array($product)) as $product)
+            @php $bestSellerSlug = data_get($product, 'slug'); @endphp
+            @if(blank($bestSellerSlug))
+                @continue
+            @endif
+            <a class="prod rv" href="{{ route('products.show', ['product' => $bestSellerSlug]) }}" style="text-decoration: none; color: inherit; display: block;">
+                <div class="ph">
+                    @if($loop->first)
+                        <span class="badge">{{ __('messages.welcome.prod_badge_1') }}</span>
+                    @elseif($loop->last)
+                        <span class="badge">{{ __('messages.welcome.prod_badge_2') }}</span>
+                    @endif
+                    <img src="{{ data_get($product, 'image_url') }}" alt="{{ data_get($product, 'name') }}">
+                </div>
+                <div class="prod-bd" style="padding-top: 1rem;">
+                    <span class="cat" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ data_get($product, 'category_label', data_get($product, 'category')) }}</span>
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ data_get($product, 'name') }}</h3>
+                </div>
+            </a>
         @endforeach
     </div>
     <div class="center" style="margin-top:1.8rem">
@@ -167,13 +171,17 @@
       <h2 class="h2 rv">{{ __('messages.welcome.jelajah_title') }} <span class="hl">{{ __('messages.welcome.jelajah_title_hl') }}</span></h2>
     </div>
     <div class="cats" id="cats">
-        @foreach($categories as $category)
-        <a class="cat-t rv" href="{{ route('products.index', ['group' => $category['key']]) }}">
-            <img src="{{ asset($category['image']) }}" alt="{{ $category['label'] }}" loading="lazy">
-            <span class="cat-t-overlay"></span>
-            <b>{{ $category['label'] }}</b>
-            <small>{{ $category['count'] }} {{ __('messages.welcome.jelajah_avail') }}</small>
-        </a>
+        @foreach(collect($categories)->filter(fn ($category) => is_array($category) || is_object($category)) as $category)
+            @php $categoryKey = data_get($category, 'key'); @endphp
+            @if(blank($categoryKey))
+                @continue
+            @endif
+            <a class="cat-t rv" href="{{ route('products.index', ['group' => $categoryKey]) }}">
+                <img src="{{ asset(data_get($category, 'image')) }}" alt="{{ data_get($category, 'label') }}" loading="lazy">
+                <span class="cat-t-overlay"></span>
+                <b>{{ data_get($category, 'label') }}</b>
+                <small>{{ data_get($category, 'count', 0) }} {{ __('messages.welcome.jelajah_avail') }}</small>
+            </a>
         @endforeach
     </div>
   </div>

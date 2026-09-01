@@ -627,19 +627,26 @@ select {
     }
 
     .home-page .hero-in {
-        min-height: min(720px, 100svh);
-        padding-block: clamp(8rem, 13vw, 10rem) clamp(3.5rem, 7vw, 5.5rem);
+        min-height: min(760px, 100svh);
+        padding-block: clamp(9rem, 14vw, 11rem) clamp(3.5rem, 7vw, 5.25rem);
         text-align: left;
         align-content: center;
+    }
+
+    .home-page .hero .trust {
+        margin-bottom: 2rem;
     }
 
     .home-page .hero .h1 {
         max-width: 17ch;
         margin-inline: 0;
+        font-size: clamp(4rem, 6vw, 8.4rem);
     }
 
     .home-page .hero .lede {
         margin-inline: 0;
+        max-width: 700px;
+        font-size: clamp(1.08rem, 1.35vw, 1.6rem);
     }
 
     .home-page .hero-cta {
@@ -1125,7 +1132,17 @@ select {
             rgba(88, 12, 16, 0.58) 48%,
             rgba(184, 26, 31, 0.18) 100%),
         url("/images/Sampul%20Hervent%20Website.png");
-    background-position: center;
+    background-position: center 24%;
+    background-size: cover;
+    min-height: 760px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.02) 35%, rgba(0, 0, 0, 0.16));
+    pointer-events: none;
 }
 
 .hero::after {
@@ -1142,7 +1159,7 @@ select {
 .hero-in {
     position: relative;
     z-index: 2;
-    padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 8vw, 5.5rem);
+    padding-block: clamp(3.25rem, 7vw, 5.5rem) clamp(3rem, 8vw, 5.5rem);
     text-align: center;
 }
 

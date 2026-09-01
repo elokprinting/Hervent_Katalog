@@ -1,7 +1,7 @@
 <header class="nav">
   <div class="wrap">
     <div class="nav-in">
-      <a class="logo" href="{{ route('home') }}#top" aria-label="HERVENT beranda">
+      <a class="logo" href="{{ route('home') }}" aria-label="HERVENT beranda">
         <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT" style="height: 42px; width: auto;">
       </a>
       <nav class="menu" aria-label="Navigasi utama">
