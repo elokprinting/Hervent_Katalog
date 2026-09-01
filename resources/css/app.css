@@ -587,8 +587,8 @@ select {
     }
 
     .nav-in {
-        height: 70px;
-        gap: clamp(0.65rem, 1.2vw, 1.25rem);
+        height: 82px;
+        gap: clamp(0.75rem, 1.4vw, 1.5rem);
         min-width: 0;
     }
 
@@ -598,11 +598,12 @@ select {
     }
 
     .nav .logo img {
-        height: 42px !important;
+        height: 52px !important;
+        width: auto;
     }
 
     .menu {
-        gap: clamp(0.35rem, 0.8vw, 0.9rem);
+        gap: clamp(0.3rem, 0.7vw, 0.8rem);
         flex: 1 1 auto;
         justify-content: center;
         min-width: 0;
@@ -628,8 +629,9 @@ select {
     .nav-cta .btn {
         flex: none;
         white-space: nowrap;
-        padding: 0.72rem 1.05rem;
-        font-size: 0.84rem;
+        box-sizing: border-box;
+        padding: 0.8rem 1.25rem;
+        font-size: 0.86rem;
     }
 }
 
@@ -643,11 +645,12 @@ select {
     }
 
     .home-page .nav>.wrap {
-        width: min(100% - 2rem, 1536px);
+        width: min(100% - 3rem, 1800px);
+        padding-inline: 0;
     }
 
     .home-page .nav-in {
-        height: 70px;
+        height: 82px;
         padding-inline: 0;
         border-radius: 0;
         background: transparent;
@@ -655,7 +658,7 @@ select {
     }
 
     .home-page .nav .logo img {
-        height: 42px !important;
+        height: 52px !important;
     }
 
     .home-page .menu {
@@ -678,12 +681,14 @@ select {
     .home-page .nav-cta .btn {
         flex: none;
         white-space: nowrap;
-        padding: 0.72rem 1.05rem;
-        font-size: 0.84rem;
+        box-sizing: border-box;
+        padding: 0.8rem 1.25rem;
+        font-size: 0.86rem;
     }
 
     .home-page .nav-cta {
-        margin-left: 0.35rem;
+        margin-left: 0;
+        flex: 0 0 auto;
     }
 
     .home-page .hero-in {
