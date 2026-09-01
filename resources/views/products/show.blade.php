@@ -258,8 +258,8 @@
             .pd-specification { grid-template-columns: 1fr; gap: 0.15rem; }
         }
     </style>
-</head>
-<body class="pd-page">
+    <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
+</head><body class="pd-page">
     @include('partials.header')
 
     <nav class="pd-breadcrumb" aria-label="Breadcrumb">

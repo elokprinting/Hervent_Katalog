@@ -7,6 +7,7 @@
 <meta name="description" content="Vendor corporate gift &amp; souvenir kantor custom sejak 2009. Desain gratis, faktur pajak PPN, kantor Bandung &amp;. Dipercaya 4.500+ klien korporasi.">
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="home-page">
 
@@ -131,34 +132,34 @@
 <section class="s" id="koleksi" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.cat_eyebrow') }}</p>
-      <h2 class="h2 rv">{{ __('messages.welcome.cat_title') }} <span class="hl">{{ __('messages.welcome.cat_title_hl') }}</span></h2>
-      <p class="lede rv">{{ __('messages.welcome.cat_desc') }}</p>
+      <p class="eyebrow rv" style="justify-content:center">KATALOG</p>
+      <h2 class="h2 rv">Koleksi <span class="hl">Unggulan</span></h2>
+      <p class="lede rv">Paket yang paling sering diambil klien korporasi. Semua bisa disusun ulang isinya sesuai budget dan momen Anda.</p>
     </div>
+    @php
+      $featuredCatalogs = [
+        ['label' => 'Corporate Gift', 'key' => 'onboarding-karyawan', 'image' => 'images/products/Corporate Gift/Corporate gift produk 2.png'],
+        ['label' => 'Seminar & Training', 'key' => 'seminar-training', 'image' => 'images/products/Seminar & Training/produk training.png'],
+        ['label' => 'Gathering & Anniversary', 'key' => 'gathering-anniversary', 'image' => 'images/products/Gathering & Anniversary/produk setengah.png'],
+        ['label' => 'Client Appreciation', 'key' => 'apresiasi-klien-vip', 'image' => 'images/products/Client Appreciation/client produk 2.png'],
+        ['label' => 'Events & Exhibition', 'key' => 'event-pameran', 'image' => 'images/products/Event & Exhibition/event produk.png'],
+        ['label' => 'Holiday & Hampers', 'key' => 'holidays-hampers', 'image' => 'images/products/Holiday & Hampers/hampers produk.png'],
+      ];
+    @endphp
     <div class="prods" id="prods">
-        @foreach(collect($bestSellers)->filter(fn ($product) => is_object($product) || is_array($product)) as $product)
-            @php $bestSellerSlug = data_get($product, 'slug'); @endphp
-            @if(blank($bestSellerSlug))
-                @continue
-            @endif
-            <a class="prod rv" href="{{ route('products.show', ['product' => $bestSellerSlug]) }}" style="text-decoration: none; color: inherit; display: block;">
-                <div class="ph">
-                    @if($loop->first)
-                        <span class="badge">{{ __('messages.welcome.prod_badge_1') }}</span>
-                    @elseif($loop->last)
-                        <span class="badge">{{ __('messages.welcome.prod_badge_2') }}</span>
-                    @endif
-                    <img src="{{ data_get($product, 'image_url') }}" alt="{{ data_get($product, 'name') }}">
-                </div>
-                <div class="prod-bd" style="padding-top: 1rem;">
-                    <span class="cat" style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">{{ data_get($product, 'category_label', data_get($product, 'category')) }}</span>
-                    <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ data_get($product, 'name') }}</h3>
-                </div>
-            </a>
-        @endforeach
+      @foreach($featuredCatalogs as $catalog)
+        <a class="prod rv" href="{{ route('products.index', ['catalog' => $catalog['key']]) }}" style="text-decoration: none; color: inherit; display: block;">
+          <div class="ph">
+            <img src="{{ asset($catalog['image']) }}" alt="{{ $catalog['label'] }}" loading="lazy">
+          </div>
+          <div class="prod-bd" style="padding-top: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem;">{{ $catalog['label'] }}</h3>
+          </div>
+        </a>
+      @endforeach
     </div>
     <div class="center" style="margin-top:1.8rem">
-      <a class="btn b-dark" href="#kategori">{{ __('messages.welcome.btn_all_cat') }}</a>
+      <a class="btn b-dark" href="{{ route('products.index') }}">Lihat semua kategori</a>
     </div>
   </div>
 </section>
@@ -167,20 +168,24 @@
 <section class="s" id="kategori" style="padding-top:0">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow rv" style="justify-content:center">{{ __('messages.welcome.jelajah_eyebrow') }}</p>
-      <h2 class="h2 rv">{{ __('messages.welcome.jelajah_title') }} <span class="hl">{{ __('messages.welcome.jelajah_title_hl') }}</span></h2>
+      <p class="eyebrow rv" style="justify-content:center">JELAJAHI</p>
+      <h2 class="h2 rv">Kategori <span class="hl">Produk</span></h2>
     </div>
     <div class="cats" id="cats">
-        @foreach(collect($categories)->filter(fn ($category) => is_array($category) || is_object($category)) as $category)
-            @php $categoryKey = data_get($category, 'key'); @endphp
-            @if(blank($categoryKey))
-                @continue
-            @endif
-            <a class="cat-t rv" href="{{ route('products.index', ['group' => $categoryKey]) }}">
-                <img src="{{ asset(data_get($category, 'image')) }}" alt="{{ data_get($category, 'label') }}" loading="lazy">
-                <span class="cat-t-overlay"></span>
-                <b>{{ data_get($category, 'label') }}</b>
-                <small>{{ data_get($category, 'count', 0) }} {{ __('messages.welcome.jelajah_avail') }}</small>
+        @php
+          $productCategories = [
+            ['key' => 'apparel-lifestyle', 'label' => 'Apparel & Lifestyle', 'icon' => 'shirt'],
+            ['key' => 'bags-pouch', 'label' => 'Bags & Pouch', 'icon' => 'shopping-bag'],
+            ['key' => 'drinkware-dining', 'label' => 'Drinkware & Dining', 'icon' => 'cup-soda'],
+            ['key' => 'gift-sets', 'label' => 'Set Hadiah', 'icon' => 'gift'],
+            ['key' => 'office-stationery', 'label' => 'Office & Stationery', 'icon' => 'notebook'],
+            ['key' => 'tech-gadgets', 'label' => 'Tech & Gadgets', 'icon' => 'speaker'],
+          ];
+        @endphp
+        @foreach($productCategories as $category)
+            <a class="cat-t rv category-icon-card" href="{{ route('products.index', ['group' => $category['key']]) }}">
+                <i data-lucide="{{ $category['icon'] }}" aria-hidden="true"></i>
+                <b>{{ $category['label'] }}</b>
             </a>
         @endforeach
     </div>

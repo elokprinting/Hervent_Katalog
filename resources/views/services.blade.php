@@ -7,6 +7,7 @@
     <meta name="description" content="Sepuluh alasan memilih HERVENT untuk corporate gift dan promotional product: garansi, desain gratis, produksi cepat, hingga pengiriman gratis.">
     <meta name="theme-color" content="#B81A1F">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="services-page">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

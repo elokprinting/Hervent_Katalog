@@ -1714,6 +1714,42 @@ select {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.category-icon-card {
+    aspect-ratio: auto;
+    min-height: 104px;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 1.15rem;
+    background: var(--white);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 24px rgba(21, 21, 22, 0.05);
+}
+
+.category-icon-card > svg {
+    width: 30px;
+    height: 30px;
+    color: var(--red);
+    stroke-width: 1.8;
+}
+
+.category-icon-card b {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--g1);
+    text-align: center;
+}
+
+.category-icon-card:hover {
+    color: var(--g1);
+    border-color: var(--red);
+    box-shadow: 0 16px 30px rgba(21, 21, 22, 0.1);
+}
+
+.category-icon-card:hover > svg {
+    color: var(--red-deep);
+}
+
 /* ---------- Kalkulator ---------- */
 .calc {
     background: var(--bg);

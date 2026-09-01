@@ -6,6 +6,7 @@
   <title>{{ __('messages.giftsets.seo_title') }}</title>
   <meta name="description" content="{{ __('messages.giftsets.seo_desc') }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="giftsets-page">
   @include('partials.header')

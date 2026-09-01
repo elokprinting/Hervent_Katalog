@@ -133,8 +133,8 @@
     text-decoration: underline;
   }
 </style>
-</head>
-<body>
+<link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
+</head><body>
 
 @include('partials.header')
 

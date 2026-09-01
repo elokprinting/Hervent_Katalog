@@ -27,8 +27,8 @@
     flex: 0 0 1rem;
   }
 </style>
-</head>
-<body class="blog-page">
+<link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
+</head><body class="blog-page">
 
 @include('partials.header')
 

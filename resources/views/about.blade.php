@@ -7,6 +7,7 @@
     <meta name="description" content="Tentang HERVENT, konsultan dan penyedia promotional product serta corporate gift sejak 2009.">
     <meta name="theme-color" content="#B81A1F">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="about-page">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

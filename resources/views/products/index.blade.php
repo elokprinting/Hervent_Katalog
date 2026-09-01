@@ -6,6 +6,7 @@
     <title>{{ __('messages.catalog.seo_title') }}</title>
     <meta name="description" content="{{ __('messages.catalog.seo_desc') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="catalog-page">
     @include('partials.header')
