@@ -577,6 +577,11 @@ select {
 }
 
 @media (min-width: 1000px) {
+    .nav > .wrap {
+        width: min(100% - 3rem, 1800px);
+        padding-inline: 0;
+    }
+
     .burger {
         display: none;
     }
