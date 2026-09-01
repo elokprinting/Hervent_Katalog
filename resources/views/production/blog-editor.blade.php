@@ -386,8 +386,13 @@
                 <span class="badge-draft">Draft</span>
               @endif
             </td>
-            <td>
-              <a href="{{ route('blog.show', $blog->slug) }}" target="_blank" style="color: #4285f4; text-decoration: none; font-weight: 500; font-size: 0.9rem;">View →</a>
+            <td style="white-space: nowrap;">
+              <a href="{{ route('blog.show', $blog->slug) }}" target="_blank" style="color: #4285f4; text-decoration: none; font-weight: 500; font-size: 0.9rem; margin-right: 0.75rem;">View →</a>
+              <form action="{{ route('production.blog.destroy', $blog, absolute: false) }}" method="POST" style="display: inline;" data-delete-blog-form>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn-delete-product">Hapus</button>
+              </form>
             </td>
           </tr>
           @endforeach
@@ -499,6 +504,18 @@
     <div class="confirm-modal-actions">
       <button type="button" class="confirm-modal-cancel" data-delete-cancel>Batal</button>
       <button type="button" class="confirm-modal-submit" data-delete-confirm>Hapus Produk</button>
+    </div>
+  </div>
+</div>
+
+<div id="deleteBlogModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="delete-blog-title" aria-hidden="true">
+  <div class="modal-box confirm-modal-box">
+    <div class="confirm-modal-icon" aria-hidden="true">!</div>
+    <h2 id="delete-blog-title" class="h3" style="margin-bottom: 0.5rem;">Hapus blog?</h2>
+    <p class="confirm-modal-message">Tindakan ini tidak dapat dibatalkan. Artikel blog akan dihapus permanen.</p>
+    <div class="confirm-modal-actions">
+      <button type="button" class="confirm-modal-cancel" data-delete-blog-cancel>Batal</button>
+      <button type="button" class="confirm-modal-submit" data-delete-blog-confirm>Hapus Blog</button>
     </div>
   </div>
 </div>
@@ -730,12 +747,20 @@
 
 <script>
   const deleteProductModal = document.getElementById('deleteProductModal');
+  const deleteBlogModal = document.getElementById('deleteBlogModal');
   let deleteProductForm = null;
+  let deleteBlogForm = null;
 
   function closeDeleteProductModal() {
     deleteProductModal.style.display = 'none';
     deleteProductModal.setAttribute('aria-hidden', 'true');
     deleteProductForm = null;
+  }
+
+  function closeDeleteBlogModal() {
+    deleteBlogModal.style.display = 'none';
+    deleteBlogModal.setAttribute('aria-hidden', 'true');
+    deleteBlogForm = null;
   }
 
   document.querySelectorAll('[data-delete-product-form]').forEach(function (form) {
@@ -748,6 +773,16 @@
     });
   });
 
+  document.querySelectorAll('[data-delete-blog-form]').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      deleteBlogForm = form;
+      deleteBlogModal.style.display = 'flex';
+      deleteBlogModal.setAttribute('aria-hidden', 'false');
+      deleteBlogModal.querySelector('[data-delete-blog-cancel]').focus();
+    });
+  });
+
   deleteProductModal.querySelector('[data-delete-cancel]').addEventListener('click', closeDeleteProductModal);
   deleteProductModal.querySelector('[data-delete-confirm]').addEventListener('click', function () {
     if (deleteProductForm) {
@@ -757,6 +792,18 @@
   deleteProductModal.addEventListener('click', function (event) {
     if (event.target === deleteProductModal) {
       closeDeleteProductModal();
+    }
+  });
+
+  deleteBlogModal.querySelector('[data-delete-blog-cancel]').addEventListener('click', closeDeleteBlogModal);
+  deleteBlogModal.querySelector('[data-delete-blog-confirm]').addEventListener('click', function () {
+    if (deleteBlogForm) {
+      deleteBlogForm.submit();
+    }
+  });
+  deleteBlogModal.addEventListener('click', function (event) {
+    if (event.target === deleteBlogModal) {
+      closeDeleteBlogModal();
     }
   });
 

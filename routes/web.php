@@ -31,6 +31,7 @@ Route::post('/production/logout', [ProductionAuthController::class, 'logout'])->
 Route::prefix('production')->middleware(\App\Http\Middleware\ProductionAccess::class)->group(function () {
     Route::get('/blog-editor', [ProductionBlogController::class, 'index'])->name('production.blog.index');
     Route::post('/blog/store', [ProductionBlogController::class, 'store'])->name('production.blog.store');
+    Route::delete('/blog/{blog}', [ProductionBlogController::class, 'destroy'])->name('production.blog.destroy');
     Route::post('/product/store', [ProductionBlogController::class, 'storeProduct'])->name('production.product.store');
     Route::put('/product/{product}', [ProductionBlogController::class, 'updateProduct'])->name('production.product.update');
     Route::delete('/product/{product}', [ProductionBlogController::class, 'destroyProduct'])->name('production.product.destroy');

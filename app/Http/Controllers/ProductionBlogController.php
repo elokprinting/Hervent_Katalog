@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -164,6 +165,15 @@ class ProductionBlogController extends Controller
         return redirect()->back()->with('success', 'Produk berhasil dihapus.');
     }
 
+    public function destroy(Blog $blog)
+    {
+        $this->deleteManagedBlogImage($blog->image);
+
+        $blog->delete();
+
+        return redirect()->back()->with('success', 'Blog berhasil dihapus.');
+    }
+
     private function deleteManagedProductImage(?string $path): void
     {
         if (! is_string($path) || ! Str::startsWith($path, 'images/products/')) {
@@ -176,5 +186,19 @@ class ProductionBlogController extends Controller
         }
 
         File::delete(public_path('images/products/'.$filename));
+    }
+
+    private function deleteManagedBlogImage(?string $path): void
+    {
+        if (! is_string($path) || ! Str::startsWith($path, 'images/Blogs/')) {
+            return;
+        }
+
+        $filename = Str::after($path, 'images/Blogs/');
+        if ($filename === '' || basename($filename) !== $filename) {
+            return;
+        }
+
+        File::delete(public_path('images/Blogs/'.$filename));
     }
 }
