@@ -644,9 +644,10 @@ select {
 @media (min-width: 900px) {
     .home-page .hero-in {
         min-height: min(760px, 100svh);
-        padding-block: clamp(9rem, 14vw, 11rem) clamp(3.5rem, 7vw, 5.25rem);
+        padding-block: clamp(4rem, 6vw, 5rem) clamp(3.5rem, 7vw, 5.25rem);
         text-align: left;
         align-content: center;
+        transform: translateY(-1.1875rem);
     }
 
     .home-page .hero .trust {
@@ -3344,7 +3345,7 @@ select {
     height: 0.5rem;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23151516' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
     content: "";
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     transition: transform 0.2s ease;
 }
 
