@@ -705,13 +705,13 @@ select {
     .home-page .hero .h1 {
         max-width: 17ch;
         margin-inline: 0;
-        font-size: clamp(4rem, 6vw, 8.4rem);
+        font-size: clamp(2.4rem, 3.4vw, 4.4rem);
     }
 
     .home-page .hero .lede {
         margin-inline: 0;
         max-width: 700px;
-        font-size: clamp(1.08rem, 1.35vw, 1.6rem);
+        font-size: clamp(0.9rem, 0.82vw, 1.05rem);
     }
 
     .home-page .hero-cta {
