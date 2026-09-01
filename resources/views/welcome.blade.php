@@ -173,23 +173,21 @@
     </div>
     <div class="cats" id="cats">
         @php
-          $categoryImages = collect($categories)->keyBy(fn ($category) => data_get($category, 'key'));
           $productCategories = [
-            ['key' => 'apparel-lifestyle', 'label' => 'Apparel & Lifestyle'],
-            ['key' => 'bags-pouch', 'label' => 'Bags & Pouch'],
-            ['key' => 'drinkware-dining', 'label' => 'Drinkware & Dining'],
-            ['key' => 'gift-sets', 'label' => 'Set Hadiah'],
-            ['key' => 'office-stationery', 'label' => 'Office & Stationery'],
-            ['key' => 'tech-gadgets', 'label' => 'Tech & Gadgets'],
+            ['key' => 'apparel-lifestyle', 'label' => 'Apparel & Lifestyle', 'image' => 'images/products/Product/Apparel & Lifestyle/Baseball Hat.png'],
+            ['key' => 'bags-pouch', 'label' => 'Bags & Pouch', 'image' => 'images/products/Product/Bags and Pouch/Backpack.png'],
+            ['key' => 'drinkware-dining', 'label' => 'Drinkware & Dining', 'image' => 'images/products/Product/drinkware and dinning/Tumbler/Ace.jpg'],
+            ['key' => 'gift-sets', 'label' => 'Set Hadiah', 'image' => 'images/products/Product/Gift Sets/Ethnic Echo.png'],
+            ['key' => 'office-stationery', 'label' => 'Office & Stationery', 'image' => 'images/products/Product/office and stationary/Agenda Custom.png'],
+            ['key' => 'tech-gadgets', 'label' => 'Tech & Gadgets', 'image' => 'images/products/Product/Tech And Gadgets/Bluetooth speaker.png'],
           ];
         @endphp
         @foreach($productCategories as $category)
             <a class="cat-t rv category-icon-card" href="{{ route('products.index', ['group' => $category['key']]) }}">
-                @php $categoryData = $categoryImages->get($category['key']); @endphp
-                <img src="{{ asset(data_get($categoryData, 'image', 'images/Logo Landscape.png')) }}" alt="{{ $category['label'] }}" loading="lazy">
+                <img src="{{ asset($category['image']) }}" alt="{{ $category['label'] }}" loading="lazy">
                 <span class="cat-t-overlay"></span>
                 <b>{{ $category['label'] }}</b>
-                <small>{{ data_get($categoryData, 'count', 0) }} produk</small>
+                <small>Jelajahi produk</small>
             </a>
         @endforeach
     </div>
