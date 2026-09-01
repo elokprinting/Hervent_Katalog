@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -19,25 +18,14 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        $bestSellers = Cache::remember('home.best-sellers.v1', now()->addMinutes(5), fn() => Product::query()
+        $bestSellers = Product::query()
             ->select(['id', 'name', 'slug', 'category', 'image_url', 'is_featured'])
             ->orderByDesc('is_featured')
             ->orderBy('name')
             ->limit(6)
-            ->get());
+            ->get();
 
-        $bestSellers = collect($bestSellers)
-            ->filter(fn ($product) => $product instanceof Product || is_array($product) || is_object($product))
-            ->map(function ($product) {
-                if (is_array($product)) {
-                    return (object) $product;
-                }
-
-                return $product;
-            })
-            ->values();
-
-        $categories = Cache::remember('home.categories.v1', now()->addMinutes(5), fn() => collect(Product::PRODUCT_GROUPS)->map(function (array $group, string $key) {
+        $categories = collect(Product::PRODUCT_GROUPS)->map(function (array $group, string $key) {
             $representative = Product::query()
                 ->where(function ($query) use ($key, $group) {
                     $query->whereIn('category', $group['categories'])->orWhere('category', $key);
@@ -54,7 +42,7 @@ class HomeController extends Controller
                     $query->whereIn('category', $group['categories'])->orWhere('category', $key);
                 })->count(),
             ];
-        })->values());
+        })->values();
 
         return view('welcome', [
             'products' => $products,
