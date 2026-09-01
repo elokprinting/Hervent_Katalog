@@ -576,7 +576,7 @@ select {
     top: 5px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
     .nav > .wrap {
         width: min(100% - 3rem, 1800px);
         padding-inline: 0;
@@ -642,60 +642,6 @@ select {
 
 /* Homepage hero composition */
 @media (min-width: 900px) {
-    .home-page .nav {
-        position: fixed;
-        inset: 0 0 auto;
-        background: rgba(254, 254, 254, 0.98);
-        border-bottom: 1px solid rgba(21, 21, 22, 0.08);
-    }
-
-    .home-page .nav>.wrap {
-        width: min(100% - 3rem, 1800px);
-        padding-inline: 0;
-    }
-
-    .home-page .nav-in {
-        height: 82px;
-        padding-inline: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    .home-page .nav .logo img {
-        height: 52px !important;
-    }
-
-    .home-page .menu {
-        gap: clamp(0.35rem, 0.8vw, 0.9rem);
-        justify-content: center;
-    }
-
-    .home-page .menu>a,
-    .home-page .menu .nav-item>a,
-    .home-page .menu .nav-item>button {
-        font-size: 0.94rem;
-        white-space: nowrap;
-        padding-inline: 0.65rem;
-    }
-
-    .home-page .menu > a {
-        padding-inline: 0.65rem;
-    }
-
-    .home-page .nav-cta .btn {
-        flex: none;
-        white-space: nowrap;
-        box-sizing: border-box;
-        padding: 0.8rem 1.25rem;
-        font-size: 0.86rem;
-    }
-
-    .home-page .nav-cta {
-        margin-left: 0;
-        flex: 0 0 auto;
-    }
-
     .home-page .hero-in {
         min-height: min(760px, 100svh);
         padding-block: clamp(9rem, 14vw, 11rem) clamp(3.5rem, 7vw, 5.25rem);
@@ -731,25 +677,6 @@ select {
 }
 
 @media (max-width: 899px) {
-    .home-page .nav {
-        position: fixed;
-        inset: 0 0 auto;
-        background: transparent;
-        border-bottom: 0;
-    }
-
-    .home-page .nav>.wrap {
-        width: calc(100% - 1.1rem);
-        padding-inline: 0;
-    }
-
-    .home-page .nav-in {
-        padding-inline: 1rem;
-        border-radius: 0 0 16px 16px;
-        background: rgba(254, 254, 254, 0.96);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-    }
-
     .home-page .hero-in {
         padding-top: 8rem;
         padding-bottom: 3rem;
