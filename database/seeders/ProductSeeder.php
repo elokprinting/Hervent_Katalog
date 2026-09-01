@@ -25,11 +25,8 @@ class ProductSeeder extends Seeder
         $excludedFiles = [
             'Corporate Gift/Corporate gift 1.png',
             'Corporate Gift/Corporate gift 2.png',
-            'Corporate Gift/Corporate gift produk 2.png',
             'Client Appreciation/client appreciation.png',
             'Client Appreciation/client appreciation 2.png',
-            'Client Appreciation/client produk 2.png',
-            'Holiday & Hampers/barang holiday.png',
             'Holiday & Hampers/hampers rame.png',
             'Holiday & Hampers/holiday rame.png',
             'Seminar & Training/Seminar.png',
