@@ -37,8 +37,10 @@
         ['name' => 'Client Appreciation', 'image' => asset('images/products/Client Appreciation/client produk 2.png')],
       ],
       'events' => [
-        ['name' => 'Exhibition Pack', 'image' => 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=700&q=85'],
-        ['name' => 'Event Merchandise Set', 'image' => 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85'],
+        ['name' => 'Event', 'image' => asset('images/products/Event & Exhibition/Event .png')],
+        ['name' => 'Event Produk', 'image' => asset('images/products/Event & Exhibition/event produk.png')],
+        ['name' => 'Exhibition', 'image' => asset('images/products/Event & Exhibition/Exhibition.png')],
+        ['name' => 'Exhibition Produk', 'image' => asset('images/products/Event & Exhibition/exhibition produk.png')],
       ],
       'holidays' => [
         ['name' => 'Holiday Vibes', 'image' => asset('images/products/Holiday & Hampers/holiday rame.png')],
