@@ -441,12 +441,13 @@ select {
 .menu>a,
 .menu .nav-item>a,
 .menu .nav-item>button {
+    position: relative;
     background: none;
     border: 0;
     cursor: pointer;
     text-decoration: none;
-    padding: 0.5rem 0;
-    border-radius: 0;
+    padding: 0.7rem 0.85rem 0.85rem;
+    border-radius: 14px;
     font-family: var(--f-head);
     font-weight: 500;
     font-size: 0.92rem;
@@ -454,13 +455,50 @@ select {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    transition: color 0.15s;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .menu>a:hover,
 .menu .nav-item:hover>a,
 .menu .nav-item:hover>button {
-    color: var(--ink);
+    color: var(--red-deep);
+    background: #fdf2f2;
+    transform: translateY(-1px);
+}
+
+.menu>a::after,
+.menu .nav-item>a::after,
+.menu .nav-item>button::after {
+    content: "";
+    position: absolute;
+    right: 0.85rem;
+    bottom: 0.35rem;
+    left: 0.85rem;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.menu>a:hover::after,
+.menu>a:focus-visible::after,
+.menu .nav-item:hover>a::after,
+.menu .nav-item>a:focus-visible::after,
+.menu .nav-item:hover>button::after,
+.menu .nav-item>button:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.menu>a:focus-visible,
+.menu .nav-item>a:focus-visible,
+.menu .nav-item>button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
 }
 
 .menu svg {
