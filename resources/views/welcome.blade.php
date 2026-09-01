@@ -173,19 +173,23 @@
     </div>
     <div class="cats" id="cats">
         @php
+          $categoryImages = collect($categories)->keyBy(fn ($category) => data_get($category, 'key'));
           $productCategories = [
-            ['key' => 'apparel-lifestyle', 'label' => 'Apparel & Lifestyle', 'icon' => 'shirt'],
-            ['key' => 'bags-pouch', 'label' => 'Bags & Pouch', 'icon' => 'shopping-bag'],
-            ['key' => 'drinkware-dining', 'label' => 'Drinkware & Dining', 'icon' => 'cup-soda'],
-            ['key' => 'gift-sets', 'label' => 'Set Hadiah', 'icon' => 'gift'],
-            ['key' => 'office-stationery', 'label' => 'Office & Stationery', 'icon' => 'notebook'],
-            ['key' => 'tech-gadgets', 'label' => 'Tech & Gadgets', 'icon' => 'speaker'],
+            ['key' => 'apparel-lifestyle', 'label' => 'Apparel & Lifestyle'],
+            ['key' => 'bags-pouch', 'label' => 'Bags & Pouch'],
+            ['key' => 'drinkware-dining', 'label' => 'Drinkware & Dining'],
+            ['key' => 'gift-sets', 'label' => 'Set Hadiah'],
+            ['key' => 'office-stationery', 'label' => 'Office & Stationery'],
+            ['key' => 'tech-gadgets', 'label' => 'Tech & Gadgets'],
           ];
         @endphp
         @foreach($productCategories as $category)
             <a class="cat-t rv category-icon-card" href="{{ route('products.index', ['group' => $category['key']]) }}">
-                <i data-lucide="{{ $category['icon'] }}" aria-hidden="true"></i>
+                @php $categoryData = $categoryImages->get($category['key']); @endphp
+                <img src="{{ asset(data_get($categoryData, 'image', 'images/Logo Landscape.png')) }}" alt="{{ $category['label'] }}" loading="lazy">
+                <span class="cat-t-overlay"></span>
                 <b>{{ $category['label'] }}</b>
+                <small>{{ data_get($categoryData, 'count', 0) }} produk</small>
             </a>
         @endforeach
     </div>

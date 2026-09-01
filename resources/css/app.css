@@ -1715,39 +1715,46 @@ select {
 }
 
 .category-icon-card {
-    aspect-ratio: auto;
-    min-height: 104px;
-    justify-content: center;
-    gap: 0.7rem;
-    padding: 1.15rem;
-    background: var(--white);
-    color: var(--ink);
-    border: 1px solid var(--line);
-    box-shadow: 0 10px 24px rgba(21, 21, 22, 0.05);
+    aspect-ratio: 1 / 1;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    padding: 1.05rem;
+    background: linear-gradient(150deg, #1a1a1c, #000);
+    color: var(--white);
+    border: 0;
+    box-shadow: none;
 }
 
-.category-icon-card > svg {
-    width: 30px;
-    height: 30px;
-    color: var(--red);
-    stroke-width: 1.8;
+.category-icon-card > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .category-icon-card b {
+    position: relative;
+    z-index: 2;
     font-size: 1rem;
-    font-weight: 500;
-    color: var(--g1);
-    text-align: center;
+    font-weight: 700;
+    color: var(--white);
+    text-align: left;
+}
+
+.category-icon-card small {
+    position: relative;
+    z-index: 2;
+}
+
+.category-icon-card:hover > img {
+    transform: scale(1.05);
 }
 
 .category-icon-card:hover {
-    color: var(--g1);
-    border-color: var(--red);
-    box-shadow: 0 16px 30px rgba(21, 21, 22, 0.1);
-}
-
-.category-icon-card:hover > svg {
-    color: var(--red-deep);
+    border-color: transparent;
+    box-shadow: none;
 }
 
 /* ---------- Kalkulator ---------- */
