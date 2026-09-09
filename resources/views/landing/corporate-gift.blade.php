@@ -37,6 +37,9 @@
       ['name' => 'Deluxe', 'tag' => 'Executive set', 'text' => 'Agenda, pen, dan pilihan aksesori yang dapat disesuaikan identitas brand.', 'image' => 'images/products/Product/Gift Sets/Synergi Seminar Package.png'],
       ['name' => 'Ethnic', 'tag' => 'Local character', 'text' => 'Tote bag atau pouch bernuansa Indonesia untuk gift yang berkarakter.', 'image' => 'images/products/Product/Gift Sets/Ethnic Echo.png'],
     ];
+    $clientLogos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
+    sort($clientLogos, SORT_NATURAL | SORT_FLAG_CASE);
+    $logoRows = array_chunk($clientLogos, (int) ceil(count($clientLogos) / 2));
   @endphp
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
@@ -62,15 +65,17 @@
       </div>
     </section>
 
-    <section class="cg-proof" aria-label="Kepercayaan klien">
-      <div class="wrap">
-        <p>Dipercaya 4.500+ klien korporasi, BUMN, dan instansi pemerintah</p>
-        <div class="cg-logo-wall">
-          @foreach(['1 Telkom Indo.png', '3 Pertamina.png', '4 KAI.png', '6 PLN.png', '22 Biofarma.png', '45 Sumarecon.png'] as $logo)
-            <img src="{{ asset('images/Logo Client Hervent/'.$logo) }}" alt="Logo klien HERVENT" loading="lazy">
+    <section class="wall cg-proof" aria-label="Trusted By 4,500+ Great Companies">
+      <p>Trusted By 4,500+ Great Companies</p>
+      @foreach($logoRows as $rowIndex => $logos)
+        <div class="rail {{ $rowIndex === 0 ? 'a' : 'b' }}" aria-hidden="true">
+          @foreach(array_merge($logos, $logos) as $logo)
+            <span class="slot">
+              <img src="{{ asset('images/Logo Client Hervent/'.rawurlencode(basename($logo))) }}" alt="">
+            </span>
           @endforeach
         </div>
-      </div>
+      @endforeach
     </section>
 
     <section class="s cg-mix" id="susun-paket" data-gift-builder>
