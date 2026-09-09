@@ -27,12 +27,12 @@
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
     $tiers = [
-      ['name' => 'Corporate Gift', 'image' => 'images/products/Corporate Gift/Corporate gift 1.png'],
-      ['name' => 'Seminar & Training', 'image' => 'images/products/Seminar & Training/Seminar.png'],
-      ['name' => 'Gathering & Anniversary', 'image' => 'images/products/Gathering & Anniversary/Kumpulan Produk.png'],
-      ['name' => 'Client Appreciation', 'image' => 'images/products/Client Appreciation/client appreciation.png'],
-      ['name' => 'Events & Exhibition', 'image' => 'images/products/Event & Exhibition/Event .png'],
-      ['name' => 'Holiday & Hampers', 'image' => 'images/products/Holiday & Hampers/hampers rame.png'],
+      ['name' => 'Corporate Gift', 'image' => 'images/products/Corporate Gift/Corporate gift produk.png'],
+      ['name' => 'Seminar & Training', 'image' => 'images/products/Seminar & Training/Produk Seminar.png'],
+      ['name' => 'Gathering & Anniversary', 'image' => 'images/products/Gathering & Anniversary/produk setengah.png'],
+      ['name' => 'Client Appreciation', 'image' => 'images/products/Client Appreciation/client produk.png'],
+      ['name' => 'Events & Exhibition', 'image' => 'images/products/Event & Exhibition/event produk.png'],
+      ['name' => 'Holiday & Hampers', 'image' => 'images/products/Holiday & Hampers/hampers produk.png'],
     ];
     $giftSets = [
       ['name' => 'Supreme', 'tag' => 'Signature gift', 'text' => 'Pouch premium, metal pen, dan hardbox custom untuk penerima yang istimewa.', 'image' => 'images/products/Product/Gift Sets/Supreme Spectra.png'],
