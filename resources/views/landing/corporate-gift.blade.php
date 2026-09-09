@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Corporate Gift &amp; Paket Souvenir Kantor Custom | HERVENT</title>
+  <meta name="description" content="Gift set corporate dan paket souvenir kantor yang bisa Anda susun sendiri. Desain gratis, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
+  <meta name="theme-color" content="#B81A1F">
+  <link rel="canonical" href="https://corporategift.hervent.co.id/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Corporate Gift &amp; Paket Souvenir Kantor Custom | HERVENT">
+  <meta property="og:description" content="Susun sendiri gift set dan souvenir kantor sesuai kebutuhan perusahaan Anda.">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
+  <script type="application/ld+json"><?php echo json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Product',
+    'name' => 'Corporate Gift & Paket Souvenir Kantor Custom',
+    'brand' => ['@type' => 'Brand', 'name' => 'HERVENT'],
+    'description' => 'Gift set corporate dan paket souvenir kantor custom untuk kebutuhan perusahaan.',
+    'manufacturer' => ['@type' => 'Organization', 'name' => 'PT Aventama Hervent Solusindo'],
+  ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
+</head>
+<body class="corporate-gift-page">
+  @php
+    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
+    $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
+    $tiers = [
+      ['name' => 'Corporate / Executive', 'note' => 'Untuk apresiasi klien dan kebutuhan eksekutif dengan kesan formal dan premium.', 'image' => 'images/products/Corporate Gift/Corporate gift 1.png'],
+      ['name' => 'Premium', 'note' => 'Kombinasi item pilihan dengan tampilan bersih, eksklusif, dan elegan.', 'image' => 'images/products/Corporate Gift/Corporate gift produk.png'],
+      ['name' => 'Corporate', 'note' => 'Pilihan fleksibel untuk branding internal, program perusahaan, dan client gift.', 'image' => 'images/products/Corporate Gift/Corporate gift 2.png'],
+      ['name' => 'Economic', 'note' => 'Solusi untuk kebutuhan volume besar yang tetap terasa profesional.', 'image' => 'images/products/Corporate Gift/Corporate gift produk 2.png'],
+    ];
+    $giftSets = [
+      ['name' => 'Supreme', 'tag' => 'Signature gift', 'text' => 'Pouch premium, metal pen, dan hardbox custom untuk penerima yang istimewa.', 'image' => 'images/products/Product/Gift Sets/Supreme Spectra.png'],
+      ['name' => 'Deluxe', 'tag' => 'Executive set', 'text' => 'Agenda, pen, dan pilihan aksesori yang dapat disesuaikan identitas brand.', 'image' => 'images/products/Product/Gift Sets/Synergi Seminar Package.png'],
+      ['name' => 'Ethnic', 'tag' => 'Local character', 'text' => 'Tote bag atau pouch bernuansa Indonesia untuk gift yang berkarakter.', 'image' => 'images/products/Product/Gift Sets/Ethnic Echo.png'],
+    ];
+  @endphp
+
+  <a class="cg-skip" href="#konten">Lewati ke konten</a>
+
+  <header class="cg-nav">
+    <div class="wrap cg-nav-in">
+      <a href="https://hervent.co.id" class="cg-logo" aria-label="HERVENT, kembali ke situs utama">
+        <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT">
+      </a>
+      <a href="{{ $whatsapp }}" class="btn b-dark cg-nav-cta" target="_blank" rel="noopener noreferrer">Chat WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="cg-hero">
+      <div class="wrap cg-hero-grid">
+        <div>
+          <p class="cg-badge"><span></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</p>
+          <h1 class="h1">Corporate Gift &amp; Paket Souvenir Kantor <span>untuk Kebutuhan Perusahaan Anda</span></h1>
+          <p class="lede">Gift set corporate yang bisa Anda susun sendiri — dari souvenir kantor harian sampai kebutuhan acara khusus perusahaan. Desain gratis, legalitas resmi, siap kirim ke seluruh Indonesia.</p>
+          <div class="cg-hero-actions">
+            <a href="#susun-paket" class="btn b-dark">Susun Paket Anda</a>
+            <a href="{{ $whatsapp }}" class="cg-text-link" target="_blank" rel="noopener noreferrer">Konsultasi gratis <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="cg-micro">Gratis konsultasi &amp; desain · Balasan brief dalam 1 hari kerja · Tanpa komitmen</p>
+        </div>
+        <figure class="cg-hero-image">
+          <img src="{{ asset('images/products/Corporate Gift/Corporate gift produk 2.png') }}" alt="Contoh corporate gift HERVENT" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="cg-proof" aria-label="Kepercayaan klien">
+      <div class="wrap">
+        <p>Dipercaya 4.500+ klien korporasi, BUMN, dan instansi pemerintah</p>
+        <div class="cg-logo-wall">
+          @foreach(['1 Telkom Indo.png', '3 Pertamina.png', '4 KAI.png', '6 PLN.png', '22 Biofarma.png', '45 Sumarecon.png'] as $logo)
+            <img src="{{ asset('images/Logo Client Hervent/'.$logo) }}" alt="Logo klien HERVENT" loading="lazy">
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-mix" id="susun-paket" data-gift-builder>
+      <div class="wrap">
+        <p class="eyebrow">Lini souvenir kantor</p>
+        <h2 class="h2">Susun Sendiri Isi Paket Merchandise Perusahaan Anda</h2>
+        <p class="lede">Setiap perusahaan punya kebutuhan <strong>souvenir kantor</strong> yang berbeda. Karena itu, isi paket <strong>merchandise perusahaan</strong> Anda bisa disusun bebas — pilih kombinasi item yang paling pas dengan budget dan momen acara.</p>
+        <div class="cg-pills" aria-label="Pilih item untuk paket Anda">
+          @foreach($mixItems as $item)
+            <button type="button" class="cg-pill" data-gift-item="{{ $item }}" aria-pressed="false">{{ $item }}</button>
+          @endforeach
+        </div>
+        <div class="cg-builder-note">
+          <p>Kombinasi item dapat disesuaikan dengan tim kami saat konsultasi.</p>
+          <a class="btn b-red" data-gift-wa href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasikan pilihan</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-tiers" id="varian">
+      <div class="wrap">
+        <div class="center">
+          <p class="eyebrow">Pilihan paket</p>
+          <h2 class="h2">Varian Paket Souvenir Kantor <span class="hl">Eksklusif</span></h2>
+          <p class="lede">Setiap paket dapat diubah jumlah item, warna, branding, dan kemasannya sesuai kebutuhan Anda.</p>
+        </div>
+        <div class="cg-card-grid">
+          @foreach($tiers as $tier)
+            <article class="cg-product-card">
+              <img src="{{ asset($tier['image']) }}" alt="Paket {{ $tier['name'] }}" loading="lazy">
+              <div><p class="eyebrow">Custom package</p><h3 class="h3">{{ $tier['name'] }}</h3><p>{{ $tier['note'] }}</p></div>
+            </article>
+          @endforeach
+        </div>
+        <div class="center cg-section-cta"><a href="{{ $whatsapp }}" class="btn b-red" target="_blank" rel="noopener noreferrer">Minta rekomendasi paket</a></div>
+      </div>
+    </section>
+
+    <section class="s cg-signature">
+      <div class="wrap">
+        <div class="center"><p class="eyebrow">Untuk momen istimewa</p><h2 class="h2">Gift Set Premium untuk Momen yang Lebih <span class="hl">Personal</span></h2><p class="lede">Untuk apresiasi klien VIP, hadiah eksekutif, atau souvenir perusahaan yang membutuhkan kesan lebih eksklusif.</p></div>
+        <div class="cg-card-grid cg-card-grid-three">
+          @foreach($giftSets as $gift)
+            <article class="cg-product-card cg-gift-card"><img src="{{ asset($gift['image']) }}" alt="Gift set {{ $gift['name'] }}" loading="lazy"><div><p class="eyebrow">{{ $gift['tag'] }}</p><h3 class="h3">{{ $gift['name'] }}</h3><p>{{ $gift['text'] }}</p></div></article>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-benefits">
+      <div class="wrap cg-two-col">
+        <div><p class="eyebrow">Keunggulan</p><h2 class="h2">Kenapa Perusahaan Memilih <span class="hl">HERVENT</span></h2><p class="lede">Kami membantu prosesnya dari rekomendasi produk sampai produk selesai dikirim, supaya Anda tidak perlu koordinasi dengan banyak vendor.</p></div>
+        <div class="cg-benefit-list">
+          @foreach([
+            ['Bebas Custom Request', 'Pilih produk, kombinasi isi, dan branding yang sesuai kebutuhan acara maupun brand Anda.'],
+            ['Legalitas Resmi', 'PT Aventama Hervent Solusindo siap dengan dokumen vendor dan faktur pajak untuk pengadaan perusahaan.'],
+            ['Desain & Mockup Gratis', 'Tim kami membantu visual penempatan logo sebelum produksi dimulai.'],
+            ['QC sebelum Kirim', 'Setiap batch dikontrol sebelum dikemas dan dikirim ke alamat tujuan Anda.'],
+          ] as $index => [$title, $text])
+            <article><span>0{{ $index + 1 }}</span><div><h3 class="h3">{{ $title }}</h3><p>{{ $text }}</p></div></article>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-gallery">
+      <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi untuk Berbagai <span class="hl">Perusahaan</span></h2></div>
+        <div class="cg-gallery-grid">
+          @foreach(['Corporate gift 1.png', 'Corporate gift produk.png', 'Corporate gift 2.png', 'Corporate gift produk 2.png'] as $image)
+            <img src="{{ asset('images/products/Corporate Gift/'.$image) }}" alt="Portofolio corporate gift HERVENT" loading="lazy">
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-reviews">
+      <div class="wrap"><div class="center"><p class="eyebrow">Testimoni</p><h2 class="h2">Kami Tidak Mengatakan Kami Terbaik, <span class="hl">Merekalah yang Mengatakannya</span></h2></div>
+        <div class="cg-review-grid">
+          @foreach([
+            ['Barang yang dikirim sesuai ekspektasi, prosesnya lancar dan sangat fleksibel. Terima kasih banyak atas bantuannya.', 'Klien korporasi'],
+            ['Pesanan datang sesuai deadline yang disepakati. Kualitas dan finishing barangnya bagus.', 'Klien event perusahaan'],
+            ['HERVENT respons cepat dan sangat mendukung kebutuhan mendesak kami. Layak untuk pemesanan berulang.', 'Klien corporate gift'],
+          ] as [$quote, $from])
+            <blockquote><p>“{{ $quote }}”</p><footer>{{ $from }}</footer></blockquote>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div aria-hidden="true">✓</div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
+
+    <section class="s cg-faq" id="faq"><div class="wrap"><div class="center"><p class="eyebrow">Pertanyaan</p><h2 class="h2">Pertanyaan yang Sering Ditanyakan</h2></div>
+      <div class="cg-faq-list">
+        @foreach([
+          ['Bagaimana cara mendapatkan harga corporate gift?', 'Kirim jumlah penerima, kebutuhan acara, dan perkiraan budget melalui WhatsApp. Tim kami akan menyusun opsi dan penawaran yang relevan.'],
+          ['Berapa minimum order pemesanan?', 'Minimum order umumnya 50 pcs untuk item satuan dan 25 set untuk gift set. Kebutuhan khusus dapat dikonsultasikan lebih dahulu.'],
+          ['Apakah desain dan mockup dikenakan biaya?', 'Tidak. Desain serta mockup untuk approval sebelum produksi disediakan tanpa biaya tambahan.'],
+          ['Berapa lama waktu pengerjaan?', 'Estimasi mengikuti jumlah, spesifikasi, dan jadwal produksi. Tim akan mengonfirmasi jadwal setelah kebutuhan Anda dipahami.'],
+          ['Apakah tersedia faktur pajak?', 'Tersedia. HERVENT dapat menyiapkan faktur pajak dan dokumen vendor untuk kebutuhan administrasi perusahaan.'],
+        ] as [$question, $answer])
+          <details><summary>{{ $question }} <span aria-hidden="true">+</span></summary><p>{{ $answer }}</p></details>
+        @endforeach
+      </div>
+    </div></section>
+
+    <section class="s cg-closing" id="konsultasi"><div class="wrap center"><p class="eyebrow">Mari mulai</p><h2 class="h2">Mulai dari Satu <span>Konsultasi Singkat</span></h2><p class="lede">Ceritakan jumlah penerima, momen acara, dan budget Anda. Kami bantu rekomendasikan paket corporate gift yang paling pas.</p><a href="{{ $whatsapp }}" class="btn b-dark" data-gift-wa target="_blank" rel="noopener noreferrer">Konsultasi Sekarang via WhatsApp</a></div></section>
+  </main>
+
+  <footer class="cg-footer"><div class="wrap"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT"><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p><a href="https://hervent.co.id">Kunjungi hervent.co.id</a></div></footer>
+  <a class="cg-floating-wa" href="{{ $whatsapp }}" data-gift-wa target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp HERVENT">WhatsApp</a>
+</body>
+</html>

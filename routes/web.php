@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/lang/{locale}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 Route::get('/', HomeController::class)->name('home');
+Route::view('/landing/corporate-gift', 'landing.corporate-gift')->name('landing.corporate-gift');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/gift-sets-packages', 'gift-sets-packages')->name('giftsets.index');

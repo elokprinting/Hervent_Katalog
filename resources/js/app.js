@@ -260,3 +260,45 @@ if(reduce||!('IntersectionObserver'in window)){
   Array.prototype.forEach.call(rv,function(e){io.observe(e);});
 }
 })();
+
+/* ---------- Corporate gift package builder ---------- */
+(function () {
+  var builder = document.querySelector('[data-gift-builder]');
+  if (!builder) return;
+
+  var selected = [];
+  var items = builder.querySelectorAll('[data-gift-item]');
+  var whatsappLinks = document.querySelectorAll('[data-gift-wa]');
+  var number = '62811912502';
+
+  function updateWhatsappLinks() {
+    var message = 'Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
+    if (selected.length) {
+      message += '\n\nItem yang saya minati: ' + selected.join(', ') + '.';
+    }
+    message += '\n\nMohon rekomendasi paket dan estimasi harganya. Terima kasih.';
+
+    Array.prototype.forEach.call(whatsappLinks, function (link) {
+      link.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
+    });
+  }
+
+  Array.prototype.forEach.call(items, function (item) {
+    item.addEventListener('click', function () {
+      var value = item.getAttribute('data-gift-item');
+      var index = selected.indexOf(value);
+      var isSelected = index === -1;
+
+      if (isSelected) {
+        selected.push(value);
+      } else {
+        selected.splice(index, 1);
+      }
+
+      item.setAttribute('aria-pressed', String(isSelected));
+      updateWhatsappLinks();
+    });
+  });
+
+  updateWhatsappLinks();
+})();
