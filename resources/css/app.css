@@ -267,6 +267,7 @@ select {
 .cg-category-card img { aspect-ratio: 16 / 10; }
 .cg-category-card > div { padding: 1.3rem; }
 .cg-category-card .h3 { font-size: 1.25rem; }
+.cg-gift-card img { object-fit: contain; background: #f8f8f6; padding: .5rem; }
 .cg-section-cta { margin-top: 2rem; }
 .cg-signature { background: var(--white); }
 .cg-two-col { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 7vw, 7rem); align-items: start; }

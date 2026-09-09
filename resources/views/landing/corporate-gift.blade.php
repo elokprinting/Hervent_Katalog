@@ -35,9 +35,14 @@
       ['name' => 'Holiday & Hampers', 'image' => 'images/products/Holiday & Hampers/hampers produk.png'],
     ];
     $giftSets = [
-      ['name' => 'Supreme', 'tag' => 'Signature gift', 'text' => 'Pouch premium, metal pen, dan hardbox custom untuk penerima yang istimewa.', 'image' => 'images/products/Product/Gift Sets/Supreme Spectra.png'],
-      ['name' => 'Deluxe', 'tag' => 'Executive set', 'text' => 'Agenda, pen, dan pilihan aksesori yang dapat disesuaikan identitas brand.', 'image' => 'images/products/Product/Gift Sets/Synergi Seminar Package.png'],
-      ['name' => 'Ethnic', 'tag' => 'Local character', 'text' => 'Tote bag atau pouch bernuansa Indonesia untuk gift yang berkarakter.', 'image' => 'images/products/Product/Gift Sets/Ethnic Echo.png'],
+      ['name' => 'Supreme Prestige', 'tag' => 'Executive gift', 'text' => 'Hardbox hitam · Agenda kulit · Tumbler · Pulpen', 'image' => 'images/products/Corporate Gift/Gift Set - Supreme Prestige.png'],
+      ['name' => 'Supreme Spectra', 'tag' => 'Signature gift', 'text' => 'Hardbox · Pouch kulit · Agenda · Pulpen', 'image' => 'images/products/Corporate Gift/Gift Set - Supreme Spectra.png'],
+      ['name' => 'Optimum Pulse', 'tag' => 'Business set', 'text' => 'Hardbox · Card holder · Gantungan kunci · Pulpen', 'image' => 'images/products/Corporate Gift/Gift Set - Optimum Pulse.png'],
+      ['name' => 'Optimum Vibe', 'tag' => 'Business set', 'text' => 'Hardbox · Card holder · Gantungan kunci · Pulpen', 'image' => 'images/products/Corporate Gift/Gift Set - Optimum Vibe.png'],
+      ['name' => 'Deluxe Aura', 'tag' => 'Executive set', 'text' => 'Hardbox · Agenda kulit · Flashdisk kayu · Pulpen · Jam meja', 'image' => 'images/products/Corporate Gift/Gift Set - Deluxe Aura.png'],
+      ['name' => 'Deluxe Glow', 'tag' => 'Executive set', 'text' => 'Hardbox · Agenda kulit · Flashdisk · Pulpen · Jam meja', 'image' => 'images/products/Corporate Gift/Gift Set - Deluxe Glow.png'],
+      ['name' => 'Ethnic Echo', 'tag' => 'Local character', 'text' => 'Totebag goni · Agenda kulit · Pulpen · Tumbler', 'image' => 'images/products/Corporate Gift/Gift Set - Ethnic Echo.png'],
+      ['name' => 'Ethnic Rhythms', 'tag' => 'Local character', 'text' => 'Tas kain motif · Pouch · Card holder · Gantungan kartu', 'image' => 'images/products/Corporate Gift/Gift Set - Ethnic Rhythms.png'],
     ];
     $clientLogos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($clientLogos, SORT_NATURAL | SORT_FLAG_CASE);
@@ -123,7 +128,7 @@
     <section class="s cg-signature">
       <div class="wrap">
         <div class="center"><p class="eyebrow">Untuk momen istimewa</p><h2 class="h2">Gift Set Premium untuk Momen yang Lebih <span class="hl">Personal</span></h2><p class="lede">Untuk apresiasi klien VIP, hadiah eksekutif, atau souvenir perusahaan yang membutuhkan kesan lebih eksklusif.</p></div>
-        <div class="cg-card-grid cg-card-grid-three">
+        <div class="cg-card-grid">
           @foreach($giftSets as $gift)
             <article class="cg-product-card cg-gift-card"><img src="{{ asset($gift['image']) }}" alt="Gift set {{ $gift['name'] }}" loading="lazy"><div><p class="eyebrow">{{ $gift['tag'] }}</p><h3 class="h3">{{ $gift['name'] }}</h3><p>{{ $gift['text'] }}</p></div></article>
           @endforeach
