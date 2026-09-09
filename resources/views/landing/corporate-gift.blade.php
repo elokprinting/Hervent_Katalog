@@ -27,10 +27,12 @@
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
     $tiers = [
-      ['name' => 'Corporate / Executive', 'note' => 'Untuk apresiasi klien dan kebutuhan eksekutif dengan kesan formal dan premium.', 'image' => 'images/products/Corporate Gift/Corporate gift 1.png'],
-      ['name' => 'Premium', 'note' => 'Kombinasi item pilihan dengan tampilan bersih, eksklusif, dan elegan.', 'image' => 'images/products/Corporate Gift/Corporate gift produk.png'],
-      ['name' => 'Corporate', 'note' => 'Pilihan fleksibel untuk branding internal, program perusahaan, dan client gift.', 'image' => 'images/products/Corporate Gift/Corporate gift 2.png'],
-      ['name' => 'Economic', 'note' => 'Solusi untuk kebutuhan volume besar yang tetap terasa profesional.', 'image' => 'images/products/Corporate Gift/Corporate gift produk 2.png'],
+      ['name' => 'Corporate Gift', 'image' => 'images/products/Corporate Gift/Corporate gift 1.png'],
+      ['name' => 'Seminar & Training', 'image' => 'images/products/Seminar & Training/Seminar.png'],
+      ['name' => 'Gathering & Anniversary', 'image' => 'images/products/Gathering & Anniversary/Kumpulan Produk.png'],
+      ['name' => 'Client Appreciation', 'image' => 'images/products/Client Appreciation/client appreciation.png'],
+      ['name' => 'Events & Exhibition', 'image' => 'images/products/Event & Exhibition/Event .png'],
+      ['name' => 'Holiday & Hampers', 'image' => 'images/products/Holiday & Hampers/hampers rame.png'],
     ];
     $giftSets = [
       ['name' => 'Supreme', 'tag' => 'Signature gift', 'text' => 'Pouch premium, metal pen, dan hardbox custom untuk penerima yang istimewa.', 'image' => 'images/products/Product/Gift Sets/Supreme Spectra.png'],
@@ -106,11 +108,11 @@
           <h2 class="h2">Varian Paket Souvenir Kantor <span class="hl">Eksklusif</span></h2>
           <p class="lede">Setiap paket dapat diubah jumlah item, warna, branding, dan kemasannya sesuai kebutuhan Anda.</p>
         </div>
-        <div class="cg-card-grid">
+        <div class="cg-card-grid cg-card-grid-three">
           @foreach($tiers as $tier)
-            <article class="cg-product-card">
-              <img src="{{ asset($tier['image']) }}" alt="Paket {{ $tier['name'] }}" loading="lazy">
-              <div><p class="eyebrow">Custom package</p><h3 class="h3">{{ $tier['name'] }}</h3><p>{{ $tier['note'] }}</p></div>
+            <article class="cg-product-card cg-category-card">
+              <img src="{{ asset($tier['image']) }}" alt="{{ $tier['name'] }} HERVENT" loading="lazy">
+              <div><h3 class="h3">{{ $tier['name'] }}</h3></div>
             </article>
           @endforeach
         </div>
