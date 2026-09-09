@@ -206,9 +206,48 @@
       </div>
     </div></section>
 
-    <section class="s cg-closing" id="konsultasi"><div class="wrap center"><p class="eyebrow">Mari mulai</p><h2 class="h2">Mulai dari Satu <span>Konsultasi Singkat</span></h2><p class="lede">Ceritakan jumlah penerima, momen acara, dan budget Anda. Kami bantu rekomendasikan paket corporate gift yang paling pas.</p><a href="{{ $whatsapp }}" class="btn b-dark" data-gift-wa target="_blank" rel="noopener noreferrer">Konsultasi Sekarang via WhatsApp</a></div></section>
+    <section class="s cg-closing" id="konsultasi">
+      <div class="wrap cg-closing-grid">
+        <div>
+          <p class="eyebrow">Jadi partner kami</p>
+          <h2 class="h2">Reputasi brand Anda adalah <span>prioritas kami.</span></h2>
+          <p class="lede">Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.</p>
+          <div class="cg-closing-actions">
+            <a href="{{ $whatsapp }}" class="btn b-light" data-gift-wa target="_blank" rel="noopener noreferrer">WhatsApp 0811-912-502</a>
+            <a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a>
+          </div>
+        </div>
+        <address class="cg-address-card">
+          <strong>Kantor pusat — Bandung</strong>
+          <span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span>
+        </address>
+      </div>
+    </section>
   </main>
 
-  <footer class="cg-footer"><div class="wrap"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT"><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p><a href="https://hervent.co.id">Kunjungi hervent.co.id</a></div></footer>
+  <footer class="cg-footer">
+    <div class="wrap cg-footer-grid">
+      <div class="cg-footer-brand">
+        <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT">
+        <p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p>
+        <a class="cg-footer-site" href="https://hervent.co.id">Kunjungi hervent.co.id <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav class="cg-footer-links" aria-label="Tautan cepat">
+        <h2>Tautan cepat</h2>
+        <a href="https://hervent.co.id">Beranda</a>
+        <a href="#susun-paket">Kategori produk</a>
+        <a href="#varian">Koleksi unggulan</a>
+        <a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi gratis</a>
+      </nav>
+      <address class="cg-footer-contact">
+        <h2>Kontak</h2>
+        <a href="tel:+622287324188">(022) 87324188</a>
+        <a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-912-502</a>
+        <a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a>
+        <span>Bandung, Indonesia</span>
+      </address>
+    </div>
+    <div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} HERVENT. All rights reserved.</span><span>Corporate gift &amp; souvenir kantor custom.</span></div>
+  </footer>
 </body>
 </html>
