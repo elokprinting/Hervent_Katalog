@@ -289,19 +289,13 @@ select {
 .cg-google-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .cg-google-card { display: flex; flex-direction: column; min-height: 100%; overflow: hidden; border: 1px solid var(--line); background: var(--white); color: var(--ink); text-decoration: none; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
 .cg-google-card:hover { border-color: #b7b7b8; box-shadow: 0 12px 24px rgba(0,0,0,.08); transform: translateY(-3px); }
-.cg-google-card-body { display: flex; flex: 1; flex-direction: column; gap: .85rem; min-height: 235px; padding: 1.35rem; background: linear-gradient(135deg, #fff, #f6f6f6); }
-.cg-google-person { display: flex; align-items: center; gap: .7rem; }
-.cg-google-person > span { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: #4285f4; color: var(--white); font: 700 .9rem var(--f-head); }
-.cg-google-person div { display: grid; gap: .1rem; min-width: 0; }
-.cg-google-person strong { overflow: hidden; font: 600 .88rem var(--f-head); text-overflow: ellipsis; white-space: nowrap; }
-.cg-google-person small { color: var(--g1); font-size: .7rem; }
-.cg-google-card .cg-stars { margin: 0; color: #f9ab00; }
-.cg-google-card p { margin: 0; color: var(--g1); font-size: .86rem; line-height: 1.65; }
+.cg-google-review-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--g3); }
 .cg-google-card-foot { display: flex; justify-content: space-between; gap: 1rem; padding: .95rem 1.35rem; border-top: 1px solid var(--line); color: var(--g1); font-size: .8rem; }
 .cg-google-card-foot span:last-child { color: var(--red); font-size: 1.1rem; }
 .cg-guarantee { padding-top: 0; background: var(--white); }
 .cg-guarantee-box { display: flex; align-items: center; gap: 1.2rem; padding: clamp(1.5rem, 4vw, 2.7rem); background: var(--black); color: var(--white); }
-.cg-guarantee-box > div:first-child { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border: 1px solid #ffb3a8; color: #ffb3a8; font-size: 1.6rem; }
+.cg-guarantee-icon { display: grid; place-items: center; flex: none; width: 62px; height: 62px; color: #ffb3a8; }
+.cg-guarantee-icon svg { width: 50px; height: 50px; }
 .cg-guarantee-box .eyebrow { margin-bottom: .35rem; color: #ffb3a8; }
 .cg-guarantee-box .h2 { font-size: clamp(1.35rem, 2.5vw, 1.9rem); }
 .cg-guarantee-box p:last-child { margin: .3rem 0 0; color: var(--g3); font-size: .9rem; }

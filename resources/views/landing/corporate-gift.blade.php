@@ -40,7 +40,7 @@
     $clientLogos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($clientLogos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($clientLogos, (int) ceil(count($clientLogos) / 2));
-    $googleMaps = 'https://maps.app.goo.gl/SKDFcYdVvcj5UHmD6';
+    $googleMaps = 'https://maps.app.goo.gl/u8hkuc9RgapZTaak8';
   @endphp
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
@@ -177,16 +177,12 @@
         <h3 class="cg-google-title">Review Google Kami</h3>
         <div class="cg-google-grid">
           @foreach([
-            ['Asraini Audia Hardarinata', '4 ulasan · 9 foto', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. HERVENT terbaik dari pelayanan, harga, dan kualitasnya.'],
-            ['Yusuf Elok', 'Local Guide · 51 ulasan', 'Produsen hardbox gift dan custom tumbler terlengkap di Bandung.'],
-            ['Wisni Pratistari', '1 ulasan · 1 foto', 'Pesanan tumbler mini dengan nama individual hasilnya bagus dan tepat waktu sesuai jadwal. Pelayanan baik, pengiriman paket juga lancar.'],
-          ] as [$name, $meta, $quote])
-            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Baca review {{ $name }} di Google Maps">
-              <div class="cg-google-card-body">
-                <div class="cg-google-person"><span>{{ strtoupper(mb_substr($name, 0, 1)) }}</span><div><strong>{{ $name }}</strong><small>{{ $meta }}</small></div></div>
-                <span class="cg-stars" aria-label="5 dari 5 bintang">★★★★★</span>
-                <p>{{ $quote }}</p>
-              </div>
+            ['images/products/Testimoni/Hampers.jpg', 'Hasil produksi hampers custom HERVENT'],
+            ['images/products/Testimoni/Giftset.jpg', 'Hasil produksi gift set custom HERVENT'],
+            ['images/products/Testimoni/Flashdisk.jpg', 'Hasil produksi flashdisk custom HERVENT'],
+          ] as [$image, $alt])
+            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Lihat ulasan HERVENT di Google Maps">
+              <img class="cg-google-review-image" src="{{ asset($image) }}" alt="{{ $alt }}" loading="lazy">
               <div class="cg-google-card-foot"><span>Lihat review asli di Google Maps</span><span aria-hidden="true">→</span></div>
             </a>
           @endforeach
@@ -194,7 +190,7 @@
       </div>
     </section>
 
-    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div aria-hidden="true">✓</div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
+    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
 
     <section class="s cg-faq" id="faq"><div class="wrap"><div class="center"><p class="eyebrow">Pertanyaan</p><h2 class="h2">Pertanyaan yang Sering Ditanyakan</h2></div>
       <div class="cg-faq-list">
