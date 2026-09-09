@@ -263,7 +263,8 @@ if(reduce||!('IntersectionObserver'in window)){
 
 /* ---------- Corporate gift package builder ---------- */
 (function () {
-  if (window.location.hash === '#susun-paket') {
+  var shouldCleanContentHash = window.location.hash === '#konten' && document.querySelector('[data-scroll-target="konten"]');
+  if (window.location.hash === '#susun-paket' || shouldCleanContentHash) {
     window.history.replaceState(null, '', window.location.pathname + window.location.search);
   }
 

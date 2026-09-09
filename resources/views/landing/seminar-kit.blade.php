@@ -46,7 +46,7 @@
     $googleMaps = 'https://maps.app.goo.gl/u8hkuc9RgapZTaak8';
   @endphp
 
-  <a class="cg-skip" href="#konten">Lewati ke konten</a>
+  <a class="cg-skip" href="{{ route('landing.seminar-kit') }}" data-scroll-target="konten">Lewati ke konten</a>
   @include('partials.header')
 
   <main id="konten">
