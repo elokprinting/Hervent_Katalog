@@ -40,6 +40,7 @@
     $clientLogos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($clientLogos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($clientLogos, (int) ceil(count($clientLogos) / 2));
+    $googleMaps = 'https://maps.app.goo.gl/SKDFcYdVvcj5UHmD6';
   @endphp
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
@@ -170,6 +171,24 @@
               <p>“{{ $quote }}”</p>
               <footer><strong>{{ $name }}</strong><span>{{ $meta }}</span></footer>
             </blockquote>
+          @endforeach
+        </div>
+        <p class="cg-review-disclaimer">*Ulasan nyata klien HERVENT yang dirangkum dari Google Reviews.</p>
+        <h3 class="cg-google-title">Review Google Kami</h3>
+        <div class="cg-google-grid">
+          @foreach([
+            ['Asraini Audia Hardarinata', '4 ulasan · 9 foto', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. HERVENT terbaik dari pelayanan, harga, dan kualitasnya.'],
+            ['Yusuf Elok', 'Local Guide · 51 ulasan', 'Produsen hardbox gift dan custom tumbler terlengkap di Bandung.'],
+            ['Wisni Pratistari', '1 ulasan · 1 foto', 'Pesanan tumbler mini dengan nama individual hasilnya bagus dan tepat waktu sesuai jadwal. Pelayanan baik, pengiriman paket juga lancar.'],
+          ] as [$name, $meta, $quote])
+            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Baca review {{ $name }} di Google Maps">
+              <div class="cg-google-card-body">
+                <div class="cg-google-person"><span>{{ strtoupper(mb_substr($name, 0, 1)) }}</span><div><strong>{{ $name }}</strong><small>{{ $meta }}</small></div></div>
+                <span class="cg-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                <p>{{ $quote }}</p>
+              </div>
+              <div class="cg-google-card-foot"><span>Lihat review asli di Google Maps</span><span aria-hidden="true">→</span></div>
+            </a>
           @endforeach
         </div>
       </div>

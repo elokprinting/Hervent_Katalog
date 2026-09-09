@@ -284,6 +284,21 @@ select {
 .cg-review-grid footer { display: grid; gap: .15rem; margin-top: 1.1rem; color: var(--red); font: 600 .72rem var(--f-head); text-transform: uppercase; letter-spacing: .06em; }
 .cg-review-grid footer strong { color: var(--ink); font-size: .84rem; letter-spacing: 0; text-transform: none; }
 .cg-review-grid footer span { color: var(--g1); font-size: .68rem; letter-spacing: 0; text-transform: none; }
+.cg-review-disclaimer { margin: 1rem 0 0; color: var(--g1); font-size: .78rem; }
+.cg-google-title { margin: 3.25rem 0 1.35rem; text-align: center; font: 700 clamp(1.2rem, 2vw, 1.55rem) var(--f-head); letter-spacing: -.02em; }
+.cg-google-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.cg-google-card { display: flex; flex-direction: column; min-height: 100%; overflow: hidden; border: 1px solid var(--line); background: var(--white); color: var(--ink); text-decoration: none; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.cg-google-card:hover { border-color: #b7b7b8; box-shadow: 0 12px 24px rgba(0,0,0,.08); transform: translateY(-3px); }
+.cg-google-card-body { display: flex; flex: 1; flex-direction: column; gap: .85rem; min-height: 235px; padding: 1.35rem; background: linear-gradient(135deg, #fff, #f6f6f6); }
+.cg-google-person { display: flex; align-items: center; gap: .7rem; }
+.cg-google-person > span { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: #4285f4; color: var(--white); font: 700 .9rem var(--f-head); }
+.cg-google-person div { display: grid; gap: .1rem; min-width: 0; }
+.cg-google-person strong { overflow: hidden; font: 600 .88rem var(--f-head); text-overflow: ellipsis; white-space: nowrap; }
+.cg-google-person small { color: var(--g1); font-size: .7rem; }
+.cg-google-card .cg-stars { margin: 0; color: #f9ab00; }
+.cg-google-card p { margin: 0; color: var(--g1); font-size: .86rem; line-height: 1.65; }
+.cg-google-card-foot { display: flex; justify-content: space-between; gap: 1rem; padding: .95rem 1.35rem; border-top: 1px solid var(--line); color: var(--g1); font-size: .8rem; }
+.cg-google-card-foot span:last-child { color: var(--red); font-size: 1.1rem; }
 .cg-guarantee { padding-top: 0; background: var(--white); }
 .cg-guarantee-box { display: flex; align-items: center; gap: 1.2rem; padding: clamp(1.5rem, 4vw, 2.7rem); background: var(--black); color: var(--white); }
 .cg-guarantee-box > div:first-child { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border: 1px solid #ffb3a8; color: #ffb3a8; font-size: 1.6rem; }
@@ -313,7 +328,7 @@ select {
 .cg-footer p { flex: 1 1 270px; margin: 0; font-size: .78rem; }
 .cg-footer a { color: var(--white); font: 600 .78rem var(--f-head); }
 @media (max-width: 900px) { .cg-hero-grid, .cg-two-col { grid-template-columns: 1fr; } .cg-hero::after { width: 65vw; opacity: .35; } .cg-hero-image { max-width: 620px; min-height: 300px; } .cg-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cg-card-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cg-gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px) { .cg-nav-in { min-height: 60px; } .cg-logo img { height: 30px; } .cg-nav-cta { padding: .53rem .7rem; font-size: .72rem; } .cg-hero { padding-block: 3rem; } .cg-hero::after { display: none; } .cg-badge { align-items: flex-start; } .cg-hero-image { min-height: 245px; } .cg-card-grid, .cg-card-grid-three, .cg-review-grid { grid-template-columns: 1fr; } .cg-gallery-grid { gap: .5rem; } .cg-gallery-grid img { min-height: 150px; } .cg-builder-note { align-items: flex-start; flex-direction: column; } .cg-guarantee-box { align-items: flex-start; } .cg-footer .wrap { align-items: flex-start; flex-direction: column; } .corporate-gift-page .hero-cta .btn { min-height: 50px; padding-inline: 1.1rem; font-size: .84rem; } .cg-closing .btn { min-height: 66px; font-size: 1rem; } }
+@media (max-width: 620px) { .cg-nav-in { min-height: 60px; } .cg-logo img { height: 30px; } .cg-nav-cta { padding: .53rem .7rem; font-size: .72rem; } .cg-hero { padding-block: 3rem; } .cg-hero::after { display: none; } .cg-badge { align-items: flex-start; } .cg-hero-image { min-height: 245px; } .cg-card-grid, .cg-card-grid-three, .cg-review-grid, .cg-google-grid { grid-template-columns: 1fr; } .cg-gallery-grid { gap: .5rem; } .cg-gallery-grid img { min-height: 150px; } .cg-builder-note { align-items: flex-start; flex-direction: column; } .cg-guarantee-box { align-items: flex-start; } .cg-footer .wrap { align-items: flex-start; flex-direction: column; } .corporate-gift-page .hero-cta .btn { min-height: 50px; padding-inline: 1.1rem; font-size: .84rem; } .cg-closing .btn { min-height: 66px; font-size: 1rem; } }
 
 .giftset-card {
     position: relative;
