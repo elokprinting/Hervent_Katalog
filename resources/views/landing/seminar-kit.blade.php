@@ -34,14 +34,14 @@
       'images/products/Seminar & Training/produk training.png',
     ];
     $packages = [
-      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Ekonomis 1', 'tag' => 'Tas Spunbond Oval', 'text' => 'Tas Spunbond Oval · Notes A6 · Pulpen Custom', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 1.png'],
-      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Ekonomis 2', 'tag' => 'Tas Spunbond Oval Besar', 'text' => 'Tas Spunbond ukuran besar · Notes A5 · Pulpen Custom · Pin Custom', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 2.png'],
-      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Ekonomis 3', 'tag' => 'Tas Spunbond Oval', 'text' => 'Tas Spunbond · Notes A6 tebal · Pulpen · Mug logo · Pin Custom', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 3.png'],
-      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Ekonomis 4', 'tag' => 'Tas Spunbond Kotak', 'text' => 'Tas Spunbond · Notes A5 · Pulpen · Name Tag · Mug · Pin', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 4.png'],
-      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Reguler 1', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A5 · Pulpen · Name Tag · Mug · Gantungan Pin', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 1.png'],
-      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Reguler 2', 'tag' => 'Totebag Blacu', 'text' => 'Totebag · Notes A6 tebal · Pulpen · Name Tag · Mug · Flashdisk', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 2.png'],
-      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Reguler 3', 'tag' => 'Totebag Canvas', 'text' => 'Totebag Canvas · Agenda Kulit A5 · Pulpen · Tumbler · Gantungan Pin', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 3.png'],
-      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Reguler 4', 'tag' => 'Totebag Canvas', 'text' => 'Totebag · Agenda · Tumbler · Flashdisk · Kotak Metal Custom', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 4.png'],
+      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Merah)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 1.png'],
+      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Biru)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 2.png'],
+      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 2', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen · Pin Gantungan · Mug', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 3.png'],
+      ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Premium (Varian Biru Muda)', 'tag' => 'Totebag Blacu Premium', 'text' => 'Totebag Blacu Premium · Notes A6 tebal · Pulpen · Name Tag · Mug · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 4.png'],
+      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Premium (Varian Putih)', 'tag' => 'Totebag Canvas', 'text' => 'Totebag Canvas · Notes A6 tebal · Pulpen · Name Tag · Mug · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 1.png'],
+      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Eksekutif', 'tag' => 'Totebag Canvas', 'text' => 'Totebag Canvas · Notes A6 tebal · Pulpen · Name Tag · Mug · Flashdisk · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 2.png'],
+      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Elit', 'tag' => 'Totebag Canvas', 'text' => 'Totebag Canvas · Agenda Kulit A5 · Pulpen · Tumbler · Name Tag · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 3.png'],
+      ['group' => 'Paket Reguler', 'label' => 'Grup B', 'name' => 'Elit Lengkap', 'tag' => 'Totebag Canvas', 'text' => 'Totebag Canvas · Agenda Kulit A5 · Pulpen · Tumbler · Name Tag · Flashdisk · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Reg 4.png'],
     ];
     $googleMaps = 'https://maps.app.goo.gl/u8hkuc9RgapZTaak8';
   @endphp
