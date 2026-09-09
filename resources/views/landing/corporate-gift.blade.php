@@ -22,7 +22,7 @@
     'manufacturer' => ['@type' => 'Organization', 'name' => 'PT Aventama Hervent Solusindo'],
   ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
 </head>
-<body class="corporate-gift-page">
+<body class="corporate-gift-page home-page">
   @php
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
@@ -41,31 +41,24 @@
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
 
-  <header class="cg-nav">
-    <div class="wrap cg-nav-in">
-      <a href="https://hervent.co.id" class="cg-logo" aria-label="HERVENT, kembali ke situs utama">
-        <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT">
-      </a>
-      <a href="{{ $whatsapp }}" class="btn b-dark cg-nav-cta" target="_blank" rel="noopener noreferrer">Chat WhatsApp</a>
-    </div>
-  </header>
+  @include('partials.header')
 
   <main id="konten">
-    <section class="cg-hero">
-      <div class="wrap cg-hero-grid">
-        <div>
-          <p class="cg-badge"><span></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</p>
-          <h1 class="h1">Corporate Gift &amp; Paket Souvenir Kantor <span>untuk Kebutuhan Perusahaan Anda</span></h1>
-          <p class="lede">Gift set corporate yang bisa Anda susun sendiri — dari souvenir kantor harian sampai kebutuhan acara khusus perusahaan. Desain gratis, legalitas resmi, siap kirim ke seluruh Indonesia.</p>
-          <div class="cg-hero-actions">
-            <a href="#susun-paket" class="btn b-dark">Susun Paket Anda</a>
-            <a href="{{ $whatsapp }}" class="cg-text-link" target="_blank" rel="noopener noreferrer">Konsultasi gratis <span aria-hidden="true">→</span></a>
-          </div>
-          <p class="cg-micro">Gratis konsultasi &amp; desain · Balasan brief dalam 1 hari kerja · Tanpa komitmen</p>
+    <section class="hero on-red cg-home-hero">
+      <div class="wrap hero-in">
+        <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</span>
+        <h1 class="h1">Corporate Gift &amp; Paket Souvenir Kantor <span class="hl">untuk Kebutuhan Perusahaan Anda</span></h1>
+        <p class="lede">Gift set corporate yang bisa Anda susun sendiri — dari souvenir kantor harian sampai kebutuhan acara khusus perusahaan. Desain gratis, legalitas resmi, siap kirim ke seluruh Indonesia.</p>
+        <div class="hero-cta">
+          <a href="{{ $whatsapp }}" class="btn b-red" target="_blank" rel="noopener noreferrer">Konsultasi Gratis</a>
+          <a href="#susun-paket" class="btn b-line">Lihat Pilihan Paket</a>
         </div>
-        <figure class="cg-hero-image">
-          <img src="{{ asset('images/products/Corporate Gift/Corporate gift produk 2.png') }}" alt="Contoh corporate gift HERVENT" fetchpriority="high">
-        </figure>
+        <ul class="hero-mini" aria-label="Keunggulan HERVENT">
+          <li><b>Sejak 2009</b>17 tahun pengalaman</li>
+          <li><b>4500+</b>Klien perusahaan</li>
+          <li><b>Kantor</b>Kota Bandung</li>
+          <li><b>PPN</b>Faktur pajak tersedia</li>
+        </ul>
       </div>
     </section>
 
