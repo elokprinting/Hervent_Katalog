@@ -263,6 +263,20 @@ if(reduce||!('IntersectionObserver'in window)){
 
 /* ---------- Corporate gift package builder ---------- */
 (function () {
+  if (window.location.hash === '#susun-paket') {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-scroll-target]'), function (link) {
+    link.addEventListener('click', function (event) {
+      var target = document.getElementById(link.getAttribute('data-scroll-target'));
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   var builder = document.querySelector('[data-gift-builder]');
   if (!builder) return;
 
