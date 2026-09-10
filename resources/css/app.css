@@ -382,12 +382,18 @@ select {
 .cg-logo-wall img { width: auto; max-width: 82px; height: 38px; object-fit: contain; filter: grayscale(1); opacity: .7; }
 .cg-mix { background: var(--white); }
 .cg-mix .h2 { max-width: 28ch; }
-.cg-pills { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.65rem; }
-.cg-pill { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .38rem; min-width: 7.4rem; min-height: 5.1rem; border: 1px solid var(--line); background: var(--white); padding: .65rem .8rem; color: var(--ink); font: 500 .78rem/1.25 var(--f-head); text-align: center; transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease; }
+.cg-pills { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: .6rem; margin-top: 1.65rem; }
+.cg-pill { display: inline-flex; width: 100%; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: .28rem; min-height: 4.35rem; border: 1px solid var(--line); background: var(--white); padding: .5rem .4rem; color: var(--ink); font: 500 .72rem/1.2 var(--f-head); text-align: center; transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease; }
 .cg-pill-icon { display: grid; place-items: center; color: var(--red); }
-.cg-pill-icon svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.cg-pill-icon svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .cg-pill:hover { border-color: var(--red); transform: translateY(-1px); }
 .cg-pill[aria-pressed="true"] { border-color: var(--red); background: var(--red); color: var(--white); }
+@media (max-width: 900px) {
+    .cg-pills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+    .cg-pills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+}
 .cg-builder-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.55rem; }
 .cg-builder-note p { margin: 0; color: var(--g1); font-size: .86rem; }
 .cg-builder-note .btn, .cg-section-cta .btn { text-decoration: none; }
