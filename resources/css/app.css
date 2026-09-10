@@ -76,12 +76,12 @@ html {
 
 .portfolio-gallery {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3, minmax(10rem, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(12rem, 1fr));
     gap: clamp(.65rem, 1.4vw, 1.1rem);
     max-width: 76rem;
     margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
-    min-height: clamp(38rem, 78vw, 67rem);
+    min-height: clamp(30rem, 52vw, 48rem);
 }
 
 .portfolio-card {
@@ -96,7 +96,8 @@ html {
 }
 
 .portfolio-card-featured {
-    grid-row: span 3;
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 .portfolio-card img {

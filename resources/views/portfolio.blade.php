@@ -15,7 +15,8 @@
   @php
     $portfolioImages = glob(public_path('images/Portofolio/*')) ?: [];
     natsort($portfolioImages);
-    $portfolioGroups = array_chunk(array_values($portfolioImages), 4);
+    // Lima gambar per blok: satu kartu utama + empat kartu pendamping.
+    $portfolioGroups = array_chunk(array_values($portfolioImages), 5);
   @endphp
 
   <main>
