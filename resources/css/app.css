@@ -383,7 +383,9 @@ select {
 .cg-mix { background: var(--white); }
 .cg-mix .h2 { max-width: 28ch; }
 .cg-pills { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.65rem; }
-.cg-pill { border: 1px solid var(--line); background: var(--white); padding: .6rem .95rem; color: var(--ink); font: 500 .88rem var(--f-head); transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease; }
+.cg-pill { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .38rem; min-width: 7.4rem; min-height: 5.1rem; border: 1px solid var(--line); background: var(--white); padding: .65rem .8rem; color: var(--ink); font: 500 .78rem/1.25 var(--f-head); text-align: center; transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease; }
+.cg-pill-icon { display: grid; place-items: center; color: var(--red); }
+.cg-pill-icon svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .cg-pill:hover { border-color: var(--red); transform: translateY(-1px); }
 .cg-pill[aria-pressed="true"] { border-color: var(--red); background: var(--red); color: var(--white); }
 .cg-builder-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.55rem; }

@@ -26,6 +26,24 @@
   @php
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
+    $mixIcons = [
+      'E-Money Custom' => 'credit-card',
+      'Mouse & Speaker' => 'mouse',
+      'Tas Custom' => 'shopping-bag',
+      'Kalender' => 'calendar',
+      'Flashdisk Kartu' => 'save',
+      'Wood Series' => 'package',
+      'Bolpoin' => 'pencil',
+      'Jam Custom' => 'clock',
+      'Tumbler' => 'bottle',
+      'Pouch Custom' => 'shopping-bag',
+      'Powerbank Custom' => 'battery-charging',
+      'ID Card' => 'credit-card',
+      'Alat Kesehatan' => 'heart-pulse',
+      'Agenda & Notebook' => 'notebook',
+      'Packaging' => 'package',
+      'Leather Series' => 'briefcase',
+    ];
     $tiers = [
       ['name' => 'Corporate Gift', 'image' => 'images/products/Corporate Gift/Corporate gift produk.png'],
       ['name' => 'Seminar & Training', 'image' => 'images/products/Seminar & Training/Produk Seminar.png'],
@@ -96,7 +114,10 @@
         <p class="lede">Setiap perusahaan punya kebutuhan <strong>souvenir kantor</strong> yang berbeda. Karena itu, isi paket <strong>merchandise perusahaan</strong> Anda bisa disusun bebas — pilih kombinasi item yang paling pas dengan budget dan momen acara.</p>
         <div class="cg-pills" aria-label="Pilih item untuk paket Anda">
           @foreach($mixItems as $item)
-            <button type="button" class="cg-pill" data-gift-item="{{ $item }}" aria-pressed="false">{{ $item }}</button>
+            <button type="button" class="cg-pill" data-gift-item="{{ $item }}" aria-pressed="false">
+              <span class="cg-pill-icon"><i data-lucide="{{ $mixIcons[$item] ?? 'package' }}" aria-hidden="true"></i></span>
+              <span>{{ $item }}</span>
+            </button>
           @endforeach
         </div>
         <div class="cg-builder-note">
