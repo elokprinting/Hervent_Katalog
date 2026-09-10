@@ -159,7 +159,7 @@
             $portfolioPreviewImages = glob(public_path('images/Portofolio/*')) ?: [];
             natsort($portfolioPreviewImages);
           @endphp
-          @foreach(array_slice(array_values($portfolioPreviewImages), 0, 4) as $image)
+          @foreach(array_values($portfolioPreviewImages) as $image)
             @php
               $filename = basename($image);
             @endphp
