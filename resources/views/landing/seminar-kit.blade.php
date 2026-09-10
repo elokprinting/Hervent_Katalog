@@ -51,7 +51,7 @@
 
   <main id="konten">
     <section class="hero on-red sk-hero">
-      <div class="wrap sk-hero-grid">
+      <div class="wrap hero-in">
         <div class="sk-hero-copy">
           <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</span>
           <h1 class="h1">Seminar Kit Custom untuk <span class="hl">Training, Workshop, dan Acara Perusahaan</span></h1>
@@ -60,7 +60,12 @@
             <a href="{{ $whatsapp }}" class="btn b-red" target="_blank" rel="noopener noreferrer">Konsultasi &amp; Dapatkan Harga</a>
             <a href="{{ route('landing.seminar-kit') }}" class="btn b-line" data-scroll-target="paket-seminar">Lihat Pilihan Paket</a>
           </div>
-          <p class="sk-hero-note">Gratis konsultasi &amp; desain · Balasan brief dalam 1 hari kerja · Tanpa komitmen</p>
+          <ul class="hero-mini" aria-label="Keunggulan HERVENT">
+            <li><b>Sejak 2009</b>17 tahun pengalaman</li>
+            <li><b>4500+</b>Klien perusahaan</li>
+            <li><b>Kantor</b>Kota Bandung</li>
+            <li><b>PPN</b>Faktur pajak tersedia</li>
+          </ul>
         </div>
       </div>
     </section>

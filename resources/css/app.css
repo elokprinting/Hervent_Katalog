@@ -481,7 +481,7 @@ select {
 /* Seminar kit landing page */
 .seminar-kit-page { background: var(--white); color: var(--ink); }
 .seminar-kit-page .lede { font-size: 1rem; line-height: 1.7; }
-.sk-hero { padding-block: clamp(3rem, 6vw, 5.5rem); }
+.sk-hero { padding: 0; }
 .sk-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .8fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .sk-hero-copy .trust { margin-bottom: 1.25rem; }
 .sk-hero-copy .h1 { max-width: 15ch; }
@@ -509,7 +509,7 @@ select {
 .sk-gallery-grid img { width: 100%; aspect-ratio: 1 / .78; object-fit: cover; }
 .sk-testimonial-grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
 @media (max-width: 900px) { .sk-hero-grid { grid-template-columns: 1fr; } .sk-hero-copy .h1 { max-width: 18ch; } .sk-hero-image, .sk-hero-image img { min-height: 260px; } .sk-package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sk-gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px) { .sk-hero { padding-block: 2.8rem 3.2rem; } .sk-hero-image { min-height: 220px; box-shadow: 9px 9px 0 rgba(0,0,0,.14); } .sk-hero-image img { min-height: 220px; } .sk-package-grid, .sk-gallery-grid, .sk-testimonial-grid { grid-template-columns: 1fr; } .sk-proof { padding-bottom: 1.4rem; } }
+@media (max-width: 620px) { .sk-hero { padding: 0; } .sk-hero-image { min-height: 220px; box-shadow: 9px 9px 0 rgba(0,0,0,.14); } .sk-hero-image img { min-height: 220px; } .sk-package-grid, .sk-gallery-grid, .sk-testimonial-grid { grid-template-columns: 1fr; } .sk-proof { padding-bottom: 1.4rem; } }
 
 .giftset-card {
     position: relative;
