@@ -94,9 +94,9 @@
             @foreach($items as $package)
               <article class="sk-package-card">
                 <img src="{{ asset($package['image']) }}" alt="Paket seminar kit {{ $package['name'] }}" loading="lazy">
+                <span class="sk-custom-badge">Custom By Request</span>
                 <div>
                   <p class="eyebrow">{{ $package['tag'] }}</p>
-                  <span class="sk-custom-badge">Custom By Request</span>
                   <h4 class="h3">{{ $package['name'] }}</h4>
                   <p>{{ $package['text'] }}</p>
                 </div>
