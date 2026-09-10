@@ -50,10 +50,7 @@ html {
 .portfolio-hero {
     position: relative;
     isolation: isolate;
-    display: flex;
-    align-items: center;
-    min-height: clamp(25rem, 42vw, 38rem);
-    padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(4rem, 7vw, 6.25rem);
+    padding-block: clamp(4.5rem, 10vw, 8rem);
     overflow: hidden;
     color: var(--white);
     background-image:
@@ -175,6 +172,12 @@ html {
 
     .portfolio-card-featured {
         grid-column: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .portfolio-hero {
+        padding-block: 4rem 5rem;
     }
 }
 

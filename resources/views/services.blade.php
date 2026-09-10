@@ -45,35 +45,35 @@
 
                 <div class="service-reason-grid">
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/8.png.webp" alt="Ilustrasi garansi berkualitas" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Religius.png') }}" alt="Ilustrasi garansi berkualitas" loading="lazy"></div>
                         <div><span class="service-number">01</span><h3>Garansi Berkualitas</h3><p>Jika ada barang yang rusak atau cacat ketika diterima, akan kami ganti dan biaya kirim barang rusak menjadi tanggung jawab kami.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/7.png.webp" alt="Ilustrasi garansi hingga seumur hidup" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Integrity.png') }}" alt="Ilustrasi garansi hingga seumur hidup" loading="lazy"></div>
                         <div><span class="service-number">02</span><h3>Garansi Hingga Seumur Hidup</h3><p>HERVENT memberikan masa klaim garansi yang panjang. Untuk produk tertentu, masa garansi tersedia hingga seumur hidup.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/6.png.webp" alt="Ilustrasi garansi harga terbaik" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Happiness.png') }}" alt="Ilustrasi garansi harga terbaik" loading="lazy"></div>
                         <div><span class="service-number">03</span><h3>Garansi Harga Terbaik</h3><p>Kami berikan Garansi Harga Terbaik. Silakan berdiskusi dengan Project Manager kami untuk mendapatkan penawaran terbaik.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/1.png.webp" alt="Ilustrasi proses order mudah dan cepat" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Commitment.png') }}" alt="Ilustrasi proses order mudah dan cepat" loading="lazy"></div>
                         <div><span class="service-number">04</span><h3>Proses Order Mudah dan Cepat</h3><p>Order dapat dilakukan via WhatsApp, email, telepon, meeting offline, Zoom, atau Google Meet bersama tim Marketing &amp; Kreatif kami.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/3.png.webp" alt="Ilustrasi produksi kapasitas besar dan cepat" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Commitment.png') }}" alt="Ilustrasi produksi kapasitas besar dan cepat" loading="lazy"></div>
                         <div><span class="service-number">05</span><h3>Produksi Kapasitas Besar &amp; Cepat</h3><p>Kapasitas produksi mencapai ratusan ribu item per bulan. Produksi cepat dengan tetap menjaga kualitas produk.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/9.png.webp" alt="Ilustrasi gratis jasa desain" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Happiness.png') }}" alt="Ilustrasi gratis jasa desain" loading="lazy"></div>
                         <div><span class="service-number">06</span><h3>Gratis Jasa Desain</h3><p>Belum punya desain? Tim desainer profesional kami akan membantu Anda mendapatkan desain yang terbaik.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/5.png.webp" alt="Ilustrasi tim profesional dan berpengalaman" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Integrity.png') }}" alt="Ilustrasi tim profesional dan berpengalaman" loading="lazy"></div>
                         <div><span class="service-number">07</span><h3>Tim Profesional &amp; Berpengalaman</h3><p>Tim profesional dengan pengalaman lebih dari 5 tahun siap memberikan hasil terbaik, dari pemesanan, produksi, finishing, hingga pengiriman.</p></div>
                     </article>
                     <article class="service-reason-card">
-                        <div class="service-reason-image"><img src="https://hervent.co.id/wp-content/uploads/2022/02/4.png.webp" alt="Ilustrasi legalitas resmi berbadan hukum" loading="lazy"></div>
+                        <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Religius.png') }}" alt="Ilustrasi legalitas resmi berbadan hukum" loading="lazy"></div>
                         <div><span class="service-number">08</span><h3>Legalitas Resmi Berbadan Hukum</h3><p>HERVENT memiliki legalitas resmi berbadan hukum PT Aventama Hervent Solusindo dan melayani transaksi dengan faktur pajak PPN.</p></div>
                     </article>
                 </div>

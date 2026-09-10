@@ -155,8 +155,15 @@
     <section class="s cg-gallery">
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi untuk Berbagai <span class="hl">Perusahaan</span></h2></div>
         <div class="cg-gallery-grid">
-          @foreach(['Corporate gift 1.png', 'Corporate gift produk.png', 'Corporate gift 2.png', 'Corporate gift produk 2.png'] as $image)
-            <img src="{{ asset('images/products/Corporate Gift/'.$image) }}" alt="Portofolio corporate gift HERVENT" loading="lazy">
+          @php
+            $portfolioPreviewImages = glob(public_path('images/Portofolio/*')) ?: [];
+            natsort($portfolioPreviewImages);
+          @endphp
+          @foreach(array_slice(array_values($portfolioPreviewImages), 0, 4) as $image)
+            @php
+              $filename = basename($image);
+            @endphp
+            <img src="{{ asset('images/Portofolio/' . rawurlencode($filename)) }}" alt="Portofolio corporate gift HERVENT" loading="lazy">
           @endforeach
         </div>
       </div>
