@@ -4061,6 +4061,86 @@ select {
     display: none;
 }
 
+.whatsapp-promo {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 110;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    color: var(--white);
+    text-decoration: none;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .2));
+}
+
+.whatsapp-promo-copy {
+    display: grid;
+    gap: .15rem;
+    padding: .6rem .8rem;
+    border-radius: .55rem;
+    background: #3b3b3d;
+    color: var(--white);
+    font: 500 .72rem/1.2 var(--f-body);
+    white-space: nowrap;
+}
+
+.whatsapp-promo-copy strong {
+    color: var(--white);
+    font: 700 .78rem/1.2 var(--f-head);
+}
+
+.whatsapp-promo-icon {
+    display: grid;
+    place-items: center;
+    width: 3.7rem;
+    height: 3.7rem;
+    flex: 0 0 3.7rem;
+    border: 3px solid rgba(255, 255, 255, .8);
+    border-radius: 50%;
+    background: #25d366;
+    color: var(--white);
+}
+
+.whatsapp-promo-icon svg {
+    width: 2.35rem;
+    height: 2.35rem;
+    fill: currentColor;
+}
+
+.whatsapp-promo:hover .whatsapp-promo-icon,
+.whatsapp-promo:focus-visible .whatsapp-promo-icon {
+    background: #1fbd5b;
+}
+
+@media (max-width: 640px) {
+    .whatsapp-promo {
+        right: .75rem;
+        bottom: .75rem;
+        gap: .45rem;
+    }
+
+    .whatsapp-promo-copy {
+        padding: .5rem .6rem;
+        font-size: .64rem;
+    }
+
+    .whatsapp-promo-copy strong {
+        font-size: .68rem;
+    }
+
+    .whatsapp-promo-icon {
+        width: 3.25rem;
+        height: 3.25rem;
+        flex-basis: 3.25rem;
+    }
+
+    .whatsapp-promo-icon svg {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
 .pd-floating-wa {
     display: none;
 }
