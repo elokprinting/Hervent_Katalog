@@ -13,6 +13,7 @@ Route::view('/landing-corporate-gift', 'landing.corporate-gift')->name('landing.
 Route::view('/landing-seminar-kit', 'landing.seminar-kit')->name('landing.seminar-kit');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
+Route::view('/portfolio', 'portfolio')->name('portfolio');
 Route::view('/gift-sets-packages', 'gift-sets-packages')->name('giftsets.index');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
