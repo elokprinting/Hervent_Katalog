@@ -37,7 +37,10 @@
         </div>
 
         @foreach($portfolioGroups as $group)
-          <div class="portfolio-gallery rv" aria-label="Koleksi portofolio {{ $loop->iteration }}">
+          @php
+            $featuredRight = $loop->iteration % 2 === 0;
+          @endphp
+          <div class="portfolio-gallery {{ $featuredRight ? 'portfolio-gallery-featured-right' : '' }} rv" aria-label="Koleksi portofolio {{ $loop->iteration }}">
             @foreach($group as $image)
               @php
                 $filename = basename($image);

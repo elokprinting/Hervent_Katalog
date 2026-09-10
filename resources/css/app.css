@@ -48,11 +48,39 @@ html {
 
 /* ---------- Portfolio ---------- */
 .portfolio-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: clamp(25rem, 42vw, 38rem);
     padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(4rem, 7vw, 6.25rem);
     overflow: hidden;
+    color: var(--white);
+    background-image:
+        linear-gradient(112deg,
+            rgba(20, 5, 6, 0.9) 0%,
+            rgba(102, 12, 16, 0.82) 42%,
+            rgba(184, 26, 31, 0.68) 100%),
+        url("/images/Super%20Graphic.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.portfolio-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(255, 179, 168, 0.24), transparent 30%),
+        linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.2));
+    pointer-events: none;
 }
 
 .portfolio-hero-in {
+    position: relative;
+    z-index: 1;
     max-width: 52rem;
 }
 
@@ -100,6 +128,12 @@ html {
     grid-row: span 2;
 }
 
+/* Variasikan komposisi: pada blok selang-seling, kartu 2x2 berada di kanan. */
+.portfolio-gallery-featured-right .portfolio-card-featured {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+}
+
 .portfolio-card img {
     display: block;
     width: 100%;
@@ -124,6 +158,11 @@ html {
     }
 
     .portfolio-card-featured {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .portfolio-gallery-featured-right .portfolio-card-featured {
         grid-column: span 2;
         grid-row: auto;
     }
