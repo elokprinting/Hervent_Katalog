@@ -27,12 +27,9 @@
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
-    $seminarImages = [
-      'images/products/Seminar & Training/Seminar.png',
-      'images/products/Seminar & Training/Produk Seminar.png',
-      'images/products/Seminar & Training/training rame.png',
-      'images/products/Seminar & Training/produk training.png',
-    ];
+    $seminarPortfolioFiles = glob(public_path('images/products/Seminar & Training/*')) ?: [];
+    $seminarPortfolioFiles = array_values(array_filter($seminarPortfolioFiles, fn ($path) => preg_match('/^seminar-kit-(\d+)$/i', pathinfo($path, PATHINFO_FILENAME))));
+    usort($seminarPortfolioFiles, fn ($a, $b) => (int) preg_replace('/\D+/', '', pathinfo($a, PATHINFO_FILENAME)) <=> (int) preg_replace('/\D+/', '', pathinfo($b, PATHINFO_FILENAME)));
     $packages = [
       ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Merah)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 1.png'],
       ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Biru)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 2.png'],
@@ -127,7 +124,11 @@
 
     <section class="s sk-gallery">
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Seminar Kit untuk <span class="hl">Berbagai Acara</span></h2></div>
-        <div class="sk-gallery-grid">@foreach($seminarImages as $image)<img src="{{ asset($image) }}" alt="Hasil produksi seminar kit HERVENT" loading="lazy">@endforeach</div>
+        <div class="sk-gallery-grid">
+          @foreach($seminarPortfolioFiles as $image)
+            <img src="{{ asset('images/products/Seminar & Training/' . rawurlencode(basename($image))) }}" alt="Hasil produksi seminar kit HERVENT" loading="lazy">
+          @endforeach
+        </div>
       </div>
     </section>
 

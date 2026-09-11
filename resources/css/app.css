@@ -515,7 +515,7 @@ select {
 .sk-package-card p:last-child { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
 .sk-benefits { background: #f3f3f1; }
 .sk-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-.sk-gallery-grid img { width: 100%; aspect-ratio: 1 / .78; object-fit: cover; }
+.sk-gallery-grid img { width: 100%; aspect-ratio: 1 / .78; object-fit: contain; background: #f7f7f5; border: 1px solid var(--line); }
 .sk-testimonial-grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
 @media (max-width: 900px) { .sk-hero-grid { grid-template-columns: 1fr; } .sk-hero-copy .h1 { max-width: 18ch; } .sk-hero-image, .sk-hero-image img { min-height: 260px; } .sk-package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sk-gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .sk-hero { padding: 0; } .sk-hero-image { min-height: 220px; box-shadow: 9px 9px 0 rgba(0,0,0,.14); } .sk-hero-image img { min-height: 220px; } .sk-package-grid, .sk-gallery-grid, .sk-testimonial-grid { grid-template-columns: 1fr; } .sk-proof { padding-bottom: 1.4rem; } }
