@@ -28,7 +28,19 @@
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
     $seminarPortfolioFiles = glob(public_path('images/products/Seminar & Training/*')) ?: [];
-    $seminarPortfolioFiles = array_values(array_filter($seminarPortfolioFiles, fn ($path) => preg_match('/^seminar-kit-(\d+)$/i', pathinfo($path, PATHINFO_FILENAME))));
+    $seminarPortfolioFiles = array_values(array_filter($seminarPortfolioFiles, function ($path) {
+      if (!preg_match('/^seminar-kit-(\d+)$/i', pathinfo($path, PATHINFO_FILENAME))) {
+        return false;
+      }
+
+      $dimensions = @getimagesize($path);
+      if (!$dimensions || empty($dimensions[0]) || empty($dimensions[1])) {
+        return false;
+      }
+
+      $ratio = $dimensions[0] / $dimensions[1];
+      return abs($ratio - (3 / 4)) < 0.01 || abs($ratio - (9 / 16)) < 0.01;
+    }));
     usort($seminarPortfolioFiles, fn ($a, $b) => (int) preg_replace('/\D+/', '', pathinfo($a, PATHINFO_FILENAME)) <=> (int) preg_replace('/\D+/', '', pathinfo($b, PATHINFO_FILENAME)));
     $packages = [
       ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Merah)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 1.png'],
@@ -126,7 +138,7 @@
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Seminar Kit untuk <span class="hl">Berbagai Acara</span></h2></div>
         <div class="sk-gallery-grid">
           @foreach($seminarPortfolioFiles as $image)
-            <img src="{{ asset('images/products/Seminar & Training/' . rawurlencode(basename($image))) }}" alt="Hasil produksi seminar kit HERVENT" loading="lazy">
+            <img src="{{ asset('images/products/Seminar & Training/' . rawurlencode(basename($image))) }}" alt="Hasil produksi seminar kit HERVENT">
           @endforeach
         </div>
       </div>
