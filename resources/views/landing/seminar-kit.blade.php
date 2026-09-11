@@ -42,6 +42,26 @@
       return abs($ratio - (3 / 4)) < 0.01 || abs($ratio - (9 / 16)) < 0.01;
     }));
     usort($seminarPortfolioFiles, fn ($a, $b) => (int) preg_replace('/\D+/', '', pathinfo($a, PATHINFO_FILENAME)) <=> (int) preg_replace('/\D+/', '', pathinfo($b, PATHINFO_FILENAME)));
+    // Susun pseudo-acak secara konsisten, sambil menjauhkan nomor berurutan
+    // agar foto dari seri yang sama tidak berdampingan.
+    $portfolioNumber = fn ($path) => (int) preg_replace('/\D+/', '', pathinfo($path, PATHINFO_FILENAME));
+    $portfolioSeed = 20260911;
+    mt_srand($portfolioSeed);
+    for ($attempt = 0; $attempt < 200; $attempt++) {
+      $candidate = $seminarPortfolioFiles;
+      shuffle($candidate);
+      $separated = true;
+      for ($index = 1, $count = count($candidate); $index < $count; $index++) {
+        if (abs($portfolioNumber($candidate[$index]) - $portfolioNumber($candidate[$index - 1])) <= 1) {
+          $separated = false;
+          break;
+        }
+      }
+      if ($separated || count($candidate) < 2) {
+        $seminarPortfolioFiles = $candidate;
+        break;
+      }
+    }
     $packages = [
       ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Merah)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 1.png'],
       ['group' => 'Paket Ekonomis', 'label' => 'Grup A', 'name' => 'Reguler 1 (Varian Biru)', 'tag' => 'Totebag Blacu', 'text' => 'Totebag Blacu · Notes A6 tebal · Pulpen · Pin Gantungan', 'image' => 'images/products/Seminar & Training/Seminar Kit - Eko 2.png'],
