@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PG99TCB8');</script>
+  <!-- End Google Tag Manager -->
   <title>Corporate Gift &amp; Paket Souvenir Kantor Custom | HERVENT</title>
   <meta name="description" content="Gift set corporate dan paket souvenir kantor yang bisa Anda susun sendiri. Desain gratis, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
   <meta name="theme-color" content="#B81A1F">
@@ -23,6 +26,9 @@
   ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
 </head>
 <body class="corporate-gift-page home-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   @php
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
