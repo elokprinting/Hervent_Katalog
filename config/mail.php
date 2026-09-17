@@ -16,7 +16,7 @@ return [
 
     'default' => env('MAIL_MAILER', 'log'),
 
-    'catalog_recipient' => env('MAIL_CATALOG_RECIPIENT', 'it.hervent1@gmail.com'),
+    'catalog_recipient' => env('MAIL_CATALOG_RECIPIENT', 'cs@hervent.co.id'),
 
     /*
     |--------------------------------------------------------------------------
