@@ -163,16 +163,16 @@
   document.addEventListener('DOMContentLoaded', function () {
     var host = window.location.hostname;
     var path = window.location.pathname;
-    var message = '[HVT-HOME-KONSULTASI] Halo HERVENT, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
+    var message = '[H] Halo HERVENT, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
 
     if (host === 'seminar.hervent.co.id') {
-      message = '[HVT-SK-KONSULTASI] Halo HERVENT, saya ingin konsultasi seminar kit untuk acara saya.';
+      message = '[HS] Halo HERVENT, saya ingin konsultasi seminar kit untuk acara saya.';
     } else if (host === 'gift.hervent.co.id') {
-      message = '[HVT-CG-KONSULTASI] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
+      message = '[HG] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
     } else if (path.indexOf('/product/') === 0) {
-      message = '[HVT-PRODUK] Halo HERVENT, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
+      message = '[P] Halo HERVENT, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
     } else if (path === '/gift-sets-packages') {
-      message = '[HVT-GIFTSET] Halo HERVENT, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
+      message = '[GS] Halo HERVENT, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
     }
 
     document.querySelectorAll('a[href="https://wa.me/62811912502"]').forEach(function (link) {

@@ -71,14 +71,14 @@
               <span class="giftset-number">0{{ $loop->iteration }}</span>
               <h2 class="h2">{{ __('messages.giftsets.categories.' . $key . '.title') }}</h2>
               <p>{{ __('messages.giftsets.categories.' . $key . '.description') }}</p>
-              <a class="giftset-link" href="https://wa.me/62811912502?text={{ rawurlencode('[HVT-GIFTSET] ' . __('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
+              <a class="giftset-link" href="https://wa.me/62811912502?text={{ rawurlencode('[GS] ' . __('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
                 {{ __('messages.giftsets.consultation') }} <span aria-hidden="true">→</span>
               </a>
             </div>
             <div class="giftset-cards {{ count($products) > 2 ? 'is-carousel' : '' }}">
               <div class="giftset-track">
                 @foreach($products as $product)
-                  <a class="giftset-card" href="https://wa.me/62811912502?text={{ rawurlencode('[HVT-GIFTSET] ' . __('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
+                  <a class="giftset-card" href="https://wa.me/62811912502?text={{ rawurlencode('[GS] ' . __('messages.giftsets.whatsapp_message', ['occasion' => __('messages.giftsets.categories.' . $key . '.title')])) }}" target="_blank" rel="noopener">
                     <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" loading="lazy">
                     <span>{{ $product['name'] }}</span>
                   </a>

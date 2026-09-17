@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PG99TCB8');</script>
+<!-- End Google Tag Manager -->
 <title>Souvenir Kantor &amp; Corporate Gift Custom | HERVENT</title>
 <meta name="description" content="Vendor corporate gift &amp; souvenir kantor custom sejak 2009. Desain gratis, faktur pajak PPN, kantor Bandung &amp;. Dipercaya 4.500+ klien korporasi.">
 <meta name="theme-color" content="#B81A1F">
@@ -10,6 +13,9 @@
 <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
 </head>
 <body class="home-page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- Pattern 4 pilar -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

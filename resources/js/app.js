@@ -153,7 +153,7 @@ if(cQty) {
           dockTot.textContent=fmt.format(t);
       }
       $('cKelas').textContent=k;
-      var msg='[HVT-HOME-KALKULATOR] Halo HERVENT, saya mau minta penawaran.\n\n'+
+      var msg='[H] Halo HERVENT, saya mau minta penawaran.\n\n'+
         '• Momen: '+$('cMomen').value+'\n'+
         '• Jumlah penerima: '+num.format(q)+' orang\n'+
         '• Budget per orang: '+fmt.format(p)+'\n'+
@@ -288,7 +288,7 @@ if(reduce||!('IntersectionObserver'in window)){
   var number = '62811912502';
 
   function updateWhatsappLinks() {
-    var message = '[HVT-CG-BUILDER] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
+    var message = '[HG] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
     if (selected.length) {
       message += '\n\nItem yang saya minati: ' + selected.join(', ') + '.';
     }
