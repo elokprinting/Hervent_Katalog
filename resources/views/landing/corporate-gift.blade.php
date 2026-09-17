@@ -30,7 +30,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
+    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HVT-CG-KONSULTASI] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
     $mixIcons = [
       'E-Money Custom' => 'credit-card',
