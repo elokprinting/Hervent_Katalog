@@ -14,7 +14,7 @@
   <meta property="og:locale" content="id_ID">
   <meta property="og:title" content="Seminar Kit Custom untuk Training & Workshop | HERVENT">
   <meta property="og:description" content="Paket seminar kit lengkap yang dapat disesuaikan untuk acara perusahaan Anda.">
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @vite(['resources/css/landing.css', 'resources/js/app.js'])
   <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
   <script type="application/ld+json"><?php echo json_encode([
     '@context' => 'https://schema.org', '@type' => 'Product', 'name' => 'Seminar Kit Custom',
@@ -23,7 +23,7 @@
     'manufacturer' => ['@type' => 'Organization', 'name' => 'PT Aventama Hervent Solusindo'],
   ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
 </head>
-<body class="seminar-kit-page home-page">
+<body class="seminar-kit-page">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
@@ -82,7 +82,14 @@
   @endphp
 
   <a class="cg-skip" href="{{ route('landing.seminar-kit') }}" data-scroll-target="konten">Lewati ke konten</a>
-  @include('partials.header')
+  <header class="cg-nav" aria-label="Navigasi landing page">
+    <div class="wrap cg-nav-in">
+      <a class="cg-logo" href="{{ url('/') }}" aria-label="HERVENT">
+        <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT">
+      </a>
+      <a class="btn b-red cg-nav-cta" href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi Gratis</a>
+    </div>
+  </header>
 
   <main id="konten">
     <section class="hero on-red sk-hero">

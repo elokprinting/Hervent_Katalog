@@ -358,7 +358,7 @@ select {
 .corporate-gift-page .lede { font-size: 1rem; line-height: 1.7; }
 .cg-skip { position: fixed; z-index: 200; top: -4rem; left: 1rem; padding: .7rem 1rem; background: var(--black); color: var(--white); }
 .cg-skip:focus { top: 1rem; }
-.cg-nav { position: sticky; top: 0; z-index: 80; background: var(--red); box-shadow: 0 1px 0 rgba(0,0,0,.18); }
+.cg-nav { position: sticky; top: 0; z-index: 80; background: rgba(254, 254, 254, 0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .cg-nav-in { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .cg-logo img { display: block; width: auto; height: 36px; }
 .cg-nav-cta { padding: .62rem 1rem; min-height: 42px; font-size: .82rem; text-decoration: none; }
