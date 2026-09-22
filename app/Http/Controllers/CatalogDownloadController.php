@@ -10,6 +10,17 @@ use Throwable;
 
 class CatalogDownloadController extends Controller
 {
+    public function direct(): BinaryFileResponse
+    {
+        $path = public_path('Brand Identity HERVENT.pdf');
+        abort_unless(is_file($path), 404, 'Katalog tidak ditemukan.');
+
+        return response()->download($path, 'Brand Identity HERVENT.pdf', [
+            'Content-Type' => 'application/pdf',
+            'X-Content-Type-Options' => 'nosniff',
+        ]);
+    }
+
     public function __invoke(Request $request): BinaryFileResponse
     {
         $data = $request->validate([

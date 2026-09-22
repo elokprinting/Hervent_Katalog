@@ -22,6 +22,7 @@ Route::view('/portfolio', 'portfolio')->name('portfolio');
 Route::view('/gift-sets-packages', 'gift-sets-packages')->name('giftsets.index');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/product/{product:slug}', [ProductsController::class, 'show'])->name('products.show');
+Route::get('/katalog', [CatalogDownloadController::class, 'direct'])->name('catalog.direct');
 Route::post('/catalog/download', CatalogDownloadController::class)->name('catalog.download');
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProductionBlogController;
