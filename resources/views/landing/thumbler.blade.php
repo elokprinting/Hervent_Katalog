@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PG99TCB8');</script>
+  <!-- End Google Tag Manager -->
   <title>Tumbler Custom untuk Corporate Gift | HERVENT</title>
   <meta name="description" content="Tumbler custom untuk corporate gift, souvenir kantor, dan merchandise perusahaan. Pilih model, sesuaikan logo, dan konsultasikan kebutuhan Anda dengan HERVENT.">
   <meta name="theme-color" content="#B81A1F">
