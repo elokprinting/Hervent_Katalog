@@ -918,6 +918,11 @@ select {
     letter-spacing: -0.02em;
 }
 
+.corporate-gift-page .hero-mini {
+    width: 100%;
+    max-width: 1080px;
+}
+
 @media (min-width: 640px) {
     .hero-mini {
         grid-template-columns: repeat(4, 1fr);
