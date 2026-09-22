@@ -12,6 +12,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::view('/landing-page-paket-seminar-kit-paling-kekinian', 'landing.seminar-kit')->name('landing.seminar-kit');
 Route::view('/lp-paket-souvenir-paket-merchandise-corporate-gift-set-kantor-custom', 'landing.corporate-gift')->name('landing.corporate-gift');
 Route::view('/souvenir-kantor-perusahaan-corporate-gift-premium-eksklusif-acara-kekinian', 'landing.corporate-gift')->name('landing.corporate-gift.souvenir-alias');
+Route::view('/thumbler', 'landing.thumbler')->name('landing.thumbler');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/portfolio', 'portfolio')->name('portfolio');

@@ -710,6 +710,25 @@ select {
         url("/images/Sampul%20Hervent%20Website.png");
 }
 
+.thumbler-page .sk-hero-image {
+    background: #e9dfd3;
+}
+
+.thumbler-page .sk-hero-image img {
+    object-fit: cover;
+}
+
+.thumbler-page .sk-package-card > img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    padding: 0;
+}
+
+.thumbler-page .sk-gallery-grid img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
 
 .hero::before {
     content: "";
