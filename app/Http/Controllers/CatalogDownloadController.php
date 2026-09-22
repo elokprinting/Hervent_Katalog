@@ -12,10 +12,10 @@ class CatalogDownloadController extends Controller
 {
     public function direct(): BinaryFileResponse
     {
-        $path = public_path('Brand Identity HERVENT.pdf');
+        $path = public_path('Corporate Gifts Package.pdf');
         abort_unless(is_file($path), 404, 'Katalog tidak ditemukan.');
 
-        return response()->download($path, 'Brand Identity HERVENT.pdf', [
+        return response()->download($path, 'Corporate Gifts Package.pdf', [
             'Content-Type' => 'application/pdf',
             'X-Content-Type-Options' => 'nosniff',
         ]);
@@ -32,7 +32,7 @@ class CatalogDownloadController extends Controller
             'company' => ['required', 'string', 'max:150'],
         ]);
 
-        $path = public_path('Brand Identity HERVENT.pdf');
+        $path = public_path('Corporate Gifts Package.pdf');
         abort_unless(is_file($path), 404, 'Katalog tidak ditemukan.');
 
         Log::info('Company catalog downloaded', $data);
@@ -58,7 +58,7 @@ class CatalogDownloadController extends Controller
             ]);
         }
 
-        return response()->download($path, 'Brand Identity HERVENT.pdf', [
+        return response()->download($path, 'Corporate Gifts Package.pdf', [
             'Content-Type' => 'application/pdf',
             'X-Content-Type-Options' => 'nosniff',
         ]);
