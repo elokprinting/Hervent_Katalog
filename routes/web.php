@@ -13,6 +13,7 @@ Route::view('/landing-page-paket-seminar-kit-paling-kekinian', 'landing.seminar-
 Route::view('/lp-paket-souvenir-paket-merchandise-corporate-gift-set-kantor-custom', 'landing.corporate-gift')->name('landing.corporate-gift');
 Route::view('/souvenir-kantor-perusahaan-corporate-gift-premium-eksklusif-acara-kekinian', 'landing.corporate-gift')->name('landing.corporate-gift.souvenir-alias');
 Route::view('/thumbler', 'landing.thumbler')->name('landing.thumbler');
+Route::view('/buku-agenda', 'landing.buku-agenda')->name('landing.buku-agenda');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/portfolio', 'portfolio')->name('portfolio');

@@ -486,7 +486,16 @@ select {
 .cg-footer a:hover { color: var(--white); }
 .cg-footer-bottom { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.8rem; padding-top: 1.15rem; border-top: 1px solid rgba(255,255,255,.16); color: var(--g1); font-size: .68rem; }
 .cg-floating-wa { position: fixed; z-index: 120; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); display: inline-flex; align-items: center; gap: .55rem; min-height: 3.25rem; padding: .72rem 1.05rem; border: 1px solid rgba(255,255,255,.55); border-radius: 999px; background: #25d366; color: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.2); font: 600 .8rem var(--f-head); text-decoration: none; transition: transform .16s ease, background .16s ease, box-shadow .16s ease; }
-.cg-floating-wa svg { width: 1.45rem; height: 1.45rem; fill: currentColor; }
+.cg-floating-wa svg,
+.btn .whatsapp-icon {
+    display: block;
+    width: 1.35rem;
+    height: 1.35rem;
+    flex: 0 0 1.35rem;
+    fill: currentColor;
+    stroke: none;
+    line-height: 1;
+}
 .cg-floating-wa:hover { background: #1da851; color: #fff; box-shadow: 0 13px 28px rgba(0,0,0,.25); transform: translateY(-2px); }
 .cg-floating-wa:focus-visible { outline: 3px solid #ffb3a8; outline-offset: 3px; }
 @media (max-width: 900px) { .cg-hero-grid, .cg-two-col { grid-template-columns: 1fr; } .cg-hero::after { width: 65vw; opacity: .35; } .cg-hero-image { max-width: 620px; min-height: 300px; } .cg-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cg-card-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cg-gallery-grid { grid-template-columns: repeat(2, 1fr); } .cg-closing-grid { grid-template-columns: 1fr; gap: 2rem; min-height: 0; } .cg-address-card { max-width: 390px; } .cg-footer-grid { grid-template-columns: 1.3fr 1fr; } .cg-footer-brand { grid-column: 1 / -1; } }
@@ -727,6 +736,51 @@ select {
 .thumbler-page .sk-gallery-grid img {
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+.agenda-page .sk-package-card > img,
+.agenda-page .sk-gallery-grid img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.agenda-page .hero-cta > .whatsapp-icon,
+.agenda-page .cg-floating-wa > svg:not(.agenda-whatsapp-icon) {
+    display: none;
+}
+
+.agenda-page .agenda-whatsapp-icon {
+    display: block;
+    width: 1.35rem;
+    height: 1.35rem;
+    flex: 0 0 1.35rem;
+    fill: currentColor;
+    stroke: none;
+}
+
+.thumbler-page .hero-cta > svg.whatsapp-icon,
+.seminar-kit-page .hero-cta > svg.whatsapp-icon,
+.thumbler-page .cg-floating-wa > svg:not(.wa-floating-icon),
+.seminar-kit-page .cg-floating-wa > svg:not(.wa-floating-icon) {
+    display: none;
+}
+
+.wa-consult-icon,
+.wa-floating-icon {
+    display: block;
+    width: 1.35rem;
+    height: 1.35rem;
+    flex: 0 0 1.35rem;
+    fill: currentColor;
+    stroke: none;
+}
+
+.btn .wa-consult-icon,
+.cg-floating-wa .wa-floating-icon,
+.btn .agenda-whatsapp-icon,
+.cg-floating-wa .agenda-whatsapp-icon {
+    fill: currentColor;
+    stroke: none;
 }
 
 
