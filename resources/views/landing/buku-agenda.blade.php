@@ -32,8 +32,26 @@
     $agendaFiles = glob(public_path('images/products/Buku Agenda/*')) ?: [];
     $agendaFiles = array_values(array_filter($agendaFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
     sort($agendaFiles, SORT_NATURAL | SORT_FLAG_CASE);
-    $featuredAgendas = array_slice($agendaFiles, 0, min(8, count($agendaFiles)));
-    $galleryAgendas = array_slice($agendaFiles, count($featuredAgendas));
+    $featuredAgendaNames = [
+      '6248982291477017656.jpg',
+      '6125055433967249936.jpg',
+      '6136378651386687326.jpg',
+      '6170001429201267267.jpg',
+      '6190416632824834536.jpg',
+      '6224049164510148118.jpg',
+      '6240280820879313379.jpg',
+      '6298447782012368435.jpg',
+    ];
+    $hiddenAgendaNames = [
+      '6136378651386687327.jpg',
+      '6237849628871608600.jpg',
+    ];
+    $agendaByName = [];
+    foreach ($agendaFiles as $image) {
+      $agendaByName[basename($image)] = $image;
+    }
+    $featuredAgendas = array_values(array_filter(array_map(fn ($name) => $agendaByName[$name] ?? null, $featuredAgendaNames)));
+    $galleryAgendas = array_values(array_filter($agendaFiles, fn ($path) => !in_array(basename($path), array_merge($featuredAgendaNames, $hiddenAgendaNames), true)));
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
