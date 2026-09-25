@@ -13,6 +13,7 @@ Route::view('/landing-page-paket-seminar-kit-paling-kekinian', 'landing.seminar-
 Route::view('/lp-paket-souvenir-paket-merchandise-corporate-gift-set-kantor-custom', 'landing.corporate-gift')->name('landing.corporate-gift');
 Route::view('/souvenir-kantor-perusahaan-corporate-gift-premium-eksklusif-acara-kekinian', 'landing.corporate-gift')->name('landing.corporate-gift.souvenir-alias');
 Route::view('/landing-page-google-ads-tumbler', 'landing.thumbler')->name('landing.thumbler');
+Route::view('/lp-cetak-souvenir-tumbler-custom-promosi-buat-merchandise-tumbler-print-printing', 'landing.thumbler')->name('landing.thumbler.souvenir');
 Route::view('/lp-cetak-buat-souvenir-buku-agenda-custom-model-kulit-print-notebook-note-book-blocknote', 'landing.buku-agenda')->name('landing.buku-agenda');
 Route::redirect('/thumbler', '/landing-page-google-ads-tumbler', 301);
 Route::redirect('/buku-agenda', '/lp-cetak-buat-souvenir-buku-agenda-custom-model-kulit-print-notebook-note-book-blocknote', 301);
