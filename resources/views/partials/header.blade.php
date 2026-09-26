@@ -147,10 +147,10 @@
   </div>
 </header>
 
-<a class="whatsapp-promo" href="https://wa.me/62811912502" target="_blank" rel="noopener noreferrer" aria-label="Ingin penawaran terbaik? Chat WhatsApp sekarang" title="Chat WhatsApp sekarang">
+<a class="whatsapp-promo" href="https://wa.me/62811912502" target="_blank" rel="noopener noreferrer" aria-label="Ingin penawaran terbaik? Chat WhatsApp" title="Chat WhatsApp">
   <span class="whatsapp-promo-copy">
     <span>Ingin Penawaran Terbaik?</span>
-    <strong>Chat WhatsApp Sekarang</strong>
+    <strong>Chat WhatsApp</strong>
   </span>
   <span class="whatsapp-promo-icon" aria-hidden="true">
     <svg viewBox="0 0 24 24" focusable="false">
