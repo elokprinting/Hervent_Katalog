@@ -68,7 +68,7 @@
     <section class="hero on-red sk-hero">
       <div class="wrap hero-in">
         <div class="sk-hero-copy">
-          <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</span>
+          <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2015 · 10000+ Customer Perusahaan</span>
           <h1 class="h1">Tumbler Custom untuk <span class="hl">Hadiah Perusahaan yang Dipakai Setiap Hari</span></h1>
           <p class="lede">Tumbler custom yang membantu brand perusahaan Anda tetap terlihat dalam aktivitas harian. Pilih model, warna, material, dan cetak logo sesuai kebutuhan kantor, event, maupun apresiasi klien.</p>
           <div class="hero-cta">
@@ -80,8 +80,8 @@
             <a href="#produk-tumbler" class="btn b-line">Lihat Pilihan Tumbler</a>
           </div>
           <ul class="hero-mini" aria-label="Keunggulan HERVENT">
-            <li><b>Sejak 2009</b>17 tahun pengalaman</li>
-            <li><b>4500+</b>Klien perusahaan</li>
+            <li><b>Sejak 2015</b>11 tahun berpengalaman</li>
+            <li><b>10000+</b>Customer perusahaan</li>
             <li><b>Custom</b>Logo dan warna brand</li>
             <li><b>PPN</b>Faktur pajak tersedia</li>
           </ul>
@@ -90,7 +90,7 @@
     </section>
 
     <section class="wall sk-proof" aria-label="Klien HERVENT">
-      <p>Dipercaya 4.500+ klien korporasi, BUMN, dan instansi pemerintah</p>
+      <p>Dipercaya 10000+ customer perusahaan, BUMN, dan instansi pemerintah</p>
       @foreach($logoRows as $rowIndex => $row)
         <div class="rail {{ $rowIndex === 0 ? 'a' : 'b' }}" aria-hidden="true">
           @foreach(array_merge($row, $row) as $logo)
@@ -152,7 +152,7 @@
     </section>
 
     <section class="s cg-reviews sk-reviews">
-      <div class="wrap"><div class="center"><p class="eyebrow">Testimoni</p><h2 class="h2">Kami Tidak Mengatakan Kami Terbaik, <span class="hl">Merekalah yang Mengatakannya</span></h2><p class="lede">Dipercaya lebih dari 4.500 klien korporasi dan instansi.</p></div>
+      <div class="wrap"><div class="center"><p class="eyebrow">Testimoni</p><h2 class="h2">Kami Tidak Mengatakan Kami Terbaik, <span class="hl">Merekalah yang Mengatakannya</span></h2><p class="lede">Dipercaya lebih dari 10000 customer perusahaan dan instansi.</p></div>
         <div class="cg-review-grid sk-testimonial-grid">
           @foreach([
             ['Asraini Audia Hardarinata', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. HERVENT terbaik dari pelayanan, harga, dan kualitasnya. Sangat sabar mengikuti keinginan customer.', '4 ulasan · 9 foto'],

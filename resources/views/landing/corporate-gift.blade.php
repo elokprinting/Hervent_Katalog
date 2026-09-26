@@ -88,7 +88,7 @@
   <main id="konten">
     <section class="hero on-red cg-home-hero">
       <div class="wrap hero-in" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-        <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2009 · 4.500+ Klien BUMN &amp; Korporasi</span>
+        <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2015 · 10000+ Customer Perusahaan</span>
         <h1 class="h1" style="max-width: 22ch; margin-inline: auto;">Corporate Gift &amp; Paket Souvenir Kantor <span class="hl">untuk Kebutuhan Perusahaan Anda</span></h1>
         <p class="lede" style="max-width: 60ch; margin-inline: auto;">Gift set corporate yang bisa Anda susun sendiri — dari souvenir kantor harian sampai kebutuhan acara khusus perusahaan. Desain gratis, legalitas resmi, siap kirim ke seluruh Indonesia.</p>
         <div class="hero-cta" style="justify-content: center; width: 100%;">
@@ -99,16 +99,16 @@
           <a href="{{ route('landing.corporate-gift') }}" class="btn b-line" data-scroll-target="susun-paket">Lihat Pilihan Paket</a>
         </div>
         <ul class="hero-mini" aria-label="Keunggulan HERVENT" style="margin-inline: auto; justify-content: center;">
-          <li><b>Sejak 2009</b>17 tahun pengalaman</li>
-          <li><b>4500+</b>Klien perusahaan</li>
+          <li><b>Sejak 2015</b>11 tahun berpengalaman</li>
+          <li><b>10000+</b>Customer perusahaan</li>
           <li><b>Kantor</b>Kota Bandung</li>
           <li><b>PPN</b>Faktur pajak tersedia</li>
         </ul>
       </div>
     </section>
 
-    <section class="wall cg-proof" aria-label="Trusted By 4,500+ Great Companies">
-      <p>Trusted By 4,500+ Great Companies</p>
+    <section class="wall cg-proof" aria-label="Trusted By 10000+ Great Companies">
+      <p>Trusted By 10000+ Great Companies</p>
       @foreach($logoRows as $rowIndex => $logos)
         <div class="rail {{ $rowIndex === 0 ? 'a' : 'b' }}" aria-hidden="true">
           @foreach(array_merge($logos, $logos) as $logo)
