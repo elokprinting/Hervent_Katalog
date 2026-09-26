@@ -1033,6 +1033,7 @@ select {
     filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .2));
     box-shadow: none;
     font: inherit;
+    transition: transform .2s ease, filter .2s ease;
 }
 
 .cg-floating-wa-copy {
@@ -1086,6 +1087,38 @@ select {
 .cg-floating-wa:focus-visible > svg,
 .cg-floating-wa:active > svg {
     background: #25d366;
+}
+
+.cg-floating-wa:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .25));
+}
+
+.cg-floating-wa:hover .cg-floating-wa-copy {
+    transform: translateX(-2px);
+}
+
+.cg-floating-wa:hover > svg {
+    transform: scale(1.06) rotate(-4deg);
+}
+
+.cg-floating-wa-copy,
+.cg-floating-wa > svg {
+    transition: transform .2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cg-floating-wa,
+    .cg-floating-wa-copy,
+    .cg-floating-wa > svg {
+        transition: none;
+    }
+
+    .cg-floating-wa:hover,
+    .cg-floating-wa:hover .cg-floating-wa-copy,
+    .cg-floating-wa:hover > svg {
+        transform: none;
+    }
 }
 
 @media (max-width: 640px) {
