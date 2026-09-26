@@ -1074,13 +1074,18 @@ select {
 }
 
 .cg-floating-wa:hover,
-.cg-floating-wa:focus-visible {
+.cg-floating-wa:focus-visible,
+.cg-floating-wa:active {
+    background: transparent;
     color: var(--white);
+    box-shadow: none;
+    transform: none;
 }
 
 .cg-floating-wa:hover > svg,
-.cg-floating-wa:focus-visible > svg {
-    background: #1fbd5b;
+.cg-floating-wa:focus-visible > svg,
+.cg-floating-wa:active > svg {
+    background: #25d366;
 }
 
 @media (max-width: 640px) {
