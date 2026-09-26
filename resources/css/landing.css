@@ -1016,3 +1016,103 @@ select {
 }
 
 /* ---------- Counter ---------- */
+
+/* ---------- Consistent landing-page WhatsApp promo ---------- */
+.cg-floating-wa {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--white);
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .2));
+    box-shadow: none;
+    font: inherit;
+}
+
+.cg-floating-wa-copy {
+    display: grid;
+    gap: .15rem;
+    padding: .6rem .8rem;
+    border-radius: .55rem;
+    background: #3b3b3d;
+    color: var(--white);
+    font: 500 .72rem/1.2 var(--f-body);
+    white-space: nowrap;
+}
+
+.cg-floating-wa-copy b {
+    color: var(--white);
+    font: 500 .72rem/1.2 var(--f-body);
+}
+
+.cg-floating-wa-copy strong {
+    color: var(--white);
+    font: 700 .78rem/1.2 var(--f-head);
+}
+
+.cg-floating-wa > svg,
+.cg-floating-wa > svg.wa-floating-icon,
+.cg-floating-wa > svg.agenda-whatsapp-icon,
+.cg-floating-wa > svg:not(.wa-floating-icon):not(.agenda-whatsapp-icon) {
+    width: 3.7rem !important;
+    height: 3.7rem !important;
+    flex: 0 0 3.7rem !important;
+    box-sizing: border-box;
+    padding: .65rem !important;
+    border: 3px solid rgba(255, 255, 255, .8);
+    border-radius: 50%;
+    background: #25d366;
+    color: var(--white);
+    fill: currentColor !important;
+    stroke: none !important;
+}
+
+.cg-floating-wa:hover,
+.cg-floating-wa:focus-visible {
+    color: var(--white);
+}
+
+.cg-floating-wa:hover > svg,
+.cg-floating-wa:focus-visible > svg {
+    background: #1fbd5b;
+}
+
+@media (max-width: 640px) {
+    .cg-floating-wa {
+        right: .75rem;
+        bottom: .75rem;
+        gap: .45rem;
+        width: auto;
+        height: auto;
+        justify-content: initial;
+    }
+
+    .cg-floating-wa-copy {
+        padding: .5rem .6rem;
+        font-size: .64rem;
+    }
+
+    .cg-floating-wa-copy b {
+        font-size: .64rem;
+    }
+
+    .cg-floating-wa-copy strong {
+        font-size: .68rem;
+    }
+
+    .cg-floating-wa > svg,
+    .cg-floating-wa > svg.wa-floating-icon,
+    .cg-floating-wa > svg.agenda-whatsapp-icon,
+    .cg-floating-wa > svg:not(.wa-floating-icon):not(.agenda-whatsapp-icon) {
+        width: 3.25rem !important;
+        height: 3.25rem !important;
+        flex-basis: 3.25rem !important;
+        padding: .55rem !important;
+    }
+}
