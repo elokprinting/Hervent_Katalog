@@ -29,6 +29,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @php
     $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HA] Halo HERVENT, saya ingin konsultasi buku agenda custom untuk corporate gift perusahaan saya.');
+    $googleMaps = 'https://maps.app.goo.gl/u8hkuc9RgapZTaak8';
     $agendaFiles = glob(public_path('images/products/Buku Agenda/*')) ?: [];
     $agendaFiles = array_values(array_filter($agendaFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
     sort($agendaFiles, SORT_NATURAL | SORT_FLAG_CASE);
@@ -167,6 +168,29 @@
         </div>
       </div>
     </section>
+
+    <section class="s cg-reviews sk-reviews">
+      <div class="wrap"><div class="center"><p class="eyebrow">Testimoni</p><h2 class="h2">Kami Tidak Mengatakan Kami Terbaik, <span class="hl">Merekalah yang Mengatakannya</span></h2><p class="lede">Dipercaya lebih dari 4.500 klien korporasi dan instansi.</p></div>
+        <div class="cg-review-grid sk-testimonial-grid">
+          @foreach([
+            ['Asraini Audia Hardarinata', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. HERVENT terbaik dari pelayanan, harga, dan kualitasnya. Sangat sabar mengikuti keinginan customer.', '4 ulasan · 9 foto'],
+            ['Sri Suci Wijayanti', 'Produk bagus sesuai yang ditawarkan. Pelayanannya ramah dan baik, jadi untuk yang mencari merchandise jangan ragu pesan di HERVENT.', '2 ulasan · 3 foto'],
+            ['Nabila Rifda', 'Pertama kali pesan dan sangat puas dengan servicenya. Admin ramah, helpful, sabar saat revisi desain, dan waktu pengerjaan sesuai ekspektasi.', 'Local Guide · 77 ulasan'],
+          ] as [$name, $quote, $meta])
+            <blockquote><span class="cg-stars" aria-label="5 dari 5 bintang">★★★★★</span><p>“{{ $quote }}”</p><footer><strong>{{ $name }}</strong><span>{{ $meta }}</span></footer></blockquote>
+          @endforeach
+        </div>
+        <p class="cg-review-disclaimer">*Ulasan nyata klien HERVENT yang dirangkum dari Google Reviews.</p>
+        <h3 class="cg-google-title">Review Google Kami</h3>
+        <div class="cg-google-grid">
+          @foreach(['images/products/Testimoni/Hampers.jpg', 'images/products/Testimoni/Giftset.jpg', 'images/products/Testimoni/Flashdisk.jpg'] as $image)
+            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Lihat ulasan HERVENT di Google Maps"><img class="cg-google-review-image" src="{{ asset($image) }}" alt="Review klien HERVENT" loading="lazy"><div class="cg-google-card-foot"><span>Lihat review asli di Google Maps</span><span aria-hidden="true">→</span></div></a>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
 
     <section class="s cg-faq" id="faq"><div class="wrap"><div class="center"><p class="eyebrow">Pertanyaan</p><h2 class="h2">Pertanyaan Seputar Buku Agenda Custom</h2></div><div class="cg-faq-list">
       @foreach([
