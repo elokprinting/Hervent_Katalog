@@ -45,13 +45,29 @@
     $hiddenAgendaNames = [
       '6136378651386687327.jpg',
       '6237849628871608600.jpg',
+      '6240254707478151910.jpg',
+      '6303246548972189061.jpg',
+    ];
+    $newPortfolioAgendaNames = [
+      '6332183225409059717.jpg',
+      '6336684424149712887.jpg',
+      '6136454281465808501.jpg',
+      '6145422967752559540.jpg',
+      '6161330427105316494.jpg',
+      '6240254707478151910.jpg',
+      '6244503873242907157.jpg',
     ];
     $agendaByName = [];
     foreach ($agendaFiles as $image) {
       $agendaByName[basename($image)] = $image;
     }
     $featuredAgendas = array_values(array_filter(array_map(fn ($name) => $agendaByName[$name] ?? null, $featuredAgendaNames)));
-    $galleryAgendas = array_values(array_filter($agendaFiles, fn ($path) => !in_array(basename($path), array_merge($featuredAgendaNames, $hiddenAgendaNames), true)));
+    $newPortfolioAgendas = array_values(array_filter(
+      array_map(fn ($name) => $agendaByName[$name] ?? null, $newPortfolioAgendaNames),
+      fn ($path) => $path && !in_array(basename($path), $hiddenAgendaNames, true)
+    ));
+    $remainingGalleryAgendas = array_values(array_filter($agendaFiles, fn ($path) => !in_array(basename($path), array_merge($featuredAgendaNames, $hiddenAgendaNames, $newPortfolioAgendaNames), true)));
+    $galleryAgendas = array_values(array_unique(array_merge($newPortfolioAgendas, $remainingGalleryAgendas)));
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
