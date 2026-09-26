@@ -1018,6 +1018,10 @@ select {
 /* ---------- Counter ---------- */
 
 /* ---------- Consistent landing-page WhatsApp promo ---------- */
+.cg-footer-site {
+    display: none !important;
+}
+
 .cg-floating-wa {
     right: 1.25rem;
     bottom: 1.25rem;
