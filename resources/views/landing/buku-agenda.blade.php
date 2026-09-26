@@ -28,7 +28,7 @@
 <body class="seminar-kit-page agenda-page">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HA] Halo HERVENT, saya ingin konsultasi buku agenda custom untuk kebutuhan perusahaan saya.');
+    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HA] Halo HERVENT, saya ingin konsultasi buku agenda custom untuk corporate gift perusahaan saya.');
     $agendaFiles = glob(public_path('images/products/Buku Agenda/*')) ?: [];
     $agendaFiles = array_values(array_filter($agendaFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
     sort($agendaFiles, SORT_NATURAL | SORT_FLAG_CASE);

@@ -288,7 +288,7 @@ if(reduce||!('IntersectionObserver'in window)){
   var number = '62811912502';
 
   function updateWhatsappLinks() {
-    var message = '[HG] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
+    var message = '[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.';
     if (selected.length) {
       message += '\n\nItem yang saya minati: ' + selected.join(', ') + '.';
     }

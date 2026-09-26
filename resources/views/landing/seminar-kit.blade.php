@@ -28,8 +28,8 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HS] Halo HERVENT, saya ingin konsultasi seminar kit untuk acara saya.');
-    $consultPackage = 'https://wa.me/62811912502?text='.urlencode('[HS] Halo HERVENT, saya ingin konsultasi paket seminar kit yang cocok untuk acara saya.');
+    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HS] Halo HERVENT, saya ingin konsultasi paket seminar kit custom untuk training atau workshop perusahaan saya.');
+    $consultPackage = 'https://wa.me/62811912502?text='.urlencode('[HS] Halo HERVENT, saya ingin konsultasi paket seminar kit custom untuk training atau workshop perusahaan saya.');
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));

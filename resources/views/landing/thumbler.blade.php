@@ -28,7 +28,7 @@
 <body class="seminar-kit-page thumbler-page">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HT] Halo HERVENT, saya ingin konsultasi tumbler custom untuk kebutuhan perusahaan saya.');
+    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HT] Halo HERVENT, saya ingin konsultasi tumbler custom untuk corporate gift perusahaan saya.');
     $tumblerFiles = glob(public_path('images/products/Thumbler/*')) ?: [];
     $tumblerFiles = array_values(array_filter($tumblerFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
     sort($tumblerFiles, SORT_NATURAL | SORT_FLAG_CASE);
