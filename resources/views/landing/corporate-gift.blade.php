@@ -6,22 +6,22 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PG99TCB8');</script>
   <!-- End Google Tag Manager -->
-  <title>Corporate Gift &amp; Paket Souvenir Kantor Custom | HERVENT</title>
-  <meta name="description" content="Gift set corporate dan paket souvenir kantor yang bisa Anda susun sendiri. Desain gratis, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
+  <title>Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | HERVENT</title>
+  <meta name="description" content="Corporate Gift dan paket souvenir kantor HERVENT untuk kebutuhan perusahaan Anda. Susun paket custom dengan desain profesional, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
   <meta name="theme-color" content="#B81A1F">
   <link rel="canonical" href="{{ route('landing.corporate-gift') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
-  <meta property="og:title" content="Corporate Gift &amp; Paket Souvenir Kantor Custom | HERVENT">
-  <meta property="og:description" content="Susun sendiri gift set dan souvenir kantor sesuai kebutuhan perusahaan Anda.">
+  <meta property="og:title" content="Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | HERVENT">
+  <meta property="og:description" content="Corporate Gift dan paket souvenir kantor HERVENT untuk kebutuhan perusahaan Anda dengan pilihan produk dan branding yang fleksibel.">
   @vite(['resources/css/landing.css', 'resources/js/app.js'])
   <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
   <script type="application/ld+json"><?php echo json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'Product',
-    'name' => 'Corporate Gift & Paket Souvenir Kantor Custom',
+    'name' => 'Corporate Gift & Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda',
     'brand' => ['@type' => 'Brand', 'name' => 'HERVENT'],
-    'description' => 'Gift set corporate dan paket souvenir kantor custom untuk kebutuhan perusahaan.',
+    'description' => 'Corporate Gift dan paket souvenir kantor custom untuk kebutuhan perusahaan Anda.',
     'manufacturer' => ['@type' => 'Organization', 'name' => 'PT Aventama Hervent Solusindo'],
   ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
 </head>
@@ -89,8 +89,8 @@
     <section class="hero on-red cg-home-hero">
       <div class="wrap hero-in" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
         <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2015 · 10000+ Customer Perusahaan</span>
-        <h1 class="h1" style="max-width: 22ch; margin-inline: auto;">Corporate Gift &amp; Paket Souvenir Kantor <span class="hl">untuk Kebutuhan Perusahaan Anda</span></h1>
-        <p class="lede" style="max-width: 60ch; margin-inline: auto;">Gift set corporate yang bisa Anda susun sendiri — dari souvenir kantor harian sampai kebutuhan acara khusus perusahaan. Desain gratis, legalitas resmi, siap kirim ke seluruh Indonesia.</p>
+        <h1 class="h1" style="max-width: 22ch; margin-inline: auto;">Souvenir Perusahaan yang <span class="hl">Berbicara untuk Brand Anda</span></h1>
+        <p class="lede" style="max-width: 60ch; margin-inline: auto;">HERVENT membantu Anda menyiapkan Corporate Gift dan paket souvenir kantor yang relevan dengan kebutuhan perusahaan — dari hadiah karyawan sampai kebutuhan acara khusus. Pilih produknya, kuatkan branding-nya, dan siap kirim ke seluruh Indonesia.</p>
         <div class="hero-cta" style="justify-content: center; width: 100%;">
           <a href="{{ $whatsapp }}" class="btn b-red" target="_blank" rel="noopener noreferrer">
             <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
