@@ -744,6 +744,37 @@ select {
     object-fit: cover;
 }
 
+/* Flashdisk landing page: keep the same card rhythm while product photos are pending. */
+.flashdisk-page .flashdisk-product-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    background:
+        linear-gradient(135deg, rgba(184, 26, 31, .07), transparent 45%),
+        repeating-linear-gradient(45deg, #f7f7f5 0, #f7f7f5 12px, #f0f0ed 12px, #f0f0ed 24px);
+    color: var(--muted);
+    text-align: center;
+}
+.flashdisk-page .flashdisk-placeholder-icon {
+    display: grid;
+    place-items: center;
+    width: 3.3rem;
+    height: 3.3rem;
+    border: 1px solid rgba(184, 26, 31, .24);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .78);
+    color: var(--red);
+}
+.flashdisk-page .flashdisk-placeholder-icon svg { width: 1.55rem; height: 1.55rem; stroke: currentColor; fill: none; }
+.flashdisk-page .flashdisk-product-placeholder strong { color: var(--ink); font: 700 .78rem/1.25 var(--f-head); }
+.flashdisk-page .flashdisk-product-placeholder small { max-width: 20ch; font-size: .68rem; line-height: 1.4; }
+
 .agenda-page .hero-cta .btn > svg.whatsapp-icon,
 .agenda-page .cg-floating-wa > svg:not(.agenda-whatsapp-icon),
 .thumbler-page .hero-cta .btn > svg.whatsapp-icon,

@@ -15,6 +15,10 @@ Route::view('/souvenir-kantor-perusahaan-corporate-gift-premium-eksklusif-acara-
 Route::view('/landing-page-google-ads-tumbler', 'landing.thumbler')->name('landing.thumbler');
 Route::view('/lp-cetak-souvenir-tumbler-custom-promosi-buat-merchandise-tumbler-print-printing', 'landing.thumbler')->name('landing.thumbler.souvenir');
 Route::view('/lp-cetak-buat-souvenir-buku-agenda-custom-model-kulit-print-notebook-note-book-blocknote', 'landing.buku-agenda')->name('landing.buku-agenda');
+Route::view('/lp-souvenir-flashdisk-custom-cetak-merchandise-usb-fd-custom-promosi', 'landing.flashdisk')->name('landing.flashdisk');
+Route::view('/lp-cetak-souvenir-flashdisk-bentuk-kartu-usb-fd-model-id-card-custom-promosi', 'landing.flashdisk')->name('landing.flashdisk.card');
+Route::redirect('/lp-flashdisk-custom-promosi-souvenir-perusahaan', '/lp-souvenir-flashdisk-custom-cetak-merchandise-usb-fd-custom-promosi', 301);
+Route::redirect('/flashdisk', '/lp-souvenir-flashdisk-custom-cetak-merchandise-usb-fd-custom-promosi', 301);
 Route::redirect('/thumbler', '/landing-page-google-ads-tumbler', 301);
 Route::redirect('/buku-agenda', '/lp-cetak-buat-souvenir-buku-agenda-custom-model-kulit-print-notebook-note-book-blocknote', 301);
 Route::view('/about', 'about')->name('about');
