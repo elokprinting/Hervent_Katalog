@@ -22,6 +22,8 @@ class Permission extends Model
 
     public const QUOTATION_REVISE = 'quotation.revise';
 
+    public const QUOTATION_ACCEPT = 'quotation.accept';
+
     public const ORDER_CLOSE = 'order.close';
 
     public const ORDER_CANCEL = 'order.cancel';

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Model
 {
@@ -18,15 +20,12 @@ class Order extends Model
     public const STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
-        'business_unit_id',
+        'business_unit_id', 'lead_id', 'quotation_id',
         'order_number',
-        'customer_name',
-        'customer_email',
+        'customer_name', 'customer_email', 'customer_phone',
         'product_description',
-        'quantity',
-        'quotation_total',
-        'status',
-        'created_by',
+        'quantity', 'deadline', 'quotation_total', 'status',
+        'created_by', 'sales_pic_id', 'closed_at', 'closed_by',
     ];
 
     protected function casts(): array
@@ -34,6 +33,8 @@ class Order extends Model
         return [
             'quantity' => 'integer',
             'quotation_total' => 'decimal:2',
+            'deadline' => 'date',
+            'closed_at' => 'datetime',
         ];
     }
 
@@ -45,6 +46,31 @@ class Order extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function lead(): BelongsTo
+    {
+        return $this->belongsTo(Lead::class);
+    }
+
+    public function quotation(): BelongsTo
+    {
+        return $this->belongsTo(Quotation::class);
+    }
+
+    public function salesPic(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'sales_pic_id');
+    }
+
+    public function closer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'closed_by');
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
     }
 
     /**

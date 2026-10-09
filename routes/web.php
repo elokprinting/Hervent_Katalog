@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogDownloadController;
+use App\Http\Controllers\CloseLeadController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\RecordQuotationAcceptanceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switchLang'])->name('lang.switch');
@@ -49,4 +51,13 @@ Route::prefix('production')->middleware(\App\Http\Middleware\ProductionAccess::c
     Route::post('/product/store', [ProductionBlogController::class, 'storeProduct'])->name('production.product.store');
     Route::put('/product/{product}', [ProductionBlogController::class, 'updateProduct'])->name('production.product.update');
     Route::delete('/product/{product}', [ProductionBlogController::class, 'destroyProduct'])->name('production.product.destroy');
+});
+
+// ERP closing workflow. The route layer requires authentication; the policies
+// additionally restrict the action to the Sales PIC or a system administrator.
+Route::scopeBindings()->middleware('auth')->prefix('erp')->group(function () {
+    Route::post('/leads/{lead}/quotations/{quotation}/acceptance', RecordQuotationAcceptanceController::class)
+        ->name('erp.quotations.acceptance.store');
+    Route::post('/leads/{lead}/close', CloseLeadController::class)
+        ->name('erp.leads.close');
 });

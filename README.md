@@ -76,6 +76,27 @@ Authorization untuk aksi order didaftarkan melalui `OrderPolicy`, termasuk:
 
 Semua role operasional awal memiliki permission `order.view`, sehingga dapat melihat detail order termasuk harga dan quotation selama order berada pada unit bisnis yang menjadi scope-nya.
 
+## Workflow Lead ke Closing
+
+Backend menyediakan dua endpoint terautentikasi:
+
+```text
+POST /erp/leads/{lead}/quotations/{quotation}/acceptance
+POST /erp/leads/{lead}/close
+```
+
+Aturan Closing yang diterapkan:
+
+- Lead wajib memiliki nama pelanggan, item/produk, jumlah, deadline, dan PIC.
+- Minimal satu kontak pelanggan (nomor telepon atau email) wajib tersedia.
+- Hanya quotation terbaru yang berstatus `sent` yang dapat dicatat persetujuannya.
+- Persetujuan mencatat pengguna dan waktu server, lalu quotation menjadi `accepted` dan terkunci.
+- Hanya Sales PIC atau Admin Sistem yang boleh mencatat persetujuan dan Closing.
+- Closing mengubah Lead menjadi `closing` dan membuat tepat satu Order snapshot.
+- Order snapshot menyimpan data pelanggan, item, jumlah, deadline, PIC, dan total quotation yang disetujui.
+- Order baru berstatus `closing`; proses produksi tidak dimulai otomatis.
+- Lead yang sudah Closing tidak dapat dibuka kembali lewat workflow ini.
+
 ## Instalasi lokal
 
 Salin konfigurasi environment dan isi kredensial database sesuai mesin lokal:

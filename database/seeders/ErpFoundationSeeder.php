@@ -41,6 +41,7 @@ class ErpFoundationSeeder extends Seeder
             [Permission::QUOTATION_CREATE, 'Buat quotation'],
             [Permission::QUOTATION_SEND, 'Kirim quotation'],
             [Permission::QUOTATION_REVISE, 'Revisi quotation dan harga'],
+            [Permission::QUOTATION_ACCEPT, 'Catat persetujuan quotation pelanggan'],
             [Permission::ORDER_CLOSE, 'Tetapkan order closing'],
             [Permission::ORDER_CANCEL, 'Batalkan order'],
             [Permission::PRODUCTION_EXECUTE, 'Kerjakan produksi'],
@@ -79,7 +80,7 @@ class ErpFoundationSeeder extends Seeder
                 'permissions' => [
                     Permission::ORDER_VIEW, Permission::ORDER_CREATE, Permission::ORDER_UPDATE,
                     Permission::QUOTATION_CREATE, Permission::QUOTATION_SEND, Permission::QUOTATION_REVISE,
-                    Permission::ORDER_CLOSE, Permission::ORDER_CANCEL,
+                    Permission::QUOTATION_ACCEPT, Permission::ORDER_CLOSE, Permission::ORDER_CANCEL,
                 ],
             ],
             Role::PRODUCTION => [
