@@ -37,24 +37,73 @@
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
-    $portfolioImages = [
-      'images/products/Testimoni/Flashdisk.jpg',
-      'images/products/Product/Tech And Gadgets/Falshdrive Orbit.png',
-      'images/products/Corporate Gift/Corporate gift 1.png',
-      'images/products/Corporate Gift/Corporate gift produk.png',
-      'images/products/Event & Exhibition/Event .png',
-      'images/products/Client Appreciation/client appreciation.png',
+
+    $flashdiskFiles = glob(public_path('images/products/Flashdisk/*')) ?: [];
+    $flashdiskFiles = array_values(array_filter($flashdiskFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
+    sort($flashdiskFiles, SORT_NATURAL | SORT_FLAG_CASE);
+    $flashdiskByName = [];
+    foreach ($flashdiskFiles as $path) {
+      $flashdiskByName[basename($path)] = $path;
+    }
+
+    $featuredFlashdisks = [
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-10.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-10.jpg',
+        'title' => 'Flashdisk Kartu Custom (ID Card)',
+        'tag' => 'Flashdisk Kartu',
+        'description' => 'Bentuk ramping seukuran kartu ATM/ID Card dengan cetak UV full colour 2 sisi yang presisi. Sangat praktis disimpan di dompet.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-55.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-55.jpg',
+        'title' => 'Flashdisk Putar (Swivel USB)',
+        'tag' => 'Flashdisk Putar',
+        'description' => 'Model klasik terpopuler dengan pelindung putar 360° berbahan metal. Pilihan warna bodi beragam dengan opsi sablon atau grafir laser.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-24-00.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-24-00.jpg',
+        'title' => 'Flashdisk Kayu Natural & Tinbox',
+        'tag' => 'Flashdisk Kayu',
+        'description' => 'Sentuhan material kayu ramah lingkungan dengan ukiran grafir logo presisi, dikemas dalam tinbox metal berbusa eksklusif.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-41.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-41.jpg',
+        'title' => 'Flashdisk Pulpen Metal Multifungsi',
+        'tag' => 'Flashdisk Pulpen',
+        'description' => 'Kombinasi pulpen eksekutif dan USB flash drive dalam bodi metal elegan. Sangat cocok untuk souvenir rapat direksi & seminar kit.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-53.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-53.jpg',
+        'title' => 'Flashdisk Kulit Gantungan Kunci',
+        'tag' => 'Flashdisk Kulit',
+        'description' => 'Balutan kulit sintetis premium dengan kancing pengaman dan gantungan kunci metal. Menghadirkan kesan berkelas dan personal.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-21.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-21.jpg',
+        'title' => 'Flashdisk Karet Custom 3D (Rubber)',
+        'tag' => 'Custom Rubber',
+        'description' => 'Dapat dicetak molding custom 2D/3D mengikuti bentuk maskot, alat berat, atau logo unik perusahaan berbahan karet PVC elastis & awet.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-57.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-57.jpg',
+        'title' => 'Flashdisk Logam Karabiner Anti-Air',
+        'tag' => 'Flashdisk Logam',
+        'description' => 'Bodi metal kokoh tahan benturan dengan klip karabiner praktis untuk dikaitkan ke tas, lanyard ID card, atau gantungan kunci kantor.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-24-08.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-24-08.jpg',
+        'title' => 'Flashdisk Kayu OTG Dual Port (Type-C)',
+        'tag' => 'Flashdisk OTG',
+        'description' => 'Mendukung koneksi ganda USB dan Type-C untuk smartphone & laptop sekaligus. Hadir dengan kotak kemasan kulit premium berlogo.',
+      ],
     ];
-    $productOptions = [
-      ['Flashdisk Custom 01', 'Flashdisk corporate dengan bentuk yang simpel dan mudah dipadukan dengan identitas brand.'],
-      ['Flashdisk Custom 02', 'Pilihan praktis untuk seminar, onboarding, gathering, dan hadiah apresiasi klien.'],
-      ['Flashdisk Custom 03', 'Model dan kapasitas dapat disesuaikan dengan kebutuhan program perusahaan Anda.'],
-      ['Flashdisk Custom 04', 'Media penyimpanan yang fungsional sekaligus menjadi pengingat brand setiap hari.'],
-      ['Flashdisk Custom 05', 'Cocok untuk menyimpan materi presentasi, company profile, katalog, atau file event.'],
-      ['Flashdisk Custom 06', 'Dapat dikembangkan dengan kemasan custom agar pengalaman menerima hadiah lebih berkesan.'],
-      ['Flashdisk Custom 07', 'Referensi awal untuk merchandise teknologi yang rapi, modern, dan mudah dibagikan.'],
-      ['Flashdisk Custom 08', 'Solusi corporate gift yang terasa personal karena hadir dengan logo perusahaan Anda.'],
+
+    $duplicateNames = [
+      'photo_2026-10-15_10-23-31.jpg', // Duplikat identik dari photo_2026-10-15_10-23-16.jpg
     ];
+
+    $galleryFlashdisks = array_values(array_filter($flashdiskFiles, function ($path) use ($duplicateNames) {
+      return !in_array(basename($path), $duplicateNames, true);
+    }));
   @endphp
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
@@ -108,18 +157,14 @@
           <p class="lede">Gunakan pilihan berikut sebagai referensi awal. Model, kapasitas, warna, logo, dan kemasan dapat disesuaikan bersama tim HERVENT.</p>
         </div>
         <div class="sk-package-grid">
-          @foreach($productOptions as $index => [$title, $description])
+          @foreach($featuredFlashdisks as $item)
             <article class="sk-package-card">
-              <div class="flashdisk-product-placeholder" role="img" aria-label="Placeholder gambar {{ $title }}">
-                <span class="flashdisk-placeholder-icon" aria-hidden="true"><i data-lucide="save"></i></span>
-                <strong>Gambar produk menyusul</strong>
-                <small>Placeholder flashdisk custom HERVENT</small>
-              </div>
+              <img src="{{ asset('images/products/Flashdisk/' . rawurlencode(basename($item['image']))) }}" alt="{{ $item['title'] }} HERVENT" loading="lazy">
               <span class="sk-custom-badge">Custom By Request</span>
               <div>
-                <p class="eyebrow">Flashdisk Corporate</p>
-                <h3 class="h3">{{ $title }}</h3>
-                <p>{{ $description }}</p>
+                <p class="eyebrow">{{ $item['tag'] }}</p>
+                <h3 class="h3">{{ $item['title'] }}</h3>
+                <p>{{ $item['description'] }}</p>
               </div>
             </article>
           @endforeach
@@ -146,10 +191,10 @@
     </section>
 
     <section class="s sk-gallery">
-      <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Inspirasi Merchandise Custom untuk <span class="hl">Berbagai Kebutuhan</span></h2><p class="lede">Lihat beberapa hasil produksi dan referensi merchandise yang dapat dikembangkan bersama tim HERVENT.</p></div>
+      <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Flashdisk Custom untuk <span class="hl">Berbagai Klien</span></h2><p class="lede">Dokumentasi hasil cetak dan produksi flashdisk custom HERVENT untuk BUMN, instansi pemerintah, universitas, dan korporasi terkemuka.</p></div>
         <div class="sk-gallery-grid">
-          @foreach($portfolioImages as $image)
-            <img src="{{ asset($image) }}" alt="Portofolio merchandise custom HERVENT" loading="lazy">
+          @foreach($galleryFlashdisks as $image)
+            <img src="{{ asset('images/products/Flashdisk/' . rawurlencode(basename($image))) }}" alt="Hasil produksi flashdisk custom HERVENT" loading="lazy">
           @endforeach
         </div>
       </div>

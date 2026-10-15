@@ -744,10 +744,21 @@ select {
     object-fit: cover;
 }
 
-/* Flashdisk landing page: keep the same card rhythm while product photos are pending. */
+/* Flashdisk landing page */
+.flashdisk-page .sk-package-card > img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    padding: 0;
+}
+
+.flashdisk-page .sk-gallery-grid img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
 .flashdisk-page .flashdisk-product-placeholder {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     display: flex;
     flex-direction: column;
     align-items: center;
