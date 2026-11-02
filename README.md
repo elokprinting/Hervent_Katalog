@@ -1,58 +1,161 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hervent ERP
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Hervent ERP adalah aplikasi Laravel untuk mendukung katalog publik Hervent dan fondasi proses operasional ERP. Repository ini memisahkan area publik dari domain operasional, role, permission, unit bisnis, dan order.
 
-## About Laravel
+## Teknologi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.3+
+- Laravel 13
+- Laravel Eloquent ORM
+- MySQL/MariaDB untuk lingkungan utama
+- SQLite untuk pengujian lokal
+- Vite untuk asset frontend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Arsitektur repository
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```text
+app/
+├── Http/
+│   ├── Controllers/       Controller website publik dan area produksi
+│   └── Middleware/        Bahasa, security header, dan proteksi area produksi
+├── Models/                Model katalog, blog, user, ERP, role, permission, dan order
+├── Policies/              Authorization berbasis permission dan unit bisnis
+└── Providers/             Registrasi policy dan konfigurasi aplikasi
 
-## Learning Laravel
+database/
+├── migrations/            Struktur database dan perubahan skema bertahap
+├── seeders/               Data awal katalog, blog, unit bisnis, role, dan permission
+└── factories/             Factory untuk kebutuhan pengujian
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+resources/
+├── views/                 Blade templates website dan area produksi
+├── css/                   Styling aplikasi
+└── js/                    Entry point JavaScript/Vite
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+routes/
+└── web.php                Route website publik, blog, dan area produksi
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+tests/
+├── Feature/               Pengujian alur dan authorization
+└── Unit/                  Pengujian unit
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Domain ERP Tahap 1
 
-## Contributing
+Fondasi ERP berada pada migration `2026_10_09_000001_create_erp_foundation_tables.php` dan terdiri dari:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- `business_units`: HerVent, Gudang Flashdisk, dan Raya Pro.
+- `departments`: Sales, Produksi, QC, Logistik, dan After Sales.
+- `roles`: Admin Sistem serta role operasional.
+- `permissions`: Aksi granular pada order dan proses operasional.
+- `role_permissions`: Relasi role dengan permission.
+- `role_assignments`: Relasi pengguna dengan role dan scope unit bisnis.
+- `orders`: Order yang wajib terikat ke satu unit bisnis.
 
-## Code of Conduct
+### Aturan scope akses
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Setiap role operasional wajib memiliki `business_unit_id`. Dengan begitu, seorang pengguna dapat memiliki role yang sama atau berbeda pada beberapa unit bisnis, tetapi hanya dapat melihat dan menjalankan aksi pada unit yang ditugaskan.
 
-## Security Vulnerabilities
+Role Admin Sistem bersifat global. Admin dapat digabungkan dengan role operasional dan memiliki akses lintas unit bisnis.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Daftar order dapat dibatasi dengan query scope berikut:
 
-## License
+```php
+Order::visibleTo($user)->latest()->get();
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Authorization untuk aksi order didaftarkan melalui `OrderPolicy`, termasuk:
+
+- melihat detail order;
+- membuat, mengubah, mengirim, dan merevisi quotation;
+- closing dan cancel order;
+- produksi, material, dan rework;
+- pemeriksaan QC;
+- pengiriman dan after sales;
+- pengelolaan dan penilaian komplain.
+
+Semua role operasional awal memiliki permission `order.view`, sehingga dapat melihat detail order termasuk harga dan quotation selama order berada pada unit bisnis yang menjadi scope-nya.
+
+## Workflow Lead ke Closing
+
+Backend menyediakan dua endpoint terautentikasi:
+
+```text
+POST /erp/leads/{lead}/quotations/{quotation}/acceptance
+POST /erp/leads/{lead}/close
+```
+
+Aturan Closing yang diterapkan:
+
+- Lead wajib memiliki nama pelanggan, item/produk, jumlah, deadline, dan PIC.
+- Minimal satu kontak pelanggan (nomor telepon atau email) wajib tersedia.
+- Hanya quotation terbaru yang berstatus `sent` yang dapat dicatat persetujuannya.
+- Persetujuan mencatat pengguna dan waktu server, lalu quotation menjadi `accepted` dan terkunci.
+- Hanya Sales PIC atau Admin Sistem yang boleh mencatat persetujuan dan Closing.
+- Closing mengubah Lead menjadi `closing` dan membuat tepat satu Order snapshot.
+- Order snapshot menyimpan data pelanggan, item, jumlah, deadline, PIC, dan total quotation yang disetujui.
+- Order baru berstatus `closing`; proses produksi tidak dimulai otomatis.
+- Lead yang sudah Closing tidak dapat dibuka kembali lewat workflow ini.
+
+## Instalasi lokal
+
+Salin konfigurasi environment dan isi kredensial database sesuai mesin lokal:
+
+```bash
+copy .env.example .env
+php artisan key:generate
+composer install
+npm install
+php artisan migrate --seed
+npm run build
+```
+
+Untuk pengembangan frontend, jalankan:
+
+```bash
+npm run dev
+```
+
+Jalankan server Laravel dengan:
+
+```bash
+php artisan serve
+```
+
+## Seeder ERP
+
+`DatabaseSeeder` memanggil `ErpFoundationSeeder`, sehingga data awal ERP dibuat bersama data katalog dan blog:
+
+```bash
+php artisan db:seed --class=ErpFoundationSeeder
+```
+
+Seeder tidak membuat akun pengguna operasional secara otomatis. Assignment role harus dibuat setelah akun pengguna dibuat dan unit bisnis yang sesuai sudah ditentukan.
+
+## Pengujian
+
+Jalankan test suite dengan:
+
+```bash
+php artisan test
+```
+
+Test ERP memverifikasi:
+
+- isolasi akses order antar-unit bisnis;
+- kombinasi beberapa role untuk satu pengguna;
+- akses global Admin Sistem;
+- pembatasan role operasional tanpa unit bisnis;
+- pembatasan query daftar order berdasarkan scope pengguna.
+
+## Area produksi yang sudah ada
+
+Area `/production` memiliki login berbasis password hash dan proteksi middleware untuk editor blog serta katalog. Perubahan ERP pada tahap ini tidak mengubah route website publik maupun alur area produksi yang sudah tersedia.
+
+## Keamanan konfigurasi
+
+Jangan commit file `.env`, password, token, atau credential lain. Gunakan `.env.example` sebagai template konfigurasi dan simpan secret hanya pada environment deployment.
+
+## Status implementasi
+
+Fondasi Struktur Organisasi, Akun & Role, dan Hak Akses Order Tahap 1 sudah tersedia. Workflow lanjutan seperti lead, quotation versioning, approval desain, produksi, QC, pengiriman, dan after sales dapat dibangun di atas model dan policy ini pada tahap berikutnya.

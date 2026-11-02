@@ -2602,7 +2602,13 @@ select {
 
 @media (min-width: 800px) {
     .foot-g {
-        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 980px) {
+    .foot-g {
+        grid-template-columns: 1.35fr 1fr 1fr 1fr;
     }
 }
 
@@ -4353,5 +4359,515 @@ select {
 
     * {
         transition: none !important;
+    }
+}
+
+/* ---------- Portfolio Showcase & Landing Hub (Option 1) ---------- */
+.portfolio-showcase-section {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+.pf-tab-nav-wrap {
+    margin: 2rem 0 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+}
+.pf-tab-nav {
+    display: flex;
+    gap: 0.65rem;
+    justify-content: center;
+    min-width: max-content;
+    margin: 0 auto;
+    padding: 0.25rem;
+}
+.pf-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.pf-tab-btn:hover {
+    border-color: var(--red);
+    color: var(--red);
+    background: #fff8f8;
+}
+.pf-tab-btn.is-active {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+    box-shadow: 0 4px 14px rgba(184, 26, 31, 0.24);
+}
+.pf-tab-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+.pf-tab-badge {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+}
+.pf-tab-btn.is-active .pf-tab-badge {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.pf-panel {
+    display: none;
+    animation: pfFadeIn 0.3s ease;
+}
+.pf-panel.is-active {
+    display: block;
+}
+@keyframes pfFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pf-panel-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    background: #fafaf8;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem 1.6rem;
+    margin-bottom: 1.5rem;
+}
+.pf-panel-tag {
+    display: inline-block;
+    color: var(--red);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+.pf-panel-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+}
+.pf-panel-desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    max-width: 58ch;
+}
+.pf-lp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.pf-arrow-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.2s ease;
+}
+.pf-lp-btn:hover .pf-arrow-icon {
+    transform: translateX(4px);
+}
+
+.pf-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.pf-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fdfdfc;
+    border: 1px solid var(--line);
+    display: block;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.pf-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+    border-color: rgba(184, 26, 31, 0.4);
+}
+.pf-card-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #fdfdfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pf-card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+    display: block;
+}
+.pf-card-img-box.is-contain img {
+    object-fit: contain;
+    padding: 0.5rem;
+}
+.pf-card:hover .pf-card-img-box img {
+    transform: scale(1.06);
+}
+.pf-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.32);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s ease;
+}
+.pf-card:hover .pf-card-overlay {
+    opacity: 1;
+}
+.pf-card-btn {
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.42rem 0.85rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.pf-panel-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.25rem 1.6rem;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    background: #fafaf8;
+}
+.pf-panel-footer-copy strong {
+    display: block;
+    font-size: 0.98rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+}
+.pf-panel-footer-copy span {
+    font-size: 0.84rem;
+    color: var(--muted);
+}
+.pf-panel-footer-btns {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+.pf-panel-footer-btns .btn {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.84rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .pf-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+}
+@media (max-width: 620px) {
+    .pf-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+    }
+    .pf-panel-header,
+    .pf-panel-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .pf-lp-btn,
+    .pf-panel-footer-btns .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ---------- WhatsApp Banner Modal (Shelly CS Hervent) ---------- */
+.wa-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.wa-modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.wa-modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(37, 211, 102, 0.15);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    margin-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+.wa-modal-backdrop.is-open .wa-modal-card {
+    transform: translateY(0) scale(1);
+}
+
+/* Modal Header */
+.wa-modal-header {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.wa-modal-cs {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+.wa-modal-avatar-box {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+.wa-modal-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 30%;
+    display: block;
+}
+.wa-modal-online-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #4cd964;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+.wa-modal-cs-info {
+    flex: 1;
+}
+.wa-modal-cs-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+.wa-modal-cs-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+.wa-modal-cs-role {
+    font-size: 0.72rem;
+    opacity: 0.9;
+}
+.wa-modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 0.15rem;
+    color: #ffffff;
+}
+.wa-modal-sub {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    margin: 0;
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+.wa-modal-speed {
+    background: rgba(0, 0, 0, 0.18);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+.wa-modal-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.wa-modal-close:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* Modal Body */
+.wa-modal-body {
+    padding: 1.4rem;
+    background: #ffffff;
+}
+.wa-form-group {
+    margin-bottom: 1.1rem;
+}
+.wa-form-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.4rem;
+}
+.wa-req {
+    color: #e74c3c;
+}
+.wa-form-control {
+    width: 100%;
+    border: 1.5px solid #dce4ec;
+    border-radius: 10px;
+    padding: 0.72rem 0.9rem;
+    font-size: 0.88rem;
+    color: #2c3e50;
+    background: #fdfdfd;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+}
+.wa-form-control:focus {
+    outline: none;
+    border-color: #25d366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.18);
+    background: #ffffff;
+}
+.wa-select-wrap {
+    position: relative;
+}
+.wa-select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #7f8c8d;
+    pointer-events: none;
+}
+.wa-select-wrap select.wa-form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 2.2rem;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.wa-modal-submit-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #25d366;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin-top: 0.5rem;
+}
+.wa-modal-submit-btn:hover {
+    background: #1ebd5b;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+.wa-modal-submit-btn:active {
+    transform: translateY(1px);
+}
+.wa-btn-svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 620px) {
+    .wa-modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+    .wa-modal-card {
+        max-width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0;
+    }
+    .wa-modal-header {
+        padding: 1.1rem 1.2rem;
+    }
+    .wa-modal-avatar-box {
+        width: 48px;
+        height: 48px;
+    }
+    .wa-modal-title {
+        font-size: 0.98rem;
+    }
+    .wa-modal-body {
+        padding: 1.2rem;
     }
 }

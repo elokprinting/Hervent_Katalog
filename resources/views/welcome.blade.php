@@ -51,7 +51,7 @@
     <h1 class="h1">{{ __('messages.welcome.hero_title_1') }} <span class="hl">{{ __('messages.welcome.hero_title_hl') }}</span></h1>
     <p class="lede">{{ __('messages.welcome.hero_desc') }}</p>
     <div class="hero-cta">
-      <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">
+      <a class="btn b-red" href="https://wa.me/62811367905" target="_blank" rel="noopener">
         <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         {{ __('messages.welcome.btn_consultation') }}
       </a>
@@ -196,6 +196,199 @@
                 <small>Jelajahi produk</small>
             </a>
         @endforeach
+    </div>
+  </div>
+</section>
+
+
+<!-- DOKUMENTASI & PORTOFOLIO PRODUK (OPTI 1) -->
+@php
+  $cgImages = [
+    'images/products/Corporate Gift/Corporate gift 1.png',
+    'images/products/Corporate Gift/Corporate gift 2.png',
+    'images/products/Corporate Gift/Corporate gift produk.png',
+    'images/products/Corporate Gift/Corporate gift produk 2.png',
+    'images/products/Corporate Gift/Gift Set - Deluxe Aura.png',
+    'images/products/Corporate Gift/Gift Set - Deluxe Glow.png',
+    'images/products/Corporate Gift/Gift Set - Ethnic Echo.png',
+    'images/products/Corporate Gift/Gift Set - Ethnic Rhythms.png',
+    'images/products/Corporate Gift/Gift Set - Optimum Pulse.png',
+    'images/products/Corporate Gift/Gift Set - Optimum Vibe.png',
+    'images/products/Corporate Gift/Gift Set - Supreme Prestige.png',
+    'images/products/Corporate Gift/Gift Set - Supreme Spectra.png',
+  ];
+
+  $skHighlighted = [
+    'images/products/Seminar & Training/Seminar Kit - Eko 1.png',
+    'images/products/Seminar & Training/Seminar Kit - Eko 2.png',
+    'images/products/Seminar & Training/Seminar Kit - Eko 3.png',
+    'images/products/Seminar & Training/Seminar Kit - Eko 4.png',
+    'images/products/Seminar & Training/Seminar Kit - Reg 1.png',
+    'images/products/Seminar & Training/Seminar Kit - Reg 2.png',
+    'images/products/Seminar & Training/Seminar Kit - Reg 3.png',
+    'images/products/Seminar & Training/Seminar Kit - Reg 4.png',
+    'images/products/Seminar & Training/Seminar-Kit-1.jpg',
+    'images/products/Seminar & Training/Seminar-kit-10.jpg',
+    'images/products/Seminar & Training/Seminar-kit-15.jpg',
+    'images/products/Seminar & Training/Seminar-kit-20.jpg',
+  ];
+
+  $tumblerFiles = glob(public_path('images/products/Thumbler/*')) ?: [];
+  $tumblerFiles = array_values(array_filter($tumblerFiles, fn($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
+  sort($tumblerFiles, SORT_NATURAL | SORT_FLAG_CASE);
+  $tumblerSlice = array_slice($tumblerFiles, 0, 12);
+
+  $agendaFiles = glob(public_path('images/products/Buku Agenda/*')) ?: [];
+  $agendaFiles = array_values(array_filter($agendaFiles, fn($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
+  sort($agendaFiles, SORT_NATURAL | SORT_FLAG_CASE);
+  $agendaSlice = array_slice($agendaFiles, 0, 12);
+
+  $fdFiles = glob(public_path('images/products/Flashdisk/*')) ?: [];
+  $fdFiles = array_values(array_filter($fdFiles, fn($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
+  sort($fdFiles, SORT_NATURAL | SORT_FLAG_CASE);
+  $fdSlice = array_slice($fdFiles, 0, 12);
+
+  $portfolioCategories = [
+    [
+      'id' => 'tab-corporate-gift',
+      'label' => 'Corporate Gift',
+      'icon' => 'gift',
+      'badge' => 'Eksklusif VIP',
+      'tagline' => 'Paket hampers dan souvenir korporat premium untuk onboarding, apresiasi klien VIP, dan acara tahunan.',
+      'url' => route('landing.corporate-gift'),
+      'cta' => 'Buka Landing Page Corporate Gift',
+      'is_contain' => true,
+      'images' => array_map(fn($img) => asset($img), $cgImages),
+    ],
+    [
+      'id' => 'tab-seminar-kit',
+      'label' => 'Seminar Kit',
+      'icon' => 'briefcase',
+      'badge' => 'Pelatihan & Event',
+      'tagline' => 'Paket seminar kit siap pakai dari paket ekonomis hingga eksekutif lengkap dengan branding logo acara.',
+      'url' => route('landing.seminar-kit'),
+      'cta' => 'Buka Landing Page Seminar Kit',
+      'is_contain' => true,
+      'images' => array_map(fn($img) => asset($img), $skHighlighted),
+    ],
+    [
+      'id' => 'tab-tumbler',
+      'label' => 'Tumbler Custom',
+      'icon' => 'cup-soda',
+      'badge' => '28+ Koleksi Riil',
+      'tagline' => 'Tumbler stainless, vacuum flask, dan botol minum custom dengan teknik laser grafir & print UV presisi.',
+      'url' => route('landing.thumbler'),
+      'cta' => 'Buka Landing Page Tumbler',
+      'is_contain' => false,
+      'images' => array_map(fn($file) => asset('images/products/Thumbler/' . rawurlencode(basename($file))), $tumblerSlice),
+    ],
+    [
+      'id' => 'tab-agenda',
+      'label' => 'Buku Agenda',
+      'icon' => 'notebook',
+      'badge' => '24+ Koleksi Riil',
+      'tagline' => 'Buku agenda kulit, notebook spiral, dan blocknote eksklusif dengan cetak emboss/foil logo perusahaan.',
+      'url' => route('landing.buku-agenda'),
+      'cta' => 'Buka Landing Page Buku Agenda',
+      'is_contain' => false,
+      'images' => array_map(fn($file) => asset('images/products/Buku Agenda/' . rawurlencode(basename($file))), $agendaSlice),
+    ],
+    [
+      'id' => 'tab-flashdisk',
+      'label' => 'Flashdisk Custom',
+      'icon' => 'save',
+      'badge' => '28+ Foto Produksi',
+      'tagline' => 'Flashdisk kartu ID card, flashdisk putar metal, pulpen USB, dan model kayu ramah lingkungan.',
+      'url' => route('landing.flashdisk'),
+      'cta' => 'Buka Landing Page Flashdisk',
+      'is_contain' => false,
+      'images' => array_map(fn($file) => asset('images/products/Flashdisk/' . rawurlencode(basename($file))), $fdSlice),
+    ],
+  ];
+@endphp
+
+<section class="s portfolio-showcase-section" id="portofolio-produk" style="padding-top:0">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv" style="justify-content:center">PORTOFOLIO &amp; PRODUK REAL</p>
+      <h2 class="h2 rv">Dokumentasi Produk &amp; <span class="hl">Hasil Produksi Klien</span></h2>
+      <p class="lede rv" style="max-width:72ch;margin-inline:auto">Lihat bukti kualitas merchandise dan souvenir kantor yang kami produksi untuk berbagai BUMN, korporasi, dan instansi. Pilih kategori untuk melihat foto produk dan kunjungi landing page khusus untuk detail paket.</p>
+    </div>
+
+    <!-- Tabs Bar -->
+    <div class="pf-tab-nav-wrap rv">
+      <div class="pf-tab-nav" role="tablist" aria-label="Kategori Portofolio Produk">
+        @foreach($portfolioCategories as $idx => $cat)
+          <button type="button" 
+                  role="tab" 
+                  class="pf-tab-btn {{ $idx === 0 ? 'is-active' : '' }}" 
+                  id="btn-{{ $cat['id'] }}" 
+                  data-tab-target="{{ $cat['id'] }}"
+                  aria-selected="{{ $idx === 0 ? 'true' : 'false' }}"
+                  aria-controls="{{ $cat['id'] }}">
+            <i data-lucide="{{ $cat['icon'] }}" class="pf-tab-icon"></i>
+            <span class="pf-tab-label">{{ $cat['label'] }}</span>
+            <span class="pf-tab-badge">{{ count($cat['images']) }}+ Foto</span>
+          </button>
+        @endforeach
+      </div>
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="pf-panels-wrap">
+      @foreach($portfolioCategories as $idx => $cat)
+        <div class="pf-panel {{ $idx === 0 ? 'is-active' : '' }}" 
+             id="{{ $cat['id'] }}" 
+             role="tabpanel" 
+             aria-labelledby="btn-{{ $cat['id'] }}"
+             {{ $idx === 0 ? '' : 'hidden' }}>
+          
+          <!-- Panel Header Bar -->
+          <div class="pf-panel-header">
+            <div class="pf-panel-info">
+              <span class="pf-panel-tag">{{ $cat['badge'] }}</span>
+              <h3 class="pf-panel-title">{{ $cat['label'] }}</h3>
+              <p class="pf-panel-desc">{{ $cat['tagline'] }}</p>
+            </div>
+            <div class="pf-panel-action">
+              <a href="{{ $cat['url'] }}" class="btn b-red pf-lp-btn">
+                <span>{{ $cat['cta'] }}</span>
+                <svg viewBox="0 0 24 24" class="pf-arrow-icon" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Images Grid -->
+          <div class="pf-grid">
+            @foreach($cat['images'] as $imgIndex => $imgUrl)
+              <a href="{{ $cat['url'] }}" class="pf-card" title="Lihat detail di Landing Page {{ $cat['label'] }}">
+                <div class="pf-card-img-box {{ $cat['is_contain'] ? 'is-contain' : '' }}">
+                  <img src="{{ $imgUrl }}" alt="Dokumentasi {{ $cat['label'] }} HERVENT {{ $imgIndex + 1 }}" loading="lazy">
+                  <span class="pf-card-overlay">
+                    <span class="pf-card-btn">Buka Landing Page ?</span>
+                  </span>
+                </div>
+              </a>
+            @endforeach
+          </div>
+
+          <!-- Panel Footer CTA -->
+          <div class="pf-panel-footer">
+            <div class="pf-panel-footer-copy">
+              <strong>Ingin penawaran harga &amp; mockup gratis untuk {{ $cat['label'] }}?</strong>
+              <span>Kunjungi landing page khusus kami untuk melihat spesifikasi, ulasan klien, dan garansi.</span>
+            </div>
+            <div class="pf-panel-footer-btns">
+              <a href="{{ $cat['url'] }}" class="btn b-dark">{{ $cat['cta'] }}</a>
+              <a href="https://wa.me/62811367905?text={{ rawurlencode('[H] Halo HERVENT, saya tertarik dengan produk ' . $cat['label'] . ' di website utama.') }}" class="btn b-red" target="_blank" rel="noopener">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>Konsultasi WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      @endforeach
     </div>
   </div>
 </section>
@@ -373,7 +566,7 @@
       <h2 class="h2">{{ __('messages.welcome.cta_title') }} <span class="hl">{{ __('messages.welcome.cta_title_hl') }}</span></h2>
       <p class="lede">{{ __('messages.welcome.cta_desc') }}</p>
       <div class="hero-cta" style="justify-content:flex-start;margin-top:1.5rem">
-        <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">WhatsApp 0811-912-502</a>
+        <a class="btn b-red" href="https://wa.me/62811367905" target="_blank" rel="noopener">WhatsApp 0811-367-905</a>
         <a class="btn b-line" href="mailto:cs@hervent.co.id">cs@hervent.co.id</a>
       </div>
     </div>
@@ -444,7 +637,7 @@
     <small>{{ __('messages.welcome.dock_est') }}</small>
     <b id="dockTot">Rp37.500.000</b>
   </div>
-  <a class="btn b-red" href="https://wa.me/62811912502" target="_blank" rel="noopener">{{ __('messages.welcome.dock_btn') }}</a>
+  <a class="btn b-red" href="https://wa.me/62811367905" target="_blank" rel="noopener">{{ __('messages.welcome.dock_btn') }}</a>
 </div>
 
 </body>

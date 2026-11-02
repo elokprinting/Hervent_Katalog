@@ -32,29 +32,78 @@
 <body class="seminar-kit-page flashdisk-page">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[FD] Halo HERVENT, saya ingin konsultasi flashdisk custom untuk corporate gift perusahaan saya.');
+    $whatsapp = 'https://wa.me/62811367905?text='.urlencode('[FD] Halo HERVENT, saya ingin konsultasi flashdisk custom untuk corporate gift perusahaan saya.');
     $googleMaps = 'https://maps.app.goo.gl/u8hkuc9RgapZTaak8';
     $logos = glob(public_path('images/Logo Client Hervent/*.png')) ?: [];
     sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
     $logoRows = array_chunk($logos, (int) ceil(count($logos) / 2));
-    $portfolioImages = [
-      'images/products/Testimoni/Flashdisk.jpg',
-      'images/products/Product/Tech And Gadgets/Falshdrive Orbit.png',
-      'images/products/Corporate Gift/Corporate gift 1.png',
-      'images/products/Corporate Gift/Corporate gift produk.png',
-      'images/products/Event & Exhibition/Event .png',
-      'images/products/Client Appreciation/client appreciation.png',
+
+    $flashdiskFiles = glob(public_path('images/products/Flashdisk/*')) ?: [];
+    $flashdiskFiles = array_values(array_filter($flashdiskFiles, fn ($path) => is_file($path) && preg_match('/\.(?:jpe?g|png|webp)$/i', $path)));
+    sort($flashdiskFiles, SORT_NATURAL | SORT_FLAG_CASE);
+    $flashdiskByName = [];
+    foreach ($flashdiskFiles as $path) {
+      $flashdiskByName[basename($path)] = $path;
+    }
+
+    $featuredFlashdisks = [
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-10.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-10.jpg',
+        'title' => 'Flashdisk Kartu Custom (ID Card)',
+        'tag' => 'Flashdisk Kartu',
+        'description' => 'Bentuk ramping seukuran kartu ATM/ID Card dengan cetak UV full colour 2 sisi yang presisi. Sangat praktis disimpan di dompet.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-55.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-55.jpg',
+        'title' => 'Flashdisk Putar (Swivel USB)',
+        'tag' => 'Flashdisk Putar',
+        'description' => 'Model klasik terpopuler dengan pelindung putar 360° berbahan metal. Pilihan warna bodi beragam dengan opsi sablon atau grafir laser.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-24-00.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-24-00.jpg',
+        'title' => 'Flashdisk Kayu Natural & Tinbox',
+        'tag' => 'Flashdisk Kayu',
+        'description' => 'Sentuhan material kayu ramah lingkungan dengan ukiran grafir logo presisi, dikemas dalam tinbox metal berbusa eksklusif.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-41.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-41.jpg',
+        'title' => 'Flashdisk Pulpen Metal Multifungsi',
+        'tag' => 'Flashdisk Pulpen',
+        'description' => 'Kombinasi pulpen eksekutif dan USB flash drive dalam bodi metal elegan. Sangat cocok untuk souvenir rapat direksi & seminar kit.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-53.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-53.jpg',
+        'title' => 'Flashdisk Kulit Gantungan Kunci',
+        'tag' => 'Flashdisk Kulit',
+        'description' => 'Balutan kulit sintetis premium dengan kancing pengaman dan gantungan kunci metal. Menghadirkan kesan berkelas dan personal.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-21.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-21.jpg',
+        'title' => 'Flashdisk Karet Custom 3D (Rubber)',
+        'tag' => 'Custom Rubber',
+        'description' => 'Dapat dicetak molding custom 2D/3D mengikuti bentuk maskot, alat berat, atau logo unik perusahaan berbahan karet PVC elastis & awet.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-23-57.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-23-57.jpg',
+        'title' => 'Flashdisk Logam Karabiner Anti-Air',
+        'tag' => 'Flashdisk Logam',
+        'description' => 'Bodi metal kokoh tahan benturan dengan klip karabiner praktis untuk dikaitkan ke tas, lanyard ID card, atau gantungan kunci kantor.',
+      ],
+      [
+        'image' => $flashdiskByName['photo_2026-10-15_10-24-08.jpg'] ?? 'images/products/Flashdisk/photo_2026-10-15_10-24-08.jpg',
+        'title' => 'Flashdisk Kayu OTG Dual Port (Type-C)',
+        'tag' => 'Flashdisk OTG',
+        'description' => 'Mendukung koneksi ganda USB dan Type-C untuk smartphone & laptop sekaligus. Hadir dengan kotak kemasan kulit premium berlogo.',
+      ],
     ];
-    $productOptions = [
-      ['Flashdisk Custom 01', 'Flashdisk corporate dengan bentuk yang simpel dan mudah dipadukan dengan identitas brand.'],
-      ['Flashdisk Custom 02', 'Pilihan praktis untuk seminar, onboarding, gathering, dan hadiah apresiasi klien.'],
-      ['Flashdisk Custom 03', 'Model dan kapasitas dapat disesuaikan dengan kebutuhan program perusahaan Anda.'],
-      ['Flashdisk Custom 04', 'Media penyimpanan yang fungsional sekaligus menjadi pengingat brand setiap hari.'],
-      ['Flashdisk Custom 05', 'Cocok untuk menyimpan materi presentasi, company profile, katalog, atau file event.'],
-      ['Flashdisk Custom 06', 'Dapat dikembangkan dengan kemasan custom agar pengalaman menerima hadiah lebih berkesan.'],
-      ['Flashdisk Custom 07', 'Referensi awal untuk merchandise teknologi yang rapi, modern, dan mudah dibagikan.'],
-      ['Flashdisk Custom 08', 'Solusi corporate gift yang terasa personal karena hadir dengan logo perusahaan Anda.'],
+
+    $duplicateNames = [
+      'photo_2026-10-15_10-23-31.jpg', // Duplikat identik dari photo_2026-10-15_10-23-16.jpg
     ];
+
+    $galleryFlashdisks = array_values(array_filter($flashdiskFiles, function ($path) use ($duplicateNames) {
+      return !in_array(basename($path), $duplicateNames, true);
+    }));
   @endphp
 
   <a class="cg-skip" href="#konten">Lewati ke konten</a>
@@ -100,7 +149,7 @@
       @endforeach
     </section>
 
-    <section class="s sk-packages" id="produk-flashdisk">
+    <section class="s sk-packages" id="pilihflashdisk"><span id="produk-flashdisk"></span>
       <div class="wrap">
         <div class="center sk-heading">
           <p class="eyebrow">Pilihan produk</p>
@@ -108,18 +157,14 @@
           <p class="lede">Gunakan pilihan berikut sebagai referensi awal. Model, kapasitas, warna, logo, dan kemasan dapat disesuaikan bersama tim HERVENT.</p>
         </div>
         <div class="sk-package-grid">
-          @foreach($productOptions as $index => [$title, $description])
+          @foreach($featuredFlashdisks as $item)
             <article class="sk-package-card">
-              <div class="flashdisk-product-placeholder" role="img" aria-label="Placeholder gambar {{ $title }}">
-                <span class="flashdisk-placeholder-icon" aria-hidden="true"><i data-lucide="save"></i></span>
-                <strong>Gambar produk menyusul</strong>
-                <small>Placeholder flashdisk custom HERVENT</small>
-              </div>
+              <img src="{{ asset('images/products/Flashdisk/' . rawurlencode(basename($item['image']))) }}" alt="{{ $item['title'] }} HERVENT" loading="lazy">
               <span class="sk-custom-badge">Custom By Request</span>
               <div>
-                <p class="eyebrow">Flashdisk Corporate</p>
-                <h3 class="h3">{{ $title }}</h3>
-                <p>{{ $description }}</p>
+                <p class="eyebrow">{{ $item['tag'] }}</p>
+                <h3 class="h3">{{ $item['title'] }}</h3>
+                <p>{{ $item['description'] }}</p>
               </div>
             </article>
           @endforeach
@@ -128,7 +173,7 @@
       </div>
     </section>
 
-    <section class="s sk-benefits">
+    <section class="s sk-benefits" id="keunggulanhervent">
       <div class="wrap cg-two-col">
         <div><p class="eyebrow">Keunggulan HERVENT</p><h2 class="h2">Flashdisk yang Membawa <span class="hl">Cerita Brand Anda</span></h2><p class="lede">Kami membantu dari pemilihan model hingga proses produksi agar corporate gift Anda tampil relevan, fungsional, dan berkesan.</p></div>
         <div class="cg-benefit-list">
@@ -145,11 +190,11 @@
       </div>
     </section>
 
-    <section class="s sk-gallery">
-      <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Inspirasi Merchandise Custom untuk <span class="hl">Berbagai Kebutuhan</span></h2><p class="lede">Lihat beberapa hasil produksi dan referensi merchandise yang dapat dikembangkan bersama tim HERVENT.</p></div>
+    <section class="s sk-gallery" id="portofolio">
+      <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Flashdisk Custom untuk <span class="hl">Berbagai Klien</span></h2><p class="lede">Dokumentasi hasil cetak dan produksi flashdisk custom HERVENT untuk BUMN, instansi pemerintah, universitas, dan korporasi terkemuka.</p></div>
         <div class="sk-gallery-grid">
-          @foreach($portfolioImages as $image)
-            <img src="{{ asset($image) }}" alt="Portofolio merchandise custom HERVENT" loading="lazy">
+          @foreach($galleryFlashdisks as $image)
+            <img src="{{ asset('images/products/Flashdisk/' . rawurlencode(basename($image))) }}" alt="Hasil produksi flashdisk custom HERVENT" loading="lazy">
           @endforeach
         </div>
       </div>
@@ -188,14 +233,15 @@
       ] as [$question, $answer])<details><summary>{{ $question }} <span aria-hidden="true">+</span></summary><p>{{ $answer }}</p></details>@endforeach
     </div></div></section>
 
-    <section class="s cg-closing" id="konsultasi"><div class="wrap cg-closing-grid"><div><p class="eyebrow">Mulai konsultasi</p><h2 class="h2">Berikan Brand Anda Media untuk <span>Selalu Diingat.</span></h2><p class="lede">Ceritakan jumlah kebutuhan, model yang disukai, tanggal acara, dan perkiraan budget. Kami akan bantu pilihkan opsi yang realistis.</p><div class="cg-closing-actions"><a href="{{ $whatsapp }}" class="btn b-light" target="_blank" rel="noopener noreferrer">WhatsApp 0811-912-502</a><a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a></div></div><address class="cg-address-card"><strong>Kantor pusat — Bandung</strong><span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span></address></div></section>
+    <section class="s cg-closing" id="konsultasi"><div class="wrap cg-closing-grid"><div><p class="eyebrow">Mulai konsultasi</p><h2 class="h2">Berikan Brand Anda Media untuk <span>Selalu Diingat.</span></h2><p class="lede">Ceritakan jumlah kebutuhan, model yang disukai, tanggal acara, dan perkiraan budget. Kami akan bantu pilihkan opsi yang realistis.</p><div class="cg-closing-actions"><a href="{{ $whatsapp }}" class="btn b-light" target="_blank" rel="noopener noreferrer">WhatsApp 0811-367-905</a><a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a></div></div><address class="cg-address-card"><strong>Kantor pusat — Bandung</strong><span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span></address></div></section>
   </main>
 
-  <footer class="cg-footer"><div class="wrap cg-footer-grid"><div class="cg-footer-brand"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT"><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p><a class="cg-footer-site" href="https://hervent.co.id">Kunjungi hervent.co.id <span aria-hidden="true">↗</span></a></div><nav class="cg-footer-links" aria-label="Tautan cepat"><h2>Tautan cepat</h2><a href="https://hervent.co.id">Beranda</a><a href="#produk-flashdisk">Pilihan flashdisk</a><a href="#faq">FAQ</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi gratis</a></nav><address class="cg-footer-contact"><h2>Kontak</h2><a href="tel:+622287324188">(022) 87324188</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-912-502</a><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a><span>Bandung, Indonesia</span></address></div><div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} HERVENT. All rights reserved.</span><span>Flashdisk custom untuk corporate gift dan souvenir kantor.</span></div></footer>
+  <footer class="cg-footer"><div class="wrap cg-footer-grid"><div class="cg-footer-brand"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT"><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p><a class="cg-footer-site" href="https://hervent.co.id">Kunjungi hervent.co.id <span aria-hidden="true">↗</span></a></div><nav class="cg-footer-links" aria-label="Tautan cepat"><h2>Tautan cepat</h2><a href="https://hervent.co.id">Beranda</a><a href="#produk-flashdisk">Pilihan flashdisk</a><a href="#faq">FAQ</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi gratis</a></nav><address class="cg-footer-contact"><h2>Kontak</h2><a href="tel:+622287324188">(022) 87324188</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-367-905</a><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a><span>Bandung, Indonesia</span></address></div><div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} HERVENT. All rights reserved.</span><span>Flashdisk custom untuk corporate gift dan souvenir kantor.</span></div></footer>
 
   <a class="cg-floating-wa" href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer" aria-label="Ingin penawaran terbaik? Chat WhatsApp HERVENT" title="Chat WhatsApp">
     <i data-lucide="whatsapp" class="wa-floating-icon" aria-hidden="true"></i>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
+  @include('partials.whatsapp-banner-modal')
 </body>
 </html>

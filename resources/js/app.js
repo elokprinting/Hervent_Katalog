@@ -159,7 +159,7 @@ if(cQty) {
         '• Budget per orang: '+fmt.format(p)+'\n'+
         '• Estimasi total: '+fmt.format(t)+'\n'+
         '• Kelas: '+k+'\n\nBoleh dikirim opsi paketnya? Terima kasih.';
-      $('cWa').href='https://wa.me/62811912502?text='+encodeURIComponent(msg);
+      $('cWa').href='https://wa.me/62811367905?text='+encodeURIComponent(msg);
     }
     ['cQty','cPer','cMomen'].forEach(function(id){
       var el = $(id);
@@ -285,10 +285,13 @@ if(reduce||!('IntersectionObserver'in window)){
   var selected = [];
   var items = builder.querySelectorAll('[data-gift-item]');
   var whatsappLinks = document.querySelectorAll('[data-gift-wa]');
-  var number = '62811912502';
+  var number = '62811367905';
 
   function updateWhatsappLinks() {
-    var message = '[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.';
+    var isCorpGift = window.location.pathname.indexOf('souvenir-kantor-perusahaan') !== -1;
+    var promoCode = isCorpGift ? '[HG]' : '[HP]';
+    var productType = isCorpGift ? 'corporate gift' : 'paket souvenir';
+    var message = promoCode + ' Halo HERVENT, saya ingin konsultasi ' + productType + ' untuk perusahaan saya.';
     if (selected.length) {
       message += '\n\nItem yang saya minati: ' + selected.join(', ') + '.';
     }
@@ -317,4 +320,231 @@ if(reduce||!('IntersectionObserver'in window)){
   });
 
   updateWhatsappLinks();
+})();
+
+/* ---------- Homepage Portfolio Tabs (Option 1) ---------- */
+(function () {
+  var nav = document.querySelector('.pf-tab-nav');
+  if (!nav) return;
+
+  var buttons = nav.querySelectorAll('.pf-tab-btn');
+  var panels = document.querySelectorAll('.pf-panel');
+
+  Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('data-tab-target');
+
+      Array.prototype.forEach.call(buttons, function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+
+      Array.prototype.forEach.call(panels, function (panel) {
+        var isTarget = panel.id === targetId;
+        panel.classList.toggle('is-active', isTarget);
+        panel.hidden = !isTarget;
+      });
+    });
+  });
+})();
+
+/* ---------- WhatsApp Banner Modal (Shelly CS HERVENT) ---------- */
+(function () {
+  var modal = document.getElementById('waBannerModal');
+  if (!modal) return;
+
+  var form = document.getElementById('waModalForm');
+  var closeBtn = document.getElementById('waModalClose');
+  var nameInput = document.getElementById('waInputName');
+  var budgetSelect = document.getElementById('waSelectBudget');
+  var productSelect = document.getElementById('waSelectProduct');
+  var codeInput = document.getElementById('waCurrentPromoCode');
+  var submitBtn = document.getElementById('waSubmitBtn');
+  var whatsappNumber = '62811367905';
+
+  function getPageDefaultCode() {
+    var path = window.location.pathname;
+    if (path.indexOf('souvenir-kantor-perusahaan') !== -1) return 'HG';
+    if (path.indexOf('lp-paket-souvenir') !== -1) return 'HP';
+    if (path.indexOf('seminar-kit') !== -1) return 'HS';
+    if (path.indexOf('tumbler') !== -1 || path.indexOf('thumbler') !== -1) return 'HT';
+    if (path.indexOf('buku-agenda') !== -1) return 'HA';
+    if (path.indexOf('flashdisk') !== -1) return 'FD';
+    return 'HG';
+  }
+
+  function openWaModal(initialProduct, initialCode) {
+    if (initialProduct && productSelect) {
+      var found = false;
+      for (var i = 0; i < productSelect.options.length; i++) {
+        var optVal = productSelect.options[i].value.toLowerCase();
+        if (optVal === initialProduct.toLowerCase() || optVal.indexOf(initialProduct.toLowerCase()) !== -1) {
+          productSelect.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+      if (!found && initialProduct) {
+        for (var j = 0; j < productSelect.options.length; j++) {
+          if (productSelect.options[j].text.toLowerCase().indexOf(initialProduct.toLowerCase()) !== -1) {
+            productSelect.selectedIndex = j;
+            break;
+          }
+        }
+      }
+    }
+
+    if (initialCode && codeInput) {
+      codeInput.value = initialCode.replace(/[\[\]]/g, '').trim().toUpperCase();
+    } else if (productSelect) {
+      var selectedOpt = productSelect.options[productSelect.selectedIndex];
+      var optCode = selectedOpt ? selectedOpt.getAttribute('data-code') : '';
+      if (optCode && codeInput) {
+        codeInput.value = optCode;
+      }
+    }
+
+    modal.style.display = 'flex';
+    requestAnimationFrame(function () {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+    document.body.style.overflow = 'hidden';
+
+    if (nameInput) {
+      setTimeout(function () {
+        nameInput.focus();
+      }, 150);
+    }
+  }
+
+  function closeWaModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(function () {
+      if (!modal.classList.contains('is-open')) {
+        modal.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  window.openWaModal = openWaModal;
+  window.closeWaModal = closeWaModal;
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeWaModal);
+  }
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      closeWaModal();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && modal.classList.contains('is-open')) {
+      closeWaModal();
+    }
+  });
+
+  if (productSelect) {
+    productSelect.addEventListener('change', function () {
+      var opt = productSelect.options[productSelect.selectedIndex];
+      var code = opt ? opt.getAttribute('data-code') : '';
+      if (!code || opt.value === 'Produk lainnya' || opt.value === 'Beberapa produk sekaligus') {
+        code = getPageDefaultCode();
+      }
+      if (codeInput) {
+        codeInput.value = code;
+      }
+    });
+  }
+
+  function handleSubmit() {
+    var name = nameInput ? nameInput.value.trim() : '';
+    if (!name) {
+      if (nameInput) {
+        nameInput.focus();
+        nameInput.style.borderColor = '#e53e3e';
+        nameInput.placeholder = 'Mohon isi nama Anda / perusahaan';
+      }
+      return;
+    }
+    if (nameInput) {
+      nameInput.style.borderColor = '';
+    }
+
+    var budget = budgetSelect ? budgetSelect.value : 'Rp10 – 25 jt';
+    var product = productSelect ? productSelect.value : 'Corporate Gift';
+    var code = codeInput && codeInput.value ? codeInput.value.replace(/[\[\]]/g, '').trim().toUpperCase() : getPageDefaultCode();
+
+    var autotext = 'Halo Mba Shelly, saya ' + name + ', ingin tanya produk ' + product + '. Perkiraan budget: ' + budget + '. Bisa tolong dibantu? Kode Promo: [' + code + ']';
+    var targetUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(autotext);
+
+    try {
+      if (window.dataLayer && Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({
+          event: 'whatsapp_consultation',
+          product_name: product,
+          budget_range: budget,
+          promo_code: code
+        });
+      }
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Consultation',
+          event_label: product + ' [' + code + ']'
+        });
+      }
+    } catch (err) {}
+
+    window.open(targetUrl, '_blank');
+    closeWaModal();
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', handleSubmit);
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      handleSubmit();
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"], .cg-floating-wa, .whatsapp-promo, .mobile-floating-wa, [data-open-wa-modal]');
+    if (!trigger) return;
+    if (trigger.closest('#waBannerModal')) return;
+
+    e.preventDefault();
+
+    var href = trigger.getAttribute('href') || '';
+    var dataProduct = trigger.getAttribute('data-product');
+    var dataCode = trigger.getAttribute('data-promo-code');
+
+    if (!dataCode && href.indexOf('text=') !== -1) {
+      try {
+        var match = decodeURIComponent(href).match(/\[(H[GPSAT]|FD)\]/i);
+        if (match) dataCode = match[1].toUpperCase();
+      } catch (err) {}
+    }
+
+    if (!dataProduct && href.indexOf('text=') !== -1) {
+      try {
+        var decoded = decodeURIComponent(href).toLowerCase();
+        if (decoded.indexOf('tumbler') !== -1) dataProduct = 'Tumbler';
+        else if (decoded.indexOf('corporate gift') !== -1) dataProduct = 'Corporate Gift';
+        else if (decoded.indexOf('paket souvenir') !== -1) dataProduct = 'Paket Souvenir';
+        else if (decoded.indexOf('seminar kit') !== -1) dataProduct = 'Seminar Kit';
+        else if (decoded.indexOf('agenda') !== -1 || decoded.indexOf('notebook') !== -1) dataProduct = 'Buku Agenda';
+        else if (decoded.indexOf('flashdisk') !== -1) dataProduct = 'Flashdisk';
+      } catch (err) {}
+    }
+
+    openWaModal(dataProduct, dataCode);
+  });
 })();
