@@ -1200,3 +1200,262 @@ select {
         padding: .55rem !important;
     }
 }
+
+/* ---------- WhatsApp Banner Modal (Shelly CS Hervent) ---------- */
+.wa-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.wa-modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.wa-modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(37, 211, 102, 0.15);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    margin-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+.wa-modal-backdrop.is-open .wa-modal-card {
+    transform: translateY(0) scale(1);
+}
+
+/* Modal Header */
+.wa-modal-header {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.wa-modal-cs {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+.wa-modal-avatar-box {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+.wa-modal-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 30%;
+    display: block;
+}
+.wa-modal-online-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #4cd964;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+.wa-modal-cs-info {
+    flex: 1;
+}
+.wa-modal-cs-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+.wa-modal-cs-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+.wa-modal-cs-role {
+    font-size: 0.72rem;
+    opacity: 0.9;
+}
+.wa-modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 0.15rem;
+    color: #ffffff;
+}
+.wa-modal-sub {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    margin: 0;
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+.wa-modal-speed {
+    background: rgba(0, 0, 0, 0.18);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+.wa-modal-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.wa-modal-close:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* Modal Body */
+.wa-modal-body {
+    padding: 1.4rem;
+    background: #ffffff;
+}
+.wa-form-group {
+    margin-bottom: 1.1rem;
+}
+.wa-form-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.4rem;
+}
+.wa-req {
+    color: #e74c3c;
+}
+.wa-form-control {
+    width: 100%;
+    border: 1.5px solid #dce4ec;
+    border-radius: 10px;
+    padding: 0.72rem 0.9rem;
+    font-size: 0.88rem;
+    color: #2c3e50;
+    background: #fdfdfd;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+}
+.wa-form-control:focus {
+    outline: none;
+    border-color: #25d366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.18);
+    background: #ffffff;
+}
+.wa-select-wrap {
+    position: relative;
+}
+.wa-select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #7f8c8d;
+    pointer-events: none;
+}
+.wa-select-wrap select.wa-form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 2.2rem;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.wa-modal-submit-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #25d366;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin-top: 0.5rem;
+}
+.wa-modal-submit-btn:hover {
+    background: #1ebd5b;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+.wa-modal-submit-btn:active {
+    transform: translateY(1px);
+}
+.wa-btn-svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 620px) {
+    .wa-modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+    .wa-modal-card {
+        max-width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0;
+    }
+    .wa-modal-header {
+        padding: 1.1rem 1.2rem;
+    }
+    .wa-modal-avatar-box {
+        width: 48px;
+        height: 48px;
+    }
+    .wa-modal-title {
+        font-size: 0.98rem;
+    }
+    .wa-modal-body {
+        padding: 1.2rem;
+    }
+}

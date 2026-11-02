@@ -100,7 +100,7 @@
       @endforeach
     </section>
 
-    <section class="s sk-packages" id="produk-tumbler">
+    <section class="s sk-packages" id="pilihantumbler"><span id="produk-tumbler"></span>
       <div class="wrap">
         <div class="center sk-heading">
           <p class="eyebrow">Pilihan produk</p>
@@ -172,7 +172,7 @@
       </div>
     </section>
 
-    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
+    <section class="s cg-guarantee" id="garansi7hari"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
 
     <section class="s cg-faq" id="faq"><div class="wrap"><div class="center"><p class="eyebrow">Pertanyaan</p><h2 class="h2">Pertanyaan Seputar Tumbler Custom</h2></div><div class="cg-faq-list">
       @foreach([
@@ -184,7 +184,7 @@
       ] as [$question, $answer])<details><summary>{{ $question }} <span aria-hidden="true">+</span></summary><p>{{ $answer }}</p></details>@endforeach
     </div></div></section>
 
-    <section class="s cg-closing" id="konsultasi"><div class="wrap cg-closing-grid"><div><p class="eyebrow">Mulai konsultasi</p><h2 class="h2">Siapkan Tumbler yang <span>Mewakili Brand Anda.</span></h2><p class="lede">Ceritakan jumlah kebutuhan, model yang disukai, tanggal acara, dan perkiraan budget. Kami akan bantu pilihkan opsi yang realistis.</p><div class="cg-closing-actions"><a href="{{ $whatsapp }}" class="btn b-light" target="_blank" rel="noopener noreferrer">WhatsApp 0811-367-905</a><a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a></div></div><address class="cg-address-card"><strong>Kantor pusat — Bandung</strong><span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span></address></div></section>
+    <section class="s cg-closing" id="konsultasiwhatsapp"><span id="konsultasi"></span><div class="wrap cg-closing-grid"><div><p class="eyebrow">Mulai konsultasi</p><h2 class="h2">Siapkan Tumbler yang <span>Mewakili Brand Anda.</span></h2><p class="lede">Ceritakan jumlah kebutuhan, model yang disukai, tanggal acara, dan perkiraan budget. Kami akan bantu pilihkan opsi yang realistis.</p><div class="cg-closing-actions"><a href="{{ $whatsapp }}" class="btn b-light" target="_blank" rel="noopener noreferrer">WhatsApp 0811-367-905</a><a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a></div></div><address class="cg-address-card"><strong>Kantor pusat — Bandung</strong><span>Komplek Istana Kawaluyaan RW04, Jl. Kawaluyaan Indah XVII No.11, Jatisari, Buahbatu, Kota Bandung 40286</span></address></div></section>
   </main>
 
   <footer class="cg-footer"><div class="wrap cg-footer-grid"><div class="cg-footer-brand"><img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT"><p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p><a class="cg-footer-site" href="https://hervent.co.id">Kunjungi hervent.co.id <span aria-hidden="true">↗</span></a></div><nav class="cg-footer-links" aria-label="Tautan cepat"><h2>Tautan cepat</h2><a href="https://hervent.co.id">Beranda</a><a href="#produk-tumbler">Pilihan tumbler</a><a href="#faq">FAQ</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi gratis</a></nav><address class="cg-footer-contact"><h2>Kontak</h2><a href="tel:+622287324188">(022) 87324188</a><a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-367-905</a><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a><span>Bandung, Indonesia</span></address></div><div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} HERVENT. All rights reserved.</span><span>Tumbler custom untuk corporate gift dan souvenir kantor.</span></div></footer>
@@ -194,5 +194,6 @@
     <i data-lucide="whatsapp" class="wa-floating-icon" aria-hidden="true"></i>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
+  @include('partials.whatsapp-banner-modal')
 </body>
 </html>

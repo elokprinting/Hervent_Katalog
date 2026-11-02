@@ -127,7 +127,7 @@
       @endforeach
     </section>
 
-    <section class="s sk-packages" id="paket-seminar">
+    <section class="s sk-packages" id="paketseminarkit"><span id="paket-seminar"></span>
       <div class="wrap">
         <div class="center sk-heading">
           <p class="eyebrow">Pilihan paket</p>
@@ -154,7 +154,7 @@
       </div>
     </section>
 
-    <section class="s sk-benefits">
+    <section class="s sk-benefits" id="keunggulanhervent">
       <div class="wrap cg-two-col">
         <div><p class="eyebrow">Keunggulan HERVENT</p><h2 class="h2">Seminar Kit yang Siap Menunjang <span class="hl">Acara Anda</span></h2><p class="lede">Kami membantu dari pemilihan item hingga pengiriman, agar kebutuhan acara Anda rapi dalam satu koordinasi.</p></div>
         <div class="cg-benefit-list">
@@ -171,7 +171,7 @@
       </div>
     </section>
 
-    <section class="s sk-gallery">
+    <section class="s sk-gallery" id="portofolio">
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Seminar Kit untuk <span class="hl">Berbagai Acara</span></h2></div>
         <div class="sk-gallery-grid">
           @foreach($seminarPortfolioFiles as $image)
@@ -222,5 +222,6 @@
     <i data-lucide="whatsapp" class="wa-floating-icon" aria-hidden="true"></i>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
+  @include('partials.whatsapp-banner-modal')
 </body>
 </html>

@@ -69,3 +69,5 @@
     </div>
   </div>
 </footer>
+
+@include('partials.whatsapp-banner-modal')

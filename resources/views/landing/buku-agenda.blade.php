@@ -118,7 +118,7 @@
       @endforeach
     </section>
 
-    <section class="s sk-packages" id="produk-agenda">
+    <section class="s sk-packages" id="pilihbukuagenda"><span id="produk-agenda"></span>
       <div class="wrap">
         <div class="center sk-heading">
           <p class="eyebrow">Pilihan produk</p>
@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <section class="s sk-benefits">
+    <section class="s sk-benefits" id="keunggulanhervent">
       <div class="wrap cg-two-col">
         <div><p class="eyebrow">Keunggulan HERVENT</p><h2 class="h2">Agenda yang Membawa <span class="hl">Identitas Brand Anda</span></h2><p class="lede">Kami membantu dari pemilihan model hingga proses produksi agar buku agenda custom Anda tampil rapi, fungsional, dan siap dibagikan.</p></div>
         <div class="cg-benefit-list">
@@ -159,7 +159,7 @@
       </div>
     </section>
 
-    <section class="s sk-gallery">
+    <section class="s sk-gallery" id="portofolio">
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Inspirasi Buku Agenda Custom untuk <span class="hl">Berbagai Kebutuhan</span></h2><p class="lede">Lihat beberapa hasil dan referensi buku agenda yang dapat dikembangkan bersama tim HERVENT.</p></div>
         <div class="sk-gallery-grid">
           @foreach($galleryAgendas as $image)
@@ -212,5 +212,6 @@
     <i data-lucide="whatsapp" class="agenda-whatsapp-icon" aria-hidden="true"></i>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
+  @include('partials.whatsapp-banner-modal')
 </body>
 </html>

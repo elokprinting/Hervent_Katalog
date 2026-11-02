@@ -149,7 +149,7 @@
       @endforeach
     </section>
 
-    <section class="s sk-packages" id="produk-flashdisk">
+    <section class="s sk-packages" id="pilihflashdisk"><span id="produk-flashdisk"></span>
       <div class="wrap">
         <div class="center sk-heading">
           <p class="eyebrow">Pilihan produk</p>
@@ -173,7 +173,7 @@
       </div>
     </section>
 
-    <section class="s sk-benefits">
+    <section class="s sk-benefits" id="keunggulanhervent">
       <div class="wrap cg-two-col">
         <div><p class="eyebrow">Keunggulan HERVENT</p><h2 class="h2">Flashdisk yang Membawa <span class="hl">Cerita Brand Anda</span></h2><p class="lede">Kami membantu dari pemilihan model hingga proses produksi agar corporate gift Anda tampil relevan, fungsional, dan berkesan.</p></div>
         <div class="cg-benefit-list">
@@ -190,7 +190,7 @@
       </div>
     </section>
 
-    <section class="s sk-gallery">
+    <section class="s sk-gallery" id="portofolio">
       <div class="wrap"><div class="center"><p class="eyebrow">Portofolio</p><h2 class="h2">Hasil Produksi Flashdisk Custom untuk <span class="hl">Berbagai Klien</span></h2><p class="lede">Dokumentasi hasil cetak dan produksi flashdisk custom HERVENT untuk BUMN, instansi pemerintah, universitas, dan korporasi terkemuka.</p></div>
         <div class="sk-gallery-grid">
           @foreach($galleryFlashdisks as $image)
@@ -242,5 +242,6 @@
     <i data-lucide="whatsapp" class="wa-floating-icon" aria-hidden="true"></i>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
+  @include('partials.whatsapp-banner-modal')
 </body>
 </html>
