@@ -159,7 +159,7 @@ if(cQty) {
         '• Budget per orang: '+fmt.format(p)+'\n'+
         '• Estimasi total: '+fmt.format(t)+'\n'+
         '• Kelas: '+k+'\n\nBoleh dikirim opsi paketnya? Terima kasih.';
-      $('cWa').href='https://wa.me/62811912502?text='+encodeURIComponent(msg);
+      $('cWa').href='https://wa.me/62811367905?text='+encodeURIComponent(msg);
     }
     ['cQty','cPer','cMomen'].forEach(function(id){
       var el = $(id);
@@ -285,7 +285,7 @@ if(reduce||!('IntersectionObserver'in window)){
   var selected = [];
   var items = builder.querySelectorAll('[data-gift-item]');
   var whatsappLinks = document.querySelectorAll('[data-gift-wa]');
-  var number = '62811912502';
+  var number = '62811367905';
 
   function updateWhatsappLinks() {
     var message = '[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.';
@@ -317,4 +317,31 @@ if(reduce||!('IntersectionObserver'in window)){
   });
 
   updateWhatsappLinks();
+})();
+
+/* ---------- Homepage Portfolio Tabs (Option 1) ---------- */
+(function () {
+  var nav = document.querySelector('.pf-tab-nav');
+  if (!nav) return;
+
+  var buttons = nav.querySelectorAll('.pf-tab-btn');
+  var panels = document.querySelectorAll('.pf-panel');
+
+  Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('data-tab-target');
+
+      Array.prototype.forEach.call(buttons, function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+
+      Array.prototype.forEach.call(panels, function (panel) {
+        var isTarget = panel.id === targetId;
+        panel.classList.toggle('is-active', isTarget);
+        panel.hidden = !isTarget;
+      });
+    });
+  });
 })();

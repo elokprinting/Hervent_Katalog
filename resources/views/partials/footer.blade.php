@@ -7,7 +7,7 @@
         </a>
         <p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">{{ __('messages.footer.desc') }}</p>
         <div class="foot-socials" aria-label="Sosial media HERVENT">
-          <a class="foot-social" href="https://wa.me/62811912502" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp HERVENT" title="WhatsApp">
+          <a class="foot-social" href="https://wa.me/62811367905" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp HERVENT" title="WhatsApp">
             <i data-lucide="whatsapp" aria-hidden="true"></i>
           </a>
           <a class="foot-social" href="https://www.instagram.com/hervent.co.id/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HERVENT" title="Instagram">
@@ -39,13 +39,24 @@
           </li>
           <li><a href="{{ route('home') }}#proses">{{ __('messages.footer.how_it_works') }}</a></li>
           <li><a href="{{ route('home') }}#faq">{{ __('messages.footer.faq') }}</a></li>
+          <li><a href="{{ route('home') }}#portofolio-produk">Portofolio Produk</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Landing Page</h4>
+        <ul>
+          <li><a href="{{ route('landing.corporate-gift') }}">Corporate Gift Eksklusif</a></li>
+          <li><a href="{{ route('landing.seminar-kit') }}">Paket Seminar Kit</a></li>
+          <li><a href="{{ route('landing.thumbler') }}">Tumbler Custom Promosi</a></li>
+          <li><a href="{{ route('landing.buku-agenda') }}">Buku Agenda Custom</a></li>
+          <li><a href="{{ route('landing.flashdisk') }}">Flashdisk Custom &amp; Kartu</a></li>
         </ul>
       </div>
       <div>
         <h4>{{ __('messages.footer.contact') }}</h4>
         <ul>
           <li><a href="tel:02287324188">(022) 87324188</a></li>
-          <li><a href="https://wa.me/62811912502">0811-912-502</a></li>
+          <li><a href="https://wa.me/62811367905">0811-367-905</a></li>
           <li><a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a></li>
           <li>Bandung</li>
           <li>{{ __('messages.footer.work_hours') }}</li>

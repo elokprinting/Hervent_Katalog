@@ -30,7 +30,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG99TCB8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   @php
-    $whatsapp = 'https://wa.me/62811912502?text='.urlencode('[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.');
+    $whatsapp = 'https://wa.me/62811367905?text='.urlencode('[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.');
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
     $mixIcons = [
       'E-Money Custom' => 'credit-card',
@@ -261,7 +261,7 @@
           <h2 class="h2">Reputasi brand Anda adalah <span>prioritas kami.</span></h2>
           <p class="lede">Kirim tanggal acara dan jumlah penerima. Kami balas dengan opsi yang masih realistis dikerjakan sampai tanggal itu.</p>
           <div class="cg-closing-actions">
-            <a href="{{ $whatsapp }}" class="btn b-light" data-gift-wa target="_blank" rel="noopener noreferrer">WhatsApp 0811-912-502</a>
+            <a href="{{ $whatsapp }}" class="btn b-light" data-gift-wa target="_blank" rel="noopener noreferrer">WhatsApp 0811-367-905</a>
             <a href="mailto:cs@hervent.co.id" class="btn b-outline-light">cs@hervent.co.id</a>
           </div>
         </div>
@@ -290,7 +290,7 @@
       <address class="cg-footer-contact">
         <h2>Kontak</h2>
         <a href="tel:+622287324188">(022) 87324188</a>
-        <a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-912-502</a>
+        <a href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">0811-367-905</a>
         <a href="mailto:cs@hervent.co.id">cs@hervent.co.id</a>
         <span>Bandung, Indonesia</span>
       </address>
