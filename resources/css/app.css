@@ -4814,6 +4814,7 @@ select {
 
 /* Submit Button */
 .wa-modal-submit-btn {
+    text-decoration: none;
     width: 100%;
     display: flex;
     align-items: center;

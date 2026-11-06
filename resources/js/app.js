@@ -412,6 +412,8 @@ if(reduce||!('IntersectionObserver'in window)){
     });
     document.body.style.overflow = 'hidden';
 
+    updateSubmitUrl();
+
     if (nameInput) {
       setTimeout(function () {
         nameInput.focus();
@@ -449,6 +451,41 @@ if(reduce||!('IntersectionObserver'in window)){
     }
   });
 
+  function updateSubmitUrl() {
+    var name = nameInput ? nameInput.value.trim() : '';
+    var budget = budgetSelect ? budgetSelect.value : 'Rp10 – 25 jt';
+    var product = productSelect ? productSelect.value : 'Corporate Gift';
+    var code = codeInput && codeInput.value ? codeInput.value.replace(/[\[\]]/g, '').trim().toUpperCase() : getPageDefaultCode();
+
+    var autotext = 'Halo Mba Shelly, saya ' + (name || '...') + ', ingin tanya produk ' + product + '. Perkiraan budget: ' + budget + '. Bisa tolong dibantu? Kode Promo: [' + code + ']';
+    var targetUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(autotext);
+
+    if (submitBtn) {
+      submitBtn.setAttribute('href', targetUrl);
+    }
+
+    return {
+      name: name,
+      budget: budget,
+      product: product,
+      code: code,
+      targetUrl: targetUrl
+    };
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener('input', function () {
+      if (nameInput.value.trim()) {
+        nameInput.style.borderColor = '';
+      }
+      updateSubmitUrl();
+    });
+  }
+
+  if (budgetSelect) {
+    budgetSelect.addEventListener('change', updateSubmitUrl);
+  }
+
   if (productSelect) {
     productSelect.addEventListener('change', function () {
       var opt = productSelect.options[productSelect.selectedIndex];
@@ -459,49 +496,54 @@ if(reduce||!('IntersectionObserver'in window)){
       if (codeInput) {
         codeInput.value = code;
       }
+      updateSubmitUrl();
     });
   }
 
-  function handleSubmit() {
-    var name = nameInput ? nameInput.value.trim() : '';
-    if (!name) {
+  function handleSubmit(e) {
+    var info = updateSubmitUrl();
+
+    if (!info.name) {
+      if (e) e.preventDefault();
       if (nameInput) {
         nameInput.focus();
         nameInput.style.borderColor = '#e53e3e';
         nameInput.placeholder = 'Mohon isi nama Anda / perusahaan';
       }
-      return;
+      return false;
     }
+
     if (nameInput) {
       nameInput.style.borderColor = '';
     }
 
-    var budget = budgetSelect ? budgetSelect.value : 'Rp10 – 25 jt';
-    var product = productSelect ? productSelect.value : 'Corporate Gift';
-    var code = codeInput && codeInput.value ? codeInput.value.replace(/[\[\]]/g, '').trim().toUpperCase() : getPageDefaultCode();
-
-    var autotext = 'Halo Mba Shelly, saya ' + name + ', ingin tanya produk ' + product + '. Perkiraan budget: ' + budget + '. Bisa tolong dibantu? Kode Promo: [' + code + ']';
-    var targetUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(autotext);
-
+    // Push GTM dataLayer event
     try {
       if (window.dataLayer && Array.isArray(window.dataLayer)) {
         window.dataLayer.push({
           event: 'whatsapp_consultation',
-          product_name: product,
-          budget_range: budget,
-          promo_code: code
+          product_name: info.product,
+          budget_range: info.budget,
+          promo_code: info.code,
+          click_url: info.targetUrl
         });
       }
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'generate_lead', {
           event_category: 'Consultation',
-          event_label: product + ' [' + code + ']'
+          event_label: info.product + ' [' + info.code + ']'
         });
       }
     } catch (err) {}
 
-    window.open(targetUrl, '_blank');
-    closeWaModal();
+    // DO NOT e.preventDefault() here!
+    // Since #waSubmitBtn is an <a> tag targeting https://wa.me/..., 
+    // GTM's standard Link Click listener (Click URL contains wa.me) fires 100% natively!
+    setTimeout(function () {
+      closeWaModal();
+    }, 400);
+
+    return true;
   }
 
   if (submitBtn) {
@@ -511,7 +553,9 @@ if(reduce||!('IntersectionObserver'in window)){
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      handleSubmit();
+      if (submitBtn) {
+        submitBtn.click();
+      }
     });
   }
 
