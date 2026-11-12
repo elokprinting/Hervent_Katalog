@@ -1,8 +1,8 @@
 <header class="nav">
   <div class="wrap">
     <div class="nav-in">
-      <a class="logo" href="{{ route('home') }}" aria-label="HERVENT beranda">
-        <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT" style="height: 42px; width: auto;">
+      <a class="logo" href="{{ route('home') }}" aria-label="USAHA SOLUSI BANGSA INDONESIA beranda">
+        <img src="{{ asset('images/Logo Landscape.png') }}" alt="USAHA SOLUSI BANGSA INDONESIA" style="height: 42px; width: auto;">
       </a>
       <nav class="menu" aria-label="Navigasi utama">
         <a href="{{ route('giftsets.index') }}">{{ __('messages.header.giftset_package') }}</a>
@@ -163,16 +163,16 @@
   document.addEventListener('DOMContentLoaded', function () {
     var host = window.location.hostname;
     var path = window.location.pathname;
-    var message = '[H] Halo HERVENT, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
+    var message = '[H] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
 
     if (host === 'seminar.hervent.co.id') {
-      message = '[HS] Halo HERVENT, saya ingin konsultasi seminar kit untuk acara saya.';
+      message = '[HS] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi seminar kit untuk acara saya.';
     } else if (host === 'gift.hervent.co.id') {
-      message = '[HG] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.';
+      message = '[HG] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi corporate gift untuk perusahaan saya.';
     } else if (path.indexOf('/product/') === 0) {
-      message = '[P] Halo HERVENT, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
+      message = '[P] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
     } else if (path === '/gift-sets-packages') {
-      message = '[GS] Halo HERVENT, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
+      message = '[GS] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
     }
 
     document.querySelectorAll('a[href="https://wa.me/62811367905"]').forEach(function (link) {

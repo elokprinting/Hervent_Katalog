@@ -39,7 +39,7 @@ class CatalogDownloadController extends Controller
 
         try {
             Mail::raw(implode("\n", [
-                'Ada permintaan download katalog HERVENT.',
+                'Ada permintaan download katalog USAHA SOLUSI BANGSA INDONESIA.',
                 '',
                 'Nama: ' . trim(($data['salutation'] ?? '') . ' ' . $data['name']),
                 'Email: ' . $data['email'],
@@ -48,7 +48,7 @@ class CatalogDownloadController extends Controller
                 'Jabatan: ' . ($data['job_title'] ?? '-'),
             ]), function ($message) use ($data) {
                 $message->to(config('mail.catalog_recipient'))
-                    ->subject('Permintaan Download Katalog HERVENT')
+                    ->subject('Permintaan Download Katalog USAHA SOLUSI BANGSA INDONESIA')
                     ->replyTo($data['email'], $data['name']);
             });
         } catch (Throwable $exception) {

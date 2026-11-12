@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Blog - Berita & Tips | HERVENT</title>
+<title>Blog - Berita & Tips | USAHA SOLUSI BANGSA INDONESIA</title>
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
@@ -142,7 +142,7 @@
   <section class="blog-page">
     <div class="blog-container">
       <div class="blog-header">
-        <h1>Blog Hervent</h1>
+        <h1>Blog Usaha Solusi Bangsa Indonesia</h1>
       </div>
       
       <div class="blog-grid">

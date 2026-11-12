@@ -1,6 +1,6 @@
-# Hervent ERP
+# Usaha Solusi Bangsa Indonesia ERP
 
-Hervent ERP adalah aplikasi Laravel untuk mendukung katalog publik Hervent dan fondasi proses operasional ERP. Repository ini memisahkan area publik dari domain operasional, role, permission, unit bisnis, dan order.
+Usaha Solusi Bangsa Indonesia ERP adalah aplikasi Laravel untuk mendukung katalog publik Usaha Solusi Bangsa Indonesia dan fondasi proses operasional ERP. Repository ini memisahkan area publik dari domain operasional, role, permission, unit bisnis, dan order.
 
 ## Teknologi
 

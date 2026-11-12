@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Production Access | HERVENT</title>
+<title>Production Access | USAHA SOLUSI BANGSA INDONESIA</title>
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
@@ -131,7 +131,7 @@
 
 <div class="login-card">
   <div class="login-logo">
-    <img src="{{ asset('images/Logo Landscape.png') }}" alt="Hervent Logo" onerror="this.style.display='none'">
+    <img src="{{ asset('images/Logo Landscape.png') }}" alt="Usaha Solusi Bangsa Indonesia Logo" onerror="this.style.display='none'">
   </div>
   
   <div class="login-title">Area Produksi</div>

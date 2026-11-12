@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>10 Alasan Order di HERVENT | Corporate Gift &amp; Promotional Product</title>
-    <meta name="description" content="Sepuluh alasan memilih HERVENT untuk corporate gift dan promotional product: garansi, desain gratis, produksi cepat, hingga pengiriman gratis.">
+    <title>10 Alasan Order di USAHA SOLUSI BANGSA INDONESIA | Corporate Gift &amp; Promotional Product</title>
+    <meta name="description" content="Sepuluh alasan memilih USAHA SOLUSI BANGSA INDONESIA untuk corporate gift dan promotional product: garansi, desain gratis, produksi cepat, hingga pengiriman gratis.">
     <meta name="theme-color" content="#B81A1F">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
@@ -27,8 +27,8 @@
     <main>
         <section class="services-hero on-red">
             <div class="wrap services-hero-inner">
-                <p class="eyebrow">Kenapa HERVENT?</p>
-                <h1 class="h1">10 alasan kenapa order di <span class="hl">HERVENT.</span></h1>
+                <p class="eyebrow">Kenapa USAHA SOLUSI BANGSA INDONESIA?</p>
+                <h1 class="h1">10 alasan kenapa order di <span class="hl">USAHA SOLUSI BANGSA INDONESIA.</span></h1>
                 <p class="lede">Dari konsultasi sampai barang diterima, kami menjaga setiap proses agar pesanan corporate gift Anda berjalan mudah, jelas, dan dapat dipertanggungjawabkan.</p>
             </div>
         </section>
@@ -50,7 +50,7 @@
                     </article>
                     <article class="service-reason-card">
                         <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Integrity.png') }}" alt="Ilustrasi garansi hingga seumur hidup" loading="lazy"></div>
-                        <div><span class="service-number">02</span><h3>Garansi Hingga Seumur Hidup</h3><p>HERVENT memberikan masa klaim garansi yang panjang. Untuk produk tertentu, masa garansi tersedia hingga seumur hidup.</p></div>
+                        <div><span class="service-number">02</span><h3>Garansi Hingga Seumur Hidup</h3><p>USAHA SOLUSI BANGSA INDONESIA memberikan masa klaim garansi yang panjang. Untuk produk tertentu, masa garansi tersedia hingga seumur hidup.</p></div>
                     </article>
                     <article class="service-reason-card">
                         <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Happiness.png') }}" alt="Ilustrasi garansi harga terbaik" loading="lazy"></div>
@@ -74,7 +74,7 @@
                     </article>
                     <article class="service-reason-card">
                         <div class="service-reason-image"><img src="{{ asset('images/Icons/Supergraphic Hervent - Religius.png') }}" alt="Ilustrasi legalitas resmi berbadan hukum" loading="lazy"></div>
-                        <div><span class="service-number">08</span><h3>Legalitas Resmi Berbadan Hukum</h3><p>HERVENT memiliki legalitas resmi berbadan hukum PT Aventama Hervent Solusindo dan melayani transaksi dengan faktur pajak PPN.</p></div>
+                        <div><span class="service-number">08</span><h3>Legalitas Resmi Berbadan Hukum</h3><p>Kami memiliki legalitas resmi berbadan hukum CV. USAHA SOLUSI BANGSA INDONESIA dan melayani transaksi dengan faktur pajak PPN.</p></div>
                     </article>
                 </div>
             </div>

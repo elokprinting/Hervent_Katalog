@@ -6,23 +6,23 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PG99TCB8');</script>
   <!-- End Google Tag Manager -->
-  <title>Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | HERVENT</title>
-  <meta name="description" content="Corporate Gift dan paket souvenir kantor HERVENT untuk kebutuhan perusahaan Anda. Susun paket custom dengan desain profesional, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
+  <title>Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | USAHA SOLUSI BANGSA INDONESIA</title>
+  <meta name="description" content="Corporate Gift dan paket souvenir kantor USAHA SOLUSI BANGSA INDONESIA untuk kebutuhan perusahaan Anda. Susun paket custom dengan desain profesional, legalitas resmi, dan pengiriman ke seluruh Indonesia.">
   <meta name="theme-color" content="#B81A1F">
   <link rel="canonical" href="{{ route('landing.corporate-gift') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
-  <meta property="og:title" content="Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | HERVENT">
-  <meta property="og:description" content="Corporate Gift dan paket souvenir kantor HERVENT untuk kebutuhan perusahaan Anda dengan pilihan produk dan branding yang fleksibel.">
+  <meta property="og:title" content="Corporate Gift &amp; Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda | USAHA SOLUSI BANGSA INDONESIA">
+  <meta property="og:description" content="Corporate Gift dan paket souvenir kantor USAHA SOLUSI BANGSA INDONESIA untuk kebutuhan perusahaan Anda dengan pilihan produk dan branding yang fleksibel.">
   @vite(['resources/css/landing.css', 'resources/js/app.js'])
   <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
   <script type="application/ld+json"><?php echo json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'Product',
     'name' => 'Corporate Gift & Paket Souvenir Kantor untuk Kebutuhan Perusahaan Anda',
-    'brand' => ['@type' => 'Brand', 'name' => 'HERVENT'],
+    'brand' => ['@type' => 'Brand', 'name' => 'USAHA SOLUSI BANGSA INDONESIA'],
     'description' => 'Corporate Gift dan paket souvenir kantor custom untuk kebutuhan perusahaan Anda.',
-    'manufacturer' => ['@type' => 'Organization', 'name' => 'PT Aventama Hervent Solusindo'],
+    'manufacturer' => ['@type' => 'Organization', 'name' => 'CV. USAHA SOLUSI BANGSA INDONESIA'],
   ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
 </head>
 <body class="corporate-gift-page">
@@ -34,8 +34,8 @@
     $promoCode = $isCorpGiftUrl ? 'HG' : 'HP';
     $productName = $isCorpGiftUrl ? 'Corporate Gift' : 'Paket Souvenir';
     $waText = $isCorpGiftUrl
-      ? '[HG] Halo HERVENT, saya ingin konsultasi corporate gift untuk perusahaan saya.'
-      : '[HP] Halo HERVENT, saya ingin konsultasi paket souvenir untuk perusahaan saya.';
+      ? '[HG] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi corporate gift untuk perusahaan saya.'
+      : '[HP] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi paket souvenir untuk perusahaan saya.';
     $whatsapp = 'https://wa.me/62811367905?text='.urlencode($waText);
     $mixItems = ['E-Money Custom', 'Mouse & Speaker', 'Tas Custom', 'Kalender', 'Flashdisk Kartu', 'Wood Series', 'Bolpoin', 'Jam Custom', 'Tumbler', 'Pouch Custom', 'Powerbank Custom', 'ID Card', 'Alat Kesehatan', 'Agenda & Notebook', 'Packaging', 'Leather Series'];
     $mixIcons = [
@@ -84,8 +84,8 @@
 
   <header class="cg-nav" aria-label="Navigasi landing page">
     <div class="wrap cg-nav-in">
-      <a class="cg-logo" href="{{ url('/') }}" aria-label="HERVENT">
-        <img src="{{ asset('images/Logo Landscape.png') }}" alt="HERVENT">
+      <a class="cg-logo" href="{{ url('/') }}" aria-label="USAHA SOLUSI BANGSA INDONESIA">
+        <img src="{{ asset('images/Logo Landscape.png') }}" alt="USAHA SOLUSI BANGSA INDONESIA">
       </a>
       <a class="btn b-red cg-nav-cta" href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer">Konsultasi Gratis</a>
     </div>
@@ -96,7 +96,7 @@
       <div class="wrap hero-in" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
         <span class="trust"><span class="dot"></span> Vendor Corporate Gift Sejak 2015 · 10000+ Customer Perusahaan</span>
         <h1 class="h1" style="max-width: 22ch; margin-inline: auto;">Souvenir Perusahaan yang <span class="hl">Berbicara untuk Brand Anda</span></h1>
-        <p class="lede" style="max-width: 60ch; margin-inline: auto;">HERVENT membantu Anda menyiapkan Corporate Gift dan paket souvenir kantor yang relevan dengan kebutuhan perusahaan — dari hadiah karyawan sampai kebutuhan acara khusus. Pilih produknya, kuatkan branding-nya, dan siap kirim ke seluruh Indonesia.</p>
+        <p class="lede" style="max-width: 60ch; margin-inline: auto;">USAHA SOLUSI BANGSA INDONESIA membantu Anda menyiapkan Corporate Gift dan paket souvenir kantor yang relevan dengan kebutuhan perusahaan — dari hadiah karyawan sampai kebutuhan acara khusus. Pilih produknya, kuatkan branding-nya, dan siap kirim ke seluruh Indonesia.</p>
         <div class="hero-cta" style="justify-content: center; width: 100%;">
           <a href="{{ $whatsapp }}" class="btn b-red" target="_blank" rel="noopener noreferrer">
             <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
@@ -104,7 +104,7 @@
           </a>
           <a href="{{ route('landing.corporate-gift') }}" class="btn b-line" data-scroll-target="susun-paket">Lihat Pilihan Paket</a>
         </div>
-        <ul class="hero-mini" aria-label="Keunggulan HERVENT" style="margin-inline: auto; justify-content: center;">
+        <ul class="hero-mini" aria-label="Keunggulan USAHA SOLUSI BANGSA INDONESIA" style="margin-inline: auto; justify-content: center;">
           <li><b>Sejak 2015</b>11 tahun berpengalaman</li>
           <li><b>10000+</b>Customer perusahaan</li>
           <li><b>Kantor</b>Kota Bandung</li>
@@ -156,7 +156,7 @@
         <div class="cg-card-grid cg-card-grid-three">
           @foreach($tiers as $tier)
             <article class="cg-product-card cg-category-card">
-              <img src="{{ asset($tier['image']) }}" alt="{{ $tier['name'] }} HERVENT" loading="lazy">
+              <img src="{{ asset($tier['image']) }}" alt="{{ $tier['name'] }} USAHA SOLUSI BANGSA INDONESIA" loading="lazy">
               <div><h3 class="h3">{{ $tier['name'] }}</h3></div>
             </article>
           @endforeach
@@ -178,11 +178,11 @@
 
     <section class="s cg-benefits">
       <div class="wrap cg-two-col">
-        <div><p class="eyebrow">Keunggulan</p><h2 class="h2">Kenapa Perusahaan Memilih <span class="hl">HERVENT</span></h2><p class="lede">Kami membantu prosesnya dari rekomendasi produk sampai produk selesai dikirim, supaya Anda tidak perlu koordinasi dengan banyak vendor.</p></div>
+        <div><p class="eyebrow">Keunggulan</p><h2 class="h2">Kenapa Perusahaan Memilih <span class="hl">USAHA SOLUSI BANGSA INDONESIA</span></h2><p class="lede">Kami membantu prosesnya dari rekomendasi produk sampai produk selesai dikirim, supaya Anda tidak perlu koordinasi dengan banyak vendor.</p></div>
         <div class="cg-benefit-list">
           @foreach([
             ['Bebas Custom Request', 'Pilih produk, kombinasi isi, dan branding yang sesuai kebutuhan acara maupun brand Anda.'],
-            ['Legalitas Resmi', 'PT Aventama Hervent Solusindo siap dengan dokumen vendor dan faktur pajak untuk pengadaan perusahaan.'],
+            ['Legalitas Resmi', 'CV. USAHA SOLUSI BANGSA INDONESIA siap dengan dokumen vendor dan faktur pajak untuk pengadaan perusahaan.'],
             ['Desain & Mockup Gratis', 'Tim kami membantu visual penempatan logo sebelum produksi dimulai.'],
             ['QC sebelum Kirim', 'Setiap batch dikontrol sebelum dikemas dan dikirim ke alamat tujuan Anda.'],
           ] as $index => [$title, $text])
@@ -203,7 +203,7 @@
             @php
               $filename = basename($image);
             @endphp
-            <img src="{{ asset('images/Portofolio/' . rawurlencode($filename)) }}" alt="Portofolio corporate gift HERVENT" loading="lazy">
+            <img src="{{ asset('images/Portofolio/' . rawurlencode($filename)) }}" alt="Portofolio corporate gift USAHA SOLUSI BANGSA INDONESIA" loading="lazy">
           @endforeach
         </div>
       </div>
@@ -213,10 +213,10 @@
       <div class="wrap"><div class="center"><p class="eyebrow">Testimoni</p><h2 class="h2">Kami Tidak Mengatakan Kami Terbaik, <span class="hl">Merekalah yang Mengatakannya</span></h2></div>
         <div class="cg-review-grid">
           @foreach([
-            ['Asraini Audia Hardarinata', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. HERVENT terbaik dari pelayanan, harga, dan kualitasnya. Sangat sabar mengikuti keinginan customer.', '4 ulasan · 9 foto'],
+            ['Asraini Audia Hardarinata', 'Custom souvenir ke Bandung karena di Karawang harganya jauh lebih tinggi. USAHA SOLUSI BANGSA INDONESIA terbaik dari pelayanan, harga, dan kualitasnya. Sangat sabar mengikuti keinginan customer.', '4 ulasan · 9 foto'],
             ['Yusuf Elok', 'Produsen hardbox gift dan custom tumbler terlengkap di Bandung.', 'Local Guide · 51 ulasan'],
             ['Wisni Pratistari', 'Pesanan tumbler mini dengan nama individual hasilnya bagus dan tepat waktu sesuai jadwal. Pelayanan baik, pengiriman paket juga lancar.', '1 ulasan · 1 foto'],
-            ['Sri Suci Wijayanti', 'Produk bagus sesuai yang ditawarkan. Pelayanannya ramah dan baik, jadi untuk yang mencari merchandise jangan ragu pesan di HERVENT.', '2 ulasan · 3 foto'],
+            ['Sri Suci Wijayanti', 'Produk bagus sesuai yang ditawarkan. Pelayanannya ramah dan baik, jadi untuk yang mencari merchandise jangan ragu pesan di USAHA SOLUSI BANGSA INDONESIA.', '2 ulasan · 3 foto'],
             ['HARI', 'Tempat membuat berbagai macam suvenir hingga seragam. Harga flashdisk terjangkau, pelayanan ramah dan baik, tempatnya juga nyaman.', 'Local Guide · 355 ulasan'],
             ['Nabila Rifda', 'Pertama kali pesan dan sangat puas dengan servicenya. Admin ramah, helpful, sabar saat revisi desain, dan waktu pengerjaan sesuai ekspektasi.', 'Local Guide · 77 ulasan'],
           ] as [$name, $quote, $meta])
@@ -227,15 +227,15 @@
             </blockquote>
           @endforeach
         </div>
-        <p class="cg-review-disclaimer">*Ulasan nyata klien HERVENT yang dirangkum dari Google Reviews.</p>
+        <p class="cg-review-disclaimer">*Ulasan nyata klien USAHA SOLUSI BANGSA INDONESIA yang dirangkum dari Google Reviews.</p>
         <h3 class="cg-google-title">Review Google Kami</h3>
         <div class="cg-google-grid">
           @foreach([
-            ['images/products/Testimoni/Hampers.jpg', 'Hasil produksi hampers custom HERVENT'],
-            ['images/products/Testimoni/Giftset.jpg', 'Hasil produksi gift set custom HERVENT'],
-            ['images/products/Testimoni/Flashdisk.jpg', 'Hasil produksi flashdisk custom HERVENT'],
+            ['images/products/Testimoni/Hampers.jpg', 'Hasil produksi hampers custom USAHA SOLUSI BANGSA INDONESIA'],
+            ['images/products/Testimoni/Giftset.jpg', 'Hasil produksi gift set custom USAHA SOLUSI BANGSA INDONESIA'],
+            ['images/products/Testimoni/Flashdisk.jpg', 'Hasil produksi flashdisk custom USAHA SOLUSI BANGSA INDONESIA'],
           ] as [$image, $alt])
-            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Lihat ulasan HERVENT di Google Maps">
+            <a class="cg-google-card" href="{{ $googleMaps }}" target="_blank" rel="noopener noreferrer" aria-label="Lihat ulasan USAHA SOLUSI BANGSA INDONESIA di Google Maps">
               <img class="cg-google-review-image" src="{{ asset($image) }}" alt="{{ $alt }}" loading="lazy">
               <div class="cg-google-card-foot"><span>Lihat review asli di Google Maps</span><span aria-hidden="true">→</span></div>
             </a>
@@ -244,7 +244,7 @@
       </div>
     </section>
 
-    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi HERVENT</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
+    <section class="s cg-guarantee"><div class="wrap cg-guarantee-box"><div class="cg-guarantee-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.75 20 6v5.7c0 4.75-3.4 8.1-8 9.55-4.6-1.45-8-4.8-8-9.55V6l8-3.25Z"/><path d="m8.7 12 2.15 2.15 4.45-4.45"/></svg></div><div><p class="eyebrow">Garansi USAHA SOLUSI BANGSA INDONESIA</p><h2 class="h2">Garansi yang Membuat Anda Tenang</h2><p>Hasil tidak sesuai mockup atau ada cacat produksi? Laporkan maksimal 7 hari setelah barang diterima dengan foto, dan unit akan kami ganti.</p></div></div></section>
 
     <section class="s cg-faq" id="faq"><div class="wrap"><div class="center"><p class="eyebrow">Pertanyaan</p><h2 class="h2">Pertanyaan yang Sering Ditanyakan</h2></div>
       <div class="cg-faq-list">
@@ -253,7 +253,7 @@
           ['Berapa minimum order pemesanan?', 'Minimum order umumnya 50 pcs untuk item satuan dan 25 set untuk gift set. Kebutuhan khusus dapat dikonsultasikan lebih dahulu.'],
           ['Apakah desain dan mockup dikenakan biaya?', 'Tidak. Desain serta mockup untuk approval sebelum produksi disediakan tanpa biaya tambahan.'],
           ['Berapa lama waktu pengerjaan?', 'Estimasi mengikuti jumlah, spesifikasi, dan jadwal produksi. Tim akan mengonfirmasi jadwal setelah kebutuhan Anda dipahami.'],
-          ['Apakah tersedia faktur pajak?', 'Tersedia. HERVENT dapat menyiapkan faktur pajak dan dokumen vendor untuk kebutuhan administrasi perusahaan.'],
+          ['Apakah tersedia faktur pajak?', 'Tersedia. USAHA SOLUSI BANGSA INDONESIA dapat menyiapkan faktur pajak dan dokumen vendor untuk kebutuhan administrasi perusahaan.'],
         ] as [$question, $answer])
           <details><summary>{{ $question }} <span aria-hidden="true">+</span></summary><p>{{ $answer }}</p></details>
         @endforeach
@@ -282,8 +282,8 @@
   <footer class="cg-footer">
     <div class="wrap cg-footer-grid">
       <div class="cg-footer-brand">
-        <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT">
-        <p>PT Aventama Hervent Solusindo. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p>
+        <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="USAHA SOLUSI BANGSA INDONESIA">
+        <p>CV. USAHA SOLUSI BANGSA INDONESIA. Corporate gift, promotional merchandise, dan souvenir kantor custom sejak 2009.</p>
         <a class="cg-footer-site" href="https://hervent.co.id">Kunjungi hervent.co.id <span aria-hidden="true">↗</span></a>
       </div>
       <nav class="cg-footer-links" aria-label="Tautan cepat">
@@ -301,10 +301,10 @@
         <span>Bandung, Indonesia</span>
       </address>
     </div>
-    <div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} HERVENT. All rights reserved.</span><span>Corporate gift &amp; souvenir kantor custom.</span></div>
+    <div class="wrap cg-footer-bottom"><span>© {{ date('Y') }} USAHA SOLUSI BANGSA INDONESIA. All rights reserved.</span><span>Corporate gift &amp; souvenir kantor custom.</span></div>
   </footer>
 
-  <a class="cg-floating-wa" href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer" aria-label="Ingin penawaran terbaik? Chat WhatsApp HERVENT" title="Chat WhatsApp">
+  <a class="cg-floating-wa" href="{{ $whatsapp }}" target="_blank" rel="noopener noreferrer" aria-label="Ingin penawaran terbaik? Chat WhatsApp USAHA SOLUSI BANGSA INDONESIA" title="Chat WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.198.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.198-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495.001.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     <div class="cg-floating-wa-copy" aria-hidden="true"><b>Ingin Penawaran Terbaik?</b><strong>Chat WhatsApp</strong></div>
   </a>
