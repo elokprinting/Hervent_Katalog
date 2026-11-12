@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Portofolio HERVENT | Corporate Gift &amp; Promotional Product</title>
-  <meta name="description" content="Lihat hasil produksi corporate gift dan promotional product custom dari HERVENT untuk berbagai kebutuhan perusahaan.">
+  <title>Portofolio USAHA SOLUSI BANGSA INDONESIA | Corporate Gift &amp; Promotional Product</title>
+  <meta name="description" content="Lihat hasil produksi corporate gift dan promotional product custom dari USAHA SOLUSI BANGSA INDONESIA untuk berbagai kebutuhan perusahaan.">
   <meta name="theme-color" content="#B81A1F">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
@@ -22,7 +22,7 @@
   <main>
     <section class="portfolio-hero on-red">
       <div class="wrap portfolio-hero-in">
-        <p class="eyebrow">Portofolio HERVENT</p>
+        <p class="eyebrow">Portofolio USAHA SOLUSI BANGSA INDONESIA</p>
         <h1 class="h1">Hasil karya yang membuat <span class="hl">brand lebih berkesan.</span></h1>
         <p class="lede">Setiap proyek dirancang agar pesan, identitas, dan pengalaman brand klien tampil kuat dalam setiap detailnya.</p>
       </div>
@@ -49,7 +49,7 @@
               <figure class="portfolio-card {{ $loop->first ? 'portfolio-card-featured' : '' }}">
                 <img
                   src="{{ asset('images/Portofolio/' . rawurlencode($filename)) }}"
-                  alt="Portofolio produk custom HERVENT {{ $number }}"
+                  alt="Portofolio produk custom USAHA SOLUSI BANGSA INDONESIA {{ $number }}"
                   loading="lazy"
                 >
               </figure>

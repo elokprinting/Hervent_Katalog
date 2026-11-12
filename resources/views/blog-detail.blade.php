@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>7 Souvenir yang Cocok untuk Perayaan Ulang Tahun Perusahaan | HERVENT</title>
+<title>7 Souvenir yang Cocok untuk Perayaan Ulang Tahun Perusahaan | USAHA SOLUSI BANGSA INDONESIA</title>
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>

@@ -24,7 +24,7 @@
   }
 @endphp
 
-<!-- WA BANNER MODAL COMPONENT (SHELLY CS HERVENT) -->
+<!-- WA BANNER MODAL COMPONENT (SHELLY CS USAHA SOLUSI BANGSA INDONESIA) -->
 <div id="waBannerModal" class="wa-modal-backdrop" aria-hidden="true" style="display:none;">
   <div class="wa-modal-card" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
     
@@ -32,7 +32,7 @@
     <div class="wa-modal-header">
       <div class="wa-modal-cs">
         <div class="wa-modal-avatar-box">
-          <img src="{{ asset('images/Teman Diskusi.png') }}" alt="Shelly CS Hervent" class="wa-modal-avatar">
+          <img src="{{ asset('images/Teman Diskusi.png') }}" alt="Shelly CS Usaha Solusi Bangsa Indonesia" class="wa-modal-avatar">
           <span class="wa-modal-online-dot" title="Online"></span>
         </div>
         <div class="wa-modal-cs-info">

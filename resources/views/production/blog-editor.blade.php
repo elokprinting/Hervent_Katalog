@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Blog Management | HERVENT</title>
+<title>Blog Management | USAHA SOLUSI BANGSA INDONESIA</title>
 <meta name="theme-color" content="#B81A1F">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
@@ -321,7 +321,7 @@
       <div class="editor-header">
         <div>
           <h1 class="h2" style="margin-bottom: 0.25rem;">Blog Management</h1>
-          <p style="color: #888; font-size: 0.9rem;">Production Area — Kelola semua artikel blog Hervent</p>
+          <p style="color: #888; font-size: 0.9rem;">Production Area — Kelola semua artikel blog Usaha Solusi Bangsa Indonesia</p>
         </div>
         <div style="display: flex; align-items: center; gap: 1.5rem;">
           <a href="{{ route('blog.index') }}" target="_blank" style="color: #b81a1f; font-weight: 500; text-decoration: none; font-size: 0.95rem;">

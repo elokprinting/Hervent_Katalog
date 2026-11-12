@@ -153,7 +153,7 @@ if(cQty) {
           dockTot.textContent=fmt.format(t);
       }
       $('cKelas').textContent=k;
-      var msg='[H] Halo HERVENT, saya mau minta penawaran.\n\n'+
+      var msg='[H] Halo USAHA SOLUSI BANGSA INDONESIA, saya mau minta penawaran.\n\n'+
         '• Momen: '+$('cMomen').value+'\n'+
         '• Jumlah penerima: '+num.format(q)+' orang\n'+
         '• Budget per orang: '+fmt.format(p)+'\n'+
@@ -291,7 +291,7 @@ if(reduce||!('IntersectionObserver'in window)){
     var isCorpGift = window.location.pathname.indexOf('souvenir-kantor-perusahaan') !== -1;
     var promoCode = isCorpGift ? '[HG]' : '[HP]';
     var productType = isCorpGift ? 'corporate gift' : 'paket souvenir';
-    var message = promoCode + ' Halo HERVENT, saya ingin konsultasi ' + productType + ' untuk perusahaan saya.';
+    var message = promoCode + ' Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi ' + productType + ' untuk perusahaan saya.';
     if (selected.length) {
       message += '\n\nItem yang saya minati: ' + selected.join(', ') + '.';
     }
@@ -349,7 +349,7 @@ if(reduce||!('IntersectionObserver'in window)){
   });
 })();
 
-/* ---------- WhatsApp Banner Modal (Shelly CS HERVENT) ---------- */
+/* ---------- WhatsApp Banner Modal (Shelly CS USAHA SOLUSI BANGSA INDONESIA) ---------- */
 (function () {
   var modal = document.getElementById('waBannerModal');
   if (!modal) return;

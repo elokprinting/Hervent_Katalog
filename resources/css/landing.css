@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 /* ===========================================================
-   HERVENT — struktur halaman mengikuti model Dapu Gift Studio
-   Identitas visual tetap HERVENT:
+   USAHA SOLUSI BANGSA INDONESIA — struktur halaman mengikuti model Dapu Gift Studio
+   Identitas visual tetap USAHA SOLUSI BANGSA INDONESIA:
    #B81A1F / #A2171B / #8B1417 · #000 · #FEFEFE
    grey #606062 #A6A7A7 #E1E1E1 · Sora + Poppins
    Elemen grafis: pattern 4 pilar
@@ -1201,7 +1201,7 @@ select {
     }
 }
 
-/* ---------- WhatsApp Banner Modal (Shelly CS Hervent) ---------- */
+/* ---------- WhatsApp Banner Modal (Shelly CS Usaha Solusi Bangsa Indonesia) ---------- */
 .wa-modal-backdrop {
     position: fixed;
     inset: 0;

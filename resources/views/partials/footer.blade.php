@@ -3,23 +3,23 @@
     <div class="foot-g">
       <div>
         <a class="logo" href="{{ route('home') }}">
-          <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="HERVENT" style="height: 42px; width: auto; background: black; padding: 4px; border-radius: 4px;">
+          <img src="{{ asset('images/Logo Hervent Footer Website.png') }}" alt="USAHA SOLUSI BANGSA INDONESIA" style="height: 42px; width: auto; background: black; padding: 4px; border-radius: 4px;">
         </a>
         <p style="margin:0 0 1.1rem;font-size:.85rem;font-weight:300;max-width:40ch">{{ __('messages.footer.desc') }}</p>
-        <div class="foot-socials" aria-label="Sosial media HERVENT">
-          <a class="foot-social" href="https://wa.me/62811367905" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp HERVENT" title="WhatsApp">
+        <div class="foot-socials" aria-label="Sosial media USAHA SOLUSI BANGSA INDONESIA">
+          <a class="foot-social" href="https://wa.me/62811367905" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp USAHA SOLUSI BANGSA INDONESIA" title="WhatsApp">
             <i data-lucide="whatsapp" aria-hidden="true"></i>
           </a>
-          <a class="foot-social" href="https://www.instagram.com/hervent.co.id/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HERVENT" title="Instagram">
+          <a class="foot-social" href="https://www.instagram.com/hervent.co.id/" target="_blank" rel="noopener noreferrer" aria-label="Instagram USAHA SOLUSI BANGSA INDONESIA" title="Instagram">
             <i data-lucide="instagram" aria-hidden="true"></i>
           </a>
-          <a class="foot-social" href="https://www.tiktok.com/@hervent.co.id" target="_blank" rel="noopener noreferrer" aria-label="TikTok HERVENT" title="TikTok">
+          <a class="foot-social" href="https://www.tiktok.com/@hervent.co.id" target="_blank" rel="noopener noreferrer" aria-label="TikTok USAHA SOLUSI BANGSA INDONESIA" title="TikTok">
             <i data-lucide="tiktok" aria-hidden="true"></i>
           </a>
-          <a class="foot-social" href="https://www.linkedin.com/in/hervent/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn HERVENT" title="LinkedIn">
+          <a class="foot-social" href="https://www.linkedin.com/in/hervent/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn USAHA SOLUSI BANGSA INDONESIA" title="LinkedIn">
             <i data-lucide="linkedin" aria-hidden="true"></i>
           </a>
-          <a class="foot-social" href="https://www.youtube.com/@Hervent" target="_blank" rel="noopener noreferrer" aria-label="YouTube HERVENT" title="YouTube">
+          <a class="foot-social" href="https://www.youtube.com/@Hervent" target="_blank" rel="noopener noreferrer" aria-label="YouTube USAHA SOLUSI BANGSA INDONESIA" title="YouTube">
             <i data-lucide="youtube" aria-hidden="true"></i>
           </a>
         </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="foot-b">
-      <span>© {{ date('Y') }} HERVENT · PT Aventama Hervent Solusindo</span>
+      <span>© {{ date('Y') }} CV. USAHA SOLUSI BANGSA INDONESIA</span>
       <span>{{ __('messages.footer.wa_active') }}</span>
     </div>
   </div>

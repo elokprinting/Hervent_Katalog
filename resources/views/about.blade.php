@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Tentang HERVENT | Corporate Gift &amp; Promotional Product</title>
-    <meta name="description" content="Tentang HERVENT, konsultan dan penyedia promotional product serta corporate gift sejak 2009.">
+    <title>Tentang USAHA SOLUSI BANGSA INDONESIA | Corporate Gift &amp; Promotional Product</title>
+    <meta name="description" content="Tentang USAHA SOLUSI BANGSA INDONESIA, konsultan dan penyedia promotional product serta corporate gift sejak 2009.">
     <meta name="theme-color" content="#B81A1F">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" type="image/png" href="{{ asset('images/Icon Logo.png') }}">
@@ -27,7 +27,7 @@
     <main>
         <section class="about-hero on-red">
             <div class="wrap about-hero-inner">
-                <p class="eyebrow">Tentang HERVENT</p>
+                <p class="eyebrow">Tentang USAHA SOLUSI BANGSA INDONESIA</p>
                 <h1 class="h1">Membantu brand Anda <span class="hl">lebih diingat.</span></h1>
                 <p class="lede">Konsultan dan penyedia promotional product serta corporate gift untuk membantu mengoptimalkan program promosi dan meningkatkan brand awareness perusahaan Anda.</p>
             </div>
@@ -40,7 +40,7 @@
                     <h2 class="h2">Promosi yang punya <span class="hl">arah.</span></h2>
                 </div>
                 <div class="about-copy rv">
-                    <p>HERVENT adalah sebuah perusahaan konsultan dan penyedia <b>promotional product &amp; corporate gift</b> yang berkomitmen untuk membantu mengoptimalisasi program promosi dan membantu meningkatkan brand awareness perusahaan Anda.</p>
+                    <p>USAHA SOLUSI BANGSA INDONESIA adalah sebuah perusahaan konsultan dan penyedia <b>promotional product &amp; corporate gift</b> yang berkomitmen untuk membantu mengoptimalisasi program promosi dan membantu meningkatkan brand awareness perusahaan Anda.</p>
                     <p>Kami telah berpengalaman lebih dari 10 tahun dalam menyediakan berbagai macam promotional product &amp; corporate gift untuk kebutuhan acara promosi, branding, product launching, gathering, workshop, seminar, pelatihan, serta kebutuhan kantor atau perusahaan lainnya.</p>
                 </div>
             </div>
@@ -49,12 +49,12 @@
         <section class="about-promise s">
             <div class="wrap about-promise-grid">
                 <div class="about-promise-media rv">
-                    <img src="{{ asset('images/Teman Diskusi.png') }}" alt="Tim HERVENT menjadi teman diskusi untuk pilihan yang tepat">
+                    <img src="{{ asset('images/Teman Diskusi.png') }}" alt="Tim USAHA SOLUSI BANGSA INDONESIA menjadi teman diskusi untuk pilihan yang tepat">
                 </div>
                 <div class="about-copy rv">
                     <p class="eyebrow">Cara kami membantu</p>
                     <h2 class="h2">Teman diskusi untuk pilihan yang <span class="hl">tepat.</span></h2>
-                    <p>Tim HERVENT akan memandu dan menjadi teman diskusi Anda dalam memilih media barang promosi yang tepat untuk program yang Anda miliki. Kami menawarkan ratusan pilihan produk inovatif dan berkualitas yang dapat disesuaikan dengan kebutuhan promosi dan anggaran yang ada.</p>
+                    <p>Tim USAHA SOLUSI BANGSA INDONESIA akan memandu dan menjadi teman diskusi Anda dalam memilih media barang promosi yang tepat untuk program yang Anda miliki. Kami menawarkan ratusan pilihan produk inovatif dan berkualitas yang dapat disesuaikan dengan kebutuhan promosi dan anggaran yang ada.</p>
                     <div class="about-stats">
                         <div><strong>2009</strong><span>Mulai mendampingi brand</span></div>
                         <div><strong>100+</strong><span>Pilihan produk promosi</span></div>
@@ -78,7 +78,7 @@
             <p class="eyebrow">Empat pilar</p>
             <h2 class="h2">Pola di latar ini <span class="hl">punya arti.</span></h2>
             <p class="lede">
-                Ornamen HERVENT disusun dari empat pilar yang jadi pegangan kerja seluruh tim —
+                Ornamen USAHA SOLUSI BANGSA INDONESIA disusun dari empat pilar yang jadi pegangan kerja seluruh tim —
                 dan yang menentukan cara kami memperlakukan pesanan Anda.
             </p>
         </div>

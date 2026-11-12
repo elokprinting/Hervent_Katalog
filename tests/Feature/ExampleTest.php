@@ -59,7 +59,7 @@ class ExampleTest extends TestCase
     {
         $this->get(route('about'))
             ->assertOk()
-            ->assertSee('Tentang HERVENT')
+            ->assertSee('Tentang USAHA SOLUSI BANGSA INDONESIA')
             ->assertSeeInOrder(['Religius', 'Integrity', 'Commitment for Excellent', 'Happiness']);
     }
 
