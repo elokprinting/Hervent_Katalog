@@ -560,7 +560,7 @@ if(reduce||!('IntersectionObserver'in window)){
   }
 
   document.addEventListener('click', function (e) {
-    var trigger = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"], .cg-floating-wa, .whatsapp-promo, .mobile-floating-wa, [data-open-wa-modal]');
+    var trigger = e.target.closest('[data-open-wa-modal]');
     if (!trigger) return;
     if (trigger.closest('#waBannerModal')) return;
 

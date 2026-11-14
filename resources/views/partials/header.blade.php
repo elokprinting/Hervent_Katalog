@@ -163,16 +163,16 @@
   document.addEventListener('DOMContentLoaded', function () {
     var host = window.location.hostname;
     var path = window.location.pathname;
-    var message = '[H] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
+    var message = 'Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi mengenai kebutuhan souvenir/custom merchandise.';
 
     if (host === 'seminar.hervent.co.id') {
       message = '[HS] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi seminar kit untuk acara saya.';
     } else if (host === 'gift.hervent.co.id') {
       message = '[HG] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi corporate gift untuk perusahaan saya.';
     } else if (path.indexOf('/product/') === 0) {
-      message = '[P] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
+      message = 'Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi produk custom untuk kebutuhan perusahaan saya.';
     } else if (path === '/gift-sets-packages') {
-      message = '[GS] Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
+      message = 'Halo USAHA SOLUSI BANGSA INDONESIA, saya ingin konsultasi paket gift set untuk kebutuhan perusahaan saya.';
     }
 
     document.querySelectorAll('a[href="https://wa.me/62811367905"]').forEach(function (link) {

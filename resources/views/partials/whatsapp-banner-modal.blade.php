@@ -1,6 +1,6 @@
 @php
   $currentPath = request()->path();
-  $defaultPromoCode = 'HG';
+  $defaultPromoCode = '';
   $defaultProduct = 'Corporate Gift';
 
   if (request()->is('*souvenir-kantor-perusahaan*')) {
