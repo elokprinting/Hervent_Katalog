@@ -32,19 +32,19 @@
                 <div class="shop-layout">
                     <aside class="catalog-sidebar">
                         <div class="sidebar-heading"><strong>{{ __('messages.catalog.filter_category') }}</strong><span aria-hidden="true">⌄</span></div>
-                        <a class="sidebar-category {{ !$activeCategory && !$activeCatalogCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
-                            <i class="category-icon" data-lucide="layout-grid" aria-hidden="true"></i><span>{{ __('messages.catalog.all_products') }}</span><small>{{ $products->total() }}</small>
+                        <a class="sidebar-category {{ !$activeCategory && !$activeGroup && !$activeCatalogCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                            <i class="category-icon" data-lucide="layout-grid" aria-hidden="true"></i><span>{{ __('messages.catalog.all_products') }}</span><small>{{ $totalProductsCount ?? $products->total() }}</small>
                         </a>
                         <div class="sidebar-heading"><strong>Katalog Momen</strong></div>
                         @foreach($catalogCategories as $catalogKey => $catalogLabel)
-                            <a class="sidebar-category {{ $activeCatalogCategory === $catalogKey ? 'active' : '' }}" href="{{ route('products.index', array_filter(['catalog' => $catalogKey, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                            <a class="sidebar-category {{ $activeCatalogCategory === $catalogKey && !$activeGroup ? 'active' : '' }}" href="{{ route('products.index', array_filter(['catalog' => $catalogKey, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
                                 <i class="category-icon" data-lucide="package" aria-hidden="true"></i><span>{{ $catalogLabel }}</span>
                             </a>
                         @endforeach
                         <div class="sidebar-heading"><strong>Jenis Produk</strong></div>
                         @foreach($productGroups as $groupKey => $group)
                             @php($groupCount = \App\Models\Product::where(function ($query) use ($groupKey, $group) { $query->whereIn('category', $group['categories'])->orWhere('category', $groupKey); })->count())
-                            <a class="sidebar-category {{ $activeGroup === $groupKey ? 'active' : '' }}" href="{{ route('products.index', array_filter(['group' => $groupKey, 'catalog' => $activeCatalogCategory, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
+                            <a class="sidebar-category {{ $activeGroup === $groupKey && !$activeCatalogCategory ? 'active' : '' }}" href="{{ route('products.index', array_filter(['group' => $groupKey, 'q' => $search, 'sort' => $sort, 'type' => $activeType])) }}">
                                 <i class="category-icon" data-lucide="{{ ['apparel-lifestyle' => 'shirt', 'bags-pouch' => 'shopping-bag', 'drinkware-dining' => 'cup-soda', 'gift-sets' => 'gift', 'office-stationery' => 'notebook', 'tech-gadgets' => 'speaker'][$groupKey] }}" aria-hidden="true"></i><span>{{ $group['label'] }}</span><small>{{ $groupCount }}</small>
                             </a>
                         @endforeach

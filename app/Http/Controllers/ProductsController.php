@@ -19,6 +19,11 @@ class ProductsController extends Controller
         if (! array_key_exists($catalogCategory, Product::OCCASION_CATEGORIES)) {
             $catalogCategory = '';
         }
+
+        // If a specific group or category is requested, prioritize it and do not mix with catalog occasion
+        if ($group !== '' && $catalogCategory !== '') {
+            $catalogCategory = '';
+        }
         $type = $request->string('type')->trim()->toString();
         $search = $request->string('q')->trim()->toString();
         $sort = $request->string('sort')->toString();
@@ -70,8 +75,11 @@ class ProductsController extends Controller
             ->groupBy('category')
             ->pluck('product_count', 'category');
 
+        $totalProductsCount = Cache::remember('products.total_count', now()->addHour(), fn() => Product::count());
+
         return view('products.index', [
             'products' => $products,
+            'totalProductsCount' => $totalProductsCount,
             'categories' => $categories,
             'categoryCounts' => $categoryCounts,
             'activeCategory' => $category,
