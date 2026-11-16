@@ -301,6 +301,10 @@
                     $hasStructuredSpecifications = count($specifications) > 0;
                 @endphp
 
+                @if($product->description && !str_starts_with(trim($product->description), '-'))
+                    <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.5rem;">{{ $product->description }}</p>
+                @endif
+
                 @if($hasStructuredSpecifications)
                     <section class="pd-specifications" aria-labelledby="specification-heading">
                         <h2 id="specification-heading" class="pd-detail-heading">Spesifikasi Produk</h2>
@@ -311,7 +315,7 @@
                             </div>
                         @endforeach
                     </section>
-                @elseif($product->description)
+                @elseif($product->description && str_starts_with(trim($product->description), '-'))
                     <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; margin: 0 0 1.75rem;">{{ $product->description }}</p>
                 @endif
 
